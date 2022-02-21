@@ -13,4 +13,4 @@ const YFooter = defineComponent({
 
 export {
   YFooter
-} 
+}
