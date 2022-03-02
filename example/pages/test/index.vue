@@ -1,24 +1,18 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
+  <img alt="Vue logo" src="./src/assets/logo.png" />
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
-  <!-- <hello msg="Hello Vue 3 + TypeScript + Vite"></hello> -->
-  <test :msg="data.message"></test>
-   <!-- <router-view name="home" /> -->
-   <router-view></router-view>
 </template>
 
 <script lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import { defineComponent , ref, reactive} from 'vue'
-import Hello from './components/Hello.vue'
-import Test from "./components/test.vue"
+// import Hello from './components/Hello.vue'
+// import Test from "./components/test.vue"
 
 export default defineComponent ({
   name: 'HelloWorld',
   components: {
-    Hello,
-    Test
   },
   setup () {
     const a = ref(1);
