@@ -13,14 +13,6 @@ const routes:  Array<RouteRecordRaw> = [
     }
 ]
 
-// export default function createDemoRouter (app: any) {
-//     const router = createRouter({
-//       history: createWebHistory(),
-//       routes: routes
-//     })
-
-//     return router;
-// }
 export const router = createRouter({
     history: createWebHistory(),
     routes: routes
