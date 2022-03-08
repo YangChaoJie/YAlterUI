@@ -11,6 +11,25 @@ newSet.forEach(item => {
   console.log(999)
 })
 
+let aa
+let bb = {} 
+aa = new Set()
+aa.add(bb)
+bb.deps = []
+bb.deps.push(aa)
+console.log('aa----111', aa);
+console.log('bb',bb);
+cleanup0(bb)
+console.log('aa----22', aa);
+console.log('bb222',bb);
+function cleanup0(effectFn) {
+  for (let i = 0; i < effectFn.deps.length; i++) {
+    const deps = effectFn.deps[i]
+    deps.delete(effectFn)
+  }
+  effectFn.deps.length = 0
+}
+
 // 存储副作用函数的桶
 const bucket = new WeakMap()
 
@@ -35,6 +54,7 @@ const obj = new Proxy(data, {
 })
 
 function track(target, key) {
+  console.log('target---get', target);
   let depsMap = bucket.get(target)
   if (!depsMap) {
     bucket.set(target, (depsMap = new Map()))
@@ -48,10 +68,11 @@ function track(target, key) {
 }
 
 function trigger(target, key) {
+  console.log('target---set', target);
   const depsMap = bucket.get(target)
   if (!depsMap) return
   const effects = depsMap.get(key)
-
+  console.log('effects---', effects);
   const effectsToRun = new Set()
   effects && effects.forEach(effectFn => effectsToRun.add(effectFn))
   effectsToRun.forEach(effectFn => effectFn())

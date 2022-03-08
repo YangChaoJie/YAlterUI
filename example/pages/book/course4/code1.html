@@ -32,6 +32,7 @@
             const depsMap = bucket.get(target)
             if (!depsMap) return
             const effects = depsMap.get(key)
+            console.log('effects---', effects);
             effects && effects.forEach(fn => fn());
         }
     })
@@ -50,6 +51,9 @@
         document.body.innerText = obj.text
     })
     // document.body.innerText = obj.text
+    setTimeout(() => {
+        obj.text = 'hello vue2'
+    }, 500);
     setTimeout(() => {
         obj.text = 'hello vue3'
     }, 1000);
