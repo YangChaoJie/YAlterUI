@@ -1,0 +1,23 @@
+<body>
+    
+</body>
+
+<script>
+    const fn = (name) => {
+        console.log('我是 ', name)
+    }
+    const p2 = new Proxy(fn, {
+        apply(target, thisArg, ...argArray) {
+            target.call(thisArg, ...argArray)
+        }
+    })
+    p2('yang')
+    // Reflect 使用
+    const obj = { foo: 1 }
+    // 直接获取
+    console.log(obj.foo); // 1
+    // 使用 Reflect.get函数读取
+    console.log(Reflect.get(obj, 'foo'));
+    const obj1 = {foo: 3}
+    console.log(Reflect.get(obj1, 'foo', obj1));
+</script>
