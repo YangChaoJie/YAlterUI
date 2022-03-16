@@ -1,5 +1,13 @@
 <template>
-  <img alt="Vue logo" src="./src/assets/logo.png" />
+  <img alt="Vue logo" src="../../../src/assets/logo.png" />
+  <!-- <div>
+     <iframe name="iframe" src="/test" width="300" height="200" frameborder="0"></iframe>
+  </div> -->
+
+  <div>
+      <iframe name="iframe" src="https://cs.yjt361.com/" width="1200" height="900" frameborder="0"></iframe>
+  </div>
+   
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
 </template>
 

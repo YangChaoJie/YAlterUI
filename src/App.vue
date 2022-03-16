@@ -2,7 +2,7 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
   <!-- <hello msg="Hello Vue 3 + TypeScript + Vite"></hello> -->
-  <test :msg="data.message"></test>
+  <!-- <test :msg="data.message"></test> -->
    <!-- <router-view name="home" /> -->
    <router-view></router-view>
 </template>
