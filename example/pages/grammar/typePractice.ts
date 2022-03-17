@@ -69,7 +69,7 @@ const fn = (v) => {
   return 2
 }
 
-type a = MyReturnType<typeof fn>
+type a = MyReturnType<typeof fn> // 1 | 2
 
 /***
  * Question 5
@@ -82,3 +82,23 @@ type TupleToObject<T extends readonly any[]> = {
 
 type result = TupleToObject<typeof tuple>
 
+/**
+ * Question 6
+ * Implement a generic First<T> that takes an Array T and returns it's first element's type
+ */
+type First<T extends any[]> =  T extends [] ? never : T[0]
+// = {
+//   [U in T[0]]: T[U]
+// }
+
+type arr1 = [3, 2, 1]
+type head1 = First<arr1>
+
+/**
+ * Question 7
+ * 
+ * For given a tuple, you need create a generic Length, pick the length of the tuple
+ */
+type spaceX = ['FALCON 9', 'FALCON HEAVY', 'DRAGON', 'STARSHIP', 'HUMAN SPACEFLIGHT']
+type Length<T extends readonly any[]> = T['length']
+type spaceXLength = Length<spaceX>
