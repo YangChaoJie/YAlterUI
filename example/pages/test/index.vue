@@ -6,15 +6,15 @@
 <script lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import { defineComponent , ref, reactive} from 'vue'
+import { defineComponent, ref, reactive } from 'vue'
 // import Hello from './components/Hello.vue'
 // import Test from "./components/test.vue"
 
-export default defineComponent ({
+export default defineComponent({
   name: 'HelloWorld',
   components: {
   },
-  setup () {
+  setup() {
     const a = ref(1);
     const data = reactive({
       message: '阿瑞'

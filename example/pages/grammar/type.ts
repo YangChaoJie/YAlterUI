@@ -206,3 +206,23 @@ type _Chain = never extends 'linbudu'
 
 // 移除集合中的 null 与 undefined
 // type NonNullable<T> = T extends null | undefined ? never : T;
+interface Todo {
+  title: string
+  description?: string
+  completed?: boolean
+}
+
+// type AA<T> = T extends Todo
+
+
+interface KK extends Todo{
+  title: string,
+  completed?: boolean
+}
+
+type TodoPreview = Extract<KK, Todo>
+
+const todo: TodoPreview = {
+    title: 'Clean room',
+    completed: false,
+}
