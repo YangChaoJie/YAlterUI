@@ -4,7 +4,7 @@
 
   <p>
     Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
+    <a href="https://code.visualstudio.com/" target="_blank">VSCodeeee</a>
     +
     <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
   </p>
@@ -16,7 +16,7 @@
       Vite Docs
     </a>
     |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
+    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docss</a>
   </p>
 
   <button type="button" @click="count++">count is: {{ count }}</button>
