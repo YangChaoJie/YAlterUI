@@ -226,3 +226,35 @@ const todo: TodoPreview = {
     title: 'Clean room',
     completed: false,
 }
+
+// Type Assertions
+const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvans")
+// 类似于 as HTMLCanvasElement
+myCanvas.height = 100
+
+let x: "hello" = "hello";
+// OK
+x = "hello";
+// ...
+x = "howdy";
+/**
+ * 
+ * 非空断言运算符（后缀
+！
+)
+TypeScript 还有一种特殊的语法，可以在不进行任何显式检查的情况下从类型中删除
+ null 和 undefined。写作 ！在任何表达式实际上是值不是 null 或 undefined 的类型断言之后：
+ */
+function liveDangerously(x?: number | null) {
+  // No error
+  console.log(x!.toFixed);
+}
+class CC {
+  a?: string
+}
+let bb: CC = {
+  a: undefined
+}
+const u = bb.a!
+console.log(u);
+
