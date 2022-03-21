@@ -222,7 +222,7 @@ interface KK extends Todo{
 
 type TodoPreview = Extract<KK, Todo>
 
-const todo: TodoPreview = {
+const todo8: TodoPreview = {
     title: 'Clean room',
     completed: false,
 }
@@ -236,7 +236,7 @@ let x: "hello" = "hello";
 // OK
 x = "hello";
 // ...
-x = "howdy";
+// x = "howdy";
 /**
  * 
  * 非空断言运算符（后缀

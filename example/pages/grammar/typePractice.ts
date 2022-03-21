@@ -53,7 +53,7 @@ const todo2: MyReadonly<ToDo> = {
   description: '',
   completed: false
 }
-todo2.title = 'ddd' // 提示是只读属性
+// todo2.title = 'ddd' // 提示是只读属性
 
 /**
  * Question 4
