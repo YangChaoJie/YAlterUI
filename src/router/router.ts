@@ -18,6 +18,11 @@ const routes:  Array<RouteRecordRaw> = [
       path: '/testOpen',
       name: 'testOpen',
       component: () => import('../../example/pages/test/testOpenWindow.vue')
+    },
+    {
+      path: '/tsApp',
+      name: 'tsApp',
+      component: () => import('../../example/pages/ts-app/index.vue')
     }
 ]
 
