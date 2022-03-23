@@ -176,6 +176,7 @@ type t = ArrayType<[string, number]> // string | number
   Unknown是所有可能值的集合。任何值都可以赋给类型未知的变量。这意味着unknown是所有其他类型的超类型。因此，Unknown被称为顶级类型。
 - never never is the empty set. There is no value that can be assigned to variable of type never. In fact, it is an error for the type of value to resolve to never because that would be a contradiction. The empty set can fit inside any other set, so never is a subtype of every other type. That is why never is called the bottom type.¹
 - never会是空集。没有值可以赋给类型为never的变量。事实上，将值类型解析为never是一个错误，因为这将是一个矛盾。空集合可以放在任何其他集合中，所以never是所有其他类型的子类型。这就是为什么不叫底型¹
+- https://blog.logrocket.com/when-to-use-never-and-unknown-in-typescript-5e4d6c5799ad/
 ```
 T | never ⇒ T
 T & unknown ⇒ T
