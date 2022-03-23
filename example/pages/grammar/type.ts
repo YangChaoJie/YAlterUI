@@ -266,5 +266,22 @@ type numberU = number | unknown
 
 let oo: numberU = 1
 let oo1: numberU = 'p'
-let oo2: never = 1
+// let oo2: never = 1
+
+// 所有的类型变成可选
+type parrialT = Partial<Todo>
+
+type TodoPreview00 = Pick<Todo, "title" | "completed">;
+ 
+const todo3: TodoPreview = {
+  title: "Clean room",
+  completed: false,
+};
+
+type TodoPreview1 = Omit<Todo, "description">;
+const todo4: TodoPreview = {
+  title: "Clean room",
+  completed: false,
+};
+
 

@@ -1,16 +1,12 @@
 <template>
   <div>
     <span style="color: aqua;" @click="toggleDark()">{{ isDark ? '这是暗黑模式' : '这是白天哦' }}</span>
-    {{ isDark ? 'Dark': 'Light' }}
+    {{ isDark ? 'Dark' : 'Light' }}
     <div>{{ userdata?.slideshow.author }}</div>
     <div>{{ userdata?.slideshow.title }}</div>
 
-    <div v-for="(item) in userdata?.slideshow.slides" v-if="userdata?.slideshow.slides?.length > 0">
-      <div
-        v-html="item0"
-        v-if="item.items && item.items.length > 0"
-        v-for="(item0) in item?.items || []"
-      ></div>
+    <div v-for="(item, index) in userdata?.slideshow.slides" :key="index">
+      <div v-html="item0" v-for="(item0, index0) in item?.items || []" :key="index0"></div>
     </div>
   </div>
 </template>

@@ -74,25 +74,25 @@ interface User extends Name {
   age: number;
 }
 
-type Name = { 
-  name: string; 
+type Name = {
+  name: string;
 }
 type User = Name & { age: number  };
 
 
-type Name = { 
-  name: string; 
+type Name = {
+  name: string;
 }
-interface User extends Name { 
-  age: number; 
+interface User extends Name {
+  age: number;
 }
 
 
-interface Name { 
-  name: string; 
+interface Name {
+  name: string;
 }
-type User = Name & { 
-  age: number; 
+type User = Name & {
+  age: number;
 }
 
 ```
@@ -101,19 +101,23 @@ type User = Name & {
   type
   1） type 可以声明基本类型别名，联合类型，元组等类型 interface 不行
   2） type 语句中还可以使用 typeof 获取实例的 类型进行赋值
-  3） 其他type可以interface 不能
+  3） 其他 type 可以 interface 不能
+
 ```
-type StringOrNumber = string | number;  
-type Text = string | { text: string };  
-type NameLookup = Dictionary<string, Person>;  
-type Callback<T> = (data: T) => void;  
-type Pair<T> = [T, T];  
-type Coordinates = Pair<number>;  
+type StringOrNumber = string | number;
+type Text = string | { text: string };
+type NameLookup = Dictionary<string, Person>;
+type Callback<T> = (data: T) => void;
+type Pair<T> = [T, T];
+type Coordinates = Pair<number>;
 type Tree<T> = T | { left: Tree<T>, right: Tree<T> };
 
 ```
+
 interface
-1) interface 能够声明合并
+
+1. interface 能够声明合并
+
 ```
 interface User {
   name: string
@@ -128,27 +132,31 @@ interface User {
 User 接口为 {
   name: string
   age: number
-  sex: string 
+  sex: string
 }
 */
 
 ```
 
 #### turple 元组
-- tuple类型是数组的另一种类型，它可以精确地知道它包含了多少个元素，以及它在特定位置包含了哪些类型。
+
+- tuple 类型是数组的另一种类型，它可以精确地知道它包含了多少个元素，以及它在特定位置包含了哪些类型。
+
 ```
 type StringNumberPair = [string, number];
 function doSomething(pair: StringNumberPair) {
   const a = pair[0];
-       
+
 const a: string
   const b = pair[1];
-       
+
 const b: number
   // ...
 }
 ```
+
 #### infer 关键字
+
 ```
 type GetFirstArgumentOfAnyFunction<T> = T extends (
   first: infer FirstArgument,
@@ -157,7 +165,7 @@ type GetFirstArgumentOfAnyFunction<T> = T extends (
   ? FirstArgument
   : never
 
-type t = GetFirstArgumentOfAnyFunction<(name: string, age: number) => void> 
+type t = GetFirstArgumentOfAnyFunction<(name: string, age: number) => void>
 // 用来推断第一个参数的类型
 
 type a = ReturnType<() => void> // void
@@ -169,14 +177,17 @@ type ArrayType<T> = T extends (infer Item)[] ? Item : T
 
 type t = ArrayType<[string, number]> // string | number
 ```
-  分析下 vue 的类型系统
+
+分析下 vue 的类型系统
 
 #### unkown 和 never
+
 - unkown unknown is the set of all possible values. Any value can be assigned to a variable of type unknown. This means that unknown is a supertype of every other type. unknown is called the top type for that reason.
-  Unknown是所有可能值的集合。任何值都可以赋给类型未知的变量。这意味着unknown是所有其他类型的超类型。因此，Unknown被称为顶级类型。
+  Unknown 是所有可能值的集合。任何值都可以赋给类型未知的变量。这意味着 unknown 是所有其他类型的超类型。因此，Unknown 被称为顶级类型。
 - never never is the empty set. There is no value that can be assigned to variable of type never. In fact, it is an error for the type of value to resolve to never because that would be a contradiction. The empty set can fit inside any other set, so never is a subtype of every other type. That is why never is called the bottom type.¹
-- never会是空集。没有值可以赋给类型为never的变量。事实上，将值类型解析为never是一个错误，因为这将是一个矛盾。空集合可以放在任何其他集合中，所以never是所有其他类型的子类型。这就是为什么不叫底型¹
+- never 会是空集。没有值可以赋给类型为 never 的变量。事实上，将值类型解析为 never 是一个错误，因为这将是一个矛盾。空集合可以放在任何其他集合中，所以 never 是所有其他类型的子类型。这就是为什么不叫底型 ¹
 - https://blog.logrocket.com/when-to-use-never-and-unknown-in-typescript-5e4d6c5799ad/
+
 ```
 T | never ⇒ T
 T & unknown ⇒ T
@@ -186,6 +197,26 @@ let oo: numberU = 1
 let oo1: numberU = 'p'
 let oo2: never = 1
 ```
-    
+
+#### Utility Types
+
+```
+type Exclude<T, U> = T extends U ? never : T;
+
+/**
+ * Extract from T those types that are assignable to U
+ */
+type Extract<T, U> = T extends U ? T : never;
+
+/**
+ * Construct a type with the properties of T except for those in type K.
+ */
+type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
+```
+
+TypeScript 提供了几种实用程序类型来促进常见的类型转换。这些 type 在全局可用
+
+#### vue type 类型使用
+
 1. type-challenges
 2. 简单的 ts + vue3 例子
