@@ -34,6 +34,9 @@ type variable = string;
 type funcReturnType = ReturnType0<func>; // funcReturnType 类型为 number
 type varReturnType = ReturnType0<variable>; // varReturnType 类型为 string
 
+type ArrayType<T> = T extends (infer Item)[] ? Item : T
+type t = ArrayType<[string, number]> // string | number
+
 //------------------------------------- ref 类型
 // 解包
 // type UnwrapRef<T> = T extends Ref<infer R> ? R : T;
@@ -257,4 +260,11 @@ let bb: CC = {
 }
 const u = bb.a!
 console.log(u);
+
+
+type numberU = number | unknown
+
+let oo: numberU = 1
+let oo1: numberU = 'p'
+let oo2: never = 1
 

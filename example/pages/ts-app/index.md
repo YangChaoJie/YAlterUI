@@ -1,1 +1,190 @@
-1. 熟悉下
+## TypeScript 学习 -- 2
+
+#### 回顾上次分享的 ts
+
+- tsconfig 解释 https://www.typescriptlang.org/tsconfig#resolveJsonModule
+
+```javascript
+"compilerOptions": {
+   "target": "esnext", // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES6'/'ES2015', 'esnext'是指TypeScript支持的最高版本
+   "useDefineForClassFields": true, // 兼容class 这个标志被用作迁移到类字段即将到来的标准版本的一部分
+   "module": "esnext", // 设置程序的模块系统。 commonjs amd esnext
+   "moduleResolution": "node", // 指定模块解析策略 classic node nodenext
+   "strict": true,  // 启用所有严格类型检查选项
+   "jsx": "preserve", // 控制如何在JavaScript文件中发出JSX构造。这只会影响以.tsx文件开头的JS文件的输出 react-jsx preserve
+   "noImplicitThis": true, // 对隐含的“any”类型的“this”表达式引发错误
+   "sourceMap": true, // 这些文件允许调试器和其他工具在实际使用发出的JavaScript文件时显示原始的TypeScript源代码。生成.map 文件
+   "resolveJsonModule": true, // 允许导入json 模块
+   "esModuleInterop": true, // TypeScript将CommonJS/AMD/UMD模块视为类似于ES6模块的模块
+   "lib": ["esnext", "dom"] // TypeScript包括内置JS api(如Math)的默认类型定义集，以及浏览器环境(如document)的默认类型定义集。 指定要包含在编译中的库文件
+}
+
+```
+
+- Volar 官方指定的 vue ts vscode 插件
+
+#### 介绍比较重要的 ts 语法 原生 ts 类型
+
+##### type 别名
+
+type - 类型别名： 可以声明一个类型
+
+```
+ type StrOrNum = string|number;
+ // Usage: just like any other notation
+ var sample: StrOrNum;
+ sample = 123;
+ sample = '123'
+```
+
+我们可以为任何类型注释别名
+
+```
+ type = a | '1'
+ type Text = string | { text: string };
+ type Coordinates = [number, number];
+ type Callback = (data: string) => void;
+```
+
+##### type 与 interface
+
+- 相同点
+
+1.  都可以描述一个对象或者函数
+
+```
+interface User {
+ name: string
+ age: number
+}
+
+interface SetUser {
+ (name: string, age: number): void;
+}
+
+```
+
+2.  都可以扩展和继承
+
+```
+interface Name {
+  name: string;
+}
+interface User extends Name {
+  age: number;
+}
+
+type Name = { 
+  name: string; 
+}
+type User = Name & { age: number  };
+
+
+type Name = { 
+  name: string; 
+}
+interface User extends Name { 
+  age: number; 
+}
+
+
+interface Name { 
+  name: string; 
+}
+type User = Name & { 
+  age: number; 
+}
+
+```
+
+- 不同点
+  type
+  1） type 可以声明基本类型别名，联合类型，元组等类型 interface 不行
+  2） type 语句中还可以使用 typeof 获取实例的 类型进行赋值
+  3） 其他type可以interface 不能
+```
+type StringOrNumber = string | number;  
+type Text = string | { text: string };  
+type NameLookup = Dictionary<string, Person>;  
+type Callback<T> = (data: T) => void;  
+type Pair<T> = [T, T];  
+type Coordinates = Pair<number>;  
+type Tree<T> = T | { left: Tree<T>, right: Tree<T> };
+
+```
+interface
+1) interface 能够声明合并
+```
+interface User {
+  name: string
+  age: number
+}
+
+interface User {
+  sex: string
+}
+
+/*
+User 接口为 {
+  name: string
+  age: number
+  sex: string 
+}
+*/
+
+```
+
+#### turple 元组
+- tuple类型是数组的另一种类型，它可以精确地知道它包含了多少个元素，以及它在特定位置包含了哪些类型。
+```
+type StringNumberPair = [string, number];
+function doSomething(pair: StringNumberPair) {
+  const a = pair[0];
+       
+const a: string
+  const b = pair[1];
+       
+const b: number
+  // ...
+}
+```
+#### infer 关键字
+```
+type GetFirstArgumentOfAnyFunction<T> = T extends (
+  first: infer FirstArgument,
+  ...args: any[]
+) => any
+  ? FirstArgument
+  : never
+
+type t = GetFirstArgumentOfAnyFunction<(name: string, age: number) => void> 
+// 用来推断第一个参数的类型
+
+type a = ReturnType<() => void> // void
+type b = ReturnType<() => string | number> // string | number
+type c = ReturnType<() => any> // any
+
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : any;
+type ArrayType<T> = T extends (infer Item)[] ? Item : T
+
+type t = ArrayType<[string, number]> // string | number
+```
+  分析下 vue 的类型系统
+
+#### unkown 和 never
+- unkown unknown is the set of all possible values. Any value can be assigned to a variable of type unknown. This means that unknown is a supertype of every other type. unknown is called the top type for that reason.
+  Unknown是所有可能值的集合。任何值都可以赋给类型未知的变量。这意味着unknown是所有其他类型的超类型。因此，Unknown被称为顶级类型。
+- never never is the empty set. There is no value that can be assigned to variable of type never. In fact, it is an error for the type of value to resolve to never because that would be a contradiction. The empty set can fit inside any other set, so never is a subtype of every other type. That is why never is called the bottom type.¹
+- never会是空集。没有值可以赋给类型为never的变量。事实上，将值类型解析为never是一个错误，因为这将是一个矛盾。空集合可以放在任何其他集合中，所以never是所有其他类型的子类型。这就是为什么不叫底型¹
+```
+T | never ⇒ T
+T & unknown ⇒ T
+type numberU = number | unknown
+
+let oo: numberU = 1
+let oo1: numberU = 'p'
+let oo2: never = 1
+```
+    
+1. type-challenges
+2. 简单的 ts + vue3 例子

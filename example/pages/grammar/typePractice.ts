@@ -71,6 +71,7 @@ const fn = (v) => {
 
 type a = MyReturnType<typeof fn> // 1 | 2
 
+
 /***
  * Question 5
  * Give an array, transform into an object type and the key/value must in the given array.
