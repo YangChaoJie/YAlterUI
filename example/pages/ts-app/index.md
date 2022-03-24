@@ -171,7 +171,7 @@ type t = ArrayType<[string, number]> // string | number
 ```
   分析下 vue 的类型系统
 
-#### unkown 和 never
+#### unknown 和 never
 - unkown unknown is the set of all possible values. Any value can be assigned to a variable of type unknown. This means that unknown is a supertype of every other type. unknown is called the top type for that reason.
   Unknown是所有可能值的集合。任何值都可以赋给类型未知的变量。这意味着unknown是所有其他类型的超类型。因此，Unknown被称为顶级类型。
 - never never is the empty set. There is no value that can be assigned to variable of type never. In fact, it is an error for the type of value to resolve to never because that would be a contradiction. The empty set can fit inside any other set, so never is a subtype of every other type. That is why never is called the bottom type.¹
@@ -187,5 +187,21 @@ let oo1: numberU = 'p'
 let oo2: never = 1
 ```
     
+#### unknown 和 any
+ unknown which is the type-safe counterpart of any. Anything is assignable to unknown, but unknown isn't assignable to anything but itself and any without a type assertion or a control flow based narrowing. Likewise, no operations are permitted on an unknown without first asserting or narrowing to a more specific type. 
+
+ unknown是any的类型安全对应物。任何东西都可以赋值给unknown，但unknown只能赋给自身以及任何没有类型断言或基于控制流的窄化的东西。同样，如果不先断言或缩小到更特定的类型，则不允许对未知对象进行操作。
+
+ ```
+let vAny: any = 10;          // We can assign anything to any
+let vUnknown: unknown =  10; // We can assign anything to unknown just like any 
+
+
+let s1: string = vAny;     // Any is assignable to anything 
+let s2: string = vUnknown; // Invalid; we can't assign vUnknown to any other type (without an explicit assertion)
+
+vAny.method();     // Ok; anything goes with any
+vUnknown.method(); // Not ok; we don't know anything about this variable
+ ```
 1. type-challenges
 2. 简单的 ts + vue3 例子
