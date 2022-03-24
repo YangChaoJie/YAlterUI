@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, computed, onMounted, toRefs, UnwrapRef } from 'vue'
+import { defineComponent, reactive, computed, onMounted, toRefs, UnwrapRef } from 'vue'
 import { useMyDark, userPresentData } from '.';
 
 export default defineComponent({
@@ -24,7 +24,10 @@ export default defineComponent({
     onMounted(() => {
       console.log('2222');
     })
+    console.log('uData', uData);
+
     return {
+      // ...uData, // reactive 无法被解构
       ...toRefs(uData),
       ...useMyDark(),
     }

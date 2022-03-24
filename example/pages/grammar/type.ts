@@ -30,12 +30,19 @@ let a3: Param = {name: '11', age: 10}
 type ReturnType0<T> = T extends (...args: any[]) => infer R ? R : any;
 
 type func = () => number;
-type variable = string;
+type variable = () => boolean;
 type funcReturnType = ReturnType0<func>; // funcReturnType 类型为 number
 type varReturnType = ReturnType0<variable>; // varReturnType 类型为 string
 
+
 type ArrayType<T> = T extends (infer Item)[] ? Item : T
-type t = ArrayType<[string, number]> // string | number
+
+
+type t = ArrayType<[string,boolean, number]>
+
+// string | number
+
+let aaaa: ReturnType0<func> = 1
 
 //------------------------------------- ref 类型
 // 解包
@@ -292,4 +299,25 @@ const todo4: TodoPreview = {
   title: "Clean room",
   completed: false,
 };
+
+
+type test1 = 1 | 'b' | ((data: string) => void)
+let at: test1 = 1
+let aaa = ''
+typeof aaa
+type test2 = typeof aaa
+
+type GetFirstArgumentOfAnyFunction<T> = T extends (
+  first,
+  second: infer FirstArgument,
+  ...args: any[]
+) => any
+  ? FirstArgument
+  : never
+
+type tt = GetFirstArgumentOfAnyFunction<(name: boolean, age: number) => void>
+
+type ReturnType00<T> = T extends (...args: any[]) => infer R ? R : any;
+
+type ttt = unknown | number
 

@@ -21,7 +21,7 @@ export function userPresentData () {
     message: 'ts app',
     userdata: ref<UserInfo>()
   })
-
+  
   onMounted(async () => {
     console.log('hahahaha');
     const userdata = await userLogin({userName: 'youke', authTimestamp: new Date().getTime()})
