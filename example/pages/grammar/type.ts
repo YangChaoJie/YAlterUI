@@ -277,4 +277,19 @@ let s1: string = vAny;     // Any is assignable to anything
 
 vAny.method();     // Ok; anything goes with any
 // vUnknown.method(); // Not ok; we don't know anything about this variable
+// 所有的类型变成可选
+type parrialT = Partial<Todo>
+
+type TodoPreview00 = Pick<Todo, "title" | "completed">;
+ 
+const todo3: TodoPreview = {
+  title: "Clean room",
+  completed: false,
+};
+
+type TodoPreview1 = Omit<Todo, "description">;
+const todo4: TodoPreview = {
+  title: "Clean room",
+  completed: false,
+};
 
