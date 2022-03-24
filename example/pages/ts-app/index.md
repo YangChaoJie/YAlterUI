@@ -179,13 +179,8 @@ type t = ArrayType<[string, number]> // string | number
 ```
 
 分析下 vue 的类型系统
-
-<<<<<<< HEAD
 #### unknown 和 never
-=======
-#### unkown 和 never
 
->>>>>>> a77cbf57911725137804283c4dbba74c2d2b24cb
 - unkown unknown is the set of all possible values. Any value can be assigned to a variable of type unknown. This means that unknown is a supertype of every other type. unknown is called the top type for that reason.
   Unknown 是所有可能值的集合。任何值都可以赋给类型未知的变量。这意味着 unknown 是所有其他类型的超类型。因此，Unknown 被称为顶级类型。
 - never never is the empty set. There is no value that can be assigned to variable of type never. In fact, it is an error for the type of value to resolve to never because that would be a contradiction. The empty set can fit inside any other set, so never is a subtype of every other type. That is why never is called the bottom type.¹
