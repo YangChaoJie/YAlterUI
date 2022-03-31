@@ -3,6 +3,9 @@
 <script>
   const bucket = new WeakMap()
   const ITERATE_KEY = Symbol()
+  const obj = {
+    foo: 1
+  }
 
   function track(target, key) {
     if (!acctiveEffect) return
@@ -87,12 +90,6 @@
     effectFn.deps.length = 0
   }
 
-  const obj = {
-    foo: 1,
-    // get bar () {
-    //   return this.foo
-    // }
-  }
 
   // 对原始数据的代理
   const p = new Proxy(obj, {
@@ -103,7 +100,6 @@
     },
 
     set(target, key, newVal, receiver) {
-      target[key] = newVal
       // 如果属性不存在，则说明在添加新的属性,否则是设置已存在的属性
       const type = Object.prototype.hasOwnProperty.call(target, key) ? 'SET' : 'ADD'
 
