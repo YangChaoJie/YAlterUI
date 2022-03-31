@@ -1,0 +1,136 @@
+<body></body>
+
+<script>
+  const bucket = new WeakMap()
+  const ITERATE_KEY = Symbol()
+
+  function track(target, key) {
+    if (!acctiveEffect) return
+    let depsMap = bucket.get(target)
+    if (!depsMap) {
+      bucket.set(target, (depsMap = new Map()))
+    }
+    let deps = depsMap.get(key)
+    if (!deps) {
+      depsMap.set(key, (deps = new Set()))
+    }
+    deps.add(acctiveEffect)
+    acctiveEffect.deps.push(deps)
+  }
+
+  function trigger(target, key, type) {
+    const depsMap = bucket.get(target)
+    if (!depsMap) return
+    const effects = depsMap.get(key)
+
+    const iterateEffects = depsMap.get(ITERATE_KEY)
+
+
+    const effectsToRun = new Set()
+    effects && effects.forEach(effectFn => {
+      if (effectFn !== acctiveEffect) {
+        effectsToRun.add(effectFn)
+      }
+    });
+
+    // console.log(type, key);
+    if (type === 'ADD') {
+      iterateEffects && iterateEffects.forEach(effectFn => {
+        if (effectFn !== acctiveEffect) {
+          effectsToRun.add(effectFn)
+        }
+      })
+    }
+
+     effectsToRun.forEach(effectFn => {
+       if (effectFn.options.scheduler) {
+         effectFn.options.scheduler(effectFn)
+       } else {
+         effectFn()
+       }
+     })
+  }
+
+  let acctiveEffect
+
+  const effectStack = []
+  
+  function effect(fn, options ={}) {
+    const effectFn = () => {
+      cleanup(effectFn)
+      acctiveEffect = effectFn
+      effectStack.push(effectFn)
+      const res = fn()
+
+      effectStack.pop()
+
+      acctiveEffect = effectStack[effectStack.length - 1]
+
+      return res
+    }
+
+    effectFn.options = options
+    
+    effectFn.deps = []
+
+    if (!options.lazy) {
+      effectFn()
+    }
+  }
+
+  function cleanup(effectFn) {
+    for (let i = 0; i < effectFn.deps.length; i++) {
+      const deps = effectFn.deps[i]
+      deps.delete(effectFn)
+    }
+
+    effectFn.deps.length = 0
+  }
+
+  const obj = {
+    foo: 1,
+    // get bar () {
+    //   return this.foo
+    // }
+  }
+
+  // 对原始数据的代理
+  const p = new Proxy(obj, {
+    get(target, key, receiver) {
+      track(target, key)
+
+      return Reflect.get(target, key, receiver)
+    },
+
+    set(target, key, newVal, receiver) {
+      target[key] = newVal
+      // 如果属性不存在，则说明在添加新的属性,否则是设置已存在的属性
+      const type = Object.prototype.hasOwnProperty.call(target, key) ? 'SET' : 'ADD'
+
+      // 设置属性值
+      const res = Reflect.set(target, key, newVal, receiver)
+
+      trigger(target, key, type)
+      return res
+    },
+    has(target, key) {
+      track(target, key)
+      console.log('1111');
+      return Reflect.has(target, key)
+    },
+    ownKeys(target) {
+      track(target, ITERATE_KEY)
+      console.log('2222');
+      return Reflect.ownKeys(target)
+    }
+  })
+
+  effect(() => {
+    for (const key in p) {
+      console.log('key: ', key);
+    }
+  })
+
+  p.bar = 2
+  p.hh = 8
+</script>
