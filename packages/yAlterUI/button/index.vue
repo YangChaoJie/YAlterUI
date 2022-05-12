@@ -9,5 +9,7 @@ defineEmits(['click']);
 </script>
 
 <style scoped>
-.my-button {}
+.my-button {
+  background-color: royalblue;
+}
 </style>
