@@ -1,1 +1,0 @@
-export { YFooter } from './YFooter'

@@ -236,4 +236,6 @@ TypeScript 提供了几种实用程序类型来促进常见的类型转换。这
 #### vue type 类型使用
 
 1. type-challenges
+https://www.typescriptlang.org/docs/handbook/2/objects.html#tuple-types
 2. 简单的 ts + vue3 例子
+项目地址：https://github.com/YangChaoJie/YAlterUI/tree/main/example/pages/ts-app

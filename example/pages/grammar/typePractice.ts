@@ -103,3 +103,5 @@ type head1 = First<arr1>
 type spaceX = ['FALCON 9', 'FALCON HEAVY', 'DRAGON', 'STARSHIP', 'HUMAN SPACEFLIGHT']
 type Length<T extends readonly any[]> = T['length']
 type spaceXLength = Length<spaceX>
+
+let a: spaceXLength = 5

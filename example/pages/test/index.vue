@@ -1,35 +1,38 @@
 <template>
   <img alt="Vue logo" src="../../../src/assets/logo.png" />
-  <!-- <div>
-     <iframe name="iframe" src="/test" width="300" height="200" frameborder="0"></iframe>
-  </div> -->
-
-  <div>
-      <iframe name="iframe" src="https://cs.yjt361.com/" width="1200" height="900" frameborder="0"></iframe>
-  </div>
-   
-  <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
+  <Counter ref="mycounter"/>
+  <button @click="onReset">子组件设置</button>
 </template>
 
 <script lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import { defineComponent, ref, reactive } from 'vue'
-// import Hello from './components/Hello.vue'
-// import Test from "./components/test.vue"
-
+import { defineComponent, ref, reactive, onMounted } from 'vue'
+import Counter from './mycounter.vue'
 export default defineComponent({
   name: 'HelloWorld',
   components: {
+   Counter
   },
   setup() {
     const a = ref(1);
     const data = reactive({
       message: '阿瑞'
     })
+    const mycounter = ref(null)
+
+    onMounted(() => {
+      console.log('lll111', mycounter.value);
+    })
+
+    const onReset = () => { 
+      const mycounter = ref(null)
+      console.log('2222', mycounter.value);
+      mycounter.value.reset()
+    }
+
     return {
       a,
-      data
+      data,
+      onReset
     }
   }
 })
