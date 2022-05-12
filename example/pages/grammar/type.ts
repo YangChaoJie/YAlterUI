@@ -321,3 +321,4 @@ type ReturnType00<T> = T extends (...args: any[]) => infer R ? R : any;
 
 type ttt = unknown | number
 
+const array = [1, 2]

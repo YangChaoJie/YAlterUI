@@ -21,7 +21,7 @@
 
 ```
 
-- Volar 官方指定的 vue ts vscode 插件
+-Volar  官方指定的 vue ts vscode 插件
 
 #### 介绍比较重要的 ts 语法 原生 ts 类型
 
