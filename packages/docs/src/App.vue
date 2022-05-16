@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { YFooter } from '@yalterui/components'
-
 </script>
 
 <template>
-  <div>这个是docs11</div>
-  <y-footer>124</y-footer>
+  <router-view />
 </template>
 
 <style>

@@ -6,7 +6,7 @@ const YFooter = defineComponent({
     return () => (
       <div
       v-slots= {slots}
-      >eee124</div>
+      >eee</div>
     )
   }
 })
