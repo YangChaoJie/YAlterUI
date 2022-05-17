@@ -1,12 +1,8 @@
-// import { createApp } from 'vue'
 import App from './App.vue'
+import { setupLayouts } from 'virtual:generated-layouts';
+import generatedRoutes from '~pages'; 
 
-// import { routes } from './routes/router'
-// import 'virtual:api'
-// import routes from 'virtual:'
-import routes from 'virtual:generated-pages'; 
-
-// const routes = setupLayouts(generatedRoutes)
+const routes = setupLayouts(generatedRoutes)
 import { ViteSSG } from 'vite-ssg'
 
 console.log('router-----', routes);

@@ -12,3 +12,8 @@ import TeamMember from '@/components/about/TeamMember.vue'
 </script>
 
 <TeamMember />
+
+<route lang="yaml">
+meta:
+  layout: 404
+</route>

@@ -1,13 +1,10 @@
 <template>
-  <div>
+  <div class="rr-layout">
     <div>头部</div>
     <div>
       {{ text }}
     </div>
-    <router-view />
-    <Footer />
   </div>
-
 </template>
 
 <script lang="ts">
@@ -20,14 +17,18 @@ export default defineComponent({
     Footer
   },
   setup() {
-    let text = ref('hello')
+    let text = ref('404 布局')
     return {
       text
     }
   }
 })
+
 </script>
 
 <style>
+.rr-layout {
+  background: rebeccapurple;
+  color: azure;
+}
 </style>
-
