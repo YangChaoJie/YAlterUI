@@ -8,7 +8,7 @@ export default defineConfig({
     host:"0.0.0.0",
     proxy: {
       '/gw': {
-        target: 'https://cs.yjt361.com/',
+        target: 'https://zw.czbanbantong.com/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/gw/, '')
       }

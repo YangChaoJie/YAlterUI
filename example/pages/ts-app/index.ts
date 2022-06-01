@@ -1,5 +1,5 @@
 export declare type handleType = 'sort' | 'delete' | 'recover'
-import {  ref, reactive, computed, onMounted } from 'vue'
+import {  ref, reactive, computed, onMounted, Ref } from 'vue'
 import { useDark, useToggle } from '@vueuse/core'
 import { userLogin } from './api'; // 有提示
 import type { UserInfo }  from './api'
@@ -19,7 +19,7 @@ export function useMyDark () {
 export function userPresentData () {
   const data = reactive({
     message: 'ts app',
-    userdata: ref<UserInfo>()
+    userdata: ref<UserInfo | null>()
   })
   
   onMounted(async () => {
@@ -28,8 +28,8 @@ export function userPresentData () {
     data.userdata = userdata.value
     console.log(userdata.value);
     setTimeout(() => {
-      userdata.value.slideshow.title= 'hehehe'
-      data.userdata.slideshow.title = 'hehe0'
+      userdata.value!.slideshow.title= 'hehehe'
+      data.userdata!.slideshow.title = 'hehe0'
     }, 1000);
   })
   return data
