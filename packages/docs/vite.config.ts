@@ -6,7 +6,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import Pages from 'vite-plugin-pages'
 import prism from 'markdown-it-prism'
 import Layouts from 'vite-plugin-vue-layouts'
-import vuetify from '@vuetify/vite-plugin'
+import vuetify from 'vite-plugin-vuetify'
 // 文档: https://vitejs.dev/config/
 export default defineConfig({
   resolve: {

@@ -46,6 +46,7 @@ importers:
       vite-plugin-pages: ^0.23.0
       vite-plugin-pwa: ^0.12.0
       vite-plugin-vue-layouts: ^0.6.0
+      vite-plugin-vuetify: ^1.0.0-alpha.11
       vite-ssg: ^0.20.0
       vite-ssg-sitemap: ^0.2.6
       vue: ^3.2.23
@@ -57,6 +58,7 @@ importers:
       '@vueuse/head': registry.npmmirror.com/@vueuse/head/0.7.6_vue@3.2.33
       '@yalterui/components': link:../yAlterUI
       prismjs: 1.28.0
+      vite-plugin-vuetify: registry.npmmirror.com/vite-plugin-vuetify/1.0.0-alpha.11_vite@2.9.9+vuetify@3.0.0-beta.3
       vue: 3.2.33
       vuetify: registry.npmmirror.com/vuetify/3.0.0-beta.3_vue@3.2.33
     devDependencies:
@@ -898,7 +900,7 @@ packages:
       supports-color:
         optional: true
     dependencies:
-      ms: 2.1.2
+      ms: registry.npmmirror.com/ms/2.1.2
     dev: true
 
   /defaults/1.0.3:
@@ -1279,10 +1281,6 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
-    dev: true
-
-  /ms/2.1.2:
-    resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
 
   /mute-stream/0.0.8:
@@ -6664,6 +6662,24 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  registry.npmmirror.com/vite-plugin-vuetify/1.0.0-alpha.11_vite@2.9.9+vuetify@3.0.0-beta.3:
+    resolution: {integrity: sha512-YqnirQhGfG1skj1Z41DVh0WqSjoJ/BtcfZvnGVkcBrfRe+pFg4lHV2mI3K5LdjCeBxzHqofxlz6J6ciyRvrqcA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-plugin-vuetify/-/vite-plugin-vuetify-1.0.0-alpha.11.tgz}
+    id: registry.npmmirror.com/vite-plugin-vuetify/1.0.0-alpha.11
+    name: vite-plugin-vuetify
+    version: 1.0.0-alpha.11
+    engines: {node: '>=12'}
+    peerDependencies:
+      vite: ^2.7.0
+      vuetify: ^3.0.0-alpha.11
+    dependencies:
+      '@vuetify/loader-shared': registry.npmmirror.com/@vuetify/loader-shared/1.4.0_vuetify@3.0.0-beta.3
+      debug: registry.npmmirror.com/debug/4.3.4
+      vite: 2.9.9_less@4.1.2
+      vuetify: registry.npmmirror.com/vuetify/3.0.0-beta.3_vue@3.2.33
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   registry.npmmirror.com/vite-ssg-sitemap/0.2.7:
     resolution: {integrity: sha512-vzB2qey/PZGv8gd3nCkLiXxEemByZrTHjhkO7aFcjbxAKlW36RraBMZkizzRUo6uB06Uo7yM4UmzjE5h6dfvsg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-ssg-sitemap/-/vite-ssg-sitemap-0.2.7.tgz}
