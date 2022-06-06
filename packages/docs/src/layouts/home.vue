@@ -1,11 +1,18 @@
 <template>
-<div>头部</div>
-<div>
-  {{ text }}
-</div>
-<router-view />
-<Footer/>
-<div>底部</div>
+  <v-app>
+    <v-app-settings-drawer />
+
+    <v-app-bar />
+    1241234
+    <v-main>
+      <v-container class="px-4 text-center font-weight-light">
+        <router-view />
+      </v-container>
+    </v-main>
+
+    <Footer />
+
+  </v-app>
 </template>
 
 <script lang="ts">

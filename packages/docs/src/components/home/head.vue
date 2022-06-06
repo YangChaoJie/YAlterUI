@@ -6,7 +6,6 @@
     class="mx-auto"
     max-width="100%"
   />
-  <div>dd------------</div>
 </template>
 
 <script lang="ts">

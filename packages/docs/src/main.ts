@@ -3,10 +3,13 @@ import { setupLayouts } from 'virtual:generated-layouts';
 import generatedRoutes from '~pages'; 
 const routes = setupLayouts(generatedRoutes)
 import { ViteSSG } from 'vite-ssg'
-
+import { useVuetify } from './plugins/vuetify'
 console.log('router-----', routes);
 
 export const createApp = ViteSSG(
   App,
-  {routes}
+  {routes},
+  ctx => {
+    useVuetify(ctx)
+  }
 )

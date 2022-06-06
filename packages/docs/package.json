@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vuetify/vite-plugin": "^1.0.0-alpha.11",
     "@vueuse/head": "^0.7.6",
     "@yalterui/components": "workspace:^0.0.1",
     "prismjs": "^1.25.0",

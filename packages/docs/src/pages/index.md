@@ -31,3 +31,8 @@ import HomeLogo from '@/components/home/head.vue'
 <HomeLogo> </HomeLogo>
 
 <router-link to="/about">about</router-link>
+
+<route lang="yaml">
+meta:
+  layout: home
+</route>
