@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vuetify/vite-plugin": "^1.0.0-alpha.11",
     "@vueuse/head": "^0.7.6",
     "@yalterui/components": "workspace:^0.0.1",
     "prismjs": "^1.25.0",
-    "vue": "^3.2.23"
+    "vue": "^3.2.23",
+    "vuetify": "^v3.0.0-beta.3"
   },
   "devDependencies": {
     "@types/node": "^16.11.12",
@@ -22,6 +24,7 @@
     "handlebars": "^4.7.7",
     "inquirer": "^8.2.0",
     "less": "^4.1.2",
+    "markdown-it-prism": "^2.2.4",
     "typescript": "^4.4.4",
     "vite": "^2.7.0",
     "vite-plugin-copy": "^0.1.6",
@@ -33,7 +36,6 @@
     "vite-plugin-vue-layouts": "^0.6.0",
     "vite-ssg": "^0.20.0",
     "vite-ssg-sitemap": "^0.2.6",
-    "markdown-it-prism": "^2.2.4",
     "vue-router": "^4.0.12",
     "vue-tsc": "^0.28.10"
   },

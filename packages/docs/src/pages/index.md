@@ -7,11 +7,11 @@ test: test
 ---
 # Hello world!
 
-Frontmatter: {{ frontmatter }}
+<!-- Frontmatter: {{ frontmatter }}
 
 Code: `{{ frontmatter }}`
 
-Code Block:
+Code Block: -->
 ```
 {{ frontmatter }}
 ```
@@ -24,8 +24,10 @@ h1 {
 
 <script setup>
 import Footer from '@/components/home/Footer.vue'
+import HomeLogo from '@/components/home/head.vue' 
 </script>
 
 <Footer />
+<HomeLogo> </HomeLogo>
 
 <router-link to="/about">about</router-link>
