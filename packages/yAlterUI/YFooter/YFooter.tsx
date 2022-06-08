@@ -5,8 +5,10 @@ const YFooter = defineComponent({
   setup (props, {slots}) {
     return () => (
       <div
-      v-slots= {slots}
-      >eee</div>
+      >
+        { slots.default?.()}
+      </div>
+      
     )
   }
 })
