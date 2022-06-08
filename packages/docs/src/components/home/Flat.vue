@@ -27,6 +27,7 @@ const {
   rotate, push, pop, translate, 
  ellipse, background, rect, triangle, stroke,
   sin,
+  fill,
   mount, unmount,
   CENTER, PI,
 } = p5i()
@@ -38,12 +39,12 @@ function setup() {
   createCanvas(w, h)
   rectMode(CENTER)
   stroke('#333')
+  fill(24, 160, 88);
 }
 
 const ROUND = 1000 * PI
 
 function draw({ mouseX, mouseY }: P5I) {
-  background('green')
   const t = millis() - st
 
   const pattern = trunc(t / ROUND) % 3
