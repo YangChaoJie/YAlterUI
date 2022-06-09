@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <!-- <v-app-settings-drawer /> -->
-    <v-app-bar />
+    <y-top-header></y-top-header>
     <Clock class="clock"></Clock>
     <v-main>
       <v-container class="px-4 text-center font-weight-light">
@@ -14,13 +14,15 @@
 
 <script lang="ts">
 import Footer from '@/components/home/Footer.vue'
+import YTopHeader from '@/components/home/head.vue'
 import Clock from '@/components/home/Clock.vue'
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   components: {
     Footer,
-    Clock
+    Clock,
+    YTopHeader
   },
   setup() {
     let text = ref('home 布局')

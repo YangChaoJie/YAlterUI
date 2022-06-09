@@ -1,5 +1,5 @@
 <template lang='pug'>
-paper
+div
   .box.large.borderless.centered.overflow-hidden(ref='el')
 </template>
 
