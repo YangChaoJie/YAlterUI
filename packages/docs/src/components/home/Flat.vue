@@ -39,7 +39,7 @@ function setup() {
   createCanvas(w, h)
   rectMode(CENTER)
   stroke('#333')
-  fill(24, 160, 88);
+  fill(24, 103, 192);
 }
 
 const ROUND = 1000 * PI

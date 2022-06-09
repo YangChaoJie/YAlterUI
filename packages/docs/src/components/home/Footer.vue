@@ -112,7 +112,7 @@ const fData = {
           joinUsLink: 'https://app.mokahr.com/campus_apply/tusenweilai/3232#/'
         }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .footer {
   --x-padding: 56px;
   margin-top: auto;
