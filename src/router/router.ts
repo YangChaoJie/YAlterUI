@@ -23,6 +23,11 @@ const routes:  Array<RouteRecordRaw> = [
       path: '/tsApp',
       name: 'tsApp',
       component: () => import('../../example/pages/ts-app/index.vue')
+    },
+    {
+      path: '/suspense',
+      name: 'suspense',
+      component: () => import('../../example/pages/suspense/index.vue')
     }
 ]
 
