@@ -1,11 +1,14 @@
 <template>
   <v-app>
     <y-top-header></y-top-header>
-    <div class="content">
+    <app-drawer />
+    <!-- <div class="content">
       {{ text }}
-    </div>
-    <router-view />
-    <Footer />
+    </div> -->
+    <v-main>
+      <router-view />
+      <Footer />
+    </v-main>
   </v-app>
 
 </template>
@@ -13,12 +16,14 @@
 <script lang="ts">
 import Footer from '@/components/home/Footer.vue'
 import YTopHeader from '@/components/home/head.vue'
+import AppDrawer from '@/components/nav/Drawer.vue'
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   components: {
     Footer,
-    YTopHeader
+    YTopHeader,
+    AppDrawer
   },
   setup() {
     let text = ref('')
@@ -30,6 +35,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+$header-height: 65px;
 .content {
   padding: 20px;
 }
@@ -39,6 +45,9 @@ export default defineComponent({
 }
 .markdown-body {
   margin-top: 30px;
+}
+.markdown-body {
+  min-height: calc(100vh - $header-height - 307px);
 }
 </style>
 

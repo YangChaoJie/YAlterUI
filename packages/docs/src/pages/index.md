@@ -39,7 +39,7 @@ import HomeActionBtns from '@/components/home/ActionBtns.vue'
 import Flat from '@/components/home/Flat.vue'
 </script>
 
-<router-link to="/about">about</router-link>
+<!-- <router-link to="/about">about</router-link> -->
 
 <route lang="yaml">
 meta:

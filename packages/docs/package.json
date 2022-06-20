@@ -12,6 +12,7 @@
     "@vueuse/head": "^0.7.6",
     "@yalterui/components": "workspace:^0.0.1",
     "p5i": "^0.4.2",
+    "pinia": "^2.0.14",
     "prismjs": "^1.25.0",
     "vite-plugin-vuetify": "^1.0.0-alpha.11",
     "vue": "^3.2.23",

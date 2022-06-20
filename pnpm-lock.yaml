@@ -38,6 +38,7 @@ importers:
       less: ^4.1.2
       markdown-it-prism: ^2.2.4
       p5i: ^0.4.2
+      pinia: ^2.0.14
       prismjs: ^1.25.0
       typescript: ^4.4.4
       vite: ^2.7.0
@@ -59,6 +60,7 @@ importers:
       '@vueuse/head': registry.npmmirror.com/@vueuse/head/0.7.6_vue@3.2.33
       '@yalterui/components': link:../yAlterUI
       p5i: registry.npmmirror.com/p5i/0.4.2
+      pinia: registry.npmmirror.com/pinia/2.0.14_typescript@4.6.4+vue@3.2.33
       prismjs: 1.28.0
       vite-plugin-vuetify: registry.npmmirror.com/vite-plugin-vuetify/1.0.0-alpha.11_vite@2.9.9+vuetify@3.0.0-beta.3
       vue: 3.2.33
@@ -73,7 +75,7 @@ importers:
       less: 4.1.2
       markdown-it-prism: registry.npmmirror.com/markdown-it-prism/2.2.4
       typescript: 4.6.4
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
       vite-plugin-copy: 0.1.6
       vite-plugin-dts: 0.9.10_vite@2.9.9
       vite-plugin-inspect: registry.npmmirror.com/vite-plugin-inspect/0.5.0_vite@2.9.9
@@ -471,7 +473,7 @@ packages:
     peerDependencies:
       vite: ^2.5.10
     dependencies:
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
     dev: true
 
   /@vitejs/plugin-vue/2.3.3_vite@2.9.9+vue@3.2.33:
@@ -1660,10 +1662,10 @@ packages:
       fast-glob: 3.2.11
       fs-extra: 10.1.0
       ts-morph: 13.0.3
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
     dev: true
 
-  /vite/2.9.9_less@4.1.2:
+  /vite/2.9.9_less@4.1.2+sass@1.52.3:
     resolution: {integrity: sha512-ffaam+NgHfbEmfw/Vuh6BHKKlI/XIAhxE5QSS7gFLIngxg171mg1P3a4LSRME0z2ZU1ScxoKzphkipcYwSD5Ew==}
     engines: {node: '>=12.2.0'}
     hasBin: true
@@ -1684,6 +1686,7 @@ packages:
       postcss: 8.4.13
       resolve: 1.22.0
       rollup: 2.72.1
+      sass: registry.npmmirror.com/sass/1.52.3
     optionalDependencies:
       fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
@@ -3662,6 +3665,12 @@ packages:
       '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom/3.2.33
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.33
     dev: true
+
+  registry.npmmirror.com/@vue/devtools-api/6.1.4:
+    resolution: {integrity: sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/devtools-api/-/devtools-api-6.1.4.tgz}
+    name: '@vue/devtools-api'
+    version: 6.1.4
+    dev: false
 
   registry.npmmirror.com/@vue/reactivity-transform/3.2.33:
     resolution: {integrity: sha512-4UL5KOIvSQb254aqenW4q34qMXbfZcmEsV/yVidLUgvwYQQ/D21bGX3DlgPUGI3c4C+iOnNmDCkIxkILoX/Pyw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/reactivity-transform/-/reactivity-transform-3.2.33.tgz}
@@ -5908,6 +5917,27 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
+  registry.npmmirror.com/pinia/2.0.14_typescript@4.6.4+vue@3.2.33:
+    resolution: {integrity: sha512-0nPuZR4TetT/WcLN+feMSjWJku3SQU7dBbXC6uw+R6FLQJCsg+/0pzXyD82T1FmAYe0lsx+jnEDQ1BLgkRKlxA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/pinia/-/pinia-2.0.14.tgz}
+    id: registry.npmmirror.com/pinia/2.0.14
+    name: pinia
+    version: 2.0.14
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': registry.npmmirror.com/@vue/devtools-api/6.1.4
+      typescript: 4.6.4
+      vue: 3.2.33
+      vue-demi: registry.npmmirror.com/vue-demi/0.12.5_vue@3.2.33
+    dev: false
+
   registry.npmmirror.com/pkg-dir/4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/pkg-dir/-/pkg-dir-4.2.0.tgz}
     name: pkg-dir
@@ -6648,7 +6678,7 @@ packages:
       kolorist: registry.npmmirror.com/kolorist/1.5.1
       sirv: registry.npmmirror.com/sirv/2.0.2
       ufo: registry.npmmirror.com/ufo/0.8.4
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6667,7 +6697,7 @@ packages:
       '@vue/runtime-core': registry.npmmirror.com/@vue/runtime-core/3.2.33
       gray-matter: registry.npmmirror.com/gray-matter/4.0.3
       markdown-it: registry.npmmirror.com/markdown-it/13.0.1
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
     dev: true
 
   registry.npmmirror.com/vite-plugin-pages/0.23.0_vite@2.9.9:
@@ -6689,7 +6719,7 @@ packages:
       json5: registry.npmmirror.com/json5/2.2.1
       local-pkg: registry.npmmirror.com/local-pkg/0.4.1
       picocolors: registry.npmmirror.com/picocolors/1.0.0
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
       yaml: registry.npmmirror.com/yaml/2.1.0
     transitivePeerDependencies:
       - supports-color
@@ -6707,7 +6737,7 @@ packages:
       fast-glob: registry.npmmirror.com/fast-glob/3.2.11
       pretty-bytes: registry.npmmirror.com/pretty-bytes/6.0.0
       rollup: registry.npmmirror.com/rollup/2.72.1
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
       workbox-build: registry.npmmirror.com/workbox-build/6.5.3
       workbox-window: registry.npmmirror.com/workbox-window/6.5.3
     transitivePeerDependencies:
@@ -6728,7 +6758,7 @@ packages:
       '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc/3.2.33
       debug: registry.npmmirror.com/debug/4.3.4
       fast-glob: registry.npmmirror.com/fast-glob/3.2.11
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
       vue: 3.2.33
       vue-router: 4.0.15_vue@3.2.33
     transitivePeerDependencies:
@@ -6747,7 +6777,7 @@ packages:
     dependencies:
       '@vuetify/loader-shared': registry.npmmirror.com/@vuetify/loader-shared/1.4.0_vuetify@3.0.0-beta.3
       debug: registry.npmmirror.com/debug/4.3.4
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
       vuetify: registry.npmmirror.com/vuetify/3.0.0-beta.3_vue@3.2.33
     transitivePeerDependencies:
       - supports-color
@@ -6784,7 +6814,7 @@ packages:
       kolorist: registry.npmmirror.com/kolorist/1.5.1
       p-queue: registry.npmmirror.com/p-queue/6.6.2
       prettier: registry.npmmirror.com/prettier/2.6.2
-      vite: 2.9.9_less@4.1.2
+      vite: 2.9.9_less@4.1.2+sass@1.52.3
       vue: 3.2.33
       vue-router: 4.0.15_vue@3.2.33
       yargs: registry.npmmirror.com/yargs/17.5.1
@@ -6794,6 +6824,24 @@ packages:
       - supports-color
       - utf-8-validate
     dev: true
+
+  registry.npmmirror.com/vue-demi/0.12.5_vue@3.2.33:
+    resolution: {integrity: sha512-BREuTgTYlUr0zw0EZn3hnhC3I6gPWv+Kwh4MCih6QcAeaTlaIX0DwOVN0wHej7hSvDPecz4jygy/idsgKfW58Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-demi/-/vue-demi-0.12.5.tgz}
+    id: registry.npmmirror.com/vue-demi/0.12.5
+    name: vue-demi
+    version: 0.12.5
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.33
+    dev: false
 
   registry.npmmirror.com/vuetify/3.0.0-beta.3_vue@3.2.33:
     resolution: {integrity: sha512-as6G+6S6q4kfioc0wioJ+/DOLhIDGsA/ufaSwE8GHnxnoOmx+Usi+CLAh6UaZr1VEG7HVVtFV+gBXsk8pmljQg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vuetify/-/vuetify-3.0.0-beta.3.tgz}
