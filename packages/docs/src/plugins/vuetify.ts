@@ -20,7 +20,7 @@ export const useVuetify: VuetifyPlugin = ({ app }) => {
         mdi,
         md,
         mdiSvg,
-      },
+      }
     },
     theme: {
       themes: {
@@ -31,8 +31,8 @@ export const useVuetify: VuetifyPlugin = ({ app }) => {
             tertiary: '#E57373',
             accent: '#005CAF',
           },
-        },
-      },
+        }
+      }
     },
   })
   app.use(vuetify)

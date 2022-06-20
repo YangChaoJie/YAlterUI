@@ -5,7 +5,7 @@ meta:
     content: 关于团队
 test: test
 ---
-# about
+# 关于团队
 
 <script setup>
 import TeamMember from '@/components/about/TeamMember.vue'
@@ -15,5 +15,5 @@ import TeamMember from '@/components/about/TeamMember.vue'
 
 <route lang="yaml">
 meta:
-  layout: 404
+  layout: default
 </route>

@@ -1,26 +1,27 @@
 <template>
-  <div>
-    <div>头部</div>
-    <div>
+  <v-app>
+    <y-top-header></y-top-header>
+    <div class="content">
       {{ text }}
     </div>
     <router-view />
     <Footer />
-  </div>
+  </v-app>
 
 </template>
 
 <script lang="ts">
 import Footer from '@/components/home/Footer.vue'
-
+import YTopHeader from '@/components/home/head.vue'
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   components: {
-    Footer
+    Footer,
+    YTopHeader
   },
   setup() {
-    let text = ref('hello')
+    let text = ref('')
     return {
       text
     }
@@ -28,6 +29,16 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss">
+.content {
+  padding: 20px;
+}
+.v-application__wrap {
+  height: 100vh !important;
+  overflow: auto !important;
+}
+.markdown-body {
+  margin-top: 30px;
+}
 </style>
 
