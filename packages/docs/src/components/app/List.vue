@@ -23,7 +23,8 @@
     heading?: string
     divider?: boolean
     to?: RouteLocationRaw
-    href?: string
+    href?: string,
+    path?: string
   }
 
   function generateApiItems (locale: string) {
@@ -39,11 +40,15 @@
   }
 
   function generateItems (item: Item, path: string, locale: string): any {
+    // debugger;
     if (item.items) {
       return item.items.map(child => {
         if (typeof child === 'string') {
-          const route = routes.find((route: { path: string }) => route.path.endsWith(`${locale}/${path}/${child}/`))
-
+          const route = routes.find((route: { path: string }) => route.path.endsWith(`/${path}/${child}/`))
+          console.log('route---',route, 'routes', routes);
+          console.log('path', path, 'child', child, 'locale', locale);
+          console.log('route.path', `${locale}/${path}/${child}/`);
+          
           return {
             title: route?.meta?.nav ?? route?.meta?.title ?? child,
             to: route?.path,
@@ -84,7 +89,7 @@
           title: item.title,
           value: item.title,
           prependIcon: opened.value.includes(item.title!) ? item.activeIcon : item.inactiveIcon,
-          children: item.title === 'api' ? generateApiItems(item.title!) : generateItems(item, item.title!, item.title!),
+          children: item.title === 'api' ? generateApiItems(item.title!) : generateItems(item, item.path!, item.path!),
         }
       }))
 

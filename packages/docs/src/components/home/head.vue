@@ -9,6 +9,9 @@
        <v-btn flat @click="goToPage('/')">
              首页
        </v-btn>
+       <v-btn flat @click="goToPage('/doc')">
+        文档
+       </v-btn>
         <v-btn flat @click="goToPage('/components')">
              组件
        </v-btn>
