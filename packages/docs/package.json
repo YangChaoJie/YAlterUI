@@ -1,5 +1,5 @@
 {
-  "name": "@yalterui/docs",
+  "name": "docs",
   "version": "1.0.0",
   "description": "ui documents",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@vueuse/head": "^0.7.6",
-    "@yalterui/components": "workspace:^0.0.1",
+    "components": "*",
     "p5i": "^0.4.2",
     "pinia": "^2.0.14",
     "prismjs": "^1.25.0",

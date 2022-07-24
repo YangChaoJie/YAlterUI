@@ -91,7 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import { YFooter } from '@yalterui/components'
+import { YFooter } from 'components'
 const fData = {
             version:'0.1',
           resources: '资源',

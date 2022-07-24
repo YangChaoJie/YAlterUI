@@ -7,10 +7,9 @@
     "strict": true,
     "jsx": "preserve",
     "noImplicitThis": true,
-    "sourceMap": true,
     "resolveJsonModule": true,
+    "sourceMap": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"]
-  },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "packages"]
+  }
 }
