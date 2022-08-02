@@ -6,6 +6,7 @@ const YFooter = defineComponent({
     return () => (
       <div
       >
+        1234
         { slots.default?.()}
       </div>
       

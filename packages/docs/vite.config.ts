@@ -13,7 +13,8 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src'),
       packages: resolve(__dirname, '../packages'),
-      components: resolve(__dirname, '../yAlterUI/index.ts'),
+      components: resolve(__dirname, '../yAlterUI/src/components/index.ts'),
+      // components: resolve(__dirname, '../yAlterUI/lib/yalter-ui.es.js'),
     },
   },
   plugins: [
