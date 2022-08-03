@@ -3,19 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "description": "all components are settled here",
-  "unpkg": "index.js",
-  "jsdelivr": "index.js",
   "type": "module",
-  "files": [
-    "dist"
-  ],
   "main": "src/components/index.ts",
-  "exports": {
-    ".": {
-      "import": "./src/components/index.ts",
-      "require": "./lib/yalter-ui.umd.js"
-    }
-  },
   "peerDependencies": {
     "vue": "^3.2.25"
   },
@@ -24,9 +13,6 @@
     "build": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./build/prod.config.ts",
     "preview": "vite preview"
   },
-  "types": "index.d.ts",
-  "sideEffects": false,
-  "gitHead": "c69724230befa8fede0e6b9c37fb0b7e39fd7cdd",
   "devDependencies": {
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",

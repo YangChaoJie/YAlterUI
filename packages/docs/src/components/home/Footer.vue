@@ -87,11 +87,13 @@
         YJ UI {{ fData.version }} · Made by VCOM The front-end team
       </v-btn>
     </div>
+      <ExampleA />
    </y-footer>
 </template>
 
 <script setup lang="ts">
 import { YFooter } from 'yalertui'
+import { ExampleA } from 'common_lib'
 const fData = {
             version:'0.1',
           resources: '资源',

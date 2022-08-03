@@ -16,12 +16,13 @@ export default defineConfig(({mode}) =>{
         packages: resolve(__dirname, '../packages'),
         // components: resolve(__dirname, '../yAlterUI/src/components/index.ts'),
         'yalertui': 'yalertui/src/components/index.ts',
+        'common_lib': 'common_lib/src/lib.ts',
         // components: resolve(__dirname, '../yAlterUI/lib/yalter-ui.es.js'),
       },
       dedupe: ['vue']
     },
     optimizeDeps: {
-      exclude: ['yalertui'],
+      exclude: ['yalertui', 'common_lib'],
     },
     build: {
       sourcemap: true,
