@@ -5,6 +5,10 @@
   "scripts": {
     "dev:lib": "lerna run --scope components dev --stream",
     "dev:docs": "lerna run --scope docs dev --stream",
+    "start": "lerna run dev --scope docs --stream",
+    "dev": "node scripts/dev.js",
+    "build": "node scripts/build.js",
+    "clean": "lerna clean",
     "docs:dev": "pnpm run -C packages/docs dev",
     "build:lib": "lerna run build --scope components --stream",
     "build:docs": "lerna run build --scope docs --stream"
@@ -20,6 +24,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
     "@vitejs/plugin-vue-jsx": "^1.3.10",
+    "cross-spawn": "^7.0.3",
     "lerna": "^5.2.0",
     "sass": "^1.52.3",
     "typescript": "^4.4.4",
