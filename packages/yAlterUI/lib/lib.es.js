@@ -6,7 +6,7 @@ const p = o({
   }) {
     return () => {
       var t;
-      return r("div", null, [u("1231"), (t = e.default) == null ? void 0 : t.call(e)]);
+      return r("div", null, [u("1234"), (t = e.default) == null ? void 0 : t.call(e)]);
     };
   }
 }), i = {

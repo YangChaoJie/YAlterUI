@@ -15,7 +15,7 @@ export default defineConfig(({mode}) =>{
         '@': resolve(__dirname, './src'),
         packages: resolve(__dirname, '../packages'),
         // components: resolve(__dirname, '../yAlterUI/src/components/index.ts'),
-        'yalertui': 'yalertui/src/components/index.ts',
+        'yalertui': 'yalertui/components',
         'common_lib': 'common_lib/src/lib.ts',
         // components: resolve(__dirname, '../yAlterUI/lib/yalter-ui.es.js'),
       },

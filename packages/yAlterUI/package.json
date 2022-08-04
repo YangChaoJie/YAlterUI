@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "description": "all components are settled here",
-  "type": "module",
   "main": "src/components/index.ts",
   "peerDependencies": {
     "vue": "^3.2.25"
@@ -12,6 +11,13 @@
     "dev": "vite --host --mode development --config ./build/dev.config.ts",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./build/prod.config.ts",
     "preview": "vite preview"
+  },
+  "exports": {
+    ".": {
+      "import": "./lib/lib.es.js",
+      "require": "./lib/lib.umd.js"
+    },
+    "./components": "./src/components/index.ts"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.17.10",
