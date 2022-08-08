@@ -9,7 +9,8 @@
   },
   "scripts": {
     "dev": "vite --host --mode development --config ./build/dev.config.ts",
-    "build": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./build/prod.config.ts",
+    "build:l": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./build/prod.config.ts",
+    "build": "rollup --config build/rollup.config.js",
     "preview": "vite preview"
   },
   "exports": {
@@ -42,20 +43,27 @@
   "devDependencies": {
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.2",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vitejs/plugin-vue-jsx": "^1.3.10",
+    "@vue/babel-plugin-jsx": "^1.1.1",
     "@vue/compiler-sfc": "^3.0.5",
     "@vue/test-utils": "^2.0.0-rc.18",
+    "filter": "^0.1.1",
+    "rollup": "^2.77.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.32.1",
     "tailwindcss": "^2.2.19",
+    "tslib": "^2.4.0",
     "typescript": "^4.4.4",
     "unplugin-vue-define-options": "^0.6.1",
     "vite": "^3.0.2",
     "vite-plugin-dts": "^0.9.6",
     "vue-tsc": "^0.34.7"
-  },
-  "dependencies": {
-    "filter": "^0.1.1"
   }
 }
