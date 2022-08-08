@@ -10,4 +10,3 @@ declare module '*.vue' {
   export default component
 }
 declare module 'common_lib'
-declare module 'yalertui/components'

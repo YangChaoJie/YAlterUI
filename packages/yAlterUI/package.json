@@ -19,6 +19,26 @@
     },
     "./components": "./src/components/index.ts"
   },
+  "typesVersions": {
+    "*": {
+      "lib/framework.mjs": [
+        "lib/index.d.ts"
+      ],
+      "framework": [
+        "lib/index.d.ts"
+      ],
+      "lib": [
+        "lib/index.d.ts"
+      ],
+      "*": [
+        "*",
+        "dist/*",
+        "lib/*",
+        "lib/*.d.ts",
+        "lib/*/index.d.ts"
+      ]
+    }
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",
@@ -32,7 +52,10 @@
     "typescript": "^4.4.4",
     "unplugin-vue-define-options": "^0.6.1",
     "vite": "^3.0.2",
-    "vue-tsc": "^0.34.7",
-    "vite-plugin-dts": "^0.9.6"
+    "vite-plugin-dts": "^0.9.6",
+    "vue-tsc": "^0.34.7"
+  },
+  "dependencies": {
+    "filter": "^0.1.1"
   }
 }

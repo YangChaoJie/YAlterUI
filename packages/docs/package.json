@@ -10,14 +10,15 @@
   },
   "dependencies": {
     "@vueuse/head": "^0.7.6",
-    "yalertui": "*",
     "common_lib": "*",
+    "filter": "^0.1.1",
     "p5i": "^0.4.2",
     "pinia": "^2.0.14",
     "prismjs": "^1.25.0",
     "vite-plugin-vuetify": "^1.0.0-alpha.11",
     "vue": "^3.2.23",
-    "vuetify": "^v3.0.0-beta.3"
+    "vuetify": "^v3.0.0-beta.3",
+    "yalertui": "*"
   },
   "devDependencies": {
     "@types/node": "^16.11.12",
