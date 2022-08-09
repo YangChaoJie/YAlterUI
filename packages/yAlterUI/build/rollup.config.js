@@ -72,6 +72,7 @@ export default () => {
       output: {
         format: 'esm',
         dir: `dist/esm`,
+        sourcemap: true,
         entryFileNames: '[name].mjs',
         chunkFileNames: '[name]-[hash].mjs',
       },
@@ -83,6 +84,7 @@ export default () => {
       output: {
           format: 'cjs',
           dir: 'dist/cjs',
+          sourcemap: true,
           exports: 'named'
       },
       plugins: plugins()
@@ -93,6 +95,7 @@ export default () => {
       output: {
         format: 'umd',
         file: 'dist/yalterui.js',
+        sourcemap: true,
         name: capitalize('yalterui'),
         exports: 'named',
         banner: bannerText
@@ -104,6 +107,7 @@ export default () => {
       external: ['vue'],
       output: {
         format: 'esm',
+        sourcemap: true,
         file: 'dist/yalterui.mjs',
         banner: bannerText
       },
