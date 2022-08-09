@@ -7,7 +7,8 @@ module.exports = {
           node: 'current'
         }
       }
-    ]
+    ],
+    '@babel/preset-typescript'
   ],
   plugins: [
     ['@vue/babel-plugin-jsx', { optimize: false, enableObjectSlots: false }]

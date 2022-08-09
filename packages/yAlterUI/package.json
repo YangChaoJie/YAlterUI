@@ -1,7 +1,7 @@
 {
   "name": "yalertui",
   "version": "0.0.1",
-   "author": {
+  "author": {
     "name": "jerry yang",
     "email": "linghulingxi@gmail.com"
   },
@@ -15,7 +15,8 @@
   "scripts": {
     "dev": "vite --host --mode development --config ./build/dev.config.ts",
     "build:l": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./build/prod.config.ts",
-    "build": "rollup --config build/rollup.config.js",
+    "build": "rimraf lib dist && rollup --config build/rollup.config.js && yarn build:lib",
+    "build:lib": "cross-env NODE_ENV=lib babel src --out-dir lib --source-maps --extensions \".ts\",\".tsx\",\".snap\" --copy-files --no-copy-ignored --out-file-extension .mjs",
     "preview": "vite preview"
   },
   "exports": {
@@ -47,7 +48,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.17.10",
-    "@babel/preset-typescript": "^7.16.7",
+    "@babel/preset-typescript": "^7.18.6",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
