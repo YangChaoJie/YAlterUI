@@ -7,7 +7,8 @@ import typescript2 from '@rollup/plugin-typescript';
 import pkg from '../package.json';
 import fs from 'fs';
 import path from 'path';
-const bannerText = `/*! ${pkg.name} v${pkg.version} | (c) ${new Date().getFullYear()} ${pkg.author} | ${pkg.license} License */`;
+import { capitalize } from 'vue';
+const bannerText = `/*! ${pkg.name} v${pkg.version} | (c) ${new Date().getFullYear()} ${pkg.author.name} | ${pkg.license} License */`;
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es', '.mjs'];
 
@@ -26,10 +27,42 @@ const entries = {
   }, {})
 }
 
+/**
+ * 设置babel 插件
+ */
 const babelOptions = {
   extensions,
   babelHelpers: 'inline'
 }
+
+const plugins = (isMini) => {
+  let plugins = [
+    nodeResolve({
+      extensions
+    }),
+    typescript({
+        typescript: require('typescript')
+    }),
+    // typescript2(),
+    // typescript({
+    //   removeComments: true,
+    //   // 使用声明生成路径配置
+    //   useTsconfigDeclarationDir: true,
+    //   // 覆盖 tsconfig.json 的配置项
+    //   tsconfigOverride: {
+    //       include: ['src/components/*/*'],
+    //   },
+    // }),
+    babel(babelOptions),
+    commonjs()
+  ]
+  if (isMini) {
+    plugins.push(terser({
+      format: { comments: /^!/, ecma: 2015, semicolons: false }
+    }))
+  }
+  return plugins
+} 
 
 export default () => {
   let config = [
@@ -42,27 +75,39 @@ export default () => {
         entryFileNames: '[name].mjs',
         chunkFileNames: '[name]-[hash].mjs',
       },
-      plugins: [
-        nodeResolve({
-          extensions
-        }),
-        typescript({
-            typescript: require('typescript')
-        }),
-        // typescript2(),
-        // typescript({
-        //   removeComments: true,
-        //   // 使用声明生成路径配置
-        //   useTsconfigDeclarationDir: true,
-        //   // 覆盖 tsconfig.json 的配置项
-        //   tsconfigOverride: {
-        //       include: ['src/components/*/*'],
-        //   },
-        // }),
-        babel(babelOptions),
-        terser(),
-        commonjs()
-      ]
+      plugins: plugins()
+    },
+    {
+      input: entries,
+      external: ['vue'],
+      output: {
+          format: 'cjs',
+          dir: 'dist/cjs',
+          exports: 'named'
+      },
+      plugins: plugins()
+    },
+    {
+      input: 'src/index.ts',
+      external: ['vue'],
+      output: {
+        format: 'umd',
+        file: 'dist/yalterui.js',
+        name: capitalize('yalterui'),
+        exports: 'named',
+        banner: bannerText
+      },
+      plugins: plugins()
+    },
+    {
+      input: 'src/index.ts',
+      external: ['vue'],
+      output: {
+        format: 'esm',
+        file: 'dist/yalterui.mjs',
+        banner: bannerText
+      },
+      plugins: plugins(true)
     }
   ]
   return config;
