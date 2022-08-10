@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ui documents",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@vueuse/head": "^0.7.6",
-    "common_lib": "*",
+    "common_lib": "^0.0.2",
     "p5i": "^0.4.2",
     "pinia": "^2.0.14",
     "prismjs": "^1.25.0",

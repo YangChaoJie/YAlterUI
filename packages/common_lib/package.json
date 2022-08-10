@@ -1,7 +1,7 @@
 {
   "name": "common_lib",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "common lib",
   "type": "module",
   "main": "src/lib.ts",
