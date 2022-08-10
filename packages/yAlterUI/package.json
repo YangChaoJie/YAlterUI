@@ -15,17 +15,19 @@
   "scripts": {
     "dev": "vite --host --mode development --config ./build/dev.config.ts",
     "build:l": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./build/prod.config.ts",
-    "build": "rimraf lib dist && rollup --config build/rollup.config.js && yarn build:lib",
+    "build": "rimraf lib dist && rollup --config build/rollup.config.js && yarn build:lib && yarn build:types",
     "build:lib": "cross-env NODE_ENV=lib babel src --out-dir lib --source-maps --extensions \".ts\",\".tsx\",\".snap\" --copy-files --no-copy-ignored --out-file-extension .mjs",
+    "build:types": "rimraf types-temp && tsc --pretty --emitDeclarationOnly -p tsconfig.json && rollup --config build/rollup.types.config.js && rimraf types-temp",
     "preview": "vite preview"
   },
   "exports": {
     ".": {
-      "import": "./lib/lib.es.js",
-      "require": "./lib/lib.umd.js"
+      "import": "./lib/index.mjs",
+      "require": "./dist/yalterui.js"
     },
     "./components": "./src/components/index.ts"
   },
+  "types": "lib/index.d.ts",
   "typesVersions": {
     "*": {
       "lib/framework.mjs": [
@@ -46,9 +48,14 @@
       ]
     }
   },
+  "files": [
+    "dist/",
+    "lib/"
+  ],
   "devDependencies": {
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.18.6",
+    "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
@@ -60,8 +67,10 @@
     "@vue/babel-plugin-jsx": "^1.1.1",
     "@vue/compiler-sfc": "^3.0.5",
     "@vue/test-utils": "^2.0.0-rc.18",
+    "acorn-walk": "^8.2.0",
     "filter": "^0.1.1",
     "rollup": "^2.77.2",
+    "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.32.1",
     "tailwindcss": "^2.2.19",

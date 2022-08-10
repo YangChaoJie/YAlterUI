@@ -2,12 +2,14 @@
   "include": [
     "src"
   ],
-  "exclude": ["build/*"],
+  "exclude": ["build/*", "types-temp"],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "preserve",
-    "outDir": "lib",
-    "moduleResolution": "node",
+    "outDir": "./types-temp",
+    "declaration": true,                      /* Generates corresponding '.d.ts' file. */
+    "declarationMap": true,
+    "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     "paths": {
       "@/*": [
         "src/*"

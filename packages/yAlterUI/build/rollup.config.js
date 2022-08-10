@@ -8,6 +8,7 @@ import pkg from '../package.json';
 import fs from 'fs';
 import path from 'path';
 import { capitalize } from 'vue';
+import { simple as walk } from 'acorn-walk' // 抽象语法树遍历
 const bannerText = `/*! ${pkg.name} v${pkg.version} | (c) ${new Date().getFullYear()} ${pkg.author.name} | ${pkg.license} License */`;
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es', '.mjs'];
@@ -54,7 +55,47 @@ const plugins = (isMini) => {
     //   },
     // }),
     babel(babelOptions),
-    commonjs()
+    commonjs(),
+    {
+      async buildEnd() {
+        const components = Object.create(null);
+        { // Components
+          const { importedIds } = this.getModuleInfo(
+            (await this.resolve('src/components/index.ts')).id
+          )
+          await Promise.all(importedIds.map(async id => {
+            const importFrom = path.relative(path.resolve(__dirname, '../src'), id).replace(/\.ts$/, '.mjs')
+
+            if (await this.resolve(path.join(id, '../_variables.scss')) != null) {
+              variables.push(id)
+            }
+
+            const { ast } = this.getModuleInfo(id)
+            walk(ast, {
+              ExportNamedDeclaration (node) {
+                node.specifiers.forEach(node => {
+                  components[node.exported.name] = importFrom
+                })
+                node.declaration?.declarations.forEach(node => {
+                  components[node.id.name] = importFrom
+                })
+              },
+            })
+          }))
+        }
+        this.emitFile({
+          type: 'asset',
+          fileName: 'json/importMap.json',
+          source: JSON.stringify({
+            components: Object.fromEntries(Object.entries(components).map(entry => [entry[0], {
+              from: entry[1],
+              styles: [], // TODO
+            }])),
+            // directives,
+          }, null, 2),
+        })
+      }
+    }
   ]
   if (isMini) {
     plugins.push(terser({
@@ -108,6 +149,7 @@ export default () => {
       output: {
         format: 'esm',
         sourcemap: true,
+        name: capitalize('yalterui'),
         file: 'dist/yalterui.mjs',
         banner: bannerText
       },
