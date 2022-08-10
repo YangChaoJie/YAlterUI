@@ -1,11 +1,11 @@
 {
   "name": "yalertui",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "author": {
     "name": "jerry yang",
     "email": "linghulingxi@gmail.com"
   },
-  "private": true,
+  "private": false,
   "description": "all components are settled here",
   "license": "MIT",
   "main": "src/components/index.ts",

@@ -16,7 +16,8 @@
     "prismjs": "^1.25.0",
     "vite-plugin-vuetify": "^1.0.0-alpha.11",
     "vue": "^3.2.23",
-    "vuetify": "^v3.0.0-beta.6"
+    "vuetify": "^v3.0.0-beta.6",
+    "yalertui": "*"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",

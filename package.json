@@ -1,7 +1,7 @@
 {
   "name": "yalterui",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev:lib": "lerna run --scope components dev --stream",
     "dev:docs": "lerna run --scope docs dev --stream",
