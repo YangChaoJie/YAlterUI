@@ -16,6 +16,14 @@ export default defineConfig(({ mode }) => {
         localsConvention: 'camelCase',
       },
     },
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, './src'),
+        packages: resolve(__dirname, '../packages'),
+        'yalertui': 'yalertui/components',
+      },
+      dedupe: ['vue']
+    },
     build: {
       lib: {
         entry: resolve(__dirname, 'src/lib.ts'),
