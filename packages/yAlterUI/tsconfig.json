@@ -2,7 +2,7 @@
   "include": [
     "src"
   ],
-  "exclude": ["build/*", "types-temp"],
+  "exclude": ["build/*", "types-temp", "build/vitest.config.*"],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "preserve",

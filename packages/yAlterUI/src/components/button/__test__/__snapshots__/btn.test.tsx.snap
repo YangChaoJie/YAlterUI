@@ -1,0 +1,13 @@
+// Vitest Snapshot v1
+
+exports[`footer > mount component 1`] = `
+"<div>
+  <!---->
+</div>"
+`;
+
+exports[`mount component 1`] = `
+"<div>
+  <!---->
+</div>"
+`;
