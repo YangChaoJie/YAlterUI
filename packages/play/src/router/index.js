@@ -16,7 +16,7 @@ const nested2 = {
   setup: () => () => h('div', 'nested2'),
 }
 
-export const routes = [
+const routes = [
   {
     path: '/',
     name: 'home',
@@ -44,3 +44,13 @@ export const routes = [
   },
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ]
+
+import { createRouter, createWebHistory }  from 'vue-router'
+
+export default function createPlayRouter (app) {
+  const router = createRouter({
+    history: createWebHistory(),
+    routes
+  })
+  return router
+}

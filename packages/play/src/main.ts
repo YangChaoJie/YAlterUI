@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { routes } from './router'
+import  createPlayRouter  from './router'
 
+console.log('router-----', createPlayRouter);
 
-createApp(App).mount('#app')
+const app = createApp(App);
+app.use(createPlayRouter());
+app.mount('#app')
