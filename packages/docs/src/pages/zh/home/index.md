@@ -41,7 +41,7 @@ import Flat from '@/components/home/Flat.vue'
 
 <!-- <router-link to="/about">about</router-link> -->
 
-<route lang="yaml">
+<!-- <route lang="yaml">
 meta:
   layout: home
-</route>
+</route> -->

@@ -87,7 +87,6 @@
         YJ UI {{ fData.version }} · Made by VCOM The front-end team
       </v-btn>
     </div>
-      <ExampleA />
    </y-footer>
 </template>
 
