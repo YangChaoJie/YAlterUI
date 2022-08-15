@@ -4,15 +4,15 @@
       <v-img :height="size" :src="logo" :width="size" class="mx-auto" max-width="100%" />
       <span>YJ-UI</span>
     </div>
-
+     
     <div class="right-content">
-       <v-btn flat @click="goToPage('/')">
+       <v-btn flat :class="{'active': activeName === '/'}" @click="goToPage('/')">
              首页
        </v-btn>
-       <v-btn flat @click="goToPage('/doc')">
+       <v-btn flat :class="{'active': activeName === '/doc'}" @click="goToPage('/doc')">
         文档
        </v-btn>
-        <v-btn flat @click="goToPage('/components')">
+        <v-btn flat :class="{'active': activeName === '/components'}" @click="goToPage('/components')">
              组件
        </v-btn>
     </div>
@@ -42,10 +42,12 @@ export default defineComponent({
       // `vuetify-logo-v3-${theme.name.value}.svg`
     })
     const router = useRouter();
+    const activeName = ref('');
     const goToPage = (name: string) => {
+      activeName.value = name;
       router.push(name);
     }
-    return { logo, size, goToPage }
+    return { logo, size, goToPage, activeName }
   }
 })
 </script>
@@ -56,6 +58,9 @@ export default defineComponent({
     display: flex;
     align-items: center;
     font-size: 18px;
+  }
+  .active {
+    color: #1976d2;
   }
   .right-content {
     margin-left: 20px;
