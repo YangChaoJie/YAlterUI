@@ -41,7 +41,6 @@ export default defineComponent({
     const size = ref(30)
     const logo = computed(() => {
       return 'https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-light.svg'
-      // `vuetify-logo-v3-${theme.name.value}.svg`
     })
     const router = useRouter();
     const goToPage = (name: string) => {
