@@ -2,7 +2,8 @@
   {
     "title": "通用的组件",
     "path": "components",
-    "icon": "$mdiScriptTextOutline:$mdiScriptText",
+    "icon": "$mdiViewDashboardOutline:$mdiViewDashboard",
+    "group": "components",
     "items": [
       "button",
       "card"

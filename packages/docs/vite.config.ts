@@ -6,6 +6,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import Pages from 'vite-plugin-pages'
 import prism from 'markdown-it-prism'
 import Layouts from 'vite-plugin-vue-layouts'
+import { Examples } from './build/examples-plugin'
 // import vuetify from 'vite-plugin-vuetify'
 // 文档: https://vitejs.dev/config/
 export default defineConfig(({mode}) =>{
@@ -50,6 +51,7 @@ export default defineConfig(({mode}) =>{
           prism,
         ],
       }),
+      Examples(),
       vueJsx(),
       // https://github.com/vuetifyjs/vuetify-loader/
       // vuetify({ autoImport: true })

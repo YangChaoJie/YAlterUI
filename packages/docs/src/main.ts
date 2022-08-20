@@ -2,6 +2,7 @@ import App from './App.vue'
 import { setupLayouts } from 'virtual:generated-layouts';
 import generatedRoutes from '~pages'; 
 const routes = setupLayouts(generatedRoutes)
+import { useGlobalComponents } from './plugins/global-components'
 import { ViteSSG } from 'vite-ssg'
 import {  usePinia } from './plugins/pinia'
 import { useVuetify } from './plugins/vuetify'
@@ -12,6 +13,7 @@ export const createApp = ViteSSG(
   {routes},
   ctx => {
     useVuetify(ctx),
-    usePinia(ctx)
+    usePinia(ctx),
+    useGlobalComponents(ctx)
   }
 )
