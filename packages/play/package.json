@@ -28,6 +28,7 @@
     "@vue/babel-plugin-jsx": "^1.1.1",
     "acorn-walk": "^8.2.0",
     "filter": "^0.1.1",
+    "front-matter": "^4.0.2",
     "happy-dom": "^6.0.4",
     "kill-port": "^2.0.0",
     "rollup": "^2.77.2",

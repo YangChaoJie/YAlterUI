@@ -15,6 +15,7 @@
     </v-icon>
       <Footer />
     </v-main>
+    <app-toc />
   </v-app>
 
 </template>
@@ -25,11 +26,13 @@ import YTopHeader from '@/components/home/head.vue'
 import AppDrawer from '@/components/nav/Drawer.vue'
 import { defineComponent, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
+import AppToc from '@/components/app/Toc.vue'
 export default defineComponent({
   components: {
     Footer,
     YTopHeader,
-    AppDrawer
+    AppDrawer,
+    AppToc
   },
   setup() {
     let text = ref('')

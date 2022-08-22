@@ -1,9 +1,8 @@
 ---
-title: Hello
 meta:
-  - name: description
-    content: Hello World
-test: test
+  title: YJ-UI
+  description: Vuetify provides a safe, inclusive, and judgement free community for developers from all walks of life!
+  keywords: vuetify code of conduct, vuetify coc, community conduct
 ---
 
 <!-- Frontmatter: {{ frontmatter }}

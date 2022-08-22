@@ -4,7 +4,6 @@ meta:
   title: Button component
   description: The button component communicates actions that a user can take and are typically placed in dialogs, forms, cards and toolbars.
   keywords: buttons, vuetify button component, vue button component
-related:
 ---
 
 # Buttons
@@ -16,7 +15,7 @@ The `v-btn` component replaces the standard html button with a material design t
 
 ---
 
-## Usage
+## Usage哈哈
 
 Buttons in their simplest form contain uppercase text, a slight elevation, hover effect, and a ripple effect on click.
 
@@ -35,7 +34,7 @@ The recommended placement of elements inside of `v-btn` is:
 
 | Element / Area | Description |
 | - | - |
-| 1. Container | In addition to text, the Button container typically holds a [v-icon](/components/icons/) component |
+| 1. Container | In addition to text, the Button container typically holds a  component |
 | 2. Icon (optional) | Leading media content intended to improve visual context |
 | 3. Text | A content area for displaying text and other inline elements |
 
@@ -43,7 +42,7 @@ The recommended placement of elements inside of `v-btn` is:
 
 | Component | Description |
 | - | - |
-| [v-btn](/api/v-btn) | Primary Component |
+| [v-btn] | Primary Component |
 
 ## Examples
 

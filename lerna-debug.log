@@ -1,14 +1,14 @@
 0 silly argv {
 0 silly argv   _: [ 'run' ],
-0 silly argv   scope: 'yalertui',
+0 silly argv   scope: 'docs',
 0 silly argv   stream: true,
 0 silly argv   lernaVersion: '5.2.0',
-0 silly argv   '$0': 'C:\\Program Files\\nodejs\\node_modules\\lerna\\cli.js',
-0 silly argv   script: 'test'
+0 silly argv   '$0': 'node_modules\\lerna\\cli.js',
+0 silly argv   script: 'dev'
 0 silly argv }
 1 notice cli v5.2.0
 2 verbose rootPath D:\study\YUI\YAlterUI
-3 error Error: Unsupported URL Type "workspace:": workspace:^0.0.0
+3 error Error: Unsupported URL Type "workspace:": workspace:^1.0.1
 3 error     at unsupportedURLType (D:\study\YUI\YAlterUI\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:246:15)
 3 error     at fromURL (D:\study\YUI\YAlterUI\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:306:13)
 3 error     at Function.resolve (D:\study\YUI\YAlterUI\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:76:12)

@@ -1,9 +1,6 @@
 ---
-title: Hello
 meta:
-  - name: description
-    content: Hello World
-test: test
+  title: YJ-UI
 ---
 
 <!-- Frontmatter: {{ frontmatter }}

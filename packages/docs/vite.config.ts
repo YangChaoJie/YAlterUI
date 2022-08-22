@@ -7,6 +7,7 @@ import Pages from 'vite-plugin-pages'
 import prism from 'markdown-it-prism'
 import Layouts from 'vite-plugin-vue-layouts'
 import { Examples } from './build/examples-plugin'
+import { configureMarkdown, parseMeta } from './build/markdown-it'
 // import vuetify from 'vite-plugin-vuetify'
 // 文档: https://vitejs.dev/config/
 export default defineConfig(({mode}) =>{
@@ -41,7 +42,31 @@ export default defineConfig(({mode}) =>{
         extensions: ['md', 'vue'],
         pagesDir: [
           { dir: 'src/pages', baseRoute: '' },
-        ]
+        ],
+        extendRoute (route) {
+          if (['index', 'all'].includes(route.name)) {
+            return route
+          }
+
+          const currentPath = route.path.split('/')
+          const layout = currentPath.length === 2 ? 'home' : 'default'
+          const meta = parseMeta(route.component)
+          let path = route.path
+
+          if (path.startsWith('/api')) {
+            const parts = path.split('/')
+            path = ['', parts[2], parts[1], parts.slice(3)].join('/')
+          }
+
+          return {
+            ...route,
+            path,
+            meta: {
+              ...meta,
+              layout,
+            },
+          }
+        }
       }),
       // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
       Layouts(),
@@ -50,6 +75,7 @@ export default defineConfig(({mode}) =>{
         markdownItUses: [
           prism,
         ],
+        markdownItSetup: configureMarkdown
       }),
       Examples(),
       vueJsx(),

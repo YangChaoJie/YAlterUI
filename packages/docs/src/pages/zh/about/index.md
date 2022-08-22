@@ -1,9 +1,7 @@
 ---
-title: 关于
 meta:
-  - name: description
-    content: 关于团队
-test: test
+  title: 关于
+  description: 关于团队
 ---
 # 关于团队
 
