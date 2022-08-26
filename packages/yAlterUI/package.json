@@ -29,6 +29,7 @@
     "./components": "./src/components/index.ts"
   },
   "types": "lib/index.d.ts",
+  "styles": "lib/styles/main.css",
   "typesVersions": {
     "*": {
       "lib/framework.mjs": [

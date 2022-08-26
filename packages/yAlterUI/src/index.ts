@@ -1,5 +1,6 @@
 
 import * as components from './components'
+import './styles/main.css';
 import { App } from 'vue'
 
 const yalertui = {

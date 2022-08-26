@@ -2,12 +2,12 @@
   <v-navigation-drawer
     id="app-toc"
     color="background"
-    class="py-4 pr-3"
+    class="app-toc py-4 pr-3"
     floating
     width="256"
     location="right"
   >
-    <!-- <template
+    <template
       v-if="toc.length"
       #prepend
     >
@@ -15,7 +15,7 @@
         class="mb-2"
         path="contents"
       />
-    </template> -->
+    </template>
 
     <ul class="mb-4 ml-5">
       <router-link
@@ -194,8 +194,8 @@
     li {
       border-left: 2px solid #E5E5E5
     }
-    &:router-link-active {
-      border-left-color: currentColor
+    .router-link-active {
+      border-left-color:  currentColor;
     }
     .v-toc-link {
       color: inherit
