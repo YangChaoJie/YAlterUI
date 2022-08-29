@@ -63,6 +63,8 @@
   }
 
   function useUpdateHashOnScroll (route: RouteLocation, router: Router) {
+    console.log('hahahha');
+    
     const scrolling = ref(false)
     let offsets: number[] = []
     let timeout: any = 0
@@ -135,7 +137,8 @@
 
     function onScroll () {
       const toc = route.meta.toc as any[]
-
+      console.log('heheheh');
+      
       clearTimeout(timeout)
 
       if (

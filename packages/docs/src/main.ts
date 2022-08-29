@@ -22,9 +22,24 @@ export const createApp = ViteSSG(
     ],
     scrollBehavior (to, from, savedPosition) {
       console.log('to', to);
-      if (savedPosition) return savedPosition
-      if (to.hash) return { el: to.hash }
-      else return { top: 0 }
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        const isHash = to.hash ? to.hash.split('#') : undefined
+        if (isHash) {
+          let tmp = setTimeout(() => {
+            document.getElementById(isHash[1])?.scrollIntoView({
+              behavior: "smooth",  // 平滑过渡
+              block:    "center"    // 上边框与视窗顶部平齐
+          })
+            clearTimeout(tmp)
+          })
+        }
+        return
+      }
+      // if (savedPosition) return savedPosition
+      // if (to.hash) return { el: to.hash }
+      // else return { top: 0 }
     },
   },
   ctx => {
