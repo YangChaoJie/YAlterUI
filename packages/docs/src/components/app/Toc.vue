@@ -66,7 +66,6 @@
     const scrolling = ref(false)
     let offsets: number[] = []
     let timeout: any = 0
-
     function calculateOffsets () {
       const offsets = []
       const toc = route.meta.toc as any[]

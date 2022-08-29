@@ -6,14 +6,23 @@
       {{ text }}
     </div> -->
     <v-main>
-      <router-view />
-        <v-icon
-      large
-      color="green darken-2"
-    >
-      mdi-domain
-    </v-icon>
-      <Footer />
+      <!-- <router-view /> -->
+ 
+      <!-- <Footer /> -->
+      <v-container
+        class="pa-4 pa-sm-6 pa-md-8"
+        fluid
+        tag="section"
+      >
+          This is <b>BETA</b> documentation for Vuetify 3, examples and information may be broken or outdated.
+          <br>
+          Components not listed in the sidebar are not available yet.
+          <br>
+          Vuetify 2 documentation can be found on <app-link href="https://vuetifyjs.com/">vuetifyjs.com</app-link>
+      
+
+        <router-view />
+      </v-container>
     </v-main>
     <app-toc />
   </v-app>

@@ -51,7 +51,7 @@ export const configureMarkdown = (md: MarkdownIt) => {
 export const md = configureMarkdown(new MarkdownIt())
 
 const generateToc = (content: string) => {
-  const headings = []
+  const headings: any[] = []
   const tokens = md.parse(content, {})
   const length = tokens.length
 
@@ -74,7 +74,7 @@ const generateToc = (content: string) => {
     headings.push({
       text,
       to,
-      level
+      level,
     })
   }
 
@@ -112,9 +112,8 @@ const validate = ajv.compile({
 
 export const parseMeta = (componentPath: string) => {
   const str = fs.readFileSync(path.resolve(componentPath.slice(1)), { encoding: 'utf-8' })
-  console.log('str------------', str);
   const { attributes, body } = fm(str)
-  console.log('attributes------------', attributes);
+
   const valid = validate(attributes)
   if (!valid) {
     throw new Error(`\nInvalid frontmatter: ${componentPath}` + validate.errors!.map(error => (

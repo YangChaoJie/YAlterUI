@@ -44,6 +44,10 @@ export default defineConfig(({mode}) =>{
           { dir: 'src/pages', baseRoute: '' },
         ],
         extendRoute (route) {
+          if (route.path === '/' || route.path === '') {
+            return {...route, redirect: '/zh'}
+          }
+
           if (['index', 'all'].includes(route.name)) {
             return route
           }
@@ -57,7 +61,7 @@ export default defineConfig(({mode}) =>{
             const parts = path.split('/')
             path = ['', parts[2], parts[1], parts.slice(3)].join('/')
           }
-
+  
           return {
             ...route,
             path,

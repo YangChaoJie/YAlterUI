@@ -41,36 +41,36 @@ export default defineComponent({
   z-index: 10;
 }
 
-.v-application__wrap {
-  height: 100vh !important;
-  overflow: auto !important;
-}
+// .v-application__wrap {
+//   height: 100vh !important;
+//   overflow: auto !important;
+// }
 
-.v-application__wrap:hover {
-  overflow-y: auto !important;
-}
+// .v-application__wrap:hover {
+//   overflow-y: auto !important;
+// }
 
-.v-application__wrap::-webkit-scrollbar {
-  width: 8px;
-  height: 1px;
-  position: absolute;
-  right: -40px;
-  top: 0;
-  background: white;
-}
+// .v-application__wrap::-webkit-scrollbar {
+//   width: 8px;
+//   height: 1px;
+//   position: absolute;
+//   right: -40px;
+//   top: 0;
+//   background: white;
+// }
 
-.v-application__wrap::-webkit-scrollbar-thumb {
-  background: rgba($color: #494848, $alpha: 0.4);
-  border-radius: 4px;
-  width: 2px;
-  height: 20px;
-}
-.v-application__wrap::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgba($color:  #494848, $alpha: 0.4);
-  background: white;
-  display: none;
-}
-.v-application__wrap::-webkit-scrollbar-track-piece {
-  background: rgba($color: #000000, $alpha: 0.0);
-}
+// .v-application__wrap::-webkit-scrollbar-thumb {
+//   background: rgba($color: #494848, $alpha: 0.4);
+//   border-radius: 4px;
+//   width: 2px;
+//   height: 20px;
+// }
+// .v-application__wrap::-webkit-scrollbar-track {
+//   box-shadow: inset 0 0 5px rgba($color:  #494848, $alpha: 0.4);
+//   background: white;
+//   display: none;
+// }
+// .v-application__wrap::-webkit-scrollbar-track-piece {
+//   background: rgba($color: #000000, $alpha: 0.0);
+// }
 </style>
