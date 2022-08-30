@@ -13,7 +13,6 @@ import AppImg from '@/components/app/Img.vue'
 import AppSheet from '@/components/app/Sheet.vue'
 export type GlobalComponentsPlugin = (ctx: ViteSSGContext) => void
 export const useGlobalComponents: GlobalComponentsPlugin = ({ app }) => {
-  console.log(app);
   app.component('Usage', Usage)
   app.component('UsageExample', UsageExample)
   app.component('VueFile', VueFile)

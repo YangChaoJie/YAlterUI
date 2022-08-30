@@ -8,30 +8,46 @@ import { usePinia } from './plugins/pinia'
 import { useVuetify } from './plugins/vuetify'
 console.log('router-----', routes);
 import { rpath, trailingSlash, generatedRoutes } from '@/util/routes'
+/**
+ * 页面滑动到锚点
+ * @param id 
+ */
+function scrollToTargetAdjusted(id: string){
+  var element = document.getElementById(id);
+  const makbody = document.getElementsByClassName('v-application__wrap')[0];
+  var headerOffset = 64;
+  var elementPosition = element?.getBoundingClientRect().top;
+  var offsetPosition = elementPosition! + (makbody as HTMLElement).scrollTop - headerOffset;
+
+  makbody.scrollTo({
+       top: offsetPosition,
+       behavior: "auto"
+  });
+}
 export const createApp = ViteSSG(
   App,
   {
     routes: [
       ...routes,
-      // {
-      //   path: '/:pathMatch(.*)*',
-      //   redirect: to => {
-      //     return rpath(to.fullPath)
-      //   },
-      // },
+      {
+        path: '/:pathMatch(.*)*',
+        redirect: to => {
+          return rpath(to.fullPath)
+        },
+      },
     ],
     scrollBehavior (to, from, savedPosition) {
-      console.log('to', to);
       if (savedPosition) {
         return savedPosition
       } else {
         const isHash = to.hash ? to.hash.split('#') : undefined
         if (isHash) {
           let tmp = setTimeout(() => {
-            document.getElementById(isHash[1])?.scrollIntoView({
-              behavior: "smooth",  // 平滑过渡
-              block:    "start"    // 上边框与视窗顶部平齐
-          })
+          //   document.getElementById(isHash[1])?.scrollIntoView({
+          //     behavior: "auto",  // 平滑过渡
+          //     block:    "start"    // 上边框与视窗顶部平齐
+          // })
+            scrollToTargetAdjusted(isHash[1])
             clearTimeout(tmp)
           })
         }

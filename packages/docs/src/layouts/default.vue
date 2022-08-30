@@ -55,13 +55,9 @@ export default defineComponent({
       // makbody.addEventListener('scroll', onScroll1)
     })
 
-    function onScroll1() {
-      console.log('111111111111');
-    }
     return {
       text,
-      showDrawer,
-      onScroll1
+      showDrawer
     }
   }
 })

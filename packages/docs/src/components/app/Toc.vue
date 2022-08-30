@@ -7,7 +7,7 @@
     width="256"
     location="right"
   >
-    <template
+    <!-- <template
       v-if="toc.length"
       #prepend
     >
@@ -15,7 +15,7 @@
         class="mb-2"
         path="contents"
       />
-    </template>
+    </template> -->
 
     <ul class="mb-4 ml-5" ref="container">
       <router-link
@@ -66,8 +66,6 @@
   }
 
   function useUpdateHashOnScroll (route: RouteLocation, router: Router) {
-    console.log('hahahha');
-    
     const scrolling = ref(false)
     let offsets: number[] = []
     let timeout: any = 0
@@ -96,7 +94,7 @@
       //   document.documentElement.offsetTop ||
       //   0
       // )
-      console.log('currentOffset---', currentOffset);
+      // console.log('currentOffset---', currentOffset);
       
       // If we are at the top of the page
       // reset the offset
@@ -104,7 +102,6 @@
         if (route.hash) {
           router.replace({ path: route.path })
         }
-
         return
       }
 
@@ -127,9 +124,7 @@
       }
 
       const hash = toc[tindex].to
-      console.log('hash-----', hash);
-      
-
+   
       if (hash === route.hash) return
 
       scrolling.value = true
@@ -151,7 +146,7 @@
         scrolling.value ||
         !toc.length
       ) return
-      console.log('heheheh');
+      // console.log('heheheh');
 
       timeout = setTimeout(findActiveHash, 17)
     }
@@ -167,33 +162,19 @@
       const theme = useTheme()
 
       const { onScroll, scrolling } = useUpdateHashOnScroll(route, router)
-      // const container = ref()
-      // const marker = ref()
-      // useActiveAnchor(container, marker)
       async function onClick (hash: string) {
         if (route.hash === hash) return
-        console.log('hash-------', hash);
-        console.log('router-------', route.path);
         scrolling.value = true
-
         router.replace({ path: route.path, hash })
-
         // await this.$vuetify.goTo(hash)
         // await wait(200)
-
         scrolling.value = false
       }
 
       onMounted(() => {
         const makbody = document.getElementsByClassName('v-application__wrap')[0];
-        console.log('makbody---', makbody);
-        
         makbody.addEventListener('scroll', onScroll)
       })
-
-      function onScroll1 () {
-        console.log('111111111111');
-      }
 
   // onUpdated(() => {
   //   // sidebar update means a route change
@@ -210,7 +191,6 @@
         toc: computed(() => route.meta.toc as TocItem[]),
         onClick,
         onScroll,
-        onScroll1,
         dark: computed(() => theme.current.value.dark),
         route,
       }
@@ -229,6 +209,10 @@
     }
     .router-link-active {
       border-left-color:  currentColor;
+      transition: color .25s;
+      .v-toc-link {
+        font-weight: 700 !important;
+      }
     }
     .v-toc-link {
       color: inherit

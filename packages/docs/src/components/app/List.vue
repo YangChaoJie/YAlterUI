@@ -39,10 +39,6 @@ function generateItems(item: Item, path: string, locale: string): any {
     return item.items.map(child => {
       if (typeof child === 'string') {
         const route = routes.find((route: { path: string }) => route.path.endsWith(`/${path}/${child}/`))
-        console.log('route---', route, 'routes', routes);
-        console.log('path', path, 'child', child, 'locale', locale);
-        console.log('route.path', `${locale}/${path}/${child}/`);
-
         return {
           title: route?.meta?.nav ?? route?.meta?.title ?? child,
           to: route?.path,
