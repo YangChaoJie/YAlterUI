@@ -17,7 +17,7 @@
       />
     </template>
 
-    <ul class="mb-4 ml-5">
+    <ul class="mb-4 ml-5" ref="container">
       <router-link
         v-for="{ to, level, text } in toc"
         v-slot="{ href }"
@@ -26,6 +26,7 @@
         custom
       >
         <li
+          ref="marker"
           :class="[
             'pl-3 text-body-2 py-1 font-weight-regular',
             {
@@ -52,10 +53,12 @@
 
 <script lang="ts">
   // Utilities
-  import { computed, defineComponent, ref } from 'vue'
+  import { computed, defineComponent, ref, onMounted, onUnmounted } from 'vue'
   import { RouteLocation, Router, useRoute, useRouter } from 'vue-router'
   import { useTheme } from 'vuetify'
-
+//   import {
+//   useActiveAnchor
+// } from '@/composables/anchor'
   type TocItem = {
     to: string;
     text: string;
@@ -86,13 +89,15 @@
     async function findActiveHash () {
       const toc = route.meta.toc as any[]
       // if (this.$vuetify.breakpoint.mobile) return
-
-      const currentOffset = (
-        window.pageYOffset ||
-        document.documentElement.offsetTop ||
-        0
-      )
-
+      const makbody = document.getElementsByClassName('v-application__wrap')[0];
+      const currentOffset = (makbody as HTMLElement).scrollTop
+      // (
+      //   window.pageYOffset ||
+      //   document.documentElement.offsetTop ||
+      //   0
+      // )
+      console.log('currentOffset---', currentOffset);
+      
       // If we are at the top of the page
       // reset the offset
       if (currentOffset === 0) {
@@ -122,6 +127,8 @@
       }
 
       const hash = toc[tindex].to
+      console.log('hash-----', hash);
+      
 
       if (hash === route.hash) return
 
@@ -137,7 +144,6 @@
 
     function onScroll () {
       const toc = route.meta.toc as any[]
-      console.log('heheheh');
       
       clearTimeout(timeout)
 
@@ -145,6 +151,7 @@
         scrolling.value ||
         !toc.length
       ) return
+      console.log('heheheh');
 
       timeout = setTimeout(findActiveHash, 17)
     }
@@ -160,7 +167,9 @@
       const theme = useTheme()
 
       const { onScroll, scrolling } = useUpdateHashOnScroll(route, router)
-
+      // const container = ref()
+      // const marker = ref()
+      // useActiveAnchor(container, marker)
       async function onClick (hash: string) {
         if (route.hash === hash) return
         console.log('hash-------', hash);
@@ -175,11 +184,33 @@
         scrolling.value = false
       }
 
+      onMounted(() => {
+        const makbody = document.getElementsByClassName('v-application__wrap')[0];
+        console.log('makbody---', makbody);
+        
+        makbody.addEventListener('scroll', onScroll)
+      })
+
+      function onScroll1 () {
+        console.log('111111111111');
+      }
+
+  // onUpdated(() => {
+  //   // sidebar update means a route change
+  //   activateLink(location.hash)
+  // })
+
+      onUnmounted(() => {
+        window.removeEventListener('scroll', onScroll)
+      })
+
+
 
       return {
         toc: computed(() => route.meta.toc as TocItem[]),
         onClick,
         onScroll,
+        onScroll1,
         dark: computed(() => theme.current.value.dark),
         route,
       }

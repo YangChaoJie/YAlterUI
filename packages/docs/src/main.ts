@@ -30,7 +30,7 @@ export const createApp = ViteSSG(
           let tmp = setTimeout(() => {
             document.getElementById(isHash[1])?.scrollIntoView({
               behavior: "smooth",  // 平滑过渡
-              block:    "center"    // 上边框与视窗顶部平齐
+              block:    "start"    // 上边框与视窗顶部平齐
           })
             clearTimeout(tmp)
           })
