@@ -56,7 +56,7 @@
 
 <script lang="ts">
   // Composables
-  import { useTheme } from 'vuetify'
+  // import { useTheme } from 'vuetify'
   // Utilities
   import { ComponentPublicInstance, computed, defineComponent, ref } from 'vue'
   import { IN_BROWSER } from '@/util/global'
@@ -72,7 +72,7 @@
   import 'prismjs/components/prism-sass.js'
   import 'prismjs/components/prism-scss.js'
   import 'prismjs/components/prism-typescript.js'
-
+  import { useDark } from '@vueuse/core'
   export default defineComponent({
     name: 'Markup',
 
@@ -89,7 +89,7 @@
     },
 
     setup (props) {
-      const theme = useTheme()
+      // const theme = useTheme()
       const clicked = ref(false)
       const root = ref<ComponentPublicInstance>()
       const type = ref('js')
@@ -122,10 +122,12 @@
 
         clicked.value = false
       }
-
-      const isDark = computed(() => {
-        return  theme.current.value.dark
-      })
+      
+      const isDark = !useDark().value
+      // !useDark()
+      // computed(() => {
+      //   return  theme.current.value.dark
+      // })
 
       return {
         root,
