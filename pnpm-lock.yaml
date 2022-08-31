@@ -10,12 +10,14 @@ importers:
       '@rollup/plugin-commonjs': ^22.0.2
       '@rollup/plugin-node-resolve': ^13.3.0
       '@rollup/plugin-typescript': ^8.3.2
+      '@types/prismjs': ^1.26.0
       '@vitejs/plugin-vue': ^2.0.0
       '@vitejs/plugin-vue-jsx': ^1.3.10
       '@vue/babel-plugin-jsx': ^1.1.1
       '@vueuse/core': ^8.1.2
       acorn-walk: ^8.2.0
       cross-spawn: ^7.0.3
+      docs: workspace:^1.0.1
       execa: ^6.1.0
       filter: ^0.1.1
       front-matter: ^4.0.2
@@ -27,6 +29,7 @@ importers:
       lerna: ^5.2.0
       node-fetch: ^3.2.10
       play: ^0.5.0
+      prismjs: ^1.25.0
       rollup: ^2.77.2
       rollup-plugin-dts: ^4.2.2
       rollup-plugin-terser: ^7.0.2
@@ -51,11 +54,13 @@ importers:
       '@rollup/plugin-commonjs': 22.0.2_rollup@2.77.2
       '@rollup/plugin-node-resolve': 13.3.0_rollup@2.77.2
       '@rollup/plugin-typescript': 8.3.4_36ea43b6594c88d0cb8c98416cabe456
+      '@types/prismjs': registry.npmmirror.com/@types/prismjs/1.26.0
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.9+vue@3.2.33
       '@vitejs/plugin-vue-jsx': 1.3.10
       '@vue/babel-plugin-jsx': 1.1.1
       acorn-walk: 8.2.0
       cross-spawn: 7.0.3
+      docs: link:packages/docs
       execa: 6.1.0
       filter: 0.1.1
       front-matter: registry.npmmirror.com/front-matter/4.0.2
@@ -66,6 +71,7 @@ importers:
       inquirer: 8.2.4
       lerna: 5.2.0
       node-fetch: 3.2.10
+      prismjs: registry.npmmirror.com/prismjs/1.28.0
       rollup: 2.77.2
       rollup-plugin-dts: 4.2.2_rollup@2.77.2+typescript@4.6.4
       rollup-plugin-terser: 7.0.2_rollup@2.77.2
@@ -86,12 +92,14 @@ importers:
       '@rollup/plugin-node-resolve': ^13.3.0
       '@rollup/plugin-typescript': ^8.3.2
       '@types/node': ^16.11.12
+      '@types/prismjs': ^1.26.0
       '@vitejs/plugin-vue': ^1.10.2
       '@vitejs/plugin-vue-jsx': ^1.3.10
       '@vue/babel-plugin-jsx': ^1.1.1
       '@vueuse/head': ^0.7.6
       acorn-walk: ^8.2.0
       ajv: ^8.11.0
+      docs: workspace:^1.0.1
       filter: ^0.1.1
       front-matter: ^4.0.2
       fs-extra: ^10.0.0
@@ -111,7 +119,7 @@ importers:
       p5i: ^0.4.2
       pinia: ^2.0.14
       play: ^0.5.0
-      prismjs: ^1.25.0
+      prismjs: ^1.28.0
       rollup: ^2.77.2
       rollup-plugin-dts: ^4.2.2
       rollup-plugin-terser: ^7.0.2
@@ -140,7 +148,6 @@ importers:
       p5i: 0.4.2
       pinia: 2.0.14_typescript@4.6.4+vue@3.2.33
       play: registry.npmmirror.com/play/0.5.0
-      prismjs: 1.28.0
       vite-plugin-vuetify: 1.0.0-alpha.11_vite@2.9.9+vuetify@3.0.0-beta.7
       vue: 3.2.33
       vuetify: 3.0.0-beta.7_b3b148c9e8b9a65895d11ae487ae6211
@@ -153,11 +160,13 @@ importers:
       '@rollup/plugin-node-resolve': 13.3.0_rollup@2.77.2
       '@rollup/plugin-typescript': 8.3.4_36ea43b6594c88d0cb8c98416cabe456
       '@types/node': 16.11.34
+      '@types/prismjs': registry.npmmirror.com/@types/prismjs/1.26.0
       '@vitejs/plugin-vue': 1.10.2_vite@2.9.9
       '@vitejs/plugin-vue-jsx': 1.3.10
       '@vue/babel-plugin-jsx': 1.1.1
       acorn-walk: 8.2.0
       ajv: registry.npmmirror.com/ajv/8.11.0
+      docs: 'link:'
       filter: 0.1.1
       front-matter: registry.npmmirror.com/front-matter/4.0.2
       fs-extra: 10.1.0
@@ -174,6 +183,7 @@ importers:
       markdown-it-meta: registry.npmmirror.com/markdown-it-meta/0.0.1
       markdown-it-prism: 2.2.4
       markdownlint-cli: registry.npmmirror.com/markdownlint-cli/0.31.1
+      prismjs: 1.28.0
       rollup: 2.77.2
       rollup-plugin-dts: 4.2.2_rollup@2.77.2+typescript@4.6.4
       rollup-plugin-terser: 7.0.2_rollup@2.77.2
@@ -203,15 +213,18 @@ importers:
       '@rollup/plugin-node-resolve': ^13.3.0
       '@rollup/plugin-typescript': ^8.3.4
       '@types/node': ^17.0.35
+      '@types/prismjs': ^1.26.0
       '@vitejs/plugin-vue': ^2.3.3
       '@vitejs/plugin-vue-jsx': ^1.3.10
       '@vue/babel-plugin-jsx': ^1.1.1
       acorn-walk: ^8.2.0
+      docs: workspace:^1.0.1
       filter: ^0.1.1
       front-matter: ^4.0.2
       happy-dom: ^6.0.4
       kill-port: ^2.0.0
       play: ^0.5.0
+      prismjs: ^1.25.0
       rollup: ^2.77.2
       rollup-plugin-dts: ^4.2.2
       rollup-plugin-terser: ^7.0.2
@@ -236,14 +249,17 @@ importers:
       '@rollup/plugin-node-resolve': registry.npmmirror.com/@rollup/plugin-node-resolve/13.3.0_rollup@2.77.2
       '@rollup/plugin-typescript': registry.npmmirror.com/@rollup/plugin-typescript/8.3.4_36ea43b6594c88d0cb8c98416cabe456
       '@types/node': registry.npmmirror.com/@types/node/17.0.45
+      '@types/prismjs': registry.npmmirror.com/@types/prismjs/1.26.0
       '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.3.3_vite@2.9.9+vue@3.2.33
       '@vitejs/plugin-vue-jsx': registry.npmmirror.com/@vitejs/plugin-vue-jsx/1.3.10
       '@vue/babel-plugin-jsx': registry.npmmirror.com/@vue/babel-plugin-jsx/1.1.1
       acorn-walk: registry.npmmirror.com/acorn-walk/8.2.0
+      docs: link:../docs
       filter: registry.npmmirror.com/filter/0.1.1
       front-matter: registry.npmmirror.com/front-matter/4.0.2
       happy-dom: registry.npmmirror.com/happy-dom/6.0.4
       kill-port: registry.npmmirror.com/kill-port/2.0.1
+      prismjs: registry.npmmirror.com/prismjs/1.28.0
       rollup: registry.npmmirror.com/rollup/2.77.2
       rollup-plugin-dts: registry.npmmirror.com/rollup-plugin-dts/4.2.2_rollup@2.77.2+typescript@4.6.4
       rollup-plugin-terser: registry.npmmirror.com/rollup-plugin-terser/7.0.2_rollup@2.77.2
@@ -264,6 +280,7 @@ importers:
       '@rollup/plugin-commonjs': ^22.0.2
       '@rollup/plugin-node-resolve': ^13.3.0
       '@rollup/plugin-typescript': ^8.3.2
+      '@types/prismjs': ^1.26.0
       '@typescript-eslint/eslint-plugin': ^5.4.0
       '@typescript-eslint/parser': ^5.4.0
       '@vitejs/plugin-vue': ^2.3.1
@@ -272,10 +289,12 @@ importers:
       '@vue/compiler-sfc': ^3.0.5
       '@vue/test-utils': ^2.0.0-rc.18
       acorn-walk: ^8.2.0
+      docs: workspace:^1.0.1
       filter: ^0.1.1
       front-matter: ^4.0.2
       happy-dom: ^6.0.4
       play: ^0.5.0
+      prismjs: ^1.25.0
       rollup: ^2.77.2
       rollup-plugin-dts: ^4.2.2
       rollup-plugin-terser: ^7.0.2
@@ -300,6 +319,7 @@ importers:
       '@rollup/plugin-commonjs': 22.0.2_rollup@2.77.2
       '@rollup/plugin-node-resolve': 13.3.0_rollup@2.77.2
       '@rollup/plugin-typescript': 8.3.4_36ea43b6594c88d0cb8c98416cabe456
+      '@types/prismjs': registry.npmmirror.com/@types/prismjs/1.26.0
       '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.32.0_5e42cff94ce2fec6da74bcb999e13fa7
       '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.32.0_typescript@4.6.4
       '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.3.3_vite@3.0.2+vue@3.2.33
@@ -308,9 +328,11 @@ importers:
       '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc/3.2.33
       '@vue/test-utils': registry.npmmirror.com/@vue/test-utils/2.0.2_vue@3.2.33
       acorn-walk: 8.2.0
+      docs: link:../docs
       filter: 0.1.1
       front-matter: registry.npmmirror.com/front-matter/4.0.2
       happy-dom: registry.npmmirror.com/happy-dom/6.0.4
+      prismjs: registry.npmmirror.com/prismjs/1.28.0
       rollup: 2.77.2
       rollup-plugin-dts: 4.2.2_rollup@2.77.2+typescript@4.6.4
       rollup-plugin-terser: 7.0.2_rollup@2.77.2
@@ -1047,7 +1069,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': registry.npmmirror.com/@babel/core/7.17.10
+      '@babel/core': 7.17.10
       '@babel/helper-plugin-utils': 7.18.9
     dev: true
 
@@ -2951,7 +2973,7 @@ packages:
       resolve: 1.22.1
       rollup: 2.77.2
       tslib: 2.4.0
-      typescript: registry.npmmirror.com/typescript/4.6.4
+      typescript: 4.6.4
     dev: true
 
   /@rollup/pluginutils/3.1.0_rollup@2.77.2:
@@ -7022,6 +7044,7 @@ packages:
   /prismjs/1.28.0:
     resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==}
     engines: {node: '>=6'}
+    dev: true
 
   /proc-log/2.0.1:
     resolution: {integrity: sha512-Kcmo2FhfDTXdcbfDH76N7uBYHINxc/8GW7UAVuVP9I+Va3uHSerrnKV6dLooga/gh7GlgzuCCr/eoldnL1muGw==}
@@ -7468,7 +7491,7 @@ packages:
     dependencies:
       magic-string: 0.26.2
       rollup: 2.77.2
-      typescript: registry.npmmirror.com/typescript/4.6.4
+      typescript: 4.6.4
     optionalDependencies:
       '@babel/code-frame': registry.npmmirror.com/@babel/code-frame/7.18.6
     dev: true
@@ -7497,7 +7520,7 @@ packages:
       resolve: mirrors.tencent.com/resolve/1.22.1
       rollup: 2.77.2
       tslib: 2.4.0
-      typescript: registry.npmmirror.com/typescript/4.6.4
+      typescript: 4.6.4
     dev: true
 
   /rollup/2.77.2:
@@ -11090,6 +11113,12 @@ packages:
     version: 4.0.0
     dev: true
 
+  registry.npmmirror.com/@types/prismjs/1.26.0:
+    resolution: {integrity: sha512-ZTaqn/qSqUuAq1YwvOFQfVW1AR/oQJlLSZVustdjwI+GZ8kr0MSHBj0tsXPW1EqHubx50gtBEjbPGsdZwQwCjQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/prismjs/-/prismjs-1.26.0.tgz}
+    name: '@types/prismjs'
+    version: 1.26.0
+    dev: true
+
   registry.npmmirror.com/@types/qs/6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/qs/-/qs-6.9.7.tgz}
     name: '@types/qs'
@@ -13903,6 +13932,13 @@ packages:
     name: pretty-hrtime
     version: 1.0.3
     engines: {node: '>= 0.8'}
+    dev: true
+
+  registry.npmmirror.com/prismjs/1.28.0:
+    resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prismjs/-/prismjs-1.28.0.tgz}
+    name: prismjs
+    version: 1.28.0
+    engines: {node: '>=6'}
     dev: true
 
   registry.npmmirror.com/process-nextick-args/2.0.1:

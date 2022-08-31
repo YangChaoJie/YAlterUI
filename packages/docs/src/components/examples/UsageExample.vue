@@ -85,7 +85,7 @@
     <v-expand-transition>
       <div v-if="code">
         <div class="pa-3">
-          <!-- <app-markup :code="formatAttributes" /> -->
+          <app-markup :code="formatAttributes" />
         </div>
       </div>
     </v-expand-transition>
@@ -117,7 +117,7 @@
 
     setup (props, { emit }) {
       const tune = ref(false)
-      const code = ref(false)
+      const code = ref(true)
       const model = computed({
         get () {
           return props.modelValue

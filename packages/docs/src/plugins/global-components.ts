@@ -11,6 +11,7 @@ import AppTable from '@/components/app/Table.vue'
 import AppLink from '@/components/app/Link.vue'
 import AppImg from '@/components/app/Img.vue'
 import AppSheet from '@/components/app/Sheet.vue'
+import AppMarkup from '@/components/app/Markup.vue'
 export type GlobalComponentsPlugin = (ctx: ViteSSGContext) => void
 export const useGlobalComponents: GlobalComponentsPlugin = ({ app }) => {
   app.component('Usage', Usage)
@@ -25,4 +26,5 @@ export const useGlobalComponents: GlobalComponentsPlugin = ({ app }) => {
   app.component('AppLink', AppLink)
   app.component('AppImg', AppImg)
   app.component('AppSheet', AppSheet)
+  app.component('AppMarkup', AppMarkup)
 }

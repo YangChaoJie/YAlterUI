@@ -92,17 +92,17 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.v-list-item__content {
-  width: 70%;
-}
+// .v-list-item__content {
+//   width: 70%;
+// }
 
-.v-list-subheader--inset {
-  --indent-padding: 0px !important;
-}
+// .v-list-subheader--inset {
+//   --indent-padding: 0px !important;
+// }
 
-.v-list-group__items {
-  .v-list-item--variant-text {
-    margin-left: -20px;
-  }
-}
+// .v-list-group__items {
+//   .v-list-item--variant-text {
+//     margin-left: -20px;
+//   }
+// }
 </style>

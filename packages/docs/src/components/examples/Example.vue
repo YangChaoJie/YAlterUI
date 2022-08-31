@@ -41,7 +41,7 @@
         <div v-if="showCode" class="border-b">
           <template v-for="section of sections" :key="section.name">
             <v-theme-provider v-if="section.content" :theme="theme">
-              <!-- <app-markup :code="section.content" class="rounded-0" :resource="`${file}.vue`" /> -->
+              <app-markup :code="section.content" class="rounded-0" :resource="`${file}.vue`" />
             </v-theme-provider>
           </template>
         </div>
@@ -91,7 +91,7 @@
 
   const isLoaded = ref(false)
   const isError = ref(false)
-  const showCode = ref(false)
+  const showCode = ref(true)
 
   const component = shallowRef()
   const code = ref<string>()
@@ -152,18 +152,18 @@
       path: 'invert-example-colors',
       onClick: toggleTheme,
     },
-    {
-      icon: 'mdi-codepen',
-      path: 'edit-in-codepen',
-      // onClick: openCodepen,
-    },
-    {
-      icon: 'mdi-github',
-      path: 'view-in-github',
-      // href: `https://github.com/vuetifyjs/vuetify/tree/${getBranch()}/packages/docs/src/examples/${props.file}.vue`,
-      href: '',
-      target: '_blank',
-    },
+    // {
+    //   icon: 'mdi-codepen',
+    //   path: 'edit-in-codepen',
+    //   // onClick: openCodepen,
+    // },
+    // {
+    //   icon: 'mdi-github',
+    //   path: 'view-in-github',
+    //   // href: `https://github.com/vuetifyjs/vuetify/tree/${getBranch()}/packages/docs/src/examples/${props.file}.vue`,
+    //   href: '',
+    //   target: '_blank',
+    // },
     {
       icon: 'mdi-code-tags',
       path: 'view-source',

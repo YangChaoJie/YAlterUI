@@ -8,22 +8,7 @@ import { usePinia } from './plugins/pinia'
 import { useVuetify } from './plugins/vuetify'
 console.log('router-----', routes);
 import { rpath, trailingSlash, generatedRoutes } from '@/util/routes'
-/**
- * 页面滑动到锚点
- * @param id 
- */
-function scrollToTargetAdjusted(id: string){
-  var element = document.getElementById(id);
-  const makbody = document.getElementsByClassName('v-application__wrap')[0];
-  var headerOffset = 64;
-  var elementPosition = element?.getBoundingClientRect().top;
-  var offsetPosition = elementPosition! + (makbody as HTMLElement).scrollTop - headerOffset;
-
-  makbody.scrollTo({
-       top: offsetPosition,
-       behavior: "auto"
-  });
-}
+import { scrollToTargetAdjusted } from '@/util/helpers'
 export const createApp = ViteSSG(
   App,
   {
