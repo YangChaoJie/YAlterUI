@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "composite": true,
+    "jsx": "preserve",
     "module": "esnext",
     "moduleResolution": "node"
   },

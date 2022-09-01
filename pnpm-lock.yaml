@@ -17,7 +17,6 @@ importers:
       '@vueuse/core': ^8.1.2
       acorn-walk: ^8.2.0
       cross-spawn: ^7.0.3
-      docs: workspace:^1.0.1
       execa: ^6.1.0
       filter: ^0.1.1
       front-matter: ^4.0.2
@@ -32,6 +31,7 @@ importers:
       prismjs: ^1.25.0
       rollup: ^2.77.2
       rollup-plugin-dts: ^4.2.2
+      rollup-plugin-sass: ^1.2.13
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.32.1
       sass: ^1.52.3
@@ -42,6 +42,7 @@ importers:
       vue: ^3.2.25
       vue-router: ^4.0.15
       vue-tsc: ^0.29.8
+      yalertui: workspace:*
     dependencies:
       '@vueuse/core': 8.4.2_vue@3.2.33
       play: registry.npmmirror.com/play/0.5.0
@@ -60,7 +61,6 @@ importers:
       '@vue/babel-plugin-jsx': 1.1.1
       acorn-walk: 8.2.0
       cross-spawn: 7.0.3
-      docs: link:packages/docs
       execa: 6.1.0
       filter: 0.1.1
       front-matter: registry.npmmirror.com/front-matter/4.0.2
@@ -74,6 +74,7 @@ importers:
       prismjs: registry.npmmirror.com/prismjs/1.28.0
       rollup: 2.77.2
       rollup-plugin-dts: 4.2.2_rollup@2.77.2+typescript@4.6.4
+      rollup-plugin-sass: registry.npmmirror.com/rollup-plugin-sass/1.2.13_rollup@2.77.2
       rollup-plugin-terser: 7.0.2_rollup@2.77.2
       rollup-plugin-typescript2: 0.32.1_rollup@2.77.2+typescript@4.6.4
       sass: 1.52.3
@@ -82,6 +83,7 @@ importers:
       vite: 2.9.9_sass@1.52.3
       vitest: registry.npmmirror.com/vitest/0.21.1_happy-dom@6.0.4+sass@1.52.3
       vue-tsc: 0.29.8_typescript@4.6.4
+      yalertui: link:packages/yAlterUI
 
   packages/docs:
     specifiers:
@@ -99,7 +101,6 @@ importers:
       '@vueuse/head': ^0.7.6
       acorn-walk: ^8.2.0
       ajv: ^8.11.0
-      docs: workspace:^1.0.1
       filter: ^0.1.1
       front-matter: ^4.0.2
       fs-extra: ^10.0.0
@@ -122,6 +123,7 @@ importers:
       prismjs: ^1.28.0
       rollup: ^2.77.2
       rollup-plugin-dts: ^4.2.2
+      rollup-plugin-sass: ^1.2.13
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.32.1
       tslib: ^2.4.0
@@ -142,7 +144,7 @@ importers:
       vue-router: ^4.0.15
       vue-tsc: ^0.28.10
       vuetify: ^v3.0.0-beta.6
-      yalertui: '*'
+      yalertui: workspace:*
     dependencies:
       '@vueuse/head': 0.7.6_vue@3.2.33
       p5i: 0.4.2
@@ -151,7 +153,6 @@ importers:
       vite-plugin-vuetify: 1.0.0-alpha.11_vite@2.9.9+vuetify@3.0.0-beta.7
       vue: 3.2.33
       vuetify: 3.0.0-beta.7_b3b148c9e8b9a65895d11ae487ae6211
-      yalertui: link:../yAlterUI
     devDependencies:
       '@babel/preset-typescript': 7.18.6
       '@rollup/plugin-alias': 3.1.9_rollup@2.77.2
@@ -166,7 +167,6 @@ importers:
       '@vue/babel-plugin-jsx': 1.1.1
       acorn-walk: 8.2.0
       ajv: registry.npmmirror.com/ajv/8.11.0
-      docs: 'link:'
       filter: 0.1.1
       front-matter: registry.npmmirror.com/front-matter/4.0.2
       fs-extra: 10.1.0
@@ -186,6 +186,7 @@ importers:
       prismjs: 1.28.0
       rollup: 2.77.2
       rollup-plugin-dts: 4.2.2_rollup@2.77.2+typescript@4.6.4
+      rollup-plugin-sass: registry.npmmirror.com/rollup-plugin-sass/1.2.13_rollup@2.77.2
       rollup-plugin-terser: 7.0.2_rollup@2.77.2
       rollup-plugin-typescript2: 0.32.1_rollup@2.77.2+typescript@4.6.4
       tslib: 2.4.0
@@ -203,6 +204,7 @@ importers:
       vitest: registry.npmmirror.com/vitest/0.21.1_a5f4289555840b837c428732fb75c048
       vue-router: 4.0.15_vue@3.2.33
       vue-tsc: 0.28.10_typescript@4.6.4
+      yalertui: link:../yAlterUI
 
   packages/play:
     specifiers:
@@ -218,7 +220,6 @@ importers:
       '@vitejs/plugin-vue-jsx': ^1.3.10
       '@vue/babel-plugin-jsx': ^1.1.1
       acorn-walk: ^8.2.0
-      docs: workspace:^1.0.1
       filter: ^0.1.1
       front-matter: ^4.0.2
       happy-dom: ^6.0.4
@@ -227,6 +228,7 @@ importers:
       prismjs: ^1.25.0
       rollup: ^2.77.2
       rollup-plugin-dts: ^4.2.2
+      rollup-plugin-sass: ^1.2.13
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.32.1
       sass: ^1.52.1
@@ -237,6 +239,7 @@ importers:
       vue: ^3.2.25
       vue-router: ^4.1.3
       vue-tsc: ^0.34.7
+      yalertui: workspace:*
     dependencies:
       play: registry.npmmirror.com/play/0.5.0
       vue: registry.npmmirror.com/vue/3.2.33
@@ -254,7 +257,6 @@ importers:
       '@vitejs/plugin-vue-jsx': registry.npmmirror.com/@vitejs/plugin-vue-jsx/1.3.10
       '@vue/babel-plugin-jsx': registry.npmmirror.com/@vue/babel-plugin-jsx/1.1.1
       acorn-walk: registry.npmmirror.com/acorn-walk/8.2.0
-      docs: link:../docs
       filter: registry.npmmirror.com/filter/0.1.1
       front-matter: registry.npmmirror.com/front-matter/4.0.2
       happy-dom: registry.npmmirror.com/happy-dom/6.0.4
@@ -262,6 +264,7 @@ importers:
       prismjs: registry.npmmirror.com/prismjs/1.28.0
       rollup: registry.npmmirror.com/rollup/2.77.2
       rollup-plugin-dts: registry.npmmirror.com/rollup-plugin-dts/4.2.2_rollup@2.77.2+typescript@4.6.4
+      rollup-plugin-sass: registry.npmmirror.com/rollup-plugin-sass/1.2.13_rollup@2.77.2
       rollup-plugin-terser: registry.npmmirror.com/rollup-plugin-terser/7.0.2_rollup@2.77.2
       rollup-plugin-typescript2: registry.npmmirror.com/rollup-plugin-typescript2/0.32.1_rollup@2.77.2+typescript@4.6.4
       sass: registry.npmmirror.com/sass/1.52.3
@@ -270,6 +273,7 @@ importers:
       vite: registry.npmmirror.com/vite/2.9.9_sass@1.52.3
       vitest: registry.npmmirror.com/vitest/0.21.1_happy-dom@6.0.4+sass@1.52.3
       vue-tsc: registry.npmmirror.com/vue-tsc/0.34.17_typescript@4.6.4
+      yalertui: link:../yAlterUI
 
   packages/yAlterUI:
     specifiers:
@@ -289,7 +293,6 @@ importers:
       '@vue/compiler-sfc': ^3.0.5
       '@vue/test-utils': ^2.0.0-rc.18
       acorn-walk: ^8.2.0
-      docs: workspace:^1.0.1
       filter: ^0.1.1
       front-matter: ^4.0.2
       happy-dom: ^6.0.4
@@ -297,6 +300,7 @@ importers:
       prismjs: ^1.25.0
       rollup: ^2.77.2
       rollup-plugin-dts: ^4.2.2
+      rollup-plugin-sass: ^1.2.13
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.32.1
       tailwindcss: ^2.2.19
@@ -308,6 +312,7 @@ importers:
       vitest: ^0.21.1
       vue-router: ^4.1.3
       vue-tsc: ^0.34.7
+      yalertui: workspace:*
     dependencies:
       play: registry.npmmirror.com/play/0.5.0
       vue-router: registry.npmmirror.com/vue-router/4.1.3_vue@3.2.33
@@ -328,13 +333,13 @@ importers:
       '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc/3.2.33
       '@vue/test-utils': registry.npmmirror.com/@vue/test-utils/2.0.2_vue@3.2.33
       acorn-walk: 8.2.0
-      docs: link:../docs
       filter: 0.1.1
       front-matter: registry.npmmirror.com/front-matter/4.0.2
       happy-dom: registry.npmmirror.com/happy-dom/6.0.4
       prismjs: registry.npmmirror.com/prismjs/1.28.0
       rollup: 2.77.2
       rollup-plugin-dts: 4.2.2_rollup@2.77.2+typescript@4.6.4
+      rollup-plugin-sass: registry.npmmirror.com/rollup-plugin-sass/1.2.13_rollup@2.77.2
       rollup-plugin-terser: 7.0.2_rollup@2.77.2
       rollup-plugin-typescript2: 0.32.1_rollup@2.77.2+typescript@4.6.4
       tailwindcss: registry.npmmirror.com/tailwindcss/2.2.19
@@ -345,6 +350,7 @@ importers:
       vite-plugin-dts: mirrors.tencent.com/vite-plugin-dts/0.9.10_vite@3.0.2
       vitest: registry.npmmirror.com/vitest/0.21.1_happy-dom@6.0.4+sass@1.52.3
       vue-tsc: registry.npmmirror.com/vue-tsc/0.34.17_typescript@4.6.4
+      yalertui: 'link:'
 
 packages:
 
@@ -1069,7 +1075,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.17.10
+      '@babel/core': registry.npmmirror.com/@babel/core/7.17.10
       '@babel/helper-plugin-utils': 7.18.9
     dev: true
 
@@ -2973,7 +2979,7 @@ packages:
       resolve: 1.22.1
       rollup: 2.77.2
       tslib: 2.4.0
-      typescript: 4.6.4
+      typescript: registry.npmmirror.com/typescript/4.6.4
     dev: true
 
   /@rollup/pluginutils/3.1.0_rollup@2.77.2:
@@ -2992,8 +2998,8 @@ packages:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
     engines: {node: '>= 8.0.0'}
     dependencies:
-      estree-walker: 2.0.2
-      picomatch: 2.3.1
+      estree-walker: registry.npmmirror.com/estree-walker/2.0.2
+      picomatch: registry.npmmirror.com/picomatch/2.3.1
     dev: true
 
   /@surma/rollup-plugin-off-main-thread/2.2.3:
@@ -6130,7 +6136,7 @@ packages:
     engines: {node: '>=8.6'}
     dependencies:
       braces: 3.0.2
-      picomatch: 2.3.1
+      picomatch: registry.npmmirror.com/picomatch/2.3.1
     dev: true
 
   /mime-db/1.52.0:
@@ -7491,7 +7497,7 @@ packages:
     dependencies:
       magic-string: 0.26.2
       rollup: 2.77.2
-      typescript: 4.6.4
+      typescript: registry.npmmirror.com/typescript/4.6.4
     optionalDependencies:
       '@babel/code-frame': registry.npmmirror.com/@babel/code-frame/7.18.6
     dev: true
@@ -7520,7 +7526,7 @@ packages:
       resolve: mirrors.tencent.com/resolve/1.22.1
       rollup: 2.77.2
       tslib: 2.4.0
-      typescript: 4.6.4
+      typescript: registry.npmmirror.com/typescript/4.6.4
     dev: true
 
   /rollup/2.77.2:
@@ -11034,7 +11040,7 @@ packages:
       '@types/estree': registry.npmmirror.com/@types/estree/0.0.39
       estree-walker: registry.npmmirror.com/estree-walker/1.0.1
       picomatch: registry.npmmirror.com/picomatch/2.3.1
-      rollup: registry.npmmirror.com/rollup/2.77.2
+      rollup: 2.77.2
     dev: true
 
   registry.npmmirror.com/@rollup/pluginutils/4.2.1:
@@ -11639,7 +11645,7 @@ packages:
     engines: {node: '>= 8'}
     dependencies:
       normalize-path: registry.npmmirror.com/normalize-path/3.0.0
-      picomatch: 2.3.1
+      picomatch: registry.npmmirror.com/picomatch/2.3.1
     dev: true
 
   registry.npmmirror.com/arg/5.0.2:
@@ -14018,7 +14024,7 @@ packages:
     version: 3.6.0
     engines: {node: '>=8.10.0'}
     dependencies:
-      picomatch: 2.3.1
+      picomatch: registry.npmmirror.com/picomatch/2.3.1
     dev: true
 
   registry.npmmirror.com/reduce-css-calc/2.1.8:
@@ -14156,6 +14162,20 @@ packages:
       typescript: registry.npmmirror.com/typescript/4.6.4
     optionalDependencies:
       '@babel/code-frame': registry.npmmirror.com/@babel/code-frame/7.18.6
+    dev: true
+
+  registry.npmmirror.com/rollup-plugin-sass/1.2.13_rollup@2.77.2:
+    resolution: {integrity: sha512-v1649ORLgBaU85Gx+Cjk9Iw5DnKNazafQRj8TBkGPXNKtHD0lqpnn+SlwAPYP4xd8cSqPBgVudHgjHPOQ3NtTw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rollup-plugin-sass/-/rollup-plugin-sass-1.2.13.tgz}
+    id: registry.npmmirror.com/rollup-plugin-sass/1.2.13
+    name: rollup-plugin-sass
+    version: 1.2.13
+    engines: {node: '>=10'}
+    dependencies:
+      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils/3.1.0_rollup@2.77.2
+      resolve: registry.npmmirror.com/resolve/1.22.1
+      sass: registry.npmmirror.com/sass/1.52.3
+    transitivePeerDependencies:
+      - rollup
     dev: true
 
   registry.npmmirror.com/rollup-plugin-terser/7.0.2_rollup@2.77.2:
@@ -14769,7 +14789,7 @@ packages:
       postcss: registry.npmmirror.com/postcss/8.4.14
       resolve: registry.npmmirror.com/resolve/1.22.1
       rollup: registry.npmmirror.com/rollup/2.77.2
-      sass: registry.npmmirror.com/sass/1.52.3
+      sass: 1.52.3
     optionalDependencies:
       fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
@@ -14875,7 +14895,7 @@ packages:
       vue: ^3.2.0
     dependencies:
       '@vue/devtools-api': registry.npmmirror.com/@vue/devtools-api/6.1.4
-      vue: registry.npmmirror.com/vue/3.2.33
+      vue: 3.2.33
     dev: false
 
   registry.npmmirror.com/vue-tsc/0.34.17_typescript@4.6.4:

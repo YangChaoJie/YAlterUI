@@ -1,34 +1,74 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "outDir": "./",
+    "baseUrl": ".",
+    "module": "ESNext",
+    "target": "es2016",
+    "lib": ["DOM", "ESNext"],
     "strict": true,
     "jsx": "preserve",
-    "allowJs": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
     "skipLibCheck": true,
-    "declaration": true,
-    "declarationDir": "dist",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "outDir": "./",
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "vite/client"
+    ],
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
+    "src/**/**/*.tsx",
     "src/**/*.vue",
   ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "exclude": ["dist", "node_modules"]
 }
+// {
+//   "compilerOptions": {
+//     "target": "esnext",
+//     "useDefineForClassFields": true,
+//     "module": "esnext",
+//     "moduleResolution": "node",
+//     "outDir": "./",
+//     "strict": true,
+//     "jsx": "preserve",
+//     "allowJs": true,
+//     "sourceMap": true,
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "esModuleInterop": true,
+//     "baseUrl": ".",
+//     "lib": [
+//       "esnext",
+//       "dom"
+//     ],
+//     "paths": {
+//       "@/*": [
+//         "src/*"
+//       ]
+//     },
+//     "skipLibCheck": true,
+//     "declaration": true,
+//     "declarationDir": "dist",
+//   },
+//   // "include": [
+//   //   "src/**/*.ts",
+//   //   "src/**/*.d.ts",
+//   //   "src/**/*.tsx",
+//   //   "src/**/**/*.tsx",
+//   //   "src/**/*.vue",
+//   // ],
+//   // "references": [
+//   //   {
+//   //     "path": "./tsconfig.node.json"
+//   //   }
+//   // ]
+// }

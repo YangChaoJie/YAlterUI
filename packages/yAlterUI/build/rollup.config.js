@@ -3,6 +3,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import sass from 'rollup-plugin-sass'
 import typescript2 from '@rollup/plugin-typescript';
 import pkg from '../package.json';
 import fs from 'fs';
@@ -44,6 +45,7 @@ const plugins = (isMini) => {
     typescript({
         typescript: require('typescript')
     }),
+    sass(),
     // typescript2(),
     // typescript({
     //   removeComments: true,
