@@ -1,6 +1,9 @@
 <template>
  <div>{{ message }}</div>
  <y-button>12</y-button>
+ <y-button size="small">small</y-button>
+ <y-button size="large">large</y-button>
+ <y-button disabled>large</y-button>
  <y-footer></y-footer>
 </template>
 

@@ -21,12 +21,14 @@ const YButton = defineComponent({
   name: 'YButton',
   props: buttonProps,
   setup (props, {slots}) {
+    const { size, disabled } = props
     return () => (
-      <div
-      class="btn"
+      <button
+      class={['btn', `btn-${size}`, {'btn-disabled': disabled }]}
+      disabled={ disabled || undefined }
       >
         { slots.default?.()}
-      </div>
+      </button>
     )
   }
 })
