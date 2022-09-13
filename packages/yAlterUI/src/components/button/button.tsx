@@ -26,7 +26,6 @@ const YButton = defineComponent({
     const ns = useNamespace('btn')
     return () => (
       <button
-      // class={['btn', `btn-${size}`, {'btn-disabled': disabled }]}
       class={[ns.b(), ns.m(size), ns.is('disabled', disabled)]}
       disabled={ disabled || undefined }
       >

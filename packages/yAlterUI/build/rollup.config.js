@@ -4,10 +4,16 @@ import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import sass from 'rollup-plugin-sass'
-import typescript2 from '@rollup/plugin-typescript';
+import alias from '@rollup/plugin-alias'
+// import typescript2 from '@rollup/plugin-typescript';
 import pkg from '../package.json';
 import fs from 'fs';
 import path from 'path';
+import postcss from 'postcss';
+import cssnano from 'cssnano';
+import mkdirp from 'mkdirp'
+import { writeFile } from 'fs/promises'
+import autoprefixer from 'autoprefixer';
 import { capitalize } from 'vue';
 import { simple as walk } from 'acorn-walk' // 抽象语法树遍历
 const bannerText = `/*! ${pkg.name} v${pkg.version} | (c) ${new Date().getFullYear()} ${pkg.author.name} | ${pkg.license} License */`;
@@ -45,7 +51,38 @@ const plugins = (isMini) => {
     typescript({
         typescript: require('typescript')
     }),
-    sass(),
+    sass({
+      options: {
+        charset: false
+      },
+      output(styles, styleNodes) {
+         // Complete CSS bundle
+         mkdirp(path.resolve(__dirname, '../dist')).then(() => {
+          return Promise.all([
+            postcss([autoprefixer]).process(styles, { from: 'src' }),
+            postcss([autoprefixer, cssnano({
+              preset: 'default',
+              postcssZindex: false,
+              reduceIdents: false
+            })]).process(styles, { from: 'src' })
+          ])
+        }).then(result => {
+          writeFile(path.resolve(__dirname, '../dist/yalterui.css'), bannerText + result[0].css, 'utf8')
+          writeFile(path.resolve(__dirname, '../dist/yalterui.min.css'), bannerText + result[1].css, 'utf8')
+        })
+
+        // Individual CSS files
+        for (const { id, content } of styleNodes) {
+          const out = path.parse(id.replace(
+            path.resolve(__dirname, '../src'),
+            path.resolve(__dirname, '../lib')
+          ))
+          mkdirp(out.dir).then(() => {
+            writeFile(path.join(out.dir, out.name + '.css'), content, 'utf8')
+          })
+        }
+      }
+    }),
     // typescript2(),
     // typescript({
     //   removeComments: true,
@@ -56,6 +93,11 @@ const plugins = (isMini) => {
     //       include: ['src/components/*/*'],
     //   },
     // }),
+    alias({
+      entries: [
+        { find: /^@\/(.*)/, replacement: path.resolve(__dirname, '../src/$1') },
+      ]
+    }),
     babel(babelOptions),
     commonjs(),
     {
