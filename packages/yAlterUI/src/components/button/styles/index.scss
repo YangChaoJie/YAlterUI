@@ -1,5 +1,31 @@
+@use 'sass:math';
+@use '../../../styles/common/var' as *;
+@use '../../../styles/mixins/button' as *;
+@use '../../../styles/mixins/mixins' as *;
+@use '../../../styles/mixins/utils' as *;
+@use '../../../styles/mixins/var' as *;
+@use '../../../styles/main';
+@use '../../../styles/mixins/button';
+@use './variables' as *;
 .y-btn {
   background: green;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: $button-background;
+  // getCssVar('button', 'bg-color');
+  border: getCssVar('border');
 }
 .y-btn--small {
   font-size: 12px;
