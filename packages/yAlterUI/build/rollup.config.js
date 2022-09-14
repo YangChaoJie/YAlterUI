@@ -6,13 +6,13 @@ import typescript from 'rollup-plugin-typescript2';
 import sass from 'rollup-plugin-sass'
 import alias from '@rollup/plugin-alias'
 // import typescript2 from '@rollup/plugin-typescript';
+import { writeFile } from 'fs/promises'
 import pkg from '../package.json';
 import fs from 'fs';
 import path from 'path';
 import postcss from 'postcss';
 import cssnano from 'cssnano';
 import mkdirp from 'mkdirp'
-import { writeFile } from 'fs/promises'
 import autoprefixer from 'autoprefixer';
 import { capitalize } from 'vue';
 import { simple as walk } from 'acorn-walk' // 抽象语法树遍历

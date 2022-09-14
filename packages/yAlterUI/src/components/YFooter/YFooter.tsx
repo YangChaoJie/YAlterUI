@@ -1,15 +1,11 @@
-import { defineComponent } from "vue";
-
+import { defineComponent } from "vue"
 const YFooter = defineComponent({
   name: 'YFooter',
   setup (props, {slots}) {
     return () => (
-      <div
-      >
-        123
+      <div>
         { slots.default?.()}
       </div>
-      
     )
   }
 })

@@ -25,6 +25,7 @@
     "vue-router": "^4.0.15"
   },
   "devDependencies": {
+    "@babel/cli": "^7.18.10",
     "@babel/preset-typescript": "^7.16.7",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-babel": "^5.3.1",
@@ -37,6 +38,7 @@
     "@vue/babel-plugin-jsx": "^1.1.1",
     "acorn-walk": "^8.2.0",
     "autoprefixer": "^10.4.9",
+    "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
     "cssnano": "^5.1.13",
     "execa": "^6.1.0",
@@ -51,6 +53,7 @@
     "node-fetch": "^3.2.10",
     "postcss": "^8.4.16",
     "prismjs": "^1.25.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.77.2",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-sass": "^1.2.13",
