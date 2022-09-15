@@ -8,7 +8,8 @@
   "private": false,
   "description": "all components are settled here",
   "license": "MIT",
-  "main": "src/components/index.ts",
+  "main": "lib/components/index.mjs",
+  "module": "lib/components/index.mjs",
   "peerDependencies": {
     "vue": "^3.2.25"
   },
@@ -23,10 +24,11 @@
   },
   "exports": {
     ".": {
-      "import": "./lib/index.mjs",
+      "import": "./lib/components/index.mjs",
       "require": "./dist/yalterui.js"
     },
-    "./components": "./src/components/index.ts"
+    "./components": "./src/components/index.ts",
+    "./components/*": "./lib/components/*/index.mjs"
   },
   "types": "lib/index.d.ts",
   "styles": "lib/styles/main.css",
@@ -72,6 +74,8 @@
     "@vue/test-utils": "^2.0.0-rc.18",
     "acorn-walk": "^8.2.0",
     "autoprefixer": "^10.4.9",
+    "babel-plugin-add-import-extension": "^1.6.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "cross-env": "^7.0.3",
     "cssnano": "^5.1.13",
     "filter": "^0.1.1",

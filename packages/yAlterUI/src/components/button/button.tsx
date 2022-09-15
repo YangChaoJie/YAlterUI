@@ -1,5 +1,5 @@
 // Styles
-import './styles/index.scss'
+import './styles/btn.scss'
 
 import { defineComponent, PropType } from "vue";
 import { Size, ButtonType } from "./interface";
