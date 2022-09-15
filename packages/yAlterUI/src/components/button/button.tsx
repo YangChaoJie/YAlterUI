@@ -30,7 +30,6 @@ const YButton = defineComponent({
       disabled={ disabled || undefined }
       >
         { slots.default?.()}
-        11
       </button>
     )
   }

@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@': resolve(__dirname, './src'),
         packages: resolve(__dirname, '../packages'),
-        // 'yalertui': 'yalertui/components'
+        'yalertui': 'yalertui/components' // 本地修改
         // resolve(__dirname, '../yAlterUI/src/components'),
       },
       dedupe: ['vue']
