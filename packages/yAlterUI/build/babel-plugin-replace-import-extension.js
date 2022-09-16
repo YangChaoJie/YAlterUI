@@ -43,8 +43,6 @@ module.exports = function ({types: t}) {
           return;
         }
         const source = path.node.source;
-        console.log('----------',source.value);
-        console.log('--111111111source.value', transformExtension(source.value, extMapping));
         source.value = transformExtension(source.value, extMapping);
       },
       // For re-exporting
@@ -57,8 +55,6 @@ module.exports = function ({types: t}) {
         if (source == null) {
           return;
         }
-        console.log('----------',source.value);
-        console.log('2222222222source.value', transformExtension(source.value, extMapping));
         source.value = transformExtension(source.value, extMapping);
       },
     },

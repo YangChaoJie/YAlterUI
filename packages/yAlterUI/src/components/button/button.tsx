@@ -28,7 +28,7 @@ const YButton = defineComponent({
       class={[ns.b(), ns.m(size), ns.is('disabled', disabled)]}
       disabled={ disabled || undefined }
       >
-        { slots.default?.()}
+        { slots.default?.() }
       </button>
     )
   }

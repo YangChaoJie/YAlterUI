@@ -109,7 +109,7 @@ const plugins = (isMini) => {
           )
           await Promise.all(importedIds.map(async id => {
             const importFrom = path.relative(path.resolve(__dirname, '../src'), id).replace(/\.ts$/, '.mjs')
-
+            console.log('importFrom----', importFrom);
             if (await this.resolve(path.join(id, '../_variables.scss')) != null) {
               variables.push(id)
             }
