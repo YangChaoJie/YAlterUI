@@ -93,3 +93,14 @@ $button-padding-horizontal: map.merge(
   ),
   $button-padding-horizontal
 );
+
+
+$button-icon-span-gap: () !default;
+$button-icon-span-gap: map.merge(
+  (
+    'large': 8px,
+    'default': 6px,
+    'small': 4px,
+  ),
+  $button-icon-span-gap
+);

@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'sass:map';
 @use '../../../styles/common/var' as *;
 @use '../../../styles/mixins/button' as *;
 @use '../../../styles/mixins/mixins' as *;
@@ -8,10 +9,13 @@
 @use '../../../styles/mixins/button';
 @use './variables' as *;
 @include b(btn) {
+  // @debug $button;
   @include set-component-css-var('btn', $button);
 }
+// :root {
+//   --gloal-bg: green;
+// }
 @include b(btn) {
-  background: green;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -28,13 +32,47 @@
   -webkit-appearance: none;
   background-color: getCssVar('btn', 'bg-color');
   border: getCssVar('border');
+  // background: var(--gloal-bg);
+  /*
+  *  button size
+  */
+  @each $size in (large, small) {
+    @include m($size) { // y-btn--small
+      @include set-css-var-value(
+        ('btn', 'size'),
+        map.get($input-height, $size) // --y-btn-size
+      );
+  
+      height: getCssVar('btn', 'size');
+  
+      & [class*='#{$namespace}-icon'] {
+        & + span {
+          margin-left: map.get($button-icon-span-gap, $size);
+        }
+      }
+  
+      @include button-size(
+        map.get($button-padding-vertical, $size) - $button-border-width,
+        map.get($button-padding-horizontal, $size) - $button-border-width,
+        map.get($button-font-size, $size),
+        map.get($button-border-radius, $size)
+      );
+  
+      @include when(circle) {
+        width: getCssVar('btn', 'size');
+        padding: map.get($button-padding-vertical, $size) - $button-border-width;
+      }
+    }
+  }
 }
-.y-btn--small {
-  font-size: 12px;
-}
-.y-btn--large {
-  font-size: 18px;
-}
-.y-btn-disabled {
-  background: gainsboro;
-}
+
+
+// .y-btn--small {
+//   font-size: 12px;
+// }
+// .y-btn--large {
+//   font-size: 18px;
+// }
+// .y-btn-disabled {
+//   background: gainsboro;
+// }
