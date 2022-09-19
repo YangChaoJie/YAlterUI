@@ -6,12 +6,12 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+// 加上下面这个 会让原本的提示失效
+// declare module '@vue/runtime-core' {
+//   interface yalertui {
 
-declare module '@vue/runtime-core' {
-  interface yalertui {
-
-  }
-}
+//   }
+// }
 
 // import { Plugin, PropType, App } from 'vue';
 

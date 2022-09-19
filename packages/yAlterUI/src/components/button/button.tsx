@@ -21,11 +21,11 @@ const YButton = defineComponent({
   name: 'YButton',
   props: buttonProps,
   setup (props, {slots}) {
-    const { size, disabled } = props
+    const { size, disabled, type} = props
     const ns = useNamespace('btn')
     return () => (
       <button
-      class={[ns.b(), ns.m(size), ns.is('disabled', disabled)]}
+      class={[ns.b(), ns.m(size), ns.is('disabled', disabled), ns.m(type)]}
       disabled={ disabled || undefined }
       >
         { slots.default?.() }

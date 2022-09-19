@@ -1,6 +1,6 @@
 <template>
   <ExampleA />
-  <Playground />
+  <Playground></Playground>
   <router-view />
 </template>
 

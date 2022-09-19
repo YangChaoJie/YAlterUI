@@ -1,20 +1,36 @@
 <template>
  <div>{{ message }}</div>
- <y-button>12</y-button>
+ <div>button size</div>
  <y-button size="small">small</y-button>
  <y-button size="large">large</y-button>
  <y-button disabled>large</y-button>
+ <div>button type</div>
+ <y-button type="default">default</y-button>
+ <y-button type="success">Sucess</y-button>
+ <y-button type="warning">warning</y-button>
+ <y-button type="info">info</y-button>
+ <y-button type="error">error</y-button>
+ <y-button type="primary">primary</y-button>
  <y-footer></y-footer>
 </template>
-
-<script>
+<script setup lang="ts">
+  // code here
+  import { YFooter, YButton } from 'yalertui';
+  import { ref } from 'vue';
+  let message = ref('hello')
+</script>
+<!-- <script>
  import { YFooter, YButton } from 'yalertui';
- 
   export default {
     name: 'Playground',
     components: {
       YFooter,
       YButton
+    },
+    props: {
+      aa: {
+        type: String
+      }
     },
     setup () {
       return {
@@ -22,4 +38,4 @@
       }
     },
   }
-</script>
+</script> -->

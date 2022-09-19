@@ -95,14 +95,14 @@
   $selector: &;
   $currentSelector: '';
   @each $unit in $modifier {
-    @debug $selector;
+    // @debug $selector;
     $currentSelector: #{$currentSelector +
       $selector +
       $modifier-separator +
       $unit +
       ','};
   }
-  @debug $currentSelector;
+  // @debug $currentSelector;
   @at-root {
     #{$currentSelector} {
       @content;

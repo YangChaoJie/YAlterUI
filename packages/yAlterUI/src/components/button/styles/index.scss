@@ -32,6 +32,7 @@
   -webkit-appearance: none;
   background-color: getCssVar('btn', 'bg-color');
   border: getCssVar('border');
+  border-color: getCssVar('btn', 'border-color');
   // background: var(--gloal-bg);
   /*
   *  button size
@@ -64,15 +65,9 @@
       }
     }
   }
+  @each $type in (primary, success, warning, error, info) {
+    @include m($type) {
+      @include button-variant($type);
+    }
+  }
 }
-
-
-// .y-btn--small {
-//   font-size: 12px;
-// }
-// .y-btn--large {
-//   font-size: 18px;
-// }
-// .y-btn-disabled {
-//   background: gainsboro;
-// }
