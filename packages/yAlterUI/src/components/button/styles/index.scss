@@ -8,7 +8,7 @@
 @use '../../../styles/mixins/button';
 @use './variables' as *;
 @include b(btn) {
-  @include set-component-css-var('btn', $badge);
+  @include set-component-css-var('btn', $button);
 }
 @include b(btn) {
   background: green;
@@ -27,8 +27,6 @@
   vertical-align: middle;
   -webkit-appearance: none;
   background-color: getCssVar('btn', 'bg-color');
-  // $button-background;
-  // 
   border: getCssVar('border');
 }
 .y-btn--small {
