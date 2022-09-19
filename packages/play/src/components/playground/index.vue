@@ -3,7 +3,7 @@
  <div>button size</div>
  <y-button size="small">small</y-button>
  <y-button size="large">large</y-button>
- <y-button disabled>large</y-button>
+ <y-button disabled>disabled</y-button>
  <div>button type</div>
  <y-button type="default">default</y-button>
  <y-button type="success">Sucess</y-button>
