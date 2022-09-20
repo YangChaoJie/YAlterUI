@@ -16,7 +16,11 @@
 <script setup lang="ts">
   // code here
   import { YFooter, YButton } from 'yalertui';
+  // 导出类型
+  import type { ButtonType } from 'yalertui';
   import { ref } from 'vue';
+  let button: ButtonType = 'info';
+  console.log(button);
   let message = ref('hello')
 </script>
 <!-- <script>
