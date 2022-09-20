@@ -1,6 +1,6 @@
 // Styles
 import './styles/index.scss'
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, computed } from "vue";
 import { Size, ButtonType } from "./interface";
 import { useNamespace } from '../../composables/namespace';
 
@@ -11,6 +11,7 @@ const buttonProps = {
     type: String as PropType<ButtonType>,
     default: 'defalut'
   },
+  text: Boolean,
   borderd: {
     type: Boolean,
     default: true
@@ -21,12 +22,19 @@ const YButton = defineComponent({
   name: 'YButton',
   props: buttonProps,
   setup (props, {slots}) {
-    const { size, disabled, type} = props
+    // const { disabled } = props
+    const disabled = computed(() => props.disabled)
+    const size = computed(() => props.size)
+    const type = computed(() => props.type)
     const ns = useNamespace('btn')
+    const handleClick = (e: MouseEvent) => {
+      if (disabled) return
+    }
     return () => (
       <button
-      class={[ns.b(), ns.m(size), ns.is('disabled', disabled), ns.m(type)]}
-      disabled={ disabled || undefined }
+      class={[ns.b(), ns.m(size.value), ns.is('disabled', disabled.value), ns.m(type.value)]}
+      disabled={ disabled.value || undefined }
+      onClick={ handleClick }
       >
         { slots.default?.() }
       </button>
