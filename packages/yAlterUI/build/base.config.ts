@@ -8,7 +8,9 @@ const resolve = (file: any) => path.resolve(__dirname, file)
 export default defineConfig({
   resolve: {
     alias: [
-      { find: /^@\/(.*)/, replacement: resolve('./src/$1')}
+      { find: /^@\/(.*)/, replacement: resolve('./src/$1')},
+      { find: /^yalertui$/, replacement: resolve('./src/index.ts') },
+      { find: /^yalertui\/(.*)/, replacement: resolve('./$1') },
     ]
   },
   plugins: [(VueJsx() as any), dts()]

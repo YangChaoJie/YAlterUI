@@ -3,6 +3,7 @@ import './styles/index.scss'
 import { defineComponent, PropType, computed } from "vue";
 import { Size, ButtonType } from "./interface";
 import { useNamespace } from '../../composables/namespace';
+import { useDisabled } from '../../composables/common';
 
 const buttonProps = {
   size: String as PropType<Size>,
@@ -23,7 +24,7 @@ const YButton = defineComponent({
   props: buttonProps,
   setup (props, {slots}) {
     // const { disabled } = props
-    const disabled = computed(() => props.disabled)
+    const disabled = useDisabled()
     const size = computed(() => props.size)
     const type = computed(() => props.type)
     const ns = useNamespace('btn')
