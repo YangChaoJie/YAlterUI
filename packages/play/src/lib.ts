@@ -1,4 +1,4 @@
-import { ExampleA } from './components/example-a/exam-a'
+// import { ExampleA } from './components/example-a/exam-a'
 
-export { ExampleA }
+// export { ExampleA }
 // import style from './index.module.scss'

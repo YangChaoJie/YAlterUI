@@ -2,8 +2,8 @@
 import './styles/index.scss'
 import { defineComponent, PropType, computed } from "vue";
 import { Size, ButtonType } from "./interface";
-import { useNamespace } from '../../composables/namespace';
-import { useDisabled } from '../../composables/common';
+import { useNamespace } from '@/composables/namespace';
+import { useDisabled } from '@/composables/common';
 
 const buttonProps = {
   size: String as PropType<Size>,
