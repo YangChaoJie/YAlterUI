@@ -14,7 +14,7 @@
  <div>---button text---</div>
  <y-button text>Sucess</y-button>
  <div>---button link---</div>
- <y-button link>this is a link</y-button>
+ <y-button link type="primary">this is a link</y-button>
  <y-footer></y-footer>
 </template>
 <script setup lang="ts">

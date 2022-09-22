@@ -1,7 +1,7 @@
 // Styles
 import './styles/index.scss'
 import { defineComponent, PropType, computed } from "vue";
-import { Size, ButtonType } from "./interface";
+import { Size, ButtonType, Shape } from "./interface";
 import { useNamespace } from '@/composables/namespace';
 import { useDisabled } from '@/composables/common';
 
@@ -14,6 +14,10 @@ const buttonProps = {
   },
   text: Boolean,
   link: Boolean,
+  shape: {
+    type: String as PropType<Shape>,
+    default: ''
+  },
   borderd: {
     type: Boolean,
     default: true
