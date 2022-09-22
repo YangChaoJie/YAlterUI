@@ -10,9 +10,10 @@ const buttonProps = {
   disabled:Boolean,
   type: {
     type: String as PropType<ButtonType>,
-    default: 'defalut'
+    default: ''
   },
   text: Boolean,
+  link: Boolean,
   borderd: {
     type: Boolean,
     default: true
@@ -33,7 +34,7 @@ const YButton = defineComponent({
     }
     return () => (
       <button
-      class={[ns.b(), ns.m(size.value), ns.is('disabled', disabled.value), ns.m(type.value)]}
+      class={[ns.b(), ns.m(size.value), ns.is('disabled', disabled.value), ns.m(type.value), ns.is('text', props.text), ns.is('link', props.link)]}
       disabled={ disabled.value || undefined }
       onClick={ handleClick }
       >
