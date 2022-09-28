@@ -172,9 +172,17 @@
       }
     }
   }
+  // button shape 
+  @include when(round) {
+    border-radius: getCssVar('border-radius', 'round');
+  }
+
+  @include when(circle) {
+    border-radius: 50%;
+    padding: map.get($button-padding-vertical, 'default') - $button-border-width;
+  }
 
   // button link is-link
-  
   @include when(link) {
     border-color: transparent;
     color: getCssVar('button', 'text-color');
@@ -208,7 +216,7 @@
       }
     }
   }
-  
+
   @include e(link) {
     @include m(expand) {
       letter-spacing: 0.3em;

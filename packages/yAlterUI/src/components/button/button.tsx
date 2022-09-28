@@ -32,13 +32,22 @@ const YButton = defineComponent({
     const disabled = useDisabled()
     const size = computed(() => props.size)
     const type = computed(() => props.type)
+    const shape = computed(() => props.shape)
     const ns = useNamespace('btn')
     const handleClick = (e: MouseEvent) => {
       if (disabled) return
     }
     return () => (
       <button
-      class={[ns.b(), ns.m(size.value), ns.is('disabled', disabled.value), ns.m(type.value), ns.is('text', props.text), ns.is('link', props.link)]}
+      class={[
+        ns.b(), ns.m(size.value), 
+        ns.is('disabled', disabled.value), 
+        ns.m(type.value), 
+        ns.is('text', props.text), 
+        ns.is('link', props.link),
+        ns.is('circle', shape.value === 'circle'),
+        ns.is('round', shape.value === 'round')
+      ]}
       disabled={ disabled.value || undefined }
       onClick={ handleClick }
       >

@@ -15,6 +15,9 @@
  <y-button text>Sucess</y-button>
  <div>---button link---</div>
  <y-button link type="primary">this is a link</y-button>
+ <div>---button shape---</div>
+ <y-button shape="circle">circle</y-button>
+ <y-button shape="round">round</y-button>
  <y-footer></y-footer>
 </template>
 <script setup lang="ts">
