@@ -18,6 +18,10 @@ const buttonProps = {
     type: String as PropType<Shape>,
     default: ''
   },
+  dashed: {
+    type: Boolean,
+    default: false
+  },
   borderd: {
     type: Boolean,
     default: true
@@ -46,7 +50,8 @@ const YButton = defineComponent({
         ns.is('text', props.text), 
         ns.is('link', props.link),
         ns.is('circle', shape.value === 'circle'),
-        ns.is('round', shape.value === 'round')
+        ns.is('round', shape.value === 'round'),
+        ns.m(props.dashed ? 'dashed' : '')
       ]}
       disabled={ disabled.value || undefined }
       onClick={ handleClick }

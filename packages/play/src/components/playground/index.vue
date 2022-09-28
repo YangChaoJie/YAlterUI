@@ -18,6 +18,8 @@
  <div>---button shape---</div>
  <y-button shape="circle">circle</y-button>
  <y-button shape="round">round</y-button>
+ <div>---button dashed---</div>
+ <y-button dashed>round</y-button>
  <y-footer></y-footer>
 </template>
 <script setup lang="ts">

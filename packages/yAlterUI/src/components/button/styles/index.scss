@@ -172,16 +172,20 @@
       }
     }
   }
-  // button shape 
+  // button shape  is-round
   @include when(round) {
     border-radius: getCssVar('border-radius', 'round');
   }
-
+  // is-circle
   @include when(circle) {
     border-radius: 50%;
     padding: map.get($button-padding-vertical, 'default') - $button-border-width;
   }
 
+  // button dash
+  @include m(dashed) { 
+    border-style: dashed;
+  }
   // button link is-link
   @include when(link) {
     border-color: transparent;
