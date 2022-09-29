@@ -4,7 +4,7 @@ import { defineComponent, PropType, computed } from "vue";
 import { Size, ButtonType, Shape } from "./interface";
 import { useNamespace } from '@/composables/namespace';
 import { useDisabled } from '@/composables/common';
-
+// import {  } from '@yalert-ui/hooks';
 const buttonProps = {
   size: String as PropType<Size>,
   disabled:Boolean,
