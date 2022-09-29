@@ -4,12 +4,16 @@ import { defineComponent, PropType, computed } from "vue";
 import { Size, ButtonType, Shape } from "./interface";
 import { useNamespace } from '@/composables/namespace';
 import { useDisabled } from '@/composables/common';
+import Car from '@yalert-ui/icons/es/car.mjs';
+// import { Car } from '@yalert-ui/icons';
 // import {  } from '@yalert-ui/hooks';
+
 const buttonProps = {
   size: String as PropType<Size>,
   disabled:Boolean,
   type: {
     type: String as PropType<ButtonType>,
+
     default: ''
   },
   text: Boolean,
@@ -57,6 +61,9 @@ const YButton = defineComponent({
       onClick={ handleClick }
       >
         { slots.default?.() }
+        <i style="width: 20px">
+        <Car></Car>
+        </i>
       </button>
     )
   }

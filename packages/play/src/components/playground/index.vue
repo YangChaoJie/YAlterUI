@@ -27,6 +27,7 @@
   import { YFooter, YButton } from 'yalertui';
   // 导出类型
   import type { ButtonType, Size } from 'yalertui';
+  // import { I1, Car } from '@yalert-ui/icons';
   import { ref } from 'vue';
   let button: ButtonType = 'info';
   console.log(button);

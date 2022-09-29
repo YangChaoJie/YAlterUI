@@ -1,24 +1,19 @@
 0 silly argv {
 0 silly argv   _: [ 'run' ],
-0 silly argv   scope: 'hooks',
+0 silly argv   scope: 'play',
 0 silly argv   stream: true,
-0 silly argv   prefix: false,
 0 silly argv   lernaVersion: '5.2.0',
 0 silly argv   '$0': 'node_modules\\lerna\\cli.js',
-0 silly argv   script: 'build'
+0 silly argv   script: 'dev'
 0 silly argv }
 1 notice cli v5.2.0
 2 verbose rootPath D:\study\YUI\YAlterUI
-3 error JSONError: Unexpected token "/" (0x2F) in JSON at position 3340 while parsing near "...ter\": \"^4.1.3\"\r\n    // \"@yalert-ui/hooks..." in packages\yAlterUI\package.json
-3 error
-3 error [0m [90m 102 |[39m     [32m"play"[39m[33m:[39m [32m"^0.5.0"[39m[33m,[39m[0m
-3 error [0m [90m 103 |[39m     [32m"vue-router"[39m[33m:[39m [32m"^4.1.3"[39m[0m
-3 error [0m[31m[1m>[22m[39m[90m 104 |[39m     [90m// "@yalert-ui/hooks": "workspace:^"[39m[0m
-3 error [0m [90m     |[39m     [31m[1m^[22m[39m[0m
-3 error [0m [90m 105 |[39m   }[0m
-3 error [0m [90m 106 |[39m }[0m
-3 error [0m [90m 107 |[39m[0m
-3 error
-3 error     at parseJson (D:\study\YUI\YAlterUI\node_modules\.pnpm\parse-json@5.2.0\node_modules\parse-json\index.js:29:21)
-3 error     at parse (D:\study\YUI\YAlterUI\node_modules\.pnpm\load-json-file@6.2.0\node_modules\load-json-file\index.js:15:9)
-3 error     at module.exports (D:\study\YUI\YAlterUI\node_modules\.pnpm\load-json-file@6.2.0\node_modules\load-json-file\index.js:18:47)
+3 error Error: Unsupported URL Type "workspace:": workspace:^
+3 error     at unsupportedURLType (D:\study\YUI\YAlterUI\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:246:15)
+3 error     at fromURL (D:\study\YUI\YAlterUI\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:306:13)
+3 error     at Function.resolve (D:\study\YUI\YAlterUI\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:76:12)
+3 error     at D:\study\YUI\YAlterUI\node_modules\.pnpm\@lerna+package-graph@5.2.0\node_modules\@lerna\package-graph\index.js:66:30
+3 error     at Array.forEach (<anonymous>)
+3 error     at D:\study\YUI\YAlterUI\node_modules\.pnpm\@lerna+package-graph@5.2.0\node_modules\@lerna\package-graph\index.js:60:38
+3 error     at Map.forEach (<anonymous>)
+3 error     at new PackageGraph (D:\study\YUI\YAlterUI\node_modules\.pnpm\@lerna+package-graph@5.2.0\node_modules\@lerna\package-graph\index.js:49:10)

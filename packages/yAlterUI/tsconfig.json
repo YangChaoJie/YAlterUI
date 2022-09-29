@@ -16,7 +16,8 @@
       ],
       "types": [
         "node",
-        "vue-router"
+        "vue-router",
+        "@yalert-ui/icons"
       ]
     }
   }
