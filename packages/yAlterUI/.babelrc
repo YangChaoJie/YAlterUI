@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    [
+      "component", {
+        "libraryName": "@yalert-ui/icons"
+      },
+      "@yalert-ui/icons"
+    ]
+  ]
+}

@@ -2,7 +2,10 @@
   "name": "@yalert-ui/icons",
   "version": "1.0.2",
   "license": "MIT",
-  "anchor": "qmhc",
+  "author": {
+    "name": "jerry yang",
+    "email": "linghulingxi@gmail.com"
+  },
   "scripts": {
     "build": "ts-node scripts/build.ts"
   },
