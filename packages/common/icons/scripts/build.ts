@@ -15,11 +15,13 @@ async function main() {
   ensureEmptyDir(resolve(__dirname, '../vue'))
   ensureEmptyDir(resolve(__dirname, '../types'))
 
-  const solid = await generateVueIcons('solid', '', '')
-  const brands = await generateVueIcons('brands', 'brands', 'B')
-  const regular = await generateVueIcons('regular', 'regular', 'R')
-
-  const exports = solid.exports + brands.exports + regular.exports
+  const element = await generateVueIcons('element', '', '')
+  // const antFilled = await generateVueIcons('ant/filled', 'ant-filled', 'F')
+  // const antOutlined = await generateVueIcons('ant/outlined', 'ant-outlined', 'O')
+  // const antTwotone = await generateVueIcons('ant/twotone', 'ant-twotone', 'T')
+  // + antFilled.types + antOutlined.types + antTwotone.types
+  const exports = element.exports 
+  //+ antFilled.exports + antOutlined.exports + antTwotone.exports
 
   await writeFile(resolve(__dirname, '../vue/index.ts'), exports, 'utf-8')
 
@@ -54,7 +56,7 @@ async function main() {
     declare module '@yalert-ui/icons' {
       import type { DefineComponent } from 'vue'
       type SvgIcon = DefineComponent<Record<string, unknown>, Record<string, unknown>, any>
-      ${solid.types + brands.types + regular.types}
+      ${element.types}
     }
 
     // export {}
@@ -89,9 +91,13 @@ async function generateVueIcons(dir: string, out: string, suffix: string) {
 
   await Promise.all(svgFiles.map(async svgFile => {
     const fileName = basename(svgFile, '.svg')
+    console.log('fileName---', fileName);
+    // <?xml version="1.0" standalone="no"?>   <?xml version="1.0" encoding="utf-8"?>
     const svg = (await readFile(svgFile, 'utf-8'))
       .replace(/<!--[\s\S]*-->/, '')
-      .replace(/xmlns=".*?"/, 'style="transform: scale(0.85)"')
+      .replace('<?xml version="1.0" standalone="no"?>', '<!-- <?xml version="1.0" standalone="no"?> -->')
+      .replace('<?xml version="1.0" encoding="utf-8"?>', '<!-- <?xml version="1.0" standalone="no"?> -->')
+      // .replace(/xmlns=".*?"/, 'style="transform: scale(0.85)"')
 
     let name = toCapitalCase(fileName)
     name = name.replace(/^(\d)/, 'I$1').replace(/-(\d)/g, '$1')
