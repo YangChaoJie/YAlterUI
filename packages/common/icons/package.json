@@ -43,6 +43,10 @@
     "types",
     "vue"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "homepage": "",
   "repository": {
     "type": "git",
