@@ -2,11 +2,11 @@ declare module '*.vue' {
   import type { DefineComponent } from 'vue'
   const component: DefineComponent<{}, {}, any>
 
-  interface yalert-ui {
+  interface yalertui {
   }
 
   export interface ComponentCustomProperties {
-    $yalert-ui: yalert-ui
+    $yalertui: yalertui
   }
 
   export interface GlobalComponents {
