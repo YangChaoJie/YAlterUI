@@ -1,10 +1,12 @@
-import { resolve, basename } from 'node:path'
+import { resolve, basename, dirname } from 'node:path'
 import { readFile, writeFile } from 'node:fs/promises'
 import { existsSync, emptyDir, mkdirSync } from 'fs-extra'
 import execa from 'execa'
 import chalk from 'chalk'
 import glob from 'fast-glob'
 import { format } from 'prettier'
+import camelcase from 'camelcase'
+import { fileURLToPath } from 'url'
 
 main().catch(error => {
   console.error(chalk.red(error))
@@ -92,30 +94,31 @@ async function generateVueIcons(dir: string, out: string, suffix: string) {
   await Promise.all(svgFiles.map(async svgFile => {
     const fileName = basename(svgFile, '.svg')
     console.log('fileName---', fileName);
-    // <?xml version="1.0" standalone="no"?>   <?xml version="1.0" encoding="utf-8"?>
     const svg = (await readFile(svgFile, 'utf-8'))
       .replace(/<!--[\s\S]*-->/, '')
-      .replace('<?xml version="1.0" standalone="no"?>', '<!-- <?xml version="1.0" standalone="no"?> -->')
-      .replace('<?xml version="1.0" encoding="utf-8"?>', '<!-- <?xml version="1.0" standalone="no"?> -->')
+
+      // .replace('<?xml version="1.0" standalone="no"?>', '<!-- <?xml version="1.0" standalone="no"?> -->')
+      // .replace('<?xml version="1.0" encoding="utf-8"?>', '<!-- <?xml version="1.0" standalone="no"?> -->')
       // .replace(/xmlns=".*?"/, 'style="transform: scale(0.85)"')
 
     let name = toCapitalCase(fileName)
     name = name.replace(/^(\d)/, 'I$1').replace(/-(\d)/g, '$1')
     name += suffix
 
-    const vue = `
-      <template>${svg}</template>
-      <script lang="ts">
-        import { defineComponent, markRaw } from 'vue'
-        export default defineComponent(markRaw({ name: '${name}' }))
-      </script>
-    `
+    // const vue = `
+    //   <template>${svg}</template>
+    //   <script lang="ts">
+    //     import { defineComponent, markRaw } from 'vue'
+    //     export default defineComponent(markRaw({ name: '${name}' }))
+    //   </script>
+    // `
 
-    await writeFile(
-      resolve(outDir, `${fileName}.vue`),
-      format(vue, { parser: 'vue', semi: false, singleQuote: true }),
-      'utf-8'
-    )
+    // await writeFile(
+    //   resolve(outDir, `${fileName}.vue`),
+    //   format(vue, { parser: 'vue', semi: false, singleQuote: true }),
+    //   'utf-8'
+    // )
+    await transformToVueComponent(svg)
 
     exports += `export { default as ${name} } from '.${out ? `/${out}` : ''}/${fileName}.vue'\n`
     types += `export const ${name}: SvgIcon\n`
@@ -125,6 +128,46 @@ async function generateVueIcons(dir: string, out: string, suffix: string) {
 
   return { exports, types }
 }
+
+const getName = (file: string) => {
+  const filename = basename(file).replace('.svg', '')
+  const componentName = camelcase(filename, { pascalCase: true })
+  return {
+    filename,
+    componentName,
+  }
+}
+
+const formatCode = (code: string, parser: any = 'typescript') =>
+  format(code, {
+    parser,
+    semi: false,
+    singleQuote: true,
+  })
+  const dir = dirname(fileURLToPath(import.meta.url))
+  const pathRoot = resolve(dir, '..')
+  const pathSrc = resolve(pathRoot, 'src')
+  const pathComponents = resolve(pathSrc, 'components')
+
+const transformToVueComponent = async (file: string) => {
+  const content = await readFile(file, 'utf-8')
+  const { filename, componentName } = getName(file)
+  const vue = formatCode(
+    `
+<template>
+${content}
+</template>
+<script lang="ts">
+import type { DefineComponent } from 'vue'
+export default ({
+  name: "${componentName}",
+}) as DefineComponent
+</script>`,
+    'vue'
+  )
+  writeFile(resolve(pathComponents, `${filename}.vue`), vue, 'utf-8')
+}
+
 
 function ensureEmptyDir(dir: string) {
   if (existsSync(dir)) {
