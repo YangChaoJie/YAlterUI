@@ -20,13 +20,17 @@
       "require": "./lib/index.js",
       "import": "./es/index.mjs"
     },
-    "./brands/*": {
+    "./filled/*": {
       "require": "./lib/ant/filled/*",
       "import": "./es/ant/filled/*"
     },
-    "./regular/*": {
+    "./outlined/*": {
       "require": "./lib/ant/outlined/*",
       "import": "./es/ant/outlined/*"
+    },
+    "./twotone/*": {
+      "require": "./lib/ant/twotone/*",
+      "import": "./es/ant/twotone/*"
     },
     "./package.json": "./package.json",
     "./*": "./*"
