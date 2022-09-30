@@ -5,11 +5,11 @@ declare module '*.vue' {
   import type { DefineComponent } from 'vue'
   const component: DefineComponent<{}, {}, any>
 
-  // interface yalertui {
+  // interface yalert-ui {
   // }
 
   // export interface ComponentCustomProperties {
-  //   $yalertui: yalertui
+  //   $yalert-ui: yalert-ui
   // }
 
   // export interface GlobalComponents {
@@ -21,11 +21,11 @@ declare module '*.vue' {
 // }
 
 // declare module '@vue/runtime-core' {
-//   interface yalertui {
+//   interface yalert-ui {
 //   }
 
 //   export interface ComponentCustomProperties {
-//     $yalertui: yalertui
+//     $yalert-ui: yalert-ui
 //   }
 
 //   export interface GlobalComponents {

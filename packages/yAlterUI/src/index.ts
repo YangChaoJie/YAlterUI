@@ -3,10 +3,10 @@ import * as components from './components'
 import './styles/main.scss';
 import { App } from 'vue'
 
-const yalertui = {
+const yalert-ui = {
   install(app: App, options = {}) {
 
   }
 }
-export default yalertui
+export default yalert-ui
 export * from './components'

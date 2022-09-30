@@ -19,7 +19,7 @@ export default defineConfig({
     },
     lib: {
       entry: resolve(process.cwd(), 'src/components/index.ts'), // 设置入口文件
-      name: 'yalertui', // 起个名字，安装、引入用
+      name: 'yalert-ui', // 起个名字，安装、引入用
       fileName: (format) => `lib.${format}.js` // 打包后的文件名
     },
     rollupOptions: {

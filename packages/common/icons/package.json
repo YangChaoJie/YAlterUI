@@ -1,8 +1,7 @@
 {
   "name": "@yalert-ui/icons",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "license": "MIT",
-  "private": "true",
   "author": {
     "name": "jerry yang",
     "email": "linghulingxi@gmail.com"
@@ -50,7 +49,7 @@
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": "",
+    "url": "https://github.com/YangChaoJie/YAlterUI/tree/main/packages/common/icons",
     "directory": "common/icons"
   },
   "devDependencies": {

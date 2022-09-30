@@ -1,10 +1,11 @@
 {
-  "name": "yalertui",
+  "name": "yalert-ui",
   "version": "0.0.1",
   "author": {
     "name": "jerry yang",
     "email": "linghulingxi@gmail.com"
   },
+  "private": false,
   "description": "all components are settled here",
   "license": "MIT",
   "main": "lib/components/index.mjs",

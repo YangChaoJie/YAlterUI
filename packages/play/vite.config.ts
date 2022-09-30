@@ -33,7 +33,7 @@ export default defineConfig(({ mode }) => {
       // '@': resolve(__dirname, './src'),
       // packages: resolve(__dirname, '../packages'),
       // '@': resolve(__dirname, '../packages/src'),
-      // 'yalertui': 'yalertui/components', // 本地修改
+      // 'yalert-ui': 'yalert-ui/components', // 本地修改
       // resolve(__dirname, '../yAlterUI/src/components')
       // },
       alias: [
@@ -42,8 +42,8 @@ export default defineConfig(({ mode }) => {
           replacement: `${path.resolve('..')}/yAlterUI/src/$1`,
         },
         { find: /^~\/(.*)/, replacement: resolve('./src/$1') },
-        // { find: /^yalertui$/, replacement:  `${path.resolve('..')}/yAlterUI/src/index.ts` }, // 与下面效果是相同的
-        { find: /^yalertui$/, replacement: `yalertui/components` }, // node_modules
+        // { find: /^yalert-ui$/, replacement:  `${path.resolve('..')}/yAlterUI/src/index.ts` }, // 与下面效果是相同的
+        { find: /^yalert-ui$/, replacement: `yalert-ui/components` }, // node_modules
       ],
       dedupe: ['vue']
     },

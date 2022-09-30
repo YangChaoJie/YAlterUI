@@ -10,8 +10,8 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: /^@\/(.*)/, replacement: resolve('./src/$1')},
-      { find: /^yalertui$/, replacement: resolve('./src/index.ts') },
-      { find: /^yalertui\/(.*)/, replacement: resolve('./$1') },
+      { find: /^yalert-ui$/, replacement: resolve('./src/index.ts') },
+      { find: /^yalert-ui\/(.*)/, replacement: resolve('./$1') },
     ]
   },
   plugins: [

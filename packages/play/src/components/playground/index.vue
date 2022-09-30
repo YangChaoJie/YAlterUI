@@ -24,9 +24,9 @@
 </template>
 <script setup lang="ts">
   // code here
-  import { YFooter, YButton } from 'yalertui';
+  import { YFooter, YButton } from 'yalert-ui';
   // 导出类型
-  import type { ButtonType, Size } from 'yalertui';
+  import type { ButtonType, Size } from 'yalert-ui';
   // import { I1, Car } from '@yalert-ui/icons';
   import { ref } from 'vue';
   let button: ButtonType = 'info';
@@ -51,7 +51,7 @@
   const type = ref<ButtonType>('default')
 </script>
 <!-- <script>
- import { YFooter, YButton } from 'yalertui';
+ import { YFooter, YButton } from 'yalert-ui';
   export default {
     name: 'Playground',
     components: {
