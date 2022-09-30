@@ -13,13 +13,22 @@ import { configureMarkdown, parseMeta } from './build/markdown-it'
 export default defineConfig(({mode}) =>{
   const config: UserConfig = {
     resolve: {
-      alias: {
-        '@': resolve(__dirname, './src'),
-        packages: resolve(__dirname, '../packages'),
-        // components: resolve(__dirname, '../yAlterUI/src/components/index.ts'),
-        'yalert-ui': 'yalert-ui/components'
-        // components: resolve(__dirname, '../yAlterUI/lib/yalter-ui.es.js'),
-      },
+      // alias: {
+      //   '@': resolve(__dirname, './src'),
+      //   packages: resolve(__dirname, '../packages'),
+      //   // components: resolve(__dirname, '../yAlterUI/src/components/index.ts'),
+      //   'yalert-ui': 'yalert-ui/components'
+      //   // components: resolve(__dirname, '../yAlterUI/lib/yalter-ui.es.js'),
+      // },
+      alias: [
+        // {
+        //   find: /^@\/(.*)$/,
+        //   replacement: `${resolve('..')}/yAlterUI/src/$1`,
+        // },
+        { find: /^@\/(.*)/, replacement: resolve('./src/$1') },
+        // { find: /^yalert-ui$/, replacement:  `${path.resolve('..')}/yAlterUI/src/index.ts` }, // 与下面效果是相同的
+        { find: /^yalert-ui$/, replacement: `yalert-ui/components` }, // node_modules
+      ],
       dedupe: ['vue']
     },
     optimizeDeps: {

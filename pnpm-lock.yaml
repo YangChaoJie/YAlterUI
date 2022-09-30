@@ -216,6 +216,7 @@ importers:
       vue-router: ^4.0.15
       vue-tsc: ^0.28.10
       vuetify: ^v3.0.0-beta.6
+      yalert-ui: '*'
     dependencies:
       '@vueuse/head': 0.7.6_vue@3.2.33
       p5i: 0.4.2
@@ -224,6 +225,7 @@ importers:
       vite-plugin-vuetify: 1.0.0-alpha.11_vite@2.9.9+vuetify@3.0.0-beta.7
       vue: 3.2.33
       vuetify: 3.0.0-beta.7_b3b148c9e8b9a65895d11ae487ae6211
+      yalert-ui: link:../yAlterUI
     devDependencies:
       '@babel/preset-typescript': 7.18.6
       '@rollup/plugin-alias': 3.1.9_rollup@2.77.2
@@ -1182,7 +1184,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.17.10
+      '@babel/core': registry.npmmirror.com/@babel/core/7.17.10
       '@babel/helper-plugin-utils': registry.npmmirror.com/@babel/helper-plugin-utils/7.18.9
     dev: true
 
@@ -3115,7 +3117,7 @@ packages:
       resolve: 1.22.1
       rollup: 2.77.2
       tslib: 2.4.0
-      typescript: 4.6.4
+      typescript: registry.npmmirror.com/typescript/4.6.4
     dev: true
 
   /@rollup/pluginutils/3.1.0_rollup@2.77.2:
@@ -8200,7 +8202,7 @@ packages:
     dependencies:
       magic-string: 0.26.2
       rollup: 2.77.2
-      typescript: 4.6.4
+      typescript: registry.npmmirror.com/typescript/4.6.4
     optionalDependencies:
       '@babel/code-frame': 7.18.6
     dev: true
@@ -8229,7 +8231,7 @@ packages:
       resolve: mirrors.tencent.com/resolve/1.22.1
       rollup: 2.77.2
       tslib: 2.4.0
-      typescript: 4.6.4
+      typescript: registry.npmmirror.com/typescript/4.6.4
     dev: true
 
   /rollup/2.77.2:

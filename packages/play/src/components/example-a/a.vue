@@ -5,5 +5,5 @@
 </template>
 
 <script>
-  import { YButton } from 'yalert-ui'
+ import { YFooter } from "yalert-ui"
 </script>

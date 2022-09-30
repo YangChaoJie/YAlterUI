@@ -91,7 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import { YFooter } from 'yalert-ui';
+// import { YFooter } from 'yalert-ui';
 const fData = {
             version:'0.1',
           resources: '资源',
