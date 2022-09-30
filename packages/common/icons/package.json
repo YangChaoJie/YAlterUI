@@ -2,6 +2,7 @@
   "name": "@yalert-ui/icons",
   "version": "1.0.0",
   "license": "MIT",
+  "private": "true",
   "author": {
     "name": "jerry yang",
     "email": "linghulingxi@gmail.com"
