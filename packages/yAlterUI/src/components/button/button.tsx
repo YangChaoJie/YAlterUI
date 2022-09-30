@@ -5,7 +5,7 @@ import { Size, ButtonType, Shape } from "./interface";
 import { useNamespace } from '@/composables/namespace';
 import { useDisabled } from '@/composables/common';
 // import Car from '@yalert-ui/icons/es/car.mjs';
-import { Back } from '@yalert-ui/icons';
+import { BackwardF } from '@yalert-ui/icons';
 // import {  } from '@yalert-ui/hooks';
 
 const buttonProps = {
@@ -62,7 +62,7 @@ const YButton = defineComponent({
       >
         { slots.default?.() }
         <i style="width: 20px">
-        <Back></Back>
+        <BackwardF></BackwardF>
         </i>
       </button>
     )

@@ -1,8 +1,7 @@
 {
   "name": "@yalert-ui/icons",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "license": "MIT",
-  "type": "module",
   "author": {
     "name": "jerry yang",
     "email": "linghulingxi@gmail.com"
@@ -22,12 +21,12 @@
       "import": "./es/index.mjs"
     },
     "./brands/*": {
-      "require": "./lib/brands/*",
-      "import": "./es/brands/*"
+      "require": "./lib/ant/filled/*",
+      "import": "./es/ant/filled/*"
     },
     "./regular/*": {
-      "require": "./lib/regular/*",
-      "import": "./es/regular/*"
+      "require": "./lib/ant/outlined/*",
+      "import": "./es/ant/outlined/*"
     },
     "./package.json": "./package.json",
     "./*": "./*"
