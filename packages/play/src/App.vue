@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { ExampleA } from './components/example-a/exam-a'
-import Playground from './components/playground/index.vue'
+import Playground from '~/components/playground/index.vue'
 </script>
 
 <style>

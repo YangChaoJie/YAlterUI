@@ -1,15 +1,30 @@
 // Styles
 import './styles/index.scss'
-import { defineComponent, PropType } from "vue";
-import { Size, ButtonType } from "./interface";
-import { useNamespace } from '../../composables/namespace';
+import { defineComponent, PropType, computed } from "vue";
+import { Size, ButtonType, Shape } from "./interface";
+import { useNamespace } from '@/composables/namespace';
+import { useDisabled } from '@/composables/common';
+// import Car from '@yalert-ui/icons/es/car.mjs';
+import { BackwardF } from '@yalert-ui/icons';
+// import {  } from '@yalert-ui/hooks';
 
 const buttonProps = {
   size: String as PropType<Size>,
   disabled:Boolean,
   type: {
     type: String as PropType<ButtonType>,
-    default: 'defalut'
+
+    default: ''
+  },
+  text: Boolean,
+  link: Boolean,
+  shape: {
+    type: String as PropType<Shape>,
+    default: ''
+  },
+  dashed: {
+    type: Boolean,
+    default: false
   },
   borderd: {
     type: Boolean,
@@ -21,14 +36,34 @@ const YButton = defineComponent({
   name: 'YButton',
   props: buttonProps,
   setup (props, {slots}) {
-    const { size, disabled, type} = props
+    // const { disabled } = props
+    const disabled = useDisabled()
+    const size = computed(() => props.size)
+    const type = computed(() => props.type)
+    const shape = computed(() => props.shape)
     const ns = useNamespace('btn')
+    const handleClick = (e: MouseEvent) => {
+      if (disabled) return
+    }
     return () => (
       <button
-      class={[ns.b(), ns.m(size), ns.is('disabled', disabled), ns.m(type)]}
-      disabled={ disabled || undefined }
+      class={[
+        ns.b(), ns.m(size.value), 
+        ns.is('disabled', disabled.value), 
+        ns.m(type.value), 
+        ns.is('text', props.text), 
+        ns.is('link', props.link),
+        ns.is('circle', shape.value === 'circle'),
+        ns.is('round', shape.value === 'round'),
+        ns.m(props.dashed ? 'dashed' : '')
+      ]}
+      disabled={ disabled.value || undefined }
+      onClick={ handleClick }
       >
         { slots.default?.() }
+        <i style="width: 20px">
+        <BackwardF></BackwardF>
+        </i>
       </button>
     )
   }
