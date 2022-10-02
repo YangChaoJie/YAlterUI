@@ -6,14 +6,12 @@ import { useNamespace } from '@/composables/namespace';
 import { useDisabled } from '@/composables/common';
 // import Car from '@yalert-ui/icons/es/car.mjs';
 import { BackwardF } from '@yalert-ui/icons';
-// import {  } from '@yalert-ui/hooks';
 
 const buttonProps = {
   size: String as PropType<Size>,
   disabled:Boolean,
   type: {
     type: String as PropType<ButtonType>,
-
     default: ''
   },
   text: Boolean,
@@ -61,9 +59,7 @@ const YButton = defineComponent({
       onClick={ handleClick }
       >
         { slots.default?.() }
-        <i style="width: 20px">
-        <BackwardF></BackwardF>
-        </i>
+        <BackwardF style="width: 20px"></BackwardF>
       </button>
     )
   }
