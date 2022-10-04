@@ -21,10 +21,15 @@
  <div>---button dashed---</div>
  <y-button dashed>round</y-button>
  <y-footer></y-footer>
+ <div>----icon-----</div>
+ <y-icon :size="20">
+    <Edit />
+  </y-icon>
 </template>
 <script setup lang="ts">
   // code here
-  import { YFooter, YButton } from 'yalert-ui';
+  import { YFooter, YButton, YIcon } from 'yalert-ui';
+  import { Edit } from '@yalert-ui/icons'
   // 导出类型
   import type { ButtonType, Size } from 'yalert-ui';
   // import { I1, Car } from '@yalert-ui/icons';
