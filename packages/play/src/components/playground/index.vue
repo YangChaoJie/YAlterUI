@@ -22,14 +22,19 @@
  <y-button dashed>round</y-button>
  <y-footer></y-footer>
  <div>----icon-----</div>
- <y-icon :size="20">
+ <y-icon color="red" size="16px">
     <Edit />
+  </y-icon>
+  <div>----icon--property---</div>
+  <y-icon :icon="Loading" class="is-loading"></y-icon>
+  <y-icon color="red" size="16px" class="is-loading">
+    <Loading />
   </y-icon>
 </template>
 <script setup lang="ts">
   // code here
   import { YFooter, YButton, YIcon } from 'yalert-ui';
-  import { Edit } from '@yalert-ui/icons'
+  import { Edit, Loading } from '@yalert-ui/icons'
   // 导出类型
   import type { ButtonType, Size } from 'yalert-ui';
   // import { I1, Car } from '@yalert-ui/icons';

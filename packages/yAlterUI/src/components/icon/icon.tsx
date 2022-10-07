@@ -1,13 +1,17 @@
-import { defineComponent, PropType, computed, h } from "vue";
+import { defineComponent, PropType, computed, h, CSSProperties } from "vue";
 import { useNamespace } from '../../composables/namespace';
+import { addUnit } from '../../util/style';
+import { isUndefined } from '../../util/type';
 
+// styles
+import './styles/index.scss'
 const iconProps = {
-  color:  {
+  color: {
     type: String,
     default: ''
   },
   size: {
-    type: String as PropType<String>
+    type: String as PropType<string>
   },
   icon: {
     type: Object,
@@ -18,30 +22,38 @@ const iconProps = {
 const YIcon = defineComponent({
   name: 'YIcon',
   props: iconProps,
-  setup (props, { attrs, slots }) {
+  setup(props, { attrs, slots }) {
     const ns = useNamespace('icon')
+    const style = computed<CSSProperties>(() => {
+      const { size, color } = props
+      if (!size && !color) return {}
+      return {
+        fontSize: isUndefined(size) ? undefined : addUnit(size),
+        '--color': color,
+      }
+    });
     return () => {
       if (slots.default) {
-        return  (
-        <i class={ns.b()}>
-          { slots.default && slots.default() }
-        </i>
+        return (
+          <i class={ns.b()} style={style.value}>
+            {slots.default && slots.default()}
+          </i>
         )
       }
 
       if (props.icon) {
         return (
-          <i class={ns.b()}>
+          <i class={ns.b()} style={style.value}>
             <g>{h(props.icon)}</g>
           </i>
         )
       }
 
-      return <i class={ns.b()}></i>
+      return <i class={ns.b()} style={style.value}></i>
     }
   }
 })
-
+export type Icon = InstanceType<typeof YIcon>
 export {
   YIcon
 }
