@@ -58,6 +58,15 @@
     outline-offset: 1px;
   }
 
+  & [class*='#{$namespace}-icon'] {
+    & + span {
+      margin-left: map.get($button-icon-span-gap, 'default');
+    }
+    svg {
+      vertical-align: bottom;
+    }
+  }
+
   // button space
   &+& {
     margin-left: 12px;

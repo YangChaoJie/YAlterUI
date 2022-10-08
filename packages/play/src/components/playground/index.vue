@@ -21,6 +21,10 @@
  <div>---button dashed---</div>
  <y-button dashed>round</y-button>
  <y-footer></y-footer>
+ <div>----button icon-----</div>
+ <y-button type="default" loading>loading</y-button>
+ <y-button type="primary" :loading-icon="Eleme" loading>Loading</y-button>
+ <y-button type="default" :icon="Search"  shape="circle"></y-button>
  <div>----icon-----</div>
  <y-icon color="red" size="16px">
     <Edit />
@@ -37,7 +41,7 @@
   import { Edit, Loading } from '@yalert-ui/icons'
   // 导出类型
   import type { ButtonType, Size } from 'yalert-ui';
-  // import { I1, Car } from '@yalert-ui/icons';
+  import { Eleme, Search } from '@yalert-ui/icons';
   import { ref } from 'vue';
   let button: ButtonType = 'info';
   console.log(button);
