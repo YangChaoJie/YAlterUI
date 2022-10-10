@@ -1,0 +1,7 @@
+@use 'sass:map';
+@use '../../../styles/common/var' as *;
+@use '../../../styles/mixins/mixins' as *;
+
+@include b(toast) {
+  background: rebeccapurple;
+}
