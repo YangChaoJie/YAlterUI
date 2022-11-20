@@ -34,10 +34,12 @@
   <y-icon color="red" size="16px" class="is-loading">
     <Loading />
   </y-icon>
+  <div>------totast-------</div>
+  <y-toast></y-toast>
 </template>
 <script setup lang="ts">
   // code here
-  import { YFooter, YButton, YIcon } from 'yalert-ui';
+  import { YFooter, YButton, YIcon, YToast } from 'yalert-ui';
   import { Edit, Loading } from '@yalert-ui/icons'
   // 导出类型
   import type { ButtonType, Size } from 'yalert-ui';
