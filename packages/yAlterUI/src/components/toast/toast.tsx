@@ -4,7 +4,7 @@ import { toastProps } from './props';
 // styles
 import './styles/index.scss'
 import { ToastOptions } from './interface';
-const YToast = defineComponent({
+const Toast = defineComponent({
   name: 'YToast',
   props: toastProps(),
   setup(props, { attrs, slots }) {
@@ -122,7 +122,7 @@ const YToast = defineComponent({
     }
   }
 })
-export type Toast = InstanceType<typeof YToast>
+// export type Toast = InstanceType<typeof Toast>
 export {
-  YToast
+  Toast
 }
