@@ -75,9 +75,11 @@ class ToastManager {
       console.warn('[ui:Toast]: App missing, the plugin maybe not installed.')
       return null
     }
-    // withInstallFunction(this, '$toast')
+    console.log('----Toast', Toast);
+    console.log('------Component', Component);
     if (!this._instance) {
       const vnode = createVNode(Component, null, null)
+      console.log('------vnode', vnode);
       this._container = document.createElement('div')
       vnode.appContext = this._mountedApp._context
       render(vnode, this._container, false)
