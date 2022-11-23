@@ -112,6 +112,7 @@ export default defineComponent({
       renderTransMask,
       renderToastContent,
       state,
+      cloasToast,
       ns
     })
 

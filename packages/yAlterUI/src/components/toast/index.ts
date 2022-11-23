@@ -67,7 +67,6 @@ class ToastManager {
     app.config.globalProperties[property || '$toast'] = this
     app.provide('toast', options)
     this._mountedApp = app
-    debugger;
   }
 
 
@@ -119,7 +118,7 @@ class ToastManager {
     // debugger;
     toast?.openToast(item)
     const _duration = typeof item.duration === 'number' ? item.duration : 2000
-
+    debugger;
     if (_duration >= 500) {
       this._timer = setTimeout(() => {
         toast?.cloasToast()
