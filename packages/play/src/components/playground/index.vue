@@ -47,6 +47,8 @@ import type { ButtonType, Size } from 'yalert-ui';
 import { Eleme, Search } from '@yalert-ui/icons';
 import { ref } from 'vue';
 const vue = getCurrentInstance();
+const app = vue?.appContext.app
+app?.use(YToast)
 let button: ButtonType = 'info';
 console.log(button);
 let message = ref('hello')

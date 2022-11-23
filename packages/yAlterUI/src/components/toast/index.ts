@@ -1,4 +1,4 @@
-import { Toast } from './toast';
+import Toast from './toast';
 import { createVNode, render, markRaw, App } from 'vue'
 import Component from './toast.vue'
 // import type { App } from 'vue'
@@ -67,6 +67,7 @@ class ToastManager {
     app.config.globalProperties[property || '$toast'] = this
     app.provide('toast', options)
     this._mountedApp = app
+    debugger;
   }
 
 
@@ -78,12 +79,14 @@ class ToastManager {
     console.log('----Toast', Toast);
     console.log('------Component', Component);
     if (!this._instance) {
-      const vnode = createVNode(Component, null, null)
+      const vnode = createVNode(Toast)
+      const vm =createVNode(Component)
       console.log('------vnode', vnode);
+      console.log('this._mountedApp._context', this._mountedApp._context);
       this._container = document.createElement('div')
       vnode.appContext = this._mountedApp._context
-      render(vnode, this._container, false)
-      document.body.appendChild(this._container.firstElementChild!)
+      render(vnode, this._container)
+      document.body.appendChild(this._container)
       this._instance = vnode.component!.proxy as ToastInstance
     }
 
@@ -108,13 +111,12 @@ class ToastManager {
     }
 
     const toast = this._getInstance()
-    debugger;
     const item: ToastOptions = { ...this.defaults, ...convenienceOptions, ...options, onClose }
 
     if (item.icon && typeof item.icon !== 'function') {
       item.icon = markRaw(item.icon)
     }
-
+    // debugger;
     toast?.openToast(item)
     const _duration = typeof item.duration === 'number' ? item.duration : 2000
 

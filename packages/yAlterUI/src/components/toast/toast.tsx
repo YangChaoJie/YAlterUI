@@ -4,9 +4,10 @@ import { toastProps } from './props';
 // styles
 import './styles/index.scss'
 import { ToastOptions } from './interface';
-const Toast = defineComponent({
+export default defineComponent({
   name: 'YToast',
   props: toastProps(),
+  expose: ['openToast'],
   setup(props, { attrs, slots }) {
     const ns = useNamespace('toast')
     console.log('prps---', props.bodyWidth);
@@ -102,27 +103,50 @@ const Toast = defineComponent({
     function renderToastContent() {
       if (state.visible) {
         return <div>
-          {state.content }
+          {state.content}
         </div>
       }
     }
-   
-    return () => {
+    return Object.assign({
+      openToast,
+      renderTransMask,
+      renderToastContent,
+      state,
+      ns
+    })
+
+    // return () => {
+    //   <div
+    //     class={[ns.b(), ns.bm(state.textOnly ? 'text-only' : '')]}
+    //     style={{ zIndex: state.zIndex }}
+    //   >
+    //     <Transition name={ns.bem('fade')}>
+    //       {renderTransMask()}
+    //     </Transition>
+    //     <Transition name={state.transition}>
+    //       { renderToastContent() }
+    //     </Transition>
+    //   </div>
+    // }
+  },
+  render() {
+    return (
       <div
-        class={[ns.b(), ns.bm(state.textOnly ? 'text-only' : '')]}
-        style={{ zIndex: state.zIndex }}
+        class={[this.ns.b(), this.ns.bm(this.state.textOnly ? 'text-only' : '')]}
+        style={{ zIndex: this.state.zIndex }}
       >
-        <Transition name={ns.bem('fade')}>
-          {renderTransMask()}
+        123232345
+        <Transition name={this.ns.bem('fade')}>
+          {this.renderTransMask()}
         </Transition>
-        <Transition name={state.transition}>
-          { renderToastContent() }
+        <Transition name={this.state.transition}>
+          {this.renderToastContent()}
         </Transition>
       </div>
-    }
+    )
   }
 })
 // export type Toast = InstanceType<typeof Toast>
-export {
-  Toast
-}
+// export {
+//   Toast
+// }
