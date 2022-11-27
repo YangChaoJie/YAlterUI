@@ -30,7 +30,7 @@ export default defineComponent({
       renderer: props.renderFunc,
       onClose: null as (() => void) | null
     })
-
+    
     const mounted = new Promise<void>(resolve => {
       onMounted(() => {
         nextTick(resolve)
@@ -56,6 +56,7 @@ export default defineComponent({
 
       state.textOnly = !state.icon
       state.visible = true
+      console.log('ns.be' ,ns.be('wrapper', 'q'));
     }
 
     function cloasToast() {
@@ -91,7 +92,7 @@ export default defineComponent({
         cloasToast()
       }
     }
-    function renderTransMask() {
+    const renderTransMask = () => {
       if (state.showMask && state.visible) {
         return <div
           class="{ns.be('mask'), state.maskClass}"
@@ -100,51 +101,39 @@ export default defineComponent({
         ></div>
       }
     }
-    function renderToastContent() {
+    
+    const renderToastContent = () => {
       if (state.visible) {
-        return <div>
+        return <div class={ [ns.be('wrapper'), ns.bem('wrapper', state.position), ns.bem('wrapper', '')] }>
           {state.content}
         </div>
       }
     }
+    function renderToast() {
+      return <div
+          class={[ns.b(), ns.bm(this.state.textOnly ? 'text-only' : '')]}
+          style={{ zIndex: state.zIndex }}
+        >
+          <Transition name={ns.bem('fade')}>
+            { renderTransMask() }
+          </Transition>
+          <Transition name={state.transition}>
+            { renderToastContent() }
+          </Transition>
+        </div>
+    }
     return Object.assign({
       openToast,
+      renderToast,
       renderTransMask,
       renderToastContent,
       state,
       cloasToast,
       ns
     })
-
-    // return () => {
-    //   <div
-    //     class={[ns.b(), ns.bm(state.textOnly ? 'text-only' : '')]}
-    //     style={{ zIndex: state.zIndex }}
-    //   >
-    //     <Transition name={ns.bem('fade')}>
-    //       {renderTransMask()}
-    //     </Transition>
-    //     <Transition name={state.transition}>
-    //       { renderToastContent() }
-    //     </Transition>
-    //   </div>
-    // }
   },
   render() {
-    return (
-      <div
-        class={[this.ns.b(), this.ns.bm(this.state.textOnly ? 'text-only' : '')]}
-        style={{ zIndex: this.state.zIndex }}
-      >
-        123232345
-        <Transition name={this.ns.bem('fade')}>
-          {this.renderTransMask()}
-        </Transition>
-        <Transition name={this.state.transition}>
-          {this.renderToastContent()}
-        </Transition>
-      </div>
-    )
+    return this.renderToast()
   }
 })
 // export type Toast = InstanceType<typeof Toast>
