@@ -2,34 +2,34 @@
 @use '../../../styles/common/var' as *;
 @use '../../../styles/mixins/mixins' as *;
 
-@include b(toast) {
-  // background: rebeccapurple;
+:root {
+  --y-toast-min-width: 100px;
+  --y-toast-max-width: 90%;
+  --y-vxp-toast-min-height: 100px;
+  --y-toast-v-padding: 16px;
+  --y-toast-h-padding: 16px;
+  --y-toast-color: #fff;
+  --y-toast-bg-color: #000;
+  --y-toast-radius: 6px;
+  --y-toast-opacity: 70%;
 }
 
-$toast: () !default;
-$toast: map.merge(
-  (
-    z-index: get-css-var('z-index-masker'),
-    min-width: 100px,
-    max-width: 90%,
-    min-height: 100px,
-    v-padding: 16px,
-    h-padding: 16px,
-    color: get-css-var('color-white'),
-    bg-color: get-css-var('color-black'),
-    radius: get-css-var('radius-large'),
-    opacity: 70%
-  ),
-  $toast
+
+$toast: (
+  ) !default;
+$toast: map.merge((z-index: 1500,
+      min-width: 100px,
+      max-width: 90%,
+      min-height: 100px,
+      padding: 16px,
+      color: getCssVar('toast', 'color'),
+      background-color: get-css-var('color-black'),
+      radius: get-css-var('radius-large'),
+      opacity: 70%),
+    $toast
 );
 
-@include b(toast)  {
-  // &-vars {
-  //   @include define-preset-values('toast', $toast);
-  // }
-
-  // @include basis;
-
+@include b(toast) {
   position: fixed;
   inset: 0;
   z-index: get-css-var('z-index-masker');
@@ -39,17 +39,7 @@ $toast: map.merge(
   justify-content: center;
   pointer-events: none;
 
-  // &--text-only {
-  //   @include define-preset-values(
-  //     'toast',
-  //     (
-  //       min-height: 0,
-  //       v-padding: 8px
-  //     )
-  //   );
-  // }
-
-  & > * {
+  &>* {
     pointer-events: auto;
   }
 
@@ -65,15 +55,19 @@ $toast: map.merge(
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: get-css-var('toast-min-width');
-    max-width: get-css-var('toast-max-width');
-    min-height: get-css-var('toast-min-height');
-    padding: get-css-var('toast-v-padding') get-css-var('toast-h-padding');
-    color: get-css-var('toast-color');
+    z-index: 1500;
+    min-width: 100px;
+    max-width: 90%;
+    min-height: 100px;
+    padding: 16px;
+    color: getCssVar('toast', 'color');
+    background-color: getCssVar('toast', 'bg-color');
+    border-radius: getCssVar('toast', 'radius');
+    opacity: 70%;
     user-select: none;
-    background-color: transparent;
-    border-radius: get-css-var('toast-radius');
-    transition: get-css-var('transition-color'), get-css-var('transition-background');
+    // background-color: transparent;
+    transition: background-color 0.25s ease;
+    ;
 
     &--top {
       position: absolute;

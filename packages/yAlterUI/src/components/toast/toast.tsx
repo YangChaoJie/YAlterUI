@@ -56,7 +56,7 @@ export default defineComponent({
 
       state.textOnly = !state.icon
       state.visible = true
-      console.log('ns.be' ,ns.be('wrapper', 'q'));
+      // console.log('ns.be' ,ns.be('wrapper'));
     }
 
     function cloasToast() {
@@ -103,8 +103,10 @@ export default defineComponent({
     }
     
     const renderToastContent = () => {
+      console.log('ns.bem---', ns.e('wrapper'));
+      
       if (state.visible) {
-        return <div class={ [ns.be('wrapper'), ns.bem('wrapper', state.position), ns.bem('wrapper', '')] }>
+        return <div class={[ns.e('wrapper')]}>
           {state.content}
         </div>
       }
