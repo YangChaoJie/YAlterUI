@@ -1,4 +1,5 @@
 import type { ComponentPublicInstance } from 'vue'
+import type { IconMinorProps } from '../icon/interface'
 
 export type ToastType = 'success' | 'warning' | 'error' | 'loading'
 export type ToastPosition = 'top' | 'center' | 'bottom'
@@ -7,7 +8,7 @@ export interface ToastOptions extends Record<string, any> {
   type?: ToastType,
   content?: string,
   icon?: Record<string, any> | (() => any) | null,
-  iconProps?: Object,
+  iconProps?: IconMinorProps,
   position?: ToastPosition,
   transitionName?: string,
   closable?: boolean,

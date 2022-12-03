@@ -1,9 +1,11 @@
 import { defineComponent, defineProps, withDefaults, reactive, onMounted, nextTick, Transition } from "vue";
 import { useNamespace } from '../../composables/namespace';
-import { toastProps } from './props';
+import { toastProps, ToastProps } from './props';
 // styles
 import './styles/index.scss'
 import { ToastOptions } from './interface';
+import { YIcon } from "../icon";
+import { IconMinorProps } from "../icon/interface";
 export default defineComponent({
   name: 'YToast',
   props: toastProps(),
@@ -17,7 +19,7 @@ export default defineComponent({
       zIndex: 0,
       content: '',
       icon: props.icon,
-      iconProps: props.iconProps as any,
+      iconProps: props.iconProps as IconMinorProps,
       position: props.position,
       transition: props.transitonName,
       closable: props.closable,
@@ -104,10 +106,21 @@ export default defineComponent({
     
     const renderToastContent = () => {
       console.log('ns.bem---', ns.e('wrapper'));
-      
       if (state.visible) {
         return <div class={[ns.e('wrapper')]}>
-          {state.content}
+          {
+            renderToastIcon()
+          }
+          <div class={ns.be('content')}>
+            {state.content}
+          </div>
+        </div>
+      }
+    }
+    const renderToastIcon = () => {
+      if (state.icon) {
+        return <div class={ns.be('icon')}>
+          <YIcon icon={ state.icon } size={ state.iconProps.size } color={ state.iconProps.color }></YIcon>
         </div>
       }
     }
@@ -138,7 +151,3 @@ export default defineComponent({
     return this.renderToast()
   }
 })
-// export type Toast = InstanceType<typeof Toast>
-// export {
-//   Toast
-// }

@@ -1,10 +1,8 @@
 import Toast from './toast';
 import { createVNode, render, markRaw, App } from 'vue'
 import Component from './toast.vue'
-// import type { App } from 'vue'
 import { ToastInstance, ToastOptions, ToastPosition, ToastType } from './interface';
-import { Check, ExclamationO, Loading, WarningFilled } from '@yalert-ui/icons';
-import { withInstallFunction } from '@/util/install';
+import { CircleCheck, CircleClose, Loading, Warning } from '@yalert-ui/icons';
 interface ApiMethod {
   (options: ToastOptions): () => void,
   (content: string, duration?: number): () => void
@@ -14,13 +12,13 @@ interface ApiMethod {
 
 const conveniences: Record<ToastType, Record<string, any>> = {
   success: {
-    icon: Check
+    icon: CircleCheck
   },
   warning: {
-    icon: ExclamationO
+    icon: Warning
   },
   error: {
-    icon:  WarningFilled
+    icon:  CircleClose
   },
   loading: {
     icon: Loading,
@@ -59,6 +57,18 @@ class ToastManager {
     this.open = (content: string | ToastOptions, duration?: number) => {
       return this._open(null, content, duration)
     }
+
+    this.success = (content: string | ToastOptions, duration?: number) => {
+      return this._open('success', content, duration)
+    }
+
+    this.warning = (content: string | ToastOptions, duration?: number) => {
+      return this._open('warning', content, duration)
+    }
+
+    this.error = (content: string | ToastOptions, duration?: number) => {
+      return this._open('error', content, duration)
+    }
   }
 
   install(app: App, options: Partial<ToastOptions> & { property?: string } = {}) {
@@ -75,25 +85,19 @@ class ToastManager {
       console.warn('[ui:Toast]: App missing, the plugin maybe not installed.')
       return null
     }
-    console.log('----Toast', Toast);
-    console.log('------Component', Component);
     if (!this._instance) {
       const vnode = createVNode(Toast)
-      const vm =createVNode(Component)
-      console.log('------vnode', vnode);
-      console.log('this._mountedApp._context', this._mountedApp._context);
       this._container = document.createElement('div')
       vnode.appContext = this._mountedApp._context
       render(vnode, this._container)
       document.body.appendChild(this._container)
       this._instance = vnode.component!.proxy as ToastInstance
     }
-
     return this._instance
   }
-
+  
+  // https://github.com/vexip-ui/vexip-ui/blob/54c8bf8e8f00ca6930811b29995aa286503e1a70/common/config/src/props.ts#L56
   private _open(type: null | ToastType, content: string | ToastOptions, duration?: number) {
-    https://github.com/vexip-ui/vexip-ui/blob/54c8bf8e8f00ca6930811b29995aa286503e1a70/common/config/src/props.ts#L56
     this._timer && clearTimeout(this._timer)
 
     const options = typeof content === 'string' ? { content, duration: duration } : content
