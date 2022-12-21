@@ -120,7 +120,7 @@ export default defineComponent({
     const renderToastIcon = () => {
       if (state.icon) {
         return <div class={ns.be('icon')}>
-          <YIcon icon={ state.icon } size={ state.iconProps.size } color={ state.iconProps.color }></YIcon>
+          <YIcon icon={ state.icon } size={ state.iconProps.size } color={ state.iconProps.color } loading={ state.iconProps.loading }></YIcon>
         </div>
       }
     }

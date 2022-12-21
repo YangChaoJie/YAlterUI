@@ -55,7 +55,7 @@ let message = ref('hello')
 const btnToastClick = () => {
   console.log('getCurrentInstance()', vue);
   const properties = vue?.appContext.config.globalProperties
-  properties?.$toast?.warning('hello', 600)
+  properties?.$toast?.loading('hello', 1000)
 }
 const btnClick = (e: MouseEvent) => {
   // 响应式测试
@@ -76,23 +76,3 @@ let as = ref<Size>('small')
 const type = ref<ButtonType>('default')
 console.log('------------', YToast);
 </script>
-<!-- <script>
- import { YFooter, YButton } from 'yalert-ui';
-  export default {
-    name: 'Playground',
-    components: {
-      YFooter,
-      YButton
-    },
-    props: {
-      aa: {
-        type: String
-      }
-    },
-    setup () {
-      return {
-        message: 'Hello Vue!'
-      }
-    },
-  }
-</script> -->

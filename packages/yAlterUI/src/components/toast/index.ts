@@ -2,7 +2,8 @@ import Toast from './toast';
 import { createVNode, render, markRaw, App } from 'vue'
 import Component from './toast.vue'
 import { ToastInstance, ToastOptions, ToastPosition, ToastType } from './interface';
-import { CircleCheck, CircleClose, Loading, Warning } from '@yalert-ui/icons';
+import { CircleCheck, CircleClose, Loading3QuartersO, Warning } from '@yalert-ui/icons';
+import { withInstallFunction } from '@/util/install';
 interface ApiMethod {
   (options: ToastOptions): () => void,
   (content: string, duration?: number): () => void
@@ -21,10 +22,12 @@ const conveniences: Record<ToastType, Record<string, any>> = {
     icon:  CircleClose
   },
   loading: {
-    icon: Loading,
+    icon: Loading3QuartersO,
     showMask: true,
     iconProps: {
-      pulse: true
+      pulse: true,
+      loading: true,
+      size: '22px'
     }
   }
 }
@@ -69,6 +72,10 @@ class ToastManager {
     this.error = (content: string | ToastOptions, duration?: number) => {
       return this._open('error', content, duration)
     }
+
+    this.loading = (content: string | ToastOptions, duration?: number) => {
+      return this._open('loading', content, duration)
+    }
   }
 
   install(app: App, options: Partial<ToastOptions> & { property?: string } = {}) {
@@ -78,7 +85,6 @@ class ToastManager {
     app.provide('toast', options)
     this._mountedApp = app
   }
-
 
   private _getInstance() {
     if (!this._mountedApp) {

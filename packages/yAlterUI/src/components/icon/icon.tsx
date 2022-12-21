@@ -12,6 +12,10 @@ const iconProps = {
   size: {
     type: String as PropType<string>
   },
+  loading: {
+    type: Boolean,
+    default: false
+  },
   icon: {
     type: Object,
     default: null
@@ -24,17 +28,17 @@ const YIcon = defineComponent({
   setup(props, { attrs, slots }) {
     const ns = useNamespace('icon')
     const style = computed<CSSProperties>(() => {
-      const { size, color } = props
+      const { size, color, loading } = props
       if (!size && !color) return {}
       return {
         fontSize: isUndefined(size) ? undefined : addUnit(size),
-        '--color': color,
+        '--color': color
       }
     });
     return () => {
       if (slots.default) {
         return (
-          <i class={ns.b()} style={style.value}>
+          <i class={[ns.b(), ns.is('loading', props.loading)]} style={style.value}>
             {slots.default && slots.default()}
           </i>
         )
@@ -42,13 +46,13 @@ const YIcon = defineComponent({
 
       if (props.icon) {
         return (
-          <i class={ns.b()} style={style.value}>
+          <i class={[ns.b(), ns.is('loading', props.loading)]} style={style.value}>
             <g>{h(props.icon)}</g>
           </i>
         )
       }
 
-      return <i class={ns.b()} style={style.value}></i>
+      return <i class={[ns.b(), ns.is('loading', props.loading)]} style={style.value}></i>
     }
   }
 })
