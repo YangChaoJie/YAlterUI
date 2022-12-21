@@ -1,4 +1,4 @@
-import { defineComponent, defineProps, withDefaults, reactive, onMounted, nextTick, Transition } from "vue";
+import { defineComponent, defineProps, withDefaults, reactive, onMounted, nextTick, Transition, onUnmounted } from "vue";
 import { useNamespace } from '../../composables/namespace';
 import { toastProps, ToastProps } from './props';
 // styles
@@ -10,7 +10,7 @@ export default defineComponent({
   name: 'YToast',
   props: toastProps(),
   expose: ['openToast'],
-  setup(props, { attrs, slots }) {
+  setup(props, { attrs, slots, emit }) {
     const ns = useNamespace('toast')
     console.log('prps---', props.bodyWidth);
 
@@ -37,6 +37,11 @@ export default defineComponent({
       onMounted(() => {
         nextTick(resolve)
       })
+    })
+    
+    onUnmounted(() => {
+      console.log('组件销毁---');
+      emit('destory')
     })
     // function
     async function openToast(options: ToastOptions) {

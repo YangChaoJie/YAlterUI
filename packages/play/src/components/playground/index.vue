@@ -55,7 +55,11 @@ let message = ref('hello')
 const btnToastClick = () => {
   console.log('getCurrentInstance()', vue);
   const properties = vue?.appContext.config.globalProperties
-  properties?.$toast?.loading('hello', 1000)
+  console.log('properties----', properties?.$toast);
+  
+  // properties?.$toast?.loading('hello $toast', 1000)
+  // YToast({}, vue?.appContext).loading('hello YToast', 1000)
+  YToast().loading('hello YToast2', 1000)
 }
 const btnClick = (e: MouseEvent) => {
   // 响应式测试

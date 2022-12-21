@@ -4,6 +4,7 @@ import Component from './toast.vue'
 import { ToastInstance, ToastOptions, ToastPosition, ToastType } from './interface';
 import { CircleCheck, CircleClose, Loading3QuartersO, Warning } from '@yalert-ui/icons';
 import { withInstallFunction } from '@/util/install';
+import type { AppContext } from 'vue'
 interface ApiMethod {
   (options: ToastOptions): () => void,
   (content: string, duration?: number): () => void
@@ -42,11 +43,13 @@ class ToastManager {
   error: ApiMethod
   loading: ApiMethod
 
+  private _context: AppContext | null
+
   private _mountedApp: App<unknown> | null
   private _instance: ToastInstance | null
   private _container: HTMLElement | null
   private _timer: ReturnType<typeof setTimeout> | null
-  constructor(options: Partial<ToastOptions> = {}) {
+  constructor(options: Partial<ToastOptions> = {}, context?: AppContext | null) {
     options = {
       ...options,
       duration: options.duration ? Number(options.duration) : 2000
@@ -56,6 +59,7 @@ class ToastManager {
     this._instance = null
     this._container = null
     this._timer = null
+    this._context = context || null
 
     this.open = (content: string | ToastOptions, duration?: number) => {
       return this._open(null, content, duration)
@@ -87,16 +91,17 @@ class ToastManager {
   }
 
   private _getInstance() {
-    if (!this._mountedApp) {
-      console.warn('[ui:Toast]: App missing, the plugin maybe not installed.')
-      return null
-    }
+    // if (!this._mountedApp) {
+    //   console.warn('[ui:Toast]: App missing, the plugin maybe not installed.')
+    //   return null
+    // }
     if (!this._instance) {
       const vnode = createVNode(Toast)
       this._container = document.createElement('div')
-      vnode.appContext = this._mountedApp._context
+      vnode.appContext = this._context 
+      // || this._mountedApp._context
       render(vnode, this._container)
-      document.body.appendChild(this._container)
+      document.body.appendChild(this._container.firstElementChild!)
       this._instance = vnode.component!.proxy as ToastInstance
     }
     return this._instance
@@ -131,6 +136,7 @@ class ToastManager {
     if (_duration >= 500) {
       this._timer = setTimeout(() => {
         toast?.cloasToast()
+        this.destroyed();
       }, duration)
     }
 
@@ -147,12 +153,19 @@ class ToastManager {
   close() {
     this._timer && clearTimeout(this._timer)
     this._getInstance()?.cloasToast()
+    this.destroyed();
   }
 
   destroyed() {
+    console.log('组件销毁---222');
     this._container && render(null, this._container)
   }
 }
 
-export const YToast = new ToastManager()
+const TToast = (options = {}, context) => {
+  return new ToastManager(options, context);
+}
+const YToast = withInstallFunction(TToast, '$toast')
+export { YToast }
+// new ToastManager()
 // export const YToast = withInstallFunction(new ToastManager(), '$toast')
