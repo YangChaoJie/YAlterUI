@@ -39,7 +39,7 @@
 </template>
 <script setup lang="ts">
 // code here
-import { YFooter, YButton, YIcon, YToast } from 'yalert-ui';
+import { YFooter, YButton, YIcon, useToast } from 'yalert-ui';
 import { Edit, Loading } from '@yalert-ui/icons'
 import { getCurrentInstance } from 'vue'
 // 导出类型
@@ -48,18 +48,18 @@ import { Eleme, Search } from '@yalert-ui/icons';
 import { ref } from 'vue';
 const vue = getCurrentInstance();
 const app = vue?.appContext.app
-app?.use(YToast)
+app?.use(useToast)
 let button: ButtonType = 'info';
 console.log(button);
 let message = ref('hello')
 const btnToastClick = () => {
   console.log('getCurrentInstance()', vue);
   const properties = vue?.appContext.config.globalProperties
-  console.log('properties----', properties?.$toast);
+  console.log('properties----', properties);
   
-  // properties?.$toast?.loading('hello $toast', 1000)
+  // properties?.$toast?.success('hello $toast11', 1000)
   // YToast({}, vue?.appContext).loading('hello YToast', 1000)
-  YToast().loading('hello YToast2', 1000)
+  useToast().warning('hello YToast2', 1000)
 }
 const btnClick = (e: MouseEvent) => {
   // 响应式测试
@@ -78,5 +78,4 @@ const btnClick = (e: MouseEvent) => {
 }
 let as = ref<Size>('small')
 const type = ref<ButtonType>('default')
-console.log('------------', YToast);
 </script>

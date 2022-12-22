@@ -82,20 +82,22 @@ class ToastManager {
     }
   }
 
-  install(app: App, options: Partial<ToastOptions> & { property?: string } = {}) {
-    const { property, ...others } = options
-    this.config(others)
-    app.config.globalProperties[property || '$toast'] = this
-    app.provide('toast', options)
-    this._mountedApp = app
-  }
+  // install(app: App, options: Partial<ToastOptions> & { property?: string } = {}) {
+  //   const { property, ...others } = options
+  //   this.config(others)
+  //   app.config.globalProperties[property || '$toast'] = this
+  //   app.provide('toast', options)
+  //   console.log(22222222);
+    
+  //   this._mountedApp = app
+  // }
 
   private _getInstance() {
     // if (!this._mountedApp) {
     //   console.warn('[ui:Toast]: App missing, the plugin maybe not installed.')
     //   return null
     // }
-    if (!this._instance) {
+    // if (!this._instance) {
       const vnode = createVNode(Toast)
       this._container = document.createElement('div')
       vnode.appContext = this._context 
@@ -103,7 +105,7 @@ class ToastManager {
       render(vnode, this._container)
       document.body.appendChild(this._container.firstElementChild!)
       this._instance = vnode.component!.proxy as ToastInstance
-    }
+    // }
     return this._instance
   }
   
@@ -130,7 +132,6 @@ class ToastManager {
     if (item.icon && typeof item.icon !== 'function') {
       item.icon = markRaw(item.icon)
     }
-    // debugger;
     toast?.openToast(item)
     const _duration = typeof item.duration === 'number' ? item.duration : 2000
     if (_duration >= 500) {
@@ -146,8 +147,9 @@ class ToastManager {
     }
   }
 
-  config(options: Record<string, unknown>) {
+  config(options: Record<string, unknown>, context?: AppContext | null) {
     this.defaults = { ...this.defaults, ...options }
+    this._context = context || null
   }
 
   close() {
@@ -157,15 +159,21 @@ class ToastManager {
   }
 
   destroyed() {
-    console.log('组件销毁---222');
     this._container && render(null, this._container)
   }
 }
 
+const toast = new ToastManager();
 const TToast = (options = {}, context) => {
-  return new ToastManager(options, context);
+  toast.config(options)
+  return { ...toast }
 }
-const YToast = withInstallFunction(TToast, '$toast')
-export { YToast }
-// new ToastManager()
-// export const YToast = withInstallFunction(new ToastManager(), '$toast')
+TToast.loading = toast.loading
+TToast.success = toast.success
+TToast.warning = toast.warning
+TToast.error = toast.error
+TToast.open = toast.open
+
+
+export const useToast = withInstallFunction(TToast, '$toast')
+export default useToast
