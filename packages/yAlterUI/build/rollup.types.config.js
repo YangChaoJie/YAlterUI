@@ -6,6 +6,7 @@ import alias from '@rollup/plugin-alias'
 
 const externalsPlugin = () => ({
   resolveId (source, importer) {
+    console.log('source----', source);
     if (importer && (source.endsWith('.sass') || source.endsWith('.scss'))) {
       return {
         id: source,
@@ -21,7 +22,11 @@ function createTypesConfig (input, output) {
     input: 'types-temp/' + input,
     output: [{ file: output, format: 'es' }],
     plugins: [
-      dts(),
+      dts({
+        exclude: [
+          '@yalert-ui/icons'
+        ]
+      }),
       externalsPlugin(),
       alias({
         entries: [

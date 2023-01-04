@@ -40,12 +40,12 @@
 <script setup lang="ts">
 // code here
 import { YFooter, YButton, YIcon, useToast } from 'yalert-ui';
-import { Edit, Loading } from '@yalert-ui/icons'
+import { Edit, Lightning, Loading } from '@yalert-ui/icons'
 import { getCurrentInstance } from 'vue'
 // 导出类型
 import type { ButtonType, Size } from 'yalert-ui';
 import { Eleme, Search } from '@yalert-ui/icons';
-import { ref } from 'vue';
+import { ref, h } from 'vue';
 const vue = getCurrentInstance();
 const app = vue?.appContext.app
 app?.use(useToast)
@@ -56,10 +56,35 @@ const btnToastClick = () => {
   console.log('getCurrentInstance()', vue);
   const properties = vue?.appContext.config.globalProperties
   console.log('properties----', properties);
-  
+
   // properties?.$toast?.success('hello $toast11', 1000)
   // YToast({}, vue?.appContext).loading('hello YToast', 1000)
-  useToast().warning('hello YToast2', 1000)
+  // useToast().warning('hello YToast2', 1000)
+  useToast().success({
+    duration: 3000,
+    closable: false,
+    renderer: () => [
+      h(YIcon, {
+        icon: Lightning,
+        style: {
+          marginBottom: '5px',
+          color: '#339af0',
+          scale: 1.6
+        }
+      }),
+      '自定义',
+      h(
+        'span',
+        {
+          style: {
+            color: '#fab005',
+            fontStyle: 'italic'
+          }
+        },
+        '消息'
+      )
+    ]
+  })
 }
 const btnClick = (e: MouseEvent) => {
   // 响应式测试
