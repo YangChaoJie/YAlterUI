@@ -108,6 +108,7 @@ const plugins = (isMini) => {
           const { importedIds } = this.getModuleInfo(
             (await this.resolve('src/components/index.ts')).id
           )
+          console.log('importedIds----', importedIds);
           await Promise.all(importedIds.map(async id => {
             const importFrom = path.relative(path.resolve(__dirname, '../src'), id).replace(/\.ts$/, '.mjs')
             console.log('importFrom----', importFrom);

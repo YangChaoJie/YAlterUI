@@ -21,7 +21,8 @@ export const toastProps = propsFactory({
     type: Object as PropType<IconMinorProps>,
     default: () => ({
       size: '40px',
-      color: 'white'
+      color: 'white',
+      loading: false
     }),
   },
   position: {

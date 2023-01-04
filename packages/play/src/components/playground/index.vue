@@ -60,7 +60,7 @@ const btnToastClick = () => {
   // properties?.$toast?.success('hello $toast11', 1000)
   // YToast({}, vue?.appContext).loading('hello YToast', 1000)
   // useToast().warning('hello YToast2', 1000)
-  useToast().success({
+  useToast({}).success({
     duration: 3000,
     closable: false,
     renderer: () => [
