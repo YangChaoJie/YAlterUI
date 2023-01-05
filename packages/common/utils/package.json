@@ -1,6 +1,6 @@
 {
-  "name": "@yalert-ui/hooks",
-  "version": "1.7.1",
+  "name": "@yalert-ui/utils",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "jerry yang",
   "scripts": {
@@ -18,8 +18,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "gitt",
-    "directory": "common/hooks"
+    "url": "git",
+    "directory": "common/utils"
   },
   "dependencies": {
     "@juggle/resize-observer": "^3.3.1",
