@@ -2,7 +2,12 @@
   "include": [
     "src",
   ],
-  "exclude": ["build/*", "types-temp", "build/vitest.config.*", "build/prod.config.*"],
+  "exclude": [
+    "build/*",
+    "types-temp",
+    "build/vitest.config.*",
+    "build/prod.config.*"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "preserve",
@@ -14,9 +19,9 @@
     "esModuleInterop": true,
     "sourceMap": false,
     "allowSyntheticDefaultImports": true,
-    // "skipLibCheck": true,                      /* Generates corresponding '.d.ts' file. */
+    "skipLibCheck": true, /* Generates corresponding '.d.ts' file. */
     // "declarationMap": true,
-    "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "moduleResolution": "node", /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     "paths": {
       "@/*": [
         "src/*"
@@ -27,32 +32,10 @@
         "vite/client"
         // "@yalert-ui/icons"
       ]
-    }
+    },
+    "lib": [
+      "es2018",
+      "dom"
+    ]
   }
 }
-// {
-//   "compilerOptions": {
-//     "target": "esnext",
-//     "module": "esnext",
-//     "moduleResolution": "node",
-//     "importHelpers": true,
-//     "outDir": "dist",
-//     "strict": true,
-//     "jsx": "preserve",
-//     "allowJs": true,
-//     "sourceMap": true,
-//     "resolveJsonModule": true,
-//     "esModuleInterop": true,
-//     "skipLibCheck": true,
-//     "experimentalDecorators": true,
-//     "types": [
-//       "vite/client"
-//     ],
-//     "baseUrl": ".",
-//     "paths": {
-//       "@/*": ["src/*"]
-//     },
-//     "lib": ["esnext", "dom"]
-//   },
-//   "include": ["src", "*.d.ts"]
-// }

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 // import vue from '@vitejs/plugin-vue'
 import { fileURLToPath } from 'url'
-import { resolve } from 'path'
+// import { resolve } from 'path'
 import path from 'path'
 import baseConfig from './base.config' // 主要用于alias文件路径别名
 import vue from '@vitejs/plugin-vue'
@@ -14,17 +14,17 @@ export default defineConfig({
   // ...baseConfig,
   resolve: {
     alias: [
-      { find: /^@\/(.*)/, replacement: resolve('./src/$1')},
-      { find: /^yalert-ui$/, replacement: resolve('./src/index.ts') },
-      { find: /^yalert-ui\/(.*)/, replacement: resolve('./$1') },
-      { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../common/hook/src') }
+      { find: /^@\/(.*)/, replacement: resolve('../src/$1')},
+      { find: /^yalert-ui$/, replacement: resolve('../src/index.ts') },
+      { find: /^yalert-ui\/(.*)/, replacement: resolve('../$1') },
+      // { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../common/hook/src') }
     ]
   },
   // 打包配置
   build: {
     sourcemap: false, //不开启镜像
     outDir: outDir,
-    publicDir: false,
+    // publicDir: false,
     chunkSizeWarningLimit: 10000,
     assetsInlineLimit: 8192, // 小于 8kb 的导入或引用资源将内联为 base64 编码
     terserOptions: {
@@ -35,7 +35,7 @@ export default defineConfig({
       }
     },
     lib: {
-      entry: resolve(process.cwd(), 'src/components/index.ts'), // 设置入口文件
+      entry: resolve('../src/components/index.ts'), // 设置入口文件
       formats: ['es', 'cjs', 'iife', 'umd'],
       name: 'YalertUi', // 起个名字，安装、引入用
       fileName: (format) => `yalert-ui.${format === 'es' ? 'mjs' : format === 'cjs' ? 'cjs' : 'js'}` // 打包后的文件名
@@ -62,7 +62,6 @@ export default defineConfig({
         '@yalert-ui/icons',
         '@yalert-ui/utils'
       ],
-      root: resolve(process.cwd(), 'src'),
       outputDir: outDir,
       compilerOptions: {
         sourceMap: false
