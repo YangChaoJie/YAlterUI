@@ -101,7 +101,7 @@ importers:
       '@popperjs/core': ^2.11.5
       typescript: 4.6.4
       vite: ^3.0.0
-      vite-plugin-dts: ^1.3.0
+      vite-plugin-dts: ^1.6.6
       vue: ^3.2.37
     dependencies:
       '@juggle/resize-observer': 3.4.0
@@ -427,13 +427,13 @@ importers:
       unplugin-vue-components: ^0.22.7
       unplugin-vue-define-options: ^0.6.1
       vite: ^3.0.2
-      vite-plugin-dts: ^0.9.6
+      vite-plugin-dts: ^1.6.6
       vitest: ^0.21.1
       vue-router: ^4.1.3
       vue-tsc: ^0.34.7
     dependencies:
       '@vue/shared': 3.2.45
-      '@yalert-ui/hooks': link:../common/utils
+      '@yalert-ui/hooks': link:../common/hooks
       '@yalert-ui/icons': 0.0.1_vue@3.2.45
       play: 0.5.0
       vue-router: 4.1.6_vue@3.2.45
@@ -478,7 +478,7 @@ importers:
       unplugin-vue-components: 0.22.12_rollup@2.79.1+vue@3.2.45
       unplugin-vue-define-options: 0.6.2_71f1d0d6e6dcd76010dfc05656396986
       vite: 3.2.5_@types+node@18.11.18+sass@1.57.1
-      vite-plugin-dts: 0.9.10_vite@3.2.5
+      vite-plugin-dts: 1.7.1_rollup@2.79.1+vite@3.2.5
       vitest: 0.21.1_happy-dom@6.0.4+sass@1.57.1
       vue-tsc: 0.34.17_typescript@4.9.4
 
@@ -11615,18 +11615,6 @@ packages:
       fs-extra: 10.1.0
       ts-morph: 13.0.3
       vite: 2.9.15_less@4.1.3+sass@1.57.1
-    dev: true
-
-  /vite-plugin-dts/0.9.10_vite@3.2.5:
-    resolution: {integrity: sha512-dNfFJXRsm3YW8k+Wm8SesSaEGOaicKdgFz5PoUpT9zUh6URr5cwu5NMOBhJgiofrzcuYtOU2Ez7JQtg68RII8g==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      vite: '>=2.4.4'
-    dependencies:
-      fast-glob: 3.2.12
-      fs-extra: 10.1.0
-      ts-morph: 13.0.3
-      vite: 3.2.5_@types+node@18.11.18+sass@1.57.1
     dev: true
 
   /vite-plugin-dts/1.7.1_rollup@2.79.1+vite@3.2.5:

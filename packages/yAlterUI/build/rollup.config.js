@@ -100,7 +100,9 @@ const plugins = (isMini) => {
       ]
     }),
     babel(babelOptions),
-    commonjs(),
+    commonjs({
+      sourceMap: false
+    }),
     {
       async buildEnd() {
         const components = Object.create(null);

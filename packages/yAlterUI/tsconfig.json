@@ -1,14 +1,21 @@
 {
   "include": [
-    "src"
+    "src",
   ],
-  "exclude": ["build/*", "types-temp", "build/vitest.config.*"],
+  "exclude": ["build/*", "types-temp", "build/vitest.config.*", "build/prod.config.*"],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "preserve",
+    "importHelpers": true,
+    "noUnusedLocals": false,
+    "resolveJsonModule": true,
     "outDir": "./types-temp",
-    "declaration": true,                      /* Generates corresponding '.d.ts' file. */
-    "declarationMap": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    // "skipLibCheck": true,                      /* Generates corresponding '.d.ts' file. */
+    // "declarationMap": true,
     "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     "paths": {
       "@/*": [
@@ -17,8 +24,35 @@
       "types": [
         "node",
         "vue-router",
-        "@yalert-ui/icons"
+        "vite/client"
+        // "@yalert-ui/icons"
       ]
     }
   }
 }
+// {
+//   "compilerOptions": {
+//     "target": "esnext",
+//     "module": "esnext",
+//     "moduleResolution": "node",
+//     "importHelpers": true,
+//     "outDir": "dist",
+//     "strict": true,
+//     "jsx": "preserve",
+//     "allowJs": true,
+//     "sourceMap": true,
+//     "resolveJsonModule": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "experimentalDecorators": true,
+//     "types": [
+//       "vite/client"
+//     ],
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["src/*"]
+//     },
+//     "lib": ["esnext", "dom"]
+//   },
+//   "include": ["src", "*.d.ts"]
+// }

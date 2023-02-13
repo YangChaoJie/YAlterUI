@@ -16,6 +16,9 @@
   "scripts": {
     "dev": "vite --host --mode development --config ./build/dev.config.ts",
     "test": "vitest --config ./build/vitest.config.ts ",
+    "build:vite": "vite build --config vite.lib.config.ts",
+    "build:ppvite": "vite build --config vite.config.ts",
+    "build:pvite": "vite build --config build/prod.config.ts",
     "build:l": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./build/prod.config.ts",
     "build": "rimraf lib dist && rollup --config build/rollup.config.js && yarn build:lib && yarn build:types",
     "build:lib": "cross-env NODE_ENV=lib babel src --out-dir lib --source-maps --extensions \".ts\",\".tsx\",\".snap\" --copy-files --no-copy-ignored --out-file-extension .mjs",
@@ -97,7 +100,7 @@
     "unplugin-vue-components": "^0.22.7",
     "unplugin-vue-define-options": "^0.6.1",
     "vite": "^3.0.2",
-    "vite-plugin-dts": "^0.9.6",
+    "vite-plugin-dts": "^1.6.6",
     "vitest": "^0.21.1",
     "vue-tsc": "^0.34.7"
   },
