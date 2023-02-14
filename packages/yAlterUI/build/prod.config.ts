@@ -17,23 +17,24 @@ export default defineConfig({
       { find: /^@\/(.*)/, replacement: resolve('../src/$1')},
       { find: /^yalert-ui$/, replacement: resolve('../src/index.ts') },
       { find: /^yalert-ui\/(.*)/, replacement: resolve('../$1') },
-      // { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../common/hook/src') }
+      { find: '@yalert-ui/hooks', replacement: resolve('../common/hook/src') }
     ]
   },
   // 打包配置
   build: {
+    minify: 'esbuild', // 设置为false以禁用缩小，或指定要使用的缩小器。 默认是esbuild，它比terser快20 ~ 40倍，压缩只差1 ~ 2%.
     sourcemap: false, //不开启镜像
     outDir: outDir,
     // publicDir: false,
     chunkSizeWarningLimit: 10000,
     assetsInlineLimit: 8192, // 小于 8kb 的导入或引用资源将内联为 base64 编码
-    terserOptions: {
-      // 生产环境移除console
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    },
+    // terserOptions: {// minify 为 terser 设置
+    //   // 生产环境移除console
+    //   compress: {
+    //     drop_console: true,
+    //     drop_debugger: true
+    //   }
+    // },
     lib: {
       entry: resolve('../src/components/index.ts'), // 设置入口文件
       formats: ['es', 'cjs', 'iife', 'umd'],
@@ -67,8 +68,7 @@ export default defineConfig({
         sourceMap: false
       },
       copyDtsFiles: true,
-      skipDiagnostics: false,
-      logDiagnostics: true
+      skipDiagnostics: false
     })
   ]
 })

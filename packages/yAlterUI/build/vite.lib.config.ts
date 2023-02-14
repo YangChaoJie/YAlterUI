@@ -6,7 +6,10 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import glob from 'fast-glob'
-
+import sass from 'rollup-plugin-sass';
+import { writeFile } from 'fs/promises'
+import path from 'path';
+import mkdirp from 'mkdirp'
 import type { LogLevel, Plugin } from 'vite'
 
 interface Manifest {
@@ -15,7 +18,7 @@ interface Manifest {
   version?: string
 }
 
-const pkg = JSON.parse(readFileSync(resolve(__dirname, 'package.json'), 'utf-8')) as Manifest
+const pkg = JSON.parse(readFileSync(resolve(__dirname, '../package.json'), 'utf-8')) as Manifest
 const componentsDir = resolve(__dirname, 'src')
 
 const logLevel = process.env.LOG_LEVEL
@@ -50,7 +53,7 @@ function emptyDir(dir: string): void {
 }
 
 export default defineConfig(async () => {
-  const input = await glob('src/**/*.{ts,vue}', {
+  const input = await glob('../src/**/*.{ts,vue}', {
     cwd: __dirname,
     absolute: true,
     onlyFiles: true
@@ -66,9 +69,10 @@ export default defineConfig(async () => {
     },
     resolve: {
       alias: [
-        { find: /^@\/(.*)/, replacement: resolve('./src/$1')},
-        { find: /^yalert-ui$/, replacement: resolve('./src/index.ts') },
-        { find: /^yalert-ui\/(.*)/, replacement: resolve('./$1') },
+        // { find: /^@\/(.*)/, replacement: resolve('../src/$1')},
+        { find: /^@\/(.+)/, replacement: resolve(__dirname, '../src/$1') },
+        // { find: /^yalert-ui$/, replacement: resolve('../src/index.ts') },
+        // { find: /^yalert-ui\/(.*)/, replacement: resolve('../$1') },
         { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../common/hook/src') }
       ]
     },
@@ -86,17 +90,39 @@ export default defineConfig(async () => {
           {
             format: 'cjs',
             preserveModules: true,
-            preserveModulesRoot: __dirname,
-            dir: 'lib',
+            preserveModulesRoot: 'src',
+            dir: 'lib/cjs',
             entryFileNames: '[name].cjs'
           },
           {
             format: 'es',
+            sourcemap: true,
             preserveModules: true,
-            preserveModulesRoot: __dirname,
-            dir: 'es',
+            preserveModulesRoot: 'src',
+            dir: 'lib/es',
             entryFileNames: '[name].mjs'
           }
+        ],
+        plugins: [
+          sass({
+            options: {
+              charset: false
+            },
+            output(styles, styleNodes) {
+              // console.log('styles-----', styleNodes);
+              // Individual CSS files
+              for (const { id, content } of styleNodes) {
+                const out = path.parse(id.replace(
+                  path.resolve(__dirname, '../src'),
+                  path.resolve(__dirname, '../lib')
+                ))
+                mkdirp(out.dir).then(() => {
+                  console.log(path.join('-----------------------------------.css'), path.join(out.dir, out.name + '.css'));
+                  writeFile(path.join(out.dir, out.name + '.css'), content, 'utf8')
+                })
+              }
+            }
+          })
         ],
         treeshake: false
       },

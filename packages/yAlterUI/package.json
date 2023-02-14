@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "vite --host --mode development --config ./build/dev.config.ts",
     "test": "vitest --config ./build/vitest.config.ts ",
-    "build:vite": "vite build --config vite.lib.config.ts",
+    "build:vite": "vite build --config build/vite.lib.config.ts",
     "build:ppvite": "vite build --config vite.config.ts",
     "build:pvite": "vite build --config build/prod.config.ts",
     "build:l": "vue-tsc --noEmit --skipLibCheck && vite build --mode production --config ./build/prod.config.ts",

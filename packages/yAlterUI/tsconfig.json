@@ -3,7 +3,7 @@
     "src",
   ],
   "exclude": [
-    "build/*",
+    // "build/*",
     "types-temp",
     "build/vitest.config.*",
     "build/prod.config.*"

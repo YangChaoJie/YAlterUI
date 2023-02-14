@@ -1,0 +1,79 @@
+/* Element Chalk Variables */
+:root {
+  --y-toast-min-width: 100px;
+  --y-toast-max-width: 90%;
+  --y-vxp-toast-min-height: 100px;
+  --y-toast-v-padding: 16px;
+  --y-toast-h-padding: 16px;
+  --y-toast-color: #fff;
+  --y-toast-bg-color: #000;
+  --y-toast-radius: 6px;
+  --y-toast-opacity: 70%;
+}
+
+.y-toast {
+  position: fixed;
+  inset: 0;
+  z-index: get-css-var("z-index-masker");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.y-toast > * {
+  pointer-events: auto;
+}
+.y-toast__mask {
+  position: absolute;
+  inset: 0;
+  background-color: transparent;
+}
+.y-toast__wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1500;
+  min-width: 100px;
+  max-width: 90%;
+  min-height: 100px;
+  padding: 16px;
+  color: var(--y-toast-color);
+  background-color: var(--y-toast-bg-color);
+  border-radius: var(--y-toast-radius);
+  opacity: 70%;
+  user-select: none;
+  transition: background-color 0.25s ease;
+}
+.y-toast__wrapper--top {
+  position: absolute;
+  top: 30px;
+}
+.y-toast__wrapper--bottom {
+  position: absolute;
+  bottom: 30px;
+}
+.y-toast__wrapper--closable {
+  cursor: pointer;
+}
+.y-toast__wrapper::before {
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background-color: get-css-var("toast-bg-color");
+  border-radius: get-css-var("toast-radius");
+  opacity: get-css-var("toast-opacity");
+}
+.y-toast__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.y-toast__content {
+  width: fit-content;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
