@@ -12,6 +12,7 @@ export default defineConfig({
   // ...baseConfig,
   resolve: {
     alias: [
+      { find: /^%\/(.*)/, replacement: resolve('../$1')},
       { find: /^@\/(.*)/, replacement: resolve('../src/$1')},
       { find: /^yalert-ui$/, replacement: resolve('../src/index.ts') },
       { find: /^yalert-ui\/(.*)/, replacement: resolve('../$1') },
@@ -34,7 +35,7 @@ export default defineConfig({
     //   }
     // },
     lib: {
-      entry: resolve('../src/components/index.ts'), // 设置入口文件
+      entry: resolve('../src/index.ts'), // 设置入口文件
       formats: ['es', 'cjs', 'iife', 'umd'],
       name: 'YalertUi', // 起个名字，安装、引入用
       fileName: (format) => `yalert-ui.${format === 'es' ? 'mjs' : format === 'cjs' ? 'cjs' : 'js'}` // 打包后的文件名
