@@ -1,1 +1,1 @@
-import '@/style/icon.scss'
+import '%/styles/icon.scss'

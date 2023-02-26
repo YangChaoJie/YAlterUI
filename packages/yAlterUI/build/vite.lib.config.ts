@@ -6,9 +6,6 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import glob from 'fast-glob'
-import sass from 'rollup-plugin-sass';
-import { writeFile } from 'fs/promises'
-import path from 'path';
 import type { LogLevel, Plugin } from 'vite'
 
 interface Manifest {
@@ -52,7 +49,7 @@ function emptyDir(dir: string): void {
 }
 
 export default defineConfig(async () => {
-  const input = await glob('../src/**/*.{ts,vue}', {
+  const input = await glob('../src/components/**/*.{ts,vue}', {
     cwd: __dirname,
     absolute: true,
     onlyFiles: true
@@ -69,7 +66,8 @@ export default defineConfig(async () => {
     resolve: {
       alias: [
         // { find: /^@\/(.*)/, replacement: resolve('../src/$1')},
-        { find: /^@\/(.+)/, replacement: resolve(__dirname, '../src/$1') },
+        // { find: /^%\/(.*)/, replacement: resolve('./$1')},
+        { find: /^@\/(.*)/, replacement: resolve('./src/$1')},
         // { find: /^yalert-ui$/, replacement: resolve('../src/index.ts') },
         // { find: /^yalert-ui\/(.*)/, replacement: resolve('../$1') },
         { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../common/hook/src') }
@@ -79,7 +77,7 @@ export default defineConfig(async () => {
       outDir: 'es',
       sourcemap: sourceMap,
       lib: {
-        entry: resolve(componentsDir, 'index.ts'),
+        entry: resolve('./src/components/index.ts'), // 设置入口文件  
         name: 'yalert-ui'
       },
       rollupOptions: {
@@ -89,15 +87,15 @@ export default defineConfig(async () => {
           {
             format: 'cjs',
             preserveModules: true,
-            preserveModulesRoot: 'src',
+            preserveModulesRoot: resolve(__dirname, '../src'),
             dir: 'lib/cjs',
             entryFileNames: '[name].cjs'
           },
           {
             format: 'es',
-            sourcemap: true,
+            sourcemap: false,
             preserveModules: true,
-            preserveModulesRoot: 'src',
+            preserveModulesRoot: resolve(__dirname, '../src'),
             dir: 'lib/es',
             entryFileNames: '[name].mjs'
           }
@@ -112,19 +110,20 @@ export default defineConfig(async () => {
       chunkSizeWarningLimit: 10000
     },
     plugins: [
-      // ...prePlugins([
-      //   {
-      //     name: 'vexip-ui:resolve',
-      //     resolveId(id) {
-      //       if (id.startsWith('@/style')) {
-      //         return {
-      //           id: id.replace(/@\/style\/(.+).scss$/, 'vexip-ui/css/$1.css'),
-      //           external: 'absolute'
-      //         }
-      //       }
-      //     }
-      //   }
-      // ]),
+      ...prePlugins([
+        {
+          name: 'yalert-ui:resolve',
+          resolveId(id) {
+            console.log('id--------', id);
+            if (id.startsWith('%/styles')) {
+              return {
+                id: id.replace(/%\/styles\/(.+).scss$/, 'yalert-ui/css/$1.css'),
+                external: 'absolute'
+              }
+            }
+          }
+        }
+      ]),
       vue(),
       vueJsx()
     ]

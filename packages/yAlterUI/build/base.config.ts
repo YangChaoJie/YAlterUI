@@ -12,7 +12,7 @@ export default defineConfig({
       { find: /^@\/(.*)/, replacement: resolve('./src/$1')},
       { find: /^yalert-ui$/, replacement: resolve('./src/index.ts') },
       { find: /^yalert-ui\/(.*)/, replacement: resolve('./$1') },
-      { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../common/hook/src') }
+      { find: '@yalert-ui/hooks', replacement: resolve('../common/hook/src') }
     ]
   },
   plugins: [

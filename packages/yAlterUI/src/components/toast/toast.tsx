@@ -6,7 +6,7 @@ import { toastProps, ToastProps } from './props';
 import { ToastOptions } from './interface';
 import { YIcon } from "../icon";
 import { IconMinorProps } from "../icon/interface";
-import { isFunction } from "@vueuse/core";
+import { isFunction } from "@yalert-ui/utils";
 import { Renderer } from "../renderer";
 export default defineComponent({
   name: 'YToast',

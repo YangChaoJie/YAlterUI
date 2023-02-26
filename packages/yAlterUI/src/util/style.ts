@@ -1,4 +1,4 @@
-import { isString, isNumber } from "@vueuse/core"
+import { isString, isNumber } from "@yalert-ui/utils"
 
 export function addUnit(value?: string | number, defaultUnit = 'px') {
   if (!value) return ''

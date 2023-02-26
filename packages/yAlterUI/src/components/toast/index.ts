@@ -2,7 +2,7 @@ import Toast from './toast';
 import { createVNode, render, markRaw, App } from 'vue'
 import { ToastInstance, ToastOptions, ToastType } from './interface';
 import { CircleCheck, CircleClose, Warning, Loading } from '@yalert-ui/icons';
-import { withInstallFunction } from '@/util/install';
+import { withInstallFunction } from '../../util/install';
 import type { AppContext } from 'vue'
 interface ApiMethod {
   (options: ToastOptions): () => void,

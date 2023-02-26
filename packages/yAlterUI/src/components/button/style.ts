@@ -1,1 +1,1 @@
-import '@/style/button.scss'
+import '%/styles/button.scss'
