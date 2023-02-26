@@ -2,8 +2,6 @@ import { defineComponent, PropType, computed, h, CSSProperties } from "vue";
 import { useNamespace } from '../../composables/namespace';
 import { addUnit } from '../../util/style';
 import { isUndefined } from '../../util/type';
-// styles
-import './styles/index.scss'
 const iconProps = {
   color: {
     type: String,

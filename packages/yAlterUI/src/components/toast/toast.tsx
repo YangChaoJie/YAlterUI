@@ -2,7 +2,7 @@ import { defineComponent, defineProps, withDefaults, reactive, onMounted, nextTi
 import { useNamespace } from '../../composables/namespace';
 import { toastProps, ToastProps } from './props';
 // styles
-import './styles/index.scss'
+// import './styles/index.scss'
 import { ToastOptions } from './interface';
 import { YIcon } from "../icon";
 import { IconMinorProps } from "../icon/interface";

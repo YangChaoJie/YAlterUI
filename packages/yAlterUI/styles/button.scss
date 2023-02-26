@@ -1,0 +1,341 @@
+@use 'sass:math';
+@use 'sass:map';
+@use './common/var' as *;
+@use './mixins/button' as *;
+@use './mixins/mixins' as *;
+@use './mixins/utils' as *;
+@use './mixins/var' as *;
+@use './main';
+@use './mixins/button';
+$button: () !default;
+$button: map.merge(
+  (
+    'font-weight': getCssVar('font-weight-primary'),
+    'border-color': getCssVar('border-color'),
+    'bg-color': getCssVar('fill-color', 'blank'),
+    'text-color': getCssVar('text-color', 'regular'),
+    'disabled-text-color': getCssVar('disabled-text-color'),
+    'disabled-bg-color': getCssVar('fill-color', 'blank'),
+    'disabled-border-color': getCssVar('border-color-light'),
+    'divide-border-color': rgba($color-white, 0.5),
+    'hover-text-color': getCssVar('color-primary'),
+    'hover-bg-color': getCssVar('color-primary', 'light-9'),
+    'hover-border-color': getCssVar('color-primary-light-7'),
+    'active-text-color': getCssVar('button-hover-text-color'),
+    'active-border-color': getCssVar('color-primary'),
+    'active-bg-color': getCssVar('button', 'hover-bg-color'),
+    'outline-color': getCssVar('color-primary', 'light-5'),
+    'hover-link-text-color': getCssVar('color-info'),
+    'active-color': getCssVar('text-color', 'primary'),
+  ),
+  $button
+);
+
+$button-border-width: $border-width !default;
+
+// need mix, so do not use css var
+$button-hover-tint-percent: 20%;
+$button-active-shade-percent: 10%;
+
+$button-border-color: () !default;
+$button-bg-color: () !default;
+$button-text-color: () !default;
+
+@each $type in $types {
+  $button-border-color: map.merge(
+    (
+      $type: map.get($colors, $type, 'base'),
+    ),
+    $button-border-color
+  ) !global;
+
+  $button-bg-color: map.merge(
+    (
+      $type: map.get($colors, $type, 'base'),
+    ),
+    $button-bg-color
+  ) !global;
+}
+
+$button-font-size: () !default;
+$button-font-size: map.merge(
+  (
+    'large': getCssVar('font-size', 'base'),
+    'default': getCssVar('font-size', 'base'),
+    'small': 12px,
+  ),
+  $button-font-size
+);
+
+$button-border-radius: () !default;
+$button-border-radius: map.merge(
+  (
+    'large': getCssVar('border-radius', 'base'),
+    'default': getCssVar('border-radius', 'base'),
+    'small': calc(#{getCssVar('border-radius', 'base')} - 1px),
+  ),
+  $button-border-radius
+);
+
+$button-padding-vertical: () !default;
+$button-padding-vertical: map.merge(
+  (
+    'large': 13px,
+    'default': 9px,
+    'small': 6px,
+  ),
+  $button-padding-vertical
+);
+
+$button-padding-horizontal: () !default;
+$button-padding-horizontal: map.merge(
+  (
+    'large': 20px,
+    'default': 16px,
+    'small': 12px,
+  ),
+  $button-padding-horizontal
+);
+
+
+$button-icon-span-gap: () !default;
+$button-icon-span-gap: map.merge(
+  (
+    'large': 8px,
+    'default': 6px,
+    'small': 4px,
+  ),
+  $button-icon-span-gap
+);
+$ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+
+@include b(btn) {
+  // @debug $button;
+  @include set-component-css-var('btn', $button);
+}
+// :root {
+//   --gloal-bg: green;
+// }
+  // background: var(--gloal-bg);
+@include b(btn) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: map.get($input-height, 'default');
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  // transition: all 0.3s $ease-in-out;
+  transition: all 0.3s map.get($transition-function, 'ease-in-out-bezier');
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  color: getCssVar('btn', 'text-color');
+  background-color: getCssVar('btn', 'bg-color');
+  border: getCssVar('border');
+  border-color: getCssVar('btn', 'border-color');
+  
+  &:hover,
+  &:focus {
+    color: getCssVar('btn', 'hover', 'text-color');
+    border-color: getCssVar('btn', 'hover', 'border-color');
+    background-color: getCssVar('btn', 'hover', 'bg-color');
+    outline: none;
+  }
+
+  &:active {
+    color: getCssVar('btn', 'active', 'text-color');
+    border-color: getCssVar('btn', 'active', 'border-color');
+    background-color: getCssVar('btn', 'active', 'bg-color');
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid getCssVar('button', 'outline-color');
+    outline-offset: 1px;
+  }
+
+  & [class*='#{$namespace}-icon'] {
+    & + span {
+      margin-left: map.get($button-icon-span-gap, 'default');
+    }
+    svg {
+      vertical-align: bottom;
+    }
+  }
+
+  // button space
+  &+& {
+    margin-left: 12px;
+  }
+
+
+  /*
+  *  button size y-btn--large
+  */
+  @each $size in (large, small) {
+    @include m($size) { // y-btn--small
+      @include set-css-var-value(
+        ('btn', 'size'),
+        map.get($input-height, $size) // --y-btn-size
+      );
+  
+      height: getCssVar('btn', 'size');
+  
+      & [class*='#{$namespace}-icon'] {
+        & + span {
+          margin-left: map.get($button-icon-span-gap, $size);
+        }
+      }
+  
+      @include button-size(
+        map.get($button-padding-vertical, $size) - $button-border-width,
+        map.get($button-padding-horizontal, $size) - $button-border-width,
+        map.get($button-font-size, $size),
+        map.get($button-border-radius, $size)
+      );
+  
+      @include when(circle) {
+        width: getCssVar('btn', 'size');
+        padding: map.get($button-padding-vertical, $size) - $button-border-width;
+      }
+    }
+  }
+  // button y-btn--success
+  @each $type in (primary, success, warning, error, info) {
+    @include m($type) {
+      @include button-variant($type);
+    }
+  }
+  // button is-text
+  @include when(text) {
+    color: getCssVar('btn', 'text-color');
+    border: 0 solid transparent;
+    background-color: transparent;
+
+    @include when(disabled) {
+      color: getCssVar('btn', 'disabled', 'text-color');
+      background-color: transparent !important;
+    }
+
+    &:not(.is-disabled) {
+
+      &:hover,
+      &:focus {
+        background-color: getCssVar('fill-color', 'light');
+      }
+
+      &:focus-visible {
+        outline: 2px solid getCssVar('btn', 'outline-color');
+        outline-offset: 1px;
+      }
+
+      &:active {
+        background-color: getCssVar('fill-color');
+      }
+
+      @include when(has-bg) {
+        background-color: getCssVar('fill-color', 'light');
+
+        &:hover,
+        &:focus {
+          background-color: getCssVar('fill-color');
+        }
+
+        &:active {
+          background-color: getCssVar('fill-color', 'dark');
+        }
+      }
+    }
+  }
+
+  @include m(text) {
+    border-color: transparent;
+    background: transparent;
+    color: getCssVar('color', 'primary');
+    padding-left: 0;
+    padding-right: 0;
+
+    @include when(disabled) {
+      color: getCssVar('button', 'disabled', 'text-color');
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+
+    &:not(.is-disabled) {
+
+      &:hover,
+      &:focus {
+        color: getCssVar('color', 'primary', 'light-3');
+        border-color: transparent;
+        background-color: transparent;
+      }
+
+      &:active {
+        color: getCssVar('color', 'primary', 'dark-2');
+        border-color: transparent;
+        background-color: transparent;
+      }
+    }
+  }
+  // button shape  is-round
+  @include when(round) {
+    border-radius: getCssVar('border-radius', 'round');
+  }
+  // is-circle
+  @include when(circle) {
+    border-radius: 50%;
+    padding: map.get($button-padding-vertical, 'default') - $button-border-width;
+  }
+
+  // button dash
+  @include m(dashed) { 
+    border-style: dashed;
+  }
+  // button link is-link
+  @include when(link) {
+    border-color: transparent;
+    color: getCssVar('button', 'text-color');
+    background: transparent;
+    padding: 2px;
+    height: auto;
+
+    &:hover,
+    &:focus {
+      color: getCssVar('button', 'hover', 'link-text-color');
+    }
+
+    @include when(disabled) {
+      color: getCssVar('button', 'disabled', 'text-color');
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+
+    &:not(.is-disabled) {
+
+      &:hover,
+      &:focus {
+        border-color: transparent;
+        background-color: transparent;
+      }
+
+      &:active {
+        color: getCssVar('button', 'active-color');
+        border-color: transparent;
+        background-color: transparent;
+      }
+    }
+  }
+
+  @include e(link) {
+    @include m(expand) {
+      letter-spacing: 0.3em;
+      margin-right: -0.3em;
+    }
+  }
+}
+

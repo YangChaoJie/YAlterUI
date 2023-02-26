@@ -3,10 +3,10 @@
     "src",
   ],
   "exclude": [
-    // "build/*",
+    "build/*",
     "types-temp",
     "build/vitest.config.*",
-    "build/prod.config.*"
+    "build/prod.config.ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",
@@ -19,18 +19,18 @@
     "esModuleInterop": true,
     "sourceMap": false,
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true, /* Generates corresponding '.d.ts' file. */
-    // "declarationMap": true,
-    "moduleResolution": "node", /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "skipLibCheck": true,
+    "declarationMap": true,
+    "moduleResolution": "node",
+    "types": [
+      "node",
+      "vue-router",
+      "vite/client",
+      "@yalert-ui/icons"
+    ],
     "paths": {
       "@/*": [
         "src/*"
-      ],
-      "types": [
-        "node",
-        "vue-router",
-        "vite/client"
-        // "@yalert-ui/icons"
       ]
     },
     "lib": [
@@ -39,3 +39,4 @@
     ]
   }
 }
+

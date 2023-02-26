@@ -9,7 +9,6 @@ import glob from 'fast-glob'
 import sass from 'rollup-plugin-sass';
 import { writeFile } from 'fs/promises'
 import path from 'path';
-import mkdirp from 'mkdirp'
 import type { LogLevel, Plugin } from 'vite'
 
 interface Manifest {
@@ -104,25 +103,6 @@ export default defineConfig(async () => {
           }
         ],
         plugins: [
-          sass({
-            options: {
-              charset: false
-            },
-            output(styles, styleNodes) {
-              // console.log('styles-----', styleNodes);
-              // Individual CSS files
-              for (const { id, content } of styleNodes) {
-                const out = path.parse(id.replace(
-                  path.resolve(__dirname, '../src'),
-                  path.resolve(__dirname, '../lib')
-                ))
-                mkdirp(out.dir).then(() => {
-                  console.log(path.join('-----------------------------------.css'), path.join(out.dir, out.name + '.css'));
-                  writeFile(path.join(out.dir, out.name + '.css'), content, 'utf8')
-                })
-              }
-            }
-          })
         ],
         treeshake: false
       },

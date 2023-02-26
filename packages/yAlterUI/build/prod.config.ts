@@ -1,13 +1,11 @@
 import { defineConfig } from 'vite'
-// import vue from '@vitejs/plugin-vue'
 import { fileURLToPath } from 'url'
-// import { resolve } from 'path'
 import path from 'path'
 import baseConfig from './base.config' // 主要用于alias文件路径别名
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
-const outDir = 'viteDist'
+const outDir = 'dist'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const resolve = (file: any) => path.resolve(__dirname, file)
 export default defineConfig({
