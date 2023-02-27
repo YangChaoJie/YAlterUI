@@ -89,6 +89,7 @@ export default defineConfig(async () => {
             preserveModules: true,
             preserveModulesRoot: resolve(__dirname, '../src'),
             dir: 'lib/cjs',
+            exports: 'named',
             entryFileNames: '[name].cjs'
           },
           {
@@ -97,6 +98,7 @@ export default defineConfig(async () => {
             preserveModules: true,
             preserveModulesRoot: resolve(__dirname, '../src'),
             dir: 'lib/es',
+            exports: 'named',
             entryFileNames: '[name].mjs'
           }
         ],
@@ -114,7 +116,6 @@ export default defineConfig(async () => {
         {
           name: 'yalert-ui:resolve',
           resolveId(id) {
-            console.log('id--------', id);
             if (id.startsWith('%/styles')) {
               return {
                 id: id.replace(/%\/styles\/(.+).scss$/, 'yalert-ui/css/$1.css'),

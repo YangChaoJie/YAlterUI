@@ -10,6 +10,7 @@
     "build": "node scripts/build.js",
     "clean": "lerna clean",
     "docs:dev": "pnpm run -C packages/docs dev",
+    "dev:play": "pnpm -C packages/play dev",
     "build:lib": "lerna run build --scope components --stream",
     "build:docs": "lerna run build --scope docs --stream",
     "build:utils": "pnpm -C packages/common/utils build && pnpm i",

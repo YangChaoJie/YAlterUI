@@ -38,6 +38,7 @@
   <y-button type="primary" @click="btnToastClick">一般提示</y-button>
 </template>
 <script setup lang="ts">
+// import 'yalert-ui/styles/index.scss'
 // code here
 import { YFooter, YButton, YIcon, useToast } from 'yalert-ui';
 import { Edit, Lightning, Loading } from '@yalert-ui/icons'
@@ -60,7 +61,7 @@ const btnToastClick = () => {
   // properties?.$toast?.success('hello $toast11', 1000)
   // YToast({}, vue?.appContext).loading('hello YToast', 1000)
   // useToast().warning('hello YToast2', 1000)
-  useToast({}).success({
+  useToast({}, '').success({
     duration: 3000,
     closable: false,
     renderer: () => [

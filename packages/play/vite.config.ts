@@ -42,8 +42,8 @@ export default defineConfig(({ mode }) => {
           replacement: `${path.resolve('..')}/yAlterUI/src/$1`,
         },
         { find: /^~\/(.*)/, replacement: resolve('./src/$1') },
-        // { find: /^yalert-ui$/, replacement:  `${path.resolve('..')}/yAlterUI/src/index.ts` }, // 与下面效果是相同的
-        { find: /^yalert-ui$/, replacement: `yalert-ui/components` }, // node_modules
+        { find: /^yalert-ui$/, replacement:  `${path.resolve('..')}/yAlterUI/src/components/index.ts` }, // 与下面效果是相同的
+        // { find: /^yalert-ui$/, replacement: `yalert-ui/lib/es/components/index.mjs` }, // node_modules
       ],
       dedupe: ['vue']
     },
