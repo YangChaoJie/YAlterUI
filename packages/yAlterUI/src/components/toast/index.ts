@@ -172,7 +172,4 @@ TToast.success = toast.success
 TToast.warning = toast.warning
 TToast.error = toast.error
 TToast.open = toast.open
-
-
 export const useToast = withInstallFunction(TToast, '$toast')
-export default useToast

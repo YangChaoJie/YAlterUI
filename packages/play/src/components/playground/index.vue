@@ -39,7 +39,6 @@
 </template>
 <script setup lang="ts">
 // import 'yalert-ui/styles/index.scss'
-// code here
 import { YFooter, YButton, YIcon, useToast } from 'yalert-ui';
 import { Edit, Lightning, Loading } from '@yalert-ui/icons'
 import { getCurrentInstance } from 'vue'
