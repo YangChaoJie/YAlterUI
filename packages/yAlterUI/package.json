@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "vite --host --mode development --config ./build/dev.config.ts",
     "build:style": "gulp --require sucrase/register/ts",
+    "build:viteStyle": "vite build --config build/vite.style.config.ts",
     "test": "vitest --config ./build/vitest.config.ts ",
     "build:lib": "vite build --config build/vite.lib.config.ts",
     "build:full": "vite build --config build/prod.config.ts",
@@ -132,5 +133,13 @@
     "@yalert-ui/hooks": "workspace:^",
     "@yalert-ui/utils": "workspace:^",
     "@yalert-ui/icons": "workspace:^"
-  }
+  },
+  "sideEffects": [
+    "dist/*",
+    "css/*.css",
+    "es/components/*/style.mjs",
+    "lib/components/*/style.cjs",
+    "style/**/*.scss",
+    "theme/**/*.css"
+  ]
 }

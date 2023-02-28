@@ -1,4 +1,4 @@
-import Toast from './toast';
+import { YToast } from './toast';
 import { createVNode, render, markRaw, App } from 'vue'
 import { ToastInstance, ToastOptions, ToastType } from './interface';
 import { CircleCheck, CircleClose, Warning, Loading } from '@yalert-ui/icons';
@@ -53,6 +53,7 @@ class ToastManager {
       ...options,
       duration: options.duration ? Number(options.duration) : 2000
     }
+    console.log('hhhhhhh');
     this.name = 'Toast'
     this._mountedApp = null
     this._instance = null
@@ -97,7 +98,7 @@ class ToastManager {
     //   return null
     // }
     // if (!this._instance) {
-      const vnode = createVNode(Toast)
+      const vnode = createVNode(YToast)
       this._container = document.createElement('div')
       vnode.appContext = this._context 
       // || this._mountedApp._context
@@ -161,8 +162,7 @@ class ToastManager {
     this._container && render(null, this._container)
   }
 }
-
-const toast = new ToastManager();
+const toast = new ToastManager()
 const TToast = (options = {}, context) => {
   toast.config(options)
   return { ...toast }

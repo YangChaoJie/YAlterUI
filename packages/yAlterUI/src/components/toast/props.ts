@@ -8,7 +8,7 @@ export type StyleType = string | CSSProperties | Array<string | CSSProperties>
 
 export const classProp = [String, Object, Array] as PropType<ClassType>
 export const styleProp = [String, Object, Array] as PropType<StyleType>
-export const toastProps = propsFactory({
+export const toastProps = {
   bodyWidth: {
     type: Number,
     default: 100
@@ -61,6 +61,6 @@ export const toastProps = propsFactory({
     type: Function as PropType<(options: ToastOptions) => any>,
     default: null
   }
-})
+}
 // export type ToastProps = ExtractPropTypes<typeof toastProps>
 export type ToastProps = PropType<typeof toastProps>
