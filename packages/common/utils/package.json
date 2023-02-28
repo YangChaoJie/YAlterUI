@@ -21,12 +21,9 @@
     "url": "git",
     "directory": "common/utils"
   },
-  "dependencies": {
-    "@juggle/resize-observer": "^3.3.1",
-    "@popperjs/core": "^2.11.5"
-  },
   "devDependencies": {
     "typescript": "4.6.4",
+    "unplugin-vue-components": "^0.22.7",
     "vite": "^3.0.0",
     "vite-plugin-dts": "^2.0.0",
     "vue": "^3.2.37"

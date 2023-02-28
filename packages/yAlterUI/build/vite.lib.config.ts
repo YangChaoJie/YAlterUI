@@ -102,9 +102,7 @@ export default defineConfig(async () => {
             entryFileNames: '[name].mjs'
           }
         ],
-        plugins: [
-        ],
-        treeshake: false
+        treeshake: true
       },
       commonjsOptions: {
         sourceMap: false
