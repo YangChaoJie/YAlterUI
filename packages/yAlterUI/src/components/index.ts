@@ -1,6 +1,6 @@
-import { YFooter } from './YFooter'
-import { YButton } from './button'
-import { YIcon } from './icon'
+// import { YFooter } from './YFooter'
+// import { YButton } from './button'
+// import { YIcon } from './icon'
 // import { useToast } from './toast';
 
 export * from './YFooter'

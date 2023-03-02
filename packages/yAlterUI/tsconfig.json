@@ -1,6 +1,8 @@
 {
   "include": [
     "src",
+    "src/global.d.ts",
+    "types.d.ts"
   ],
   "exclude": [
     "build/*",
@@ -30,7 +32,9 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "yalert-ui": ["src/components"],
+      "@yalert-ui/*": ["common/*/src"],
     },
     "lib": [
       "es2018",
