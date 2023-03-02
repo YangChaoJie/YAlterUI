@@ -25,8 +25,7 @@
     "types": [
       "node",
       "vue-router",
-      "vite/client",
-      "@yalert-ui/icons"
+      "vite/client"
     ],
     "paths": {
       "@/*": [
