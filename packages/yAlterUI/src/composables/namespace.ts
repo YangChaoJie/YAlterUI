@@ -26,7 +26,6 @@ const _bem = (
 export const useNamespace = (block: string) => {
   const namespace = ref(defaultNamespace)
   // useGlobalConfig('namespace', defaultNamespace)
-  console.log('namespace---', namespace.value);
   const b = (blockSuffix = '') =>
     _bem(namespace.value, block, blockSuffix, '', '')
   const e = (element?: string) =>

@@ -9,13 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^9.13.0",
     "@vueuse/head": "^0.7.6",
     "p5i": "^0.4.2",
     "pinia": "^2.0.14",
     "play": "^0.5.0",
     "vite-plugin-vuetify": "^1.0.0-alpha.11",
     "vue": "^3.2.23",
-    "vuetify": "^v3.0.0-beta.6"
+    "vuetify": "^v3.0.0-beta.6",
+    "yalert-ui": "*"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",

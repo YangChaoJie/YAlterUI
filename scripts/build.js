@@ -2,7 +2,7 @@ const spawn = require('cross-spawn')
 
 let target = process.argv[2]
 const alias = {
-  api: '@yalertui/components',
+  api: '@yalert-ui/components',
   docs: 'docs',
 }
 target = alias[target] || target

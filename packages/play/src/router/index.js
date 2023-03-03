@@ -1,7 +1,7 @@
 import { h } from 'vue'
 
 const home = {
-  setup: () => () => h('div', 'hello'),
+  setup: () => () => h('div', '-----'),
 }
 const page1 = {
   setup: () => () => h('div', 'page1'),

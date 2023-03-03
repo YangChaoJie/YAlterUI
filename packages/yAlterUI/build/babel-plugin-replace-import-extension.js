@@ -4,6 +4,7 @@ function transformExtension(filepath, extMapping) {
     return filepath;
   }
   // TODO 后期会改动
+  console.log('filepath---', filepath);
   if (filepath.endsWith('scss.mjs')) {
     return filepath.replace("scss.mjs","css");
   }

@@ -1,8 +1,8 @@
 {
   "name": "@yalert-ui/hooks",
-  "version": "1.7.1",
+  "version": "1.0.1",
   "license": "MIT",
-  "author": "qmhc",
+  "author": "jerry yang",
   "scripts": {
     "build": "vite build"
   },
@@ -28,7 +28,7 @@
   "devDependencies": {
     "typescript": "4.6.4",
     "vite": "^3.0.0",
-    "vite-plugin-dts": "^1.3.0",
+    "vite-plugin-dts": "^1.6.6",
     "vue": "^3.2.37"
   },
   "peerDependencies": {

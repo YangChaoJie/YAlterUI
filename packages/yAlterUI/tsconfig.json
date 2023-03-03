@@ -1,24 +1,45 @@
 {
   "include": [
-    "src"
+    "src",
+    "src/global.d.ts",
+    "types.d.ts"
   ],
-  "exclude": ["build/*", "types-temp", "build/vitest.config.*"],
+  "exclude": [
+    "build/*",
+    "types-temp",
+    "build/vitest.config.*",
+    "build/prod.config.ts"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "preserve",
+    "importHelpers": true,
+    "noUnusedLocals": false,
+    "resolveJsonModule": true,
     "outDir": "./types-temp",
-    "declaration": true,                      /* Generates corresponding '.d.ts' file. */
+    "declaration": true,
+    "esModuleInterop": true,
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "declarationMap": true,
-    "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "moduleResolution": "node",
+    "types": [
+      "node",
+      "vue-router",
+      "vite/client"
+    ],
     "paths": {
       "@/*": [
         "src/*"
       ],
-      "types": [
-        "node",
-        "vue-router",
-        "@yalert-ui/icons"
-      ]
-    }
+      "yalert-ui": ["src/components"],
+      "@yalert-ui/*": ["common/*/src"],
+    },
+    "lib": [
+      "es2018",
+      "dom"
+    ]
   }
 }
+

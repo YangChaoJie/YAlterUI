@@ -2,7 +2,7 @@ import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript2';
+// import typescript from 'rollup-plugin-typescript2';
 import sass from 'rollup-plugin-sass'
 import alias from '@rollup/plugin-alias'
 // import typescript2 from '@rollup/plugin-typescript';
@@ -48,14 +48,15 @@ const plugins = (isMini) => {
     nodeResolve({
       extensions
     }),
-    typescript({
-        typescript: require('typescript')
-    }),
+    // typescript({
+    //     typescript: require('typescript')
+    // }),
     sass({
       options: {
         charset: false
       },
       output(styles, styleNodes) {
+        console.log('styles-----', styles);
          // Complete CSS bundle
          mkdirp(path.resolve(__dirname, '../dist')).then(() => {
           return Promise.all([
@@ -99,7 +100,9 @@ const plugins = (isMini) => {
       ]
     }),
     babel(babelOptions),
-    commonjs(),
+    commonjs({
+      sourceMap: false
+    }),
     {
       async buildEnd() {
         const components = Object.create(null);
@@ -107,6 +110,7 @@ const plugins = (isMini) => {
           const { importedIds } = this.getModuleInfo(
             (await this.resolve('src/components/index.ts')).id
           )
+          console.log('importedIds----', importedIds);
           await Promise.all(importedIds.map(async id => {
             const importFrom = path.relative(path.resolve(__dirname, '../src'), id).replace(/\.ts$/, '.mjs')
             console.log('importFrom----', importFrom);

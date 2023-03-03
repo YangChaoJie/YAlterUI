@@ -1,4 +1,3 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "testing.automaticallyOpenPeekView": "never"
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

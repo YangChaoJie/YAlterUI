@@ -1,7 +1,6 @@
 import { computed, getCurrentInstance, unref } from 'vue';
-import type { ComputedRef } from 'vue'
-import type { MaybeRef } from '@vueuse/core'
-
+import type { ComputedRef, Ref } from 'vue'
+type MaybeRef<T> = T | Ref<T>
 export const useProp = <T>(name: string): ComputedRef<T | undefined> => {
   const vm = getCurrentInstance()!
   return computed(() => (vm.proxy?.$props as any)[name] ?? undefined)
