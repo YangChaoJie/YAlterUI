@@ -11,12 +11,14 @@ export default defineConfig(({ mode }) => {
     vue(),
     VueJsx(),
     Components({
-      resolvers: [
-        (componentName) => {
-          // where `componentName` is always CapitalCase
-          console.log('componentName----', componentName);
-        },
-      ],
+      // resolvers: [
+      //   (componentName) => {
+      //     // where `componentName` is always CapitalCase
+      //     console.log('componentName----', componentName);
+      //   },
+      // ],
+     
+      exclude:  [/^styles$/, /^%$/]
     })]
   // if (mode === 'production') {
   //   plugins.push(typescript({ exclude: ['./src/main.ts'] }))

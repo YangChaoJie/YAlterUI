@@ -1,6 +1,15 @@
 <template>
   <div>{{ message }}</div>
   <div>button size</div>
+  <!-- 暗黑主题 -->
+  <div>----- 暗黑主题 -----------</div>
+  <div>
+    <y-button type="primary" @click="toggleDark(true)">开启暗黑</y-button>
+    <y-button type="primary" @click="toggleDark(false)">关闭暗黑</y-button>
+  </div>
+   <br>
+   <br>
+  <!-- --------------------- -->
   <y-button size="small">small</y-button>
   <y-button size="large">large</y-button>
   <y-button disabled>disabled</y-button>
@@ -38,10 +47,10 @@
   <y-button type="primary" @click="btnToastClick">一般提示</y-button>
 </template>
 <script setup lang="ts">
-// import 'yalert-ui/styles/index.scss'
+import '../../../../yAlterUI/styles/dark/css-vars.scss'
 import { YFooter, YButton, YIcon, useToast } from 'yalert-ui';
 import { Edit, Lightning, Loading } from '@yalert-ui/icons'
-import { getCurrentInstance } from 'vue'
+import { getCurrentInstance, onMounted } from 'vue'
 // 导出类型
 import type { ButtonType, Size } from 'yalert-ui';
 import { Eleme, Search } from '@yalert-ui/icons';
@@ -103,4 +112,22 @@ const btnClick = (e: MouseEvent) => {
 }
 let as = ref<Size>('small')
 const type = ref<ButtonType>('default')
+
+const rootCls = document.documentElement.classList
+const isDark = ref(rootCls && rootCls.contains('dark'))
+const toggleDark = (value: boolean) => {
+  requestAnimationFrame(() => {
+    isDark.value = value
+    if (value) {
+      rootCls!.add('dark')
+    } else {
+      rootCls!.remove('dark')
+    }
+  })
+}
+
+// 设置主题样式
+onMounted(() => {
+  document.documentElement.style.setProperty('--y-color-primary', 'red')
+})
 </script>
