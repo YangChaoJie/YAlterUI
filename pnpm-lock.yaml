@@ -177,6 +177,7 @@ importers:
       '@vitejs/plugin-vue': ^1.10.2
       '@vitejs/plugin-vue-jsx': ^1.3.10
       '@vue/babel-plugin-jsx': ^1.1.1
+      '@vueuse/core': ^9.13.0
       '@vueuse/head': ^0.7.6
       acorn-walk: ^8.2.0
       ajv: ^8.11.0
@@ -230,6 +231,7 @@ importers:
       vuetify: ^v3.0.0-beta.6
       yalert-ui: '*'
     dependencies:
+      '@vueuse/core': 9.13.0_vue@3.2.47
       '@vueuse/head': 0.7.13_vue@3.2.47
       p5i: 0.4.2
       pinia: 2.0.32_sx7lguqvjfs776vf3ycf5p4d5m
@@ -4682,6 +4684,10 @@ packages:
       '@types/node': 17.0.45
     dev: true
 
+  /@types/web-bluetooth/0.0.16:
+    resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
+    dev: false
+
   /@typescript-eslint/eslint-plugin/5.54.0_jchrj3yn4v6ednky6bmz3hj6bi:
     resolution: {integrity: sha512-+hSN9BdSr629RF02d7mMtXhAJvDTyCbprNYJKrXETlul/Aml6YZwd90XioVbjejQeHbb3R8Dg0CkRgoJDxo8aw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -5150,6 +5156,18 @@ packages:
       vuetify: 3.1.6_zhdigtlnoj4qfl4bi7c6fb2bly
     dev: false
 
+  /@vueuse/core/9.13.0_vue@3.2.47:
+    resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
+    dependencies:
+      '@types/web-bluetooth': 0.0.16
+      '@vueuse/metadata': 9.13.0
+      '@vueuse/shared': 9.13.0_vue@3.2.47
+      vue-demi: 0.13.11_vue@3.2.47
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
   /@vueuse/head/0.7.13_vue@3.2.47:
     resolution: {integrity: sha512-VHSla/0uOAUii/mz+NWLFKMrMbz/lQoYxEcpS/ri7drepYjdB5QdbTnD2KdOX8EmQM/b07qpjKanr7erGrd3XA==}
     peerDependencies:
@@ -5159,6 +5177,10 @@ packages:
       vue: 3.2.47
     transitivePeerDependencies:
       - '@vue/composition-api'
+
+  /@vueuse/metadata/9.13.0:
+    resolution: {integrity: sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==}
+    dev: false
 
   /@vueuse/shared/9.13.0_vue@3.2.47:
     resolution: {integrity: sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==}
