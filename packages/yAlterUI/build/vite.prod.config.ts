@@ -36,8 +36,8 @@ export default defineConfig({
     // },
     lib: {
       entry: resolve('../src/index.ts'), // 设置入口文件
-      formats: ['es', 'cjs', 'iife', 'umd'],
-      name: 'YalertUi', // 起个名字，安装、引入用
+      formats: ['es', 'cjs', 'umd'],
+      name: 'YalertUI', // 起个名字，安装、引入用
       fileName: (format) => `yalert-ui.${format === 'es' ? 'mjs' : format === 'cjs' ? 'cjs' : 'js'}` // 打包后的文件名
     },
     rollupOptions: {

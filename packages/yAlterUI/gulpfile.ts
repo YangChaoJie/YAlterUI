@@ -19,9 +19,7 @@ function ensureEmptyDir(dir: string) {
 const cssDir = resolve(__dirname, 'css')
 const themesDir = resolve(__dirname, 'themes')
 
-function buildStyle() {
-  console.log('ressss-----', resolve(__dirname, 'styles'));
-  
+function buildStyle() {  
   ensureEmptyDir(cssDir)
   const sass = gulpSass(dartSass)
   return src(resolve(__dirname, 'styles/*.scss'))
