@@ -31,7 +31,6 @@
     "cssnano": "^5.1.13",
     "filter": "^0.1.1",
     "front-matter": "^4.0.2",
-    "happy-dom": "^6.0.4",
     "kill-port": "^2.0.0",
     "postcss": "^8.4.16",
     "prismjs": "^1.25.0",

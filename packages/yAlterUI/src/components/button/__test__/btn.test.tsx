@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils'
 import { describe, expect, test  } from 'vitest'
 import { YButton } from '../button'
 
-describe('footer', ()=> {
+describe('Ybutton', ()=> {
   test('should work as expected', ()=> {
     const a = Math.sqrt(4)
     expect(Math.sqrt(4)).toBe(2) 
