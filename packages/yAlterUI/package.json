@@ -31,7 +31,7 @@
     ".": {
       "import": "./lib/es/components/index.mjs",
       "require": "./dist/index.d.ts",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/src/index.d.ts"
     },
     "./components": "./src/components/index.ts",
     "./components/*": "./lib/es/components/*/index.mjs",
@@ -44,7 +44,7 @@
     "./*": "./*",
     "./package.json": "./package.json"
   },
-  "types": "dist/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "styles": "lib/styles/main.css",
   "typesVersions": {
     "*": {
@@ -75,6 +75,7 @@
     "globals.d.ts"
   ],
   "devDependencies": {
+    "@esbuild-kit/cjs-loader": "^2.4.2",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
