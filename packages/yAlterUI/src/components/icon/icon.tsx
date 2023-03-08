@@ -1,4 +1,5 @@
 import { defineComponent, PropType, computed, h, CSSProperties } from "vue";
+import type { ExtractPropTypes } from 'vue'
 import { useNamespace } from '../../composables/namespace';
 import { addUnit } from '../../util/style';
 import { isUndefined } from '../../util/type';
@@ -55,6 +56,7 @@ const YIcon = defineComponent({
   }
 })
 export type Icon = InstanceType<typeof YIcon>
+export type IconProps = ExtractPropTypes<typeof iconProps>
 export {
   YIcon
 }

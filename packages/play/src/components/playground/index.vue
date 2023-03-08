@@ -9,6 +9,7 @@
   </div>
    <br>
    <br>
+ 
   <!-- --------------------- -->
   <y-button size="small">small</y-button>
   <y-button size="large">large</y-button>
@@ -48,7 +49,7 @@
 </template>
 <script setup lang="ts">
 import '../../../../yAlterUI/styles/dark/css-vars.scss'
-import { YFooter, YButton, YIcon, useToast } from 'yalert-ui';
+import { YFooter, YButton, YIcon, YToast } from 'yalert-ui';
 import { Edit, Lightning, Loading } from '@yalert-ui/icons'
 import { getCurrentInstance, onMounted } from 'vue'
 // 导出类型
@@ -56,8 +57,8 @@ import type { ButtonType, Size } from 'yalert-ui';
 import { Eleme, Search } from '@yalert-ui/icons';
 import { ref, h } from 'vue';
 const vue = getCurrentInstance();
-const app = vue?.appContext.app
-app?.use(useToast)
+// const app = vue?.appContext.app
+// app?.use(useToast)
 let button: ButtonType = 'info';
 console.log(button);
 let message = ref('hello')
@@ -65,11 +66,10 @@ const btnToastClick = () => {
   console.log('getCurrentInstance()', vue);
   const properties = vue?.appContext.config.globalProperties
   console.log('properties----', properties);
-
-  // properties?.$toast?.success('hello $toast11', 1000)
-  // YToast({}, vue?.appContext).loading('hello YToast', 1000)
-  // useToast().warning('hello YToast2', 1000)
-  useToast({}, '').success({
+  // Toast.open('一些提示')
+  // Toast.loading('hello YToast', 1000)
+  // Toast.warning('hello YToast2', 1000)
+  YToast.success({
     duration: 3000,
     closable: false,
     renderer: () => [

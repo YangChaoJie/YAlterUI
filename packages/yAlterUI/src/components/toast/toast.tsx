@@ -8,7 +8,7 @@ import { YIcon } from "../icon";
 import { IconMinorProps } from "../icon/interface";
 import { isFunction } from "@yalert-ui/utils";
 import { Renderer } from "../renderer";
-const YToast = defineComponent({
+const Toast = defineComponent({
   name: 'YToast',
   props: toastProps,
   expose: ['openToast'],
@@ -167,5 +167,5 @@ const YToast = defineComponent({
   }
 })
 export {
-  YToast
+  Toast
 }

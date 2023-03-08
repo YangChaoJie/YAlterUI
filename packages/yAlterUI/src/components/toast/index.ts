@@ -1,4 +1,4 @@
-import { YToast } from './toast';
+import { Toast } from './toast';
 import { createVNode, render, markRaw, App } from 'vue'
 import { ToastInstance, ToastOptions, ToastType } from './interface';
 import { CircleCheck, CircleClose, Warning, Loading } from '@yalert-ui/icons';
@@ -98,7 +98,7 @@ class ToastManager {
     //   return null
     // }
     // if (!this._instance) {
-      const vnode = createVNode(YToast)
+      const vnode = createVNode(Toast)
       this._container = document.createElement('div')
       vnode.appContext = this._context 
       // || this._mountedApp._context
@@ -162,14 +162,14 @@ class ToastManager {
     this._container && render(null, this._container)
   }
 }
-const toast = new ToastManager()
-const TToast = (options = {}, context) => {
-  toast.config(options)
-  return { ...toast }
-}
-TToast.loading = toast.loading
-TToast.success = toast.success
-TToast.warning = toast.warning
-TToast.error = toast.error
-TToast.open = toast.open
-export const useToast = withInstallFunction(TToast, '$toast')
+export const YToast = new ToastManager()
+// const TToast = (options = {}, context) => {
+//   toast.config(options)
+//   return { ...toast }
+// }
+// TToast.loading = toast.loading
+// TToast.success = toast.success
+// TToast.warning = toast.warning
+// TToast.error = toast.error
+// TToast.open = toast.open
+// export const useToast = withInstallFunction(TToast, '$toast')
