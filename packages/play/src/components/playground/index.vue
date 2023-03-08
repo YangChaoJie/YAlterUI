@@ -66,34 +66,34 @@ const btnToastClick = () => {
   console.log('getCurrentInstance()', vue);
   const properties = vue?.appContext.config.globalProperties
   console.log('properties----', properties);
-  // Toast.open('一些提示')
-  // Toast.loading('hello YToast', 1000)
+  YToast.open('一些提示')
+  // YToast.loading('hello YToast', 1000)
   // Toast.warning('hello YToast2', 1000)
-  YToast.success({
-    duration: 3000,
-    closable: false,
-    renderer: () => [
-      h(YIcon, {
-        icon: Lightning,
-        style: {
-          marginBottom: '5px',
-          color: '#339af0',
-          scale: 1.6
-        }
-      }),
-      '自定义',
-      h(
-        'span',
-        {
-          style: {
-            color: '#fab005',
-            fontStyle: 'italic'
-          }
-        },
-        '消息'
-      )
-    ]
-  })
+  // YToast.success({
+  //   duration: 3000,
+  //   closable: false,
+  //   renderer: () => [
+  //     h(YIcon, {
+  //       icon: Lightning,
+  //       style: {
+  //         marginBottom: '5px',
+  //         color: '#339af0',
+  //         scale: 1.6
+  //       }
+  //     }),
+  //     '自定义',
+  //     h(
+  //       'span',
+  //       {
+  //         style: {
+  //           color: '#fab005',
+  //           fontStyle: 'italic'
+  //         }
+  //       },
+  //       '消息'
+  //     )
+  //   ]
+  // })
 }
 const btnClick = (e: MouseEvent) => {
   // 响应式测试

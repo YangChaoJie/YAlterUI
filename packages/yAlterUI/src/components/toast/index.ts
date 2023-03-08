@@ -97,7 +97,7 @@ class ToastManager {
     //   console.warn('[ui:Toast]: App missing, the plugin maybe not installed.')
     //   return null
     // }
-    // if (!this._instance) {
+    if (!this._instance) {
       const vnode = createVNode(Toast)
       this._container = document.createElement('div')
       vnode.appContext = this._context 
@@ -105,7 +105,7 @@ class ToastManager {
       render(vnode, this._container)
       document.body.appendChild(this._container.firstElementChild!)
       this._instance = vnode.component!.proxy as ToastInstance
-    // }
+    }
     return this._instance
   }
   
@@ -135,9 +135,8 @@ class ToastManager {
     const _duration = typeof item.duration === 'number' ? item.duration : 2000
     if (_duration >= 500) {
       this._timer = setTimeout(() => {
-
         toast?.cloasToast()
-        this.destroyed();
+        // this.destroyed();
       }, _duration)
     }
 
