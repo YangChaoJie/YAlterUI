@@ -67,7 +67,7 @@ const btnToastClick = () => {
   const properties = vue?.appContext.config.globalProperties
   console.log('properties----', properties);
   YToast.open('一些提示')
-  // YToast.loading('hello YToast', 1000)
+  YToast.loading('hello YToast', 1000)
   // Toast.warning('hello YToast2', 1000)
   // YToast.success({
   //   duration: 3000,
