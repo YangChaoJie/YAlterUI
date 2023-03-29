@@ -27,14 +27,14 @@ export const createApp = ViteSSG(
       } else {
         const isHash = to.hash ? to.hash.split('#') : undefined
         if (isHash) {
-          let tmp = setTimeout(() => {
+          // let tmp = setTimeout(() => {
           //   document.getElementById(isHash[1])?.scrollIntoView({
           //     behavior: "auto",  // 平滑过渡
           //     block:    "start"    // 上边框与视窗顶部平齐
           // })
             scrollToTargetAdjusted(isHash[1])
-            clearTimeout(tmp)
-          })
+            // clearTimeout(tmp)
+          // })
         }
         return
       }

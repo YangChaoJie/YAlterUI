@@ -30,7 +30,7 @@
   "exports": {
     ".": {
       "import": "./lib/es/components/index.mjs",
-      "require": "./dist/index.d.ts",
+      "require": "./lib/cjs/compontents/index.cjs",
       "types": "./dist/src/index.d.ts"
     },
     "./components": "./src/components/index.ts",

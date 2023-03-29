@@ -1,6 +1,59 @@
 # YAlterUI
 
-自己写一遍组件库
+[![NPM version](https://img.shields.io/npm/v/yalert-ui?color=a1b858&label=)](https://www.npmjs.com/package/vue-template-promise)
+
+UI library in Vue. Useful for company vue page, etc.
+
+[**Why?**](#why)
+
+写一套组件库，提高自己编程技巧
+## Features
+
+- ⚡ Composition Api, good performance base
+- 🚤 Support SSR
+- 🦾 **TypeScript** - full type safety via generic type
+- 👀 Close to business code arrangement, low threshold for source code reading
+- 🚀 Lightweight
+- 🎨 Support CSS variable, built-in dark theme
+### use
+
+#### 全局引入
+```js
+import { install } from 'yalert-ui'
+const app = createApp(App);;
+app.use(install);
+
+<template>
+  <y-button size="small">small</y-button>
+  <y-button size="large">large</y-button>
+</template>
+```
+
+#### 按需加载
+``` js
+import Components from 'unplugin-vue-components/vite'
+import { YalertUIResolver } from '@yalert/uitils'
+import AutoImport from 'unplugin-auto-import/vite'
+plugins: [
+    vue(), 
+    Components({
+      resolvers: [
+        YalertUIResolver()
+      ]
+    })
+    AutoImport({
+      resolvers: [
+        YalertUIResolver()
+      ]
+    })
+]
+  
+```
+### 手动引入
+```
+import 'yalert-ui/css/button.css'
+import { Button } from 'yalert-ui'
+```
 
 ## Recommended IDE Setup
 
