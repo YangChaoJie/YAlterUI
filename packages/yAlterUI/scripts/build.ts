@@ -1,0 +1,46 @@
+import minimist from 'minimist'
+import { logger, run} from './utils';
+
+const args = minimist<{
+  d?: boolean,
+  dev?: boolean,
+  s?: boolean,
+  sourcemap?: boolean
+}>(process.argv.slice(2))
+
+const devOnly = args.dev || args.d
+const sourceMap = args.sourcemap || args.s
+
+const env = devOnly ? 'development' : 'production'
+
+async function main() {
+  logger.withBothLn(() => logger.successText('start building lib...'))
+  await run('vite', ['build', '--config', 'configs/vite.lib.config.ts'], {
+    env: {
+      NODE_ENV: env,
+      SOURCE_MAP: sourceMap ? 'true' : ''
+    }
+  })
+
+  logger.ln()
+
+  await run('vite', ['build', '--config', 'configs/vite.prod.config.ts'], {
+    stdio: 'inherit',
+    env: {
+      NODE_ENV: env,
+      SOURCE_MAP: sourceMap ? 'true' : ''
+    }
+  })
+  await run('pnpm', ['build:style'])
+
+  logger.ln()
+
+  if (!process.exitCode) {
+    logger.withEndLn(() => logger.success('all builds completed successfully'))
+  }
+}
+
+main().catch(error => {
+  logger.error(error)
+  process.exit(1)
+})

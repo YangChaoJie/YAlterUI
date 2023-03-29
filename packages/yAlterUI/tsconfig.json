@@ -5,10 +5,10 @@
     "types.d.ts"
   ],
   "exclude": [
-    "build/*",
+    "configs/*",
     "types-temp",
-    "build/vitest.config.*",
-    "build/prod.config.ts"
+    "configs/vitest.config.*",
+    "configs/prod.config.tsig.ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",

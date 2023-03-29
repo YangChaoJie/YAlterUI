@@ -1,4 +1,4 @@
-import { YToast } from './toast';
+import { Toast } from './toast';
 import { createVNode, render, markRaw, App } from 'vue'
 import { ToastInstance, ToastOptions, ToastType } from './interface';
 import { CircleCheck, CircleClose, Warning, Loading } from '@yalert-ui/icons';
@@ -97,15 +97,15 @@ class ToastManager {
     //   console.warn('[ui:Toast]: App missing, the plugin maybe not installed.')
     //   return null
     // }
-    // if (!this._instance) {
-      const vnode = createVNode(YToast)
+    if (!this._instance) {
+      const vnode = createVNode(Toast)
       this._container = document.createElement('div')
       vnode.appContext = this._context 
       // || this._mountedApp._context
       render(vnode, this._container)
       document.body.appendChild(this._container.firstElementChild!)
       this._instance = vnode.component!.proxy as ToastInstance
-    // }
+    }
     return this._instance
   }
   
@@ -135,9 +135,8 @@ class ToastManager {
     const _duration = typeof item.duration === 'number' ? item.duration : 2000
     if (_duration >= 500) {
       this._timer = setTimeout(() => {
-
         toast?.cloasToast()
-        this.destroyed();
+        // this.destroyed();
       }, _duration)
     }
 
@@ -162,14 +161,14 @@ class ToastManager {
     this._container && render(null, this._container)
   }
 }
-const toast = new ToastManager()
-const TToast = (options = {}, context) => {
-  toast.config(options)
-  return { ...toast }
-}
-TToast.loading = toast.loading
-TToast.success = toast.success
-TToast.warning = toast.warning
-TToast.error = toast.error
-TToast.open = toast.open
-export const useToast = withInstallFunction(TToast, '$toast')
+export const YToast = new ToastManager()
+// const TToast = (options = {}, context) => {
+//   toast.config(options)
+//   return { ...toast }
+// }
+// TToast.loading = toast.loading
+// TToast.success = toast.success
+// TToast.warning = toast.warning
+// TToast.error = toast.error
+// TToast.open = toast.open
+// export const useToast = withInstallFunction(TToast, '$toast')

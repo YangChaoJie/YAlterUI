@@ -6,6 +6,7 @@ import { useNamespace } from '@/composables/namespace';
 import { useDisabled } from '@/composables/common';
 import { YIcon } from '../icon';
 import { Loading } from '@yalert-ui/icons'
+import type { ExtractPropTypes } from 'vue'
 const buttonProps = {
   size: String as PropType<Size>,
   disabled: Boolean,
@@ -96,6 +97,7 @@ const YButton = defineComponent({
   }
 })
 export type Button = InstanceType<typeof YButton>
+export type ButtonProps = ExtractPropTypes<typeof buttonProps>
 export {
   YButton
 }

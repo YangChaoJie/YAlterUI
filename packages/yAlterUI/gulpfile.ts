@@ -7,6 +7,7 @@ import cleanCSS from 'gulp-clean-css';
 import dartSass from 'sass'
 import fs from 'fs-extra'
 import { resolve } from 'node:path'
+import { generateTypes } from './scripts/genType'
 const { existsSync, emptyDir, mkdirSync } = fs
 
 function ensureEmptyDir(dir: string) {
@@ -19,9 +20,7 @@ function ensureEmptyDir(dir: string) {
 const cssDir = resolve(__dirname, 'css')
 const themesDir = resolve(__dirname, 'themes')
 
-function buildStyle() {
-  console.log('ressss-----', resolve(__dirname, 'styles'));
-  
+function buildStyle() {  
   ensureEmptyDir(cssDir)
   const sass = gulpSass(dartSass)
   return src(resolve(__dirname, 'styles/*.scss'))
@@ -30,4 +29,4 @@ function buildStyle() {
     .pipe(cleanCSS())
     .pipe(dest(cssDir))
 }
-export default parallel(buildStyle)
+export default parallel(buildStyle, generateTypes)

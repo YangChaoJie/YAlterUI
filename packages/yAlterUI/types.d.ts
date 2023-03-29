@@ -1,7 +1,14 @@
+
 declare module 'vue' {
   export interface GlobalComponents {
-    YButton: typeof import('yalert-ui')['YButton'],
-    YIcon: typeof import('yalert-ui')['YIcon']
+    Button: typeof import('yalert-ui')['YButton'],
+    Icon: typeof import('yalert-ui')['YIcon'],
+    YFooter: typeof import('yalert-ui')['YFooter']
+  }
+
+  interface ComponentCustomProperties {
+
   }
 }
-export {}
+
+export { }

@@ -9,4 +9,5 @@ export const buttonPlugin: Plugin = {
 // export type
 export * from './interface';
 export default buttonPlugin;
+export type { ButtonProps } from './button'
 export { YButton }

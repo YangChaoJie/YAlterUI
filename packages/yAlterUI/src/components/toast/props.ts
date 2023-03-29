@@ -62,5 +62,5 @@ export const toastProps = {
     default: null
   }
 }
-// export type ToastProps = ExtractPropTypes<typeof toastProps>
-export type ToastProps = PropType<typeof toastProps>
+export type ToastProps = ExtractPropTypes<typeof toastProps>
+// export type ToastProps = PropType<typeof toastProps>

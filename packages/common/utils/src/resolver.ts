@@ -1,5 +1,5 @@
 import type { ComponentResolver, ComponentInfo } from 'unplugin-vue-components';
-import { readFileSync } from 'node:fs'
+// import { readFileSync } from 'node:fs'
 // import { resolveModule } from 'local-pkg'
 export interface YalertUIResolverOptions {
     /**

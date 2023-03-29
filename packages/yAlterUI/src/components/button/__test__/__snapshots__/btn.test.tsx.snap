@@ -1,5 +1,12 @@
 // Vitest Snapshot v1
 
+exports[`Ybutton > mount component 1`] = `
+"<button class=\\"y-btn\\">
+  <!---->
+  <!---->
+</button>"
+`;
+
 exports[`footer > mount component 1`] = `
 "<div>
   <!---->

@@ -1,5 +1,7 @@
 // import { useGlobalConfig } from '../use-global-config'
+// https://getbem.com/introduction/
 import { computed, getCurrentInstance, inject, provide, ref, unref } from 'vue'
+import type { App, ComputedRef, Ref } from 'vue'
 export const defaultNamespace = 'y'
 const statePrefix = 'is-'
 
@@ -98,6 +100,32 @@ export const useNamespace = (block: string) => {
     cssVarBlock,
     cssVarBlockName,
   }
+}
+
+export const PROVIDED_NAMESPACE = '__yal-provided-namespace'
+export const globalNamespace = computed(() => 'yal')
+
+export function configNamespace(sourceNamespace: string | Ref<string>, app?: App) {
+  if (app) {
+    const namespace = computed(() => {
+      const namespace = unref(sourceNamespace)
+
+      return namespace || globalNamespace.value
+    })
+
+    app.provide(PROVIDED_NAMESPACE, namespace)
+  } else {
+    const upstreamNamespace = inject<ComputedRef<string> | null>(PROVIDED_NAMESPACE, null)
+    const namespace = computed(() => {
+      return unref(sourceNamespace) || upstreamNamespace?.value || globalNamespace.value
+    })
+
+    provide(PROVIDED_NAMESPACE, namespace)
+  }
+}
+
+export function useComNamespace() {
+  return inject(PROVIDED_NAMESPACE, globalNamespace)
 }
 
 export type UseNamespaceReturn = ReturnType<typeof useNamespace>
