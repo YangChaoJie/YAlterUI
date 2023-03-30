@@ -24,13 +24,13 @@ export function useActiveAnchor(
 ) {
   const isAsideEnabled  = true
 
-  const onScroll = throttleAndDebounce(setActiveLink, 100)
+  // const onScroll = throttleAndDebounce(setActiveLink, 100)
 
   let prevActiveLink: HTMLAnchorElement | null = null
 
   onMounted(() => {
     requestAnimationFrame(setActiveLink)
-    window.addEventListener('scroll', onScroll)
+    // window.addEventListener('scroll', onScroll)
   })
 
   onUpdated(() => {
@@ -39,7 +39,7 @@ export function useActiveAnchor(
   })
 
   onUnmounted(() => {
-    window.removeEventListener('scroll', onScroll)
+    // window.removeEventListener('scroll', onScroll)
   })
 
   function setActiveLink() {
