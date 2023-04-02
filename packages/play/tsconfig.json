@@ -19,7 +19,7 @@
       "vite/client"
     ],
     "paths": {
-      "@/*": ["src/*"]
+      "~/*": ["src/*"]
     }
   },
   "include": [
@@ -31,44 +31,3 @@
   ],
   "exclude": ["dist", "node_modules"]
 }
-// {
-//   "compilerOptions": {
-//     "target": "esnext",
-//     "useDefineForClassFields": true,
-//     "module": "esnext",
-//     "moduleResolution": "node",
-//     "outDir": "./",
-//     "strict": true,
-//     "jsx": "preserve",
-//     "allowJs": true,
-//     "sourceMap": true,
-//     "resolveJsonModule": true,
-//     "isolatedModules": true,
-//     "esModuleInterop": true,
-//     "baseUrl": ".",
-//     "lib": [
-//       "esnext",
-//       "dom"
-//     ],
-//     "paths": {
-//       "@/*": [
-//         "src/*"
-//       ]
-//     },
-//     "skipLibCheck": true,
-//     "declaration": true,
-//     "declarationDir": "dist",
-//   },
-//   // "include": [
-//   //   "src/**/*.ts",
-//   //   "src/**/*.d.ts",
-//   //   "src/**/*.tsx",
-//   //   "src/**/**/*.tsx",
-//   //   "src/**/*.vue",
-//   // ],
-//   // "references": [
-//   //   {
-//   //     "path": "./tsconfig.node.json"
-//   //   }
-//   // ]
-// }

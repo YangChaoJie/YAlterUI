@@ -3,6 +3,7 @@
     "composite": true,
     "jsx": "preserve",
     "module": "esnext",
+    "skipLibCheck": true,
     "moduleResolution": "node"
   },
   "include": ["vite.config.ts"]
