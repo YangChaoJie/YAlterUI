@@ -14,13 +14,17 @@
     "vue": "^3.2.25"
   },
   "dependencies": {
+    "@unocss/reset": "^0.50.6",
     "@vueuse/core": "^9.13.0",
     "@yalert-ui/icons": "workspace:0.0.3",
     "play": "^0.5.0",
     "vue-router": "^4.1.6",
-    "yalert-ui": "workspace:^0.0.6"
+    "yalert-ui": "workspace:^0.0.6",
+    "@yalert-ui/utils": "workspace:^"
   },
   "devDependencies": {
+    "@iconify-json/carbon": "^1.1.16",
+    "@iconify-json/twemoji": "^1.1.11",
     "@types/node": "^18.15.11",
     "@types/prismjs": "^1.26.0",
     "@vitejs/plugin-vue": "^4.1.0",

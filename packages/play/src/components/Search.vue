@@ -134,14 +134,15 @@ async function openItem(item: any) {
       bg-transparent border-none
       class="!outline-none"
     >
-    <button
+    <YButton
       v-if="input"
+      border
       absolute flex right-2 w-10 top-2 bottom-2 text-xl op30 hover:op90
       aria-label="Clear search"
       @click="clear()"
     >
       <span i-carbon-close ma block aria-hidden="true" />
-    </button>
+    </YButton>
   </div>
   <div v-if="searchResult.length || isSearching" border="l b r base" mx2 of-auto>
     <template v-if="isSearching">

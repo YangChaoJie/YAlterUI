@@ -6,7 +6,7 @@ import {
   presetUno,
   presetWebFonts,
   transformerDirectives,
-  transformerVariantGroup,
+  transformerVariantGroup
 } from 'unocss'
 
 export default defineConfig({

@@ -3,7 +3,10 @@
     "baseUrl": ".",
     "module": "ESNext",
     "target": "es2016",
-    "lib": ["DOM", "ESNext"],
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
     "strict": true,
     "jsx": "preserve",
     "esModuleInterop": true,
@@ -16,10 +19,19 @@
     "outDir": "./",
     "forceConsistentCasingInFileNames": true,
     "types": [
-      "vite/client"
+      "vite/client",
+      "yalert-ui/types"
     ],
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": [
+        "src/*"
+      ],
+      "yalert-ui": [
+        "../yAlterUI/src/components"
+      ],
+      "@yalert-ui/utils": [
+        "../common/utils/src"
+      ]
     }
   },
   "include": [
@@ -29,5 +41,13 @@
     "src/**/**/*.tsx",
     "src/**/*.vue",
   ],
-  "exclude": ["dist", "node_modules"]
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

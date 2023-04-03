@@ -16,5 +16,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Search: typeof import('./src/components/Search.vue')['default']
+    YButton: typeof import('yalert-ui')['YButton']
   }
 }
