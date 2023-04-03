@@ -17,5 +17,6 @@ import Playground from '~/components/playground/index.vue'
 }
 body {
   margin: 0;
+  overflow: hidden;
 }
 </style>

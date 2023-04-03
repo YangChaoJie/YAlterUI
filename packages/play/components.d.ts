@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     A: typeof import('./src/components/example-a/a.vue')['default']
     Intro: typeof import('./src/components/Intro.vue')['default']
     ItemBase: typeof import('./src/components/ItemBase.vue')['default']
+    Nav: typeof import('./src/components/nav.vue')['default']
     Playground: typeof import('./src/components/playground/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

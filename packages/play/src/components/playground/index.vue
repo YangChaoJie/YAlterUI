@@ -1,62 +1,66 @@
 <template>
-  <div flex>
-    <div class="w-1/2">
-      <SearchBar></SearchBar>
-    </div>
-    <div class="w-1/2">
-      <div>{{ message }}</div>
-      <div>button size</div>
-      <!-- 暗黑主题 -->
-      <div>----- 暗黑主题 -----------</div>
-      <div>
-        <y-button type="primary" @click="toggleDark(true)">开启暗黑</y-button>
-        <y-button type="primary" @click="toggleDark(false)">关闭暗黑</y-button>
+  <div px-5 py-5 h-screen box-border overflow-hidden>
+    <Nav></Nav>
+    <div flex>
+      <div class="w-1/2">
+        <SearchBar></SearchBar>
       </div>
-      <br>
-      <br>
+      <div class="w-1/2 border-indigo-500/50" m-l-4 border-2 border-solid px6 py6>
+        <div>{{ message }}</div>
+        <div>button size</div>
+        <!-- 暗黑主题 -->
+        <div>----- 暗黑主题 -----------</div>
+        <div>
+          <y-button type="primary" @click="toggleDark(true)">开启暗黑</y-button>
+          <y-button type="primary" @click="toggleDark(false)">关闭暗黑</y-button>
+        </div>
+        <br>
+        <br>
 
-      <!-- --------------------- -->
-      <y-button size="small">small</y-button>
-      <y-button size="large">large</y-button>
-      <y-button disabled>disabled</y-button>
-      <div>--button type---</div>
-      <y-button :size="as" :type="type" @click="btnClick">default</y-button>
-      <y-button type="success">Sucess</y-button>
-      <y-button type="warning">warning</y-button>
-      <y-button type="info">info</y-button>
-      <y-button type="error" disabled>error</y-button>
-      <y-button type="primary" @click="btnClick">primary</y-button>
-      <div>---button text---</div>
-      <y-button text>Sucess</y-button>
-      <div>---button link---</div>
-      <y-button link type="primary">this is a link</y-button>
-      <div>---button shape---</div>
-      <y-button shape="circle">circle</y-button>
-      <y-button shape="round">round</y-button>
-      <div>---button dashed---</div>
-      <y-button dashed>round</y-button>
-      <y-footer></y-footer>
-      <div>----button icon-----</div>
-      <y-button type="default" loading>loading</y-button>
-      <y-button type="primary" :loading-icon="Eleme" loading>Loading</y-button>
-      <y-button type="default" :icon="Search" shape="circle"></y-button>
-      <div>----icon-----</div>
-      <y-icon color="red" size="16px">
-        <Edit />
-      </y-icon>
-      <div>----icon--property---</div>
-      <y-icon :icon="Loading" class="is-loading"></y-icon>
-      <y-icon color="red" size="16px" class="is-loading">
-        <Loading />
-      </y-icon>
-      <div>------totast-------</div>
-      <y-button type="primary" @click="btnToastClick">一般提示</y-button>
+        <!-- --------------------- -->
+        <y-button size="small">small</y-button>
+        <y-button size="large">large</y-button>
+        <y-button disabled>disabled</y-button>
+        <div>--button type---</div>
+        <y-button :size="as" :type="type" @click="btnClick">default</y-button>
+        <y-button type="success">Sucess</y-button>
+        <y-button type="warning">warning</y-button>
+        <y-button type="info">info</y-button>
+        <y-button type="error" disabled>error</y-button>
+        <y-button type="primary" @click="btnClick">primary</y-button>
+        <div>---button text---</div>
+        <y-button text>Sucess</y-button>
+        <div>---button link---</div>
+        <y-button link type="primary">this is a link</y-button>
+        <div>---button shape---</div>
+        <y-button shape="circle">circle</y-button>
+        <y-button shape="round">round</y-button>
+        <div>---button dashed---</div>
+        <y-button dashed>round</y-button>
+        <y-footer></y-footer>
+        <div>----button icon-----</div>
+        <y-button type="default" loading>loading</y-button>
+        <y-button type="primary" :loading-icon="Eleme" loading>Loading</y-button>
+        <y-button type="default" :icon="Search" shape="circle"></y-button>
+        <div>----icon-----</div>
+        <y-icon color="red" size="16px">
+          <Edit />
+        </y-icon>
+        <div>----icon--property---</div>
+        <y-icon :icon="Loading" class="is-loading"></y-icon>
+        <y-icon color="red" size="16px" class="is-loading">
+          <Loading />
+        </y-icon>
+        <div>------totast-------</div>
+        <y-button type="primary" @click="btnToastClick">一般提示</y-button>
+      </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import '../../../../yAlterUI/styles/dark/css-vars.scss'
 import SearchBar from '../Search.vue';
+import Nav from '../nav.vue';
 import { YFooter, YButton, YIcon, YToast } from 'yalert-ui';
 import { Edit, Loading } from '@yalert-ui/icons'
 import { getCurrentInstance, onMounted } from 'vue'
