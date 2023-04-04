@@ -2,10 +2,20 @@
   <div px-5 py-5 h-screen box-border overflow-hidden>
     <Nav></Nav>
     <div flex>
-      <div class="w-1/2">
+      <div class="w-1/2 h-[80vh]">
         <SearchBar></SearchBar>
       </div>
-      <div class="w-1/2 border-indigo-500/50" m-l-4 border-2 border-solid px6 py6>
+      <div class="w-1/2 border-indigo-500/50 h-[80vh]" m-l-4 border-2 border-solid px6 py6>
+        <div class="grid grid-flow-col auto-cols-max">
+          <router-link v-for="route in router.options.routes" :key="route.path" class="router-link" :to="route.path">
+            {{ route.name }}
+          </router-link>
+        </div>
+        <div border-t-1 px6 py6 class="h-[70vh] border-t-#DCDFE6 border-t-solid">
+          <slot></slot>
+        </div>
+      </div>
+      <div class="w-1/2 border-indigo-500/50 h-[80vh]" m-l-4 border-2 border-solid px6 py6 v-if="false">
         <div>{{ message }}</div>
         <div>button size</div>
         <!-- 暗黑主题 -->
@@ -68,6 +78,8 @@ import { getCurrentInstance, onMounted } from 'vue'
 import type { ButtonType, Size } from 'yalert-ui';
 import { Eleme, Search } from '@yalert-ui/icons';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const vue = getCurrentInstance();
 // const app = vue?.appContext.app
 // app?.use(useToast)

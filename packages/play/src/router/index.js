@@ -1,5 +1,5 @@
 import { h } from 'vue'
-
+import { btnRouter } from './button'
 const home = {
   setup: () => () => h('div', '-----'),
 }
@@ -45,12 +45,15 @@ const routes = [
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ]
 
-import { createRouter, createWebHistory }  from 'vue-router'
+import { createRouter, createWebHashHistory }  from 'vue-router'
 
 export default function createPlayRouter (app) {
   const router = createRouter({
-    history: createWebHistory(),
-    routes
+    history: createWebHashHistory('/'),
+    routes: [
+      ...btnRouter, 
+      ...routes
+    ]
   })
   return router
 }

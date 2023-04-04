@@ -24,7 +24,8 @@ async function executeSearch() {
   if (input.value)
     isSearching.value = true
   try {
-    searchResult.value = ['22']
+    searchResult.value = [input.value]
+    // ['22']
     // await searcher.search(input.value)
   }
   catch (e) {
@@ -36,12 +37,12 @@ async function executeSearch() {
   isModalOpen.value = false
 
   await router.replace({
-    path: '/',
-    query: input.value
-      ? {
-          compontent: input.value,
-        }
-      : undefined,
+    path: `/${input.value}`,
+    // query: input.value
+    //   ? {
+    //       compontent: input.value,
+    //     }
+    //   : undefined,
   })
 }
 
