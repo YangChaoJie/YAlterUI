@@ -68,7 +68,6 @@ function getSideEffects(name: string, options: YalertUIResolverOptions) {
   }
 
   name = toKebabCase(name)
-  console.log('name------------',name);
   
   const realName = name.split('-')[1] || name;
   if (importStyle === 'sass') {
