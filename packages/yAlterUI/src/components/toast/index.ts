@@ -53,7 +53,6 @@ class ToastManager {
       ...options,
       duration: options.duration ? Number(options.duration) : 2000
     }
-    console.log('hhhhhhh');
     this.name = 'Toast'
     this._mountedApp = null
     this._instance = null

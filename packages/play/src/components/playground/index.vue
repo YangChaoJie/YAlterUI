@@ -81,10 +81,9 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const vue = getCurrentInstance();
-// const app = vue?.appContext.app
-// app?.use(useToast)
-let button: ButtonType = 'info';
-console.log(button);
+onMounted(() => {
+  console.log('router------', router);
+})
 let message = ref('hello')
 const btnToastClick = () => {
   console.log('getCurrentInstance()', vue);
