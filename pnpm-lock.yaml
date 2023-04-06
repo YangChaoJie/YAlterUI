@@ -287,6 +287,7 @@ importers:
       filter: ^0.1.1
       front-matter: ^4.0.2
       kill-port: ^2.0.1
+      pinia: ^2.0.14
       play: ^0.5.0
       postcss: ^8.4.21
       prismjs: ^1.29.0
@@ -306,6 +307,7 @@ importers:
       '@vueuse/core': 9.13.0
       '@yalert-ui/icons': link:../common/icons
       '@yalert-ui/utils': link:../common/utils
+      pinia: 2.0.32_typescript@5.0.3
       play: 0.5.0
       vue-router: 4.1.6
       yalert-ui: link:../yAlterUI
@@ -11600,6 +11602,23 @@ packages:
       vue-demi: 0.13.11_vue@3.2.47
     dev: false
 
+  /pinia/2.0.32_typescript@5.0.3:
+    resolution: {integrity: sha512-8Tw4OrpCSJ028UUyp0gYPP/wyjigLoEceuO/x1G+FlHVf73337e5vLm4uDmrRIoBG1hvaed/eSHnrCFjOc4nkA==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.5.0
+      typescript: 5.0.3
+      vue-demi: 0.13.11
+    dev: false
+
   /pinkie-promise/2.0.1:
     resolution: {integrity: sha512-0Gni6D4UcLTbv9c57DfxDGdr41XfgUjqWZu492f0cIGr16zDU06BWP/RAEvOuo7CQ0CNjHaLlM59YJJFm3NWlw==}
     engines: {node: '>=0.10.0'}
@@ -14300,7 +14319,6 @@ packages:
     resolution: {integrity: sha512-xv8mOEDnigb/tN9PSMTwSEqAnUvkoXMQlicOb0IUVDBSQCgBSaAAROUZYy2IcUy5qU6XajK5jjjO7TMWqBTKZA==}
     engines: {node: '>=12.20'}
     hasBin: true
-    dev: true
 
   /uc.micro/1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
@@ -15504,7 +15522,7 @@ packages:
     dev: true
 
   /vue-demi/0.13.11:
-    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npm.taobao.org/vue-demi/-/vue-demi-0.13.11.tgz}
+    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
     engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
