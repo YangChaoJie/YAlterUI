@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter, RouteRecordRaw } from 'vue-router';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { input, isSearching, searchResult, isModalOpen, selectIndex, userConfigLoading } from '~/composables/state'
 import { ref, watch, nextTick } from 'vue';
 import { useEventListener, watchDebounced } from '@vueuse/core'
 import ItemBase from './ItemBase.vue';
+import ResultItem from './ResultItem.vue';
 import Intro from './Intro.vue'
+import { macthRouterOptions } from '../composables/state';
 const route = useRoute()
 const router = useRouter()
 const inputEl = ref<HTMLInputElement>()
+const reslutOption = ref<RouteRecordRaw[]>([])
 const vFocus = {
   mounted: (el: HTMLElement) => el.focus(),
 }
@@ -25,6 +28,7 @@ async function executeSearch() {
     isSearching.value = true
   try {
     searchResult.value = [input.value]
+    reslutOption.value = macthRouterOptions(router.options, input.value)
     // ['22']
     // await searcher.search(input.value)
   }
@@ -88,6 +92,7 @@ function moveIndex(delta: number) {
 
 function clear() {
   router.push('/')
+  input.value = ''
   nextTick().then(() => inputEl?.value!.focus())
 }
 
@@ -99,19 +104,19 @@ async function openItem(item: any) {
     // await searcher.getItemId(item)
 }
 
-// function selectItem(item: any) {
-//   const index = searchResult.value.indexOf(item)
-//   if (index < 0)
-//     return
-//   if (selectIndex.value !== index) {
-//     selectIndex.value = index
-//     if (!isModalOpen.value)
-//       isModalOpen.value = true
-//   }
-//   else {
-//     openItem(item)
-//   }
-// }
+function selectItem(item: any) {
+  const index = searchResult.value.indexOf(item)
+  if (index < 0)
+    return
+  if (selectIndex.value !== index) {
+    selectIndex.value = index
+    if (!isModalOpen.value)
+      isModalOpen.value = true
+  }
+  else {
+    openItem(item)
+  }
+}
 </script>
 
 <template>
@@ -145,7 +150,7 @@ async function openItem(item: any) {
       <span i-carbon-close ma block aria-hidden="true" />
     </YButton>
   </div>
-  <div v-if="searchResult.length || isSearching" border="l b r base" mx2 of-auto>
+  <div v-if="(searchResult.length || isSearching) && input" border="l b r base" mx2 of-auto>
     <template v-if="isSearching">
       <ItemBase>
         <template #badge>
@@ -157,13 +162,12 @@ async function openItem(item: any) {
       </ItemBase>
       <div divider />
     </template>
-    <template v-for="(i, idx) of searchResult" :key="idx">
-      <!-- <ResultItem
+    <template v-for="(i, idx) of reslutOption" :key="idx">
+      <ResultItem
         :item="i"
         :active="selectIndex === idx"
         @click="selectItem(i)"
-      /> -->
-      <div>{{ i }} {{ idx }}</div>
+      />
       <div divider />
     </template>
   </div>
