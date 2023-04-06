@@ -8,6 +8,7 @@ import ItemBase from './ItemBase.vue';
 import ResultItem from './ResultItem.vue';
 import Intro from './Intro.vue'
 import { macthRouterOptions } from '../composables/state';
+import { useRouterStore } from '~/store';
 const route = useRoute()
 const router = useRouter()
 const inputEl = ref<HTMLInputElement>()
@@ -39,15 +40,25 @@ async function executeSearch() {
 
   selectIndex.value = 0
   isModalOpen.value = false
+  if (!input.value) {
+    const store = useRouterStore()
+    let item = store.currentRouter
+    item = {
+      name: 'button-base',
+      path: 'buttonbase',
+      searchName: 'button'
+    }
+    store.setCurrentRouter(item)
+  }
 
-  await router.replace({
-    path: `/${input.value}`,
-    // query: input.value
-    //   ? {
-    //       compontent: input.value,
-    //     }
-    //   : undefined,
-  })
+  // await router.replace({
+  //   path: `/${input.value}`,
+  //   // query: input.value
+  //   //   ? {
+  //   //       compontent: input.value,
+  //   //     }
+  //   //   : undefined,
+  // })
 }
 
 watchDebounced(
@@ -92,6 +103,12 @@ function moveIndex(delta: number) {
 
 function clear() {
   router.push('/')
+  const store = useRouterStore()
+  let item = store.currentRouter
+  if (item.name) {
+    item = {}
+    store.setCurrentRouter(item)
+  }
   input.value = ''
   nextTick().then(() => inputEl?.value!.focus())
 }
@@ -101,10 +118,12 @@ async function openItem(item: any) {
     isModalOpen.value = true
   else
     input.value = '333'
-    // await searcher.getItemId(item)
+  // await searcher.getItemId(item)
 }
 
 function selectItem(item: any) {
+  const store = useRouterStore()
+  store.setCurrentRouter(item)
   const index = searchResult.value.indexOf(item)
   if (index < 0)
     return
@@ -127,26 +146,10 @@ function selectItem(item: any) {
         loading config...
       </div>
     </div>
-    <input
-      v-else
-      ref="inputEl"
-      v-model="input"
-      v-focus
-      aria-label="Type to explore"
-      placeholder="Type to explore..."
-      type="text"
-      autocomplete="off" w="full"
-      p="x6 y4"
-      bg-transparent border-none
-      class="!outline-none"
-    >
-    <YButton
-      v-if="input"
-      border
-      absolute flex right-2 w-10 top-2 bottom-2 text-xl op30 hover:op90
-      aria-label="Clear search"
-      @click="clear()"
-    >
+    <input v-else ref="inputEl" v-model="input" v-focus aria-label="Type to explore" placeholder="Type to explore..."
+      type="text" autocomplete="off" w="full" p="x6 y4" bg-transparent border-none class="!outline-none">
+    <YButton v-if="input" border absolute flex right-2 w-10 top-2 bottom-2 text-xl op30 hover:op90
+      aria-label="Clear search" @click="clear()">
       <span i-carbon-close ma block aria-hidden="true" />
     </YButton>
   </div>
@@ -163,11 +166,7 @@ function selectItem(item: any) {
       <div divider />
     </template>
     <template v-for="(i, idx) of reslutOption" :key="idx">
-      <ResultItem
-        :item="i"
-        :active="selectIndex === idx"
-        @click="selectItem(i)"
-      />
+      <ResultItem :item="i" :active="selectIndex === idx" @click="selectItem(i)" />
       <div divider />
     </template>
   </div>

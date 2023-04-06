@@ -7,9 +7,12 @@
       </div>
       <div class="w-1/2 border-indigo-500/50 h-[80vh]" m-l-4 border-2 border-solid px6 py6>
         <div class="grid grid-flow-col auto-cols-max">
-          <router-link v-for="route in router.options.routes" :key="route.path" class="router-link" :to="route.path">
-            {{ route.name }}
+          <router-link v-for="route in routerOption" :key="route.path" class="router-link" :to="route.path">
+            {{ getRouterName(route) }}
           </router-link>
+           <!-- <router-link v-for="route in router.options.routes" :key="route.path" class="router-link" :to="route.path">
+            {{ route.name }}
+          </router-link> -->
         </div>
         <div border-t-1 px6 py6 class="h-[70vh] border-t-#DCDFE6 border-t-solid">
           <slot></slot>
@@ -73,18 +76,35 @@ import SearchBar from '../Search.vue';
 import Nav from '../nav.vue';
 import { YFooter, YButton, YIcon, YToast } from 'yalert-ui';
 import { Edit, Loading } from '@yalert-ui/icons'
-import { getCurrentInstance, onMounted } from 'vue'
+import { getCurrentInstance, onMounted, watch } from 'vue'
 // 导出类型
 import type { ButtonType, Size } from 'yalert-ui';
 import { Eleme, Search } from '@yalert-ui/icons';
 import { ref } from 'vue';
+import { selectMatchItem } from '../../composables/state'
 import { useRouter } from 'vue-router'
+import { useRouterStore } from '~/store';
+const store = useRouterStore()
 const router = useRouter()
 const vue = getCurrentInstance();
+const routerOption = ref<any>(selectMatchItem(router.options.routes as any, 'button'))
 onMounted(() => {
   console.log('router------', router);
 })
+watch(() => store.currentRouter, (val) => {
+  const routersData = selectMatchItem(router.options.routes as any, val.searchName)
+  routerOption.value = routersData
+  if (routersData.length > 0) {
+    router.push({ name: routersData[0].name})
+  } else {
+    const routersData = selectMatchItem(router.options.routes as any, 'button');
+    routerOption.value = routersData
+  }
+})
 let message = ref('hello')
+const getRouterName = (router: any) => {
+  return router.name.split('-')[1]
+}
 const btnToastClick = () => {
   console.log('getCurrentInstance()', vue);
   const properties = vue?.appContext.config.globalProperties

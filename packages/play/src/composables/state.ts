@@ -33,7 +33,7 @@ export function macthRouterOptions(options: RouterOptions, keyWord: string) {
 * @param {Object} lists
 * @param {Object} keyWord
 */
-function selectMatchItem<T extends RouteRecordSearchRaw>(lists: T[], keyWord: string, property: string = 'searchName') {
+export function selectMatchItem<T extends RouteRecordSearchRaw>(lists: T[], keyWord: string, property: string = 'searchName') {
   let reg = new RegExp(keyWord);
   let resArr: T[] = [];
   lists.filter(item => {
