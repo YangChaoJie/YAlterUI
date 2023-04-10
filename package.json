@@ -10,7 +10,7 @@
     "build": "node scripts/build.js",
     "clean": "lerna clean",
     "docs:dev": "pnpm run -C packages/valaxy-docs dev",
-    "build:dev": "pnpm run -C packages/valaxy-docs build",
+    "docs:build": "pnpm run -C packages/valaxy-docs build",
     "dev:play": "pnpm -C packages/play dev",
     "test:lib": "pnpm -C packages/yAlterUI test",
     "test:dev": "pnpm -C packages/yAlterUI test:dev",
