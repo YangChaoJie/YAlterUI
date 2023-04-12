@@ -3,7 +3,7 @@ import { defineTheme } from 'valaxy'
 import type { Plugin } from 'vite'
 import { defaultThemeConfig } from './config'
 import type { ThemeConfig } from './types'
-
+import VueJsx from '@vitejs/plugin-vue-jsx'
 function ThemeVitePlugin(options: ResolvedValaxyOptions<ThemeConfig>): Plugin {
   const themeConfig = options.config.themeConfig!
 
@@ -37,7 +37,7 @@ export default defineTheme<ThemeConfig>((options) => {
           external: ['valaxy-addon-algolia'],
         },
       },
-      plugins: [ThemeVitePlugin(options)],
+      plugins: [ThemeVitePlugin(options), VueJsx()],
     },
   }
 })

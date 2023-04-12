@@ -66,6 +66,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThemeGallery: typeof import('./components/ThemeGallery.vue')['default']
+    Usage: typeof import('./components/Usage.vue')['default']
     ValaxyAddons: typeof import('./../../node_modules/.pnpm/valaxy@0.14.25_@types+markdown-it@12.2.3_@unhead+vue@1.1.25_postcss@8.4.21_rollup@3.20.2_typescript@5.0.3/node_modules/valaxy/client/components/ValaxyAddons.vue')['default']
     ValaxyCopyright: typeof import('./../../node_modules/.pnpm/valaxy@0.14.25_@types+markdown-it@12.2.3_@unhead+vue@1.1.25_postcss@8.4.21_rollup@3.20.2_typescript@5.0.3/node_modules/valaxy/client/components/ValaxyCopyright.vue')['default']
     ValaxyHamburger: typeof import('./../../node_modules/.pnpm/valaxy@0.14.25_@types+markdown-it@12.2.3_@unhead+vue@1.1.25_postcss@8.4.21_rollup@3.20.2_typescript@5.0.3/node_modules/valaxy/client/components/ValaxyHamburger.vue')['default']

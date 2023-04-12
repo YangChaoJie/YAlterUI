@@ -1,7 +1,8 @@
 import { defineValaxyConfig } from 'valaxy'
 import type { PressTheme } from 'valaxy-theme-press'
 import { addonAlgolia } from 'valaxy-addon-algolia'
-
+import path from 'node:path'
+import { resolve } from 'path'
 const COMMIT_ID = process.env.CF_PAGES_COMMIT_SHA || process.env.COMMIT_REF
 const commitRef = COMMIT_ID?.slice(0, 8) || 'dev'
 
@@ -52,6 +53,15 @@ export default defineValaxyConfig<PressTheme.Config>({
         ],
       },
       {
+        text: '组件',
+        items: [
+          {
+            text: 'Components',
+            link: '/components/button',
+          }
+        ]
+      },
+      {
         text: 'Themes',
         items: [
           {
@@ -96,6 +106,17 @@ export default defineValaxyConfig<PressTheme.Config>({
 
   vite: {
     base: '/',
+    resolve: {
+      alias: [
+        {
+          find: /^@\/(.*)$/,
+          replacement: `${path.resolve('..')}/yAlterUI/src/$1`,
+        },
+        { find: /^~\/(.*)/, replacement: resolve('./src/$1') },
+        { find: /^@yalert-ui\/((?!icons).+)/, replacement: resolve(__dirname, '../common/$1/src') },
+        { find: /^yalert-ui$/, replacement: `${path.resolve('..')}/yAlterUI/src/components/index.ts` }, // 与下面效果是相同的
+      ]
+    },
   },
   unocss: {
     safelist,

@@ -12,7 +12,10 @@
   "dependencies": {
     "valaxy": "0.14.25",
     "valaxy-addon-algolia": "^0.0.3",
-    "valaxy-theme-press": "link:./packages/valaxy-theme-press"
+    "valaxy-theme-press": "link:./valaxy-theme-press",
+    "@yalert-ui/icons": "workspace:*",
+    "@yalert-ui/utils": "workspace:*",
+    "yalert-ui": "workspace:*"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

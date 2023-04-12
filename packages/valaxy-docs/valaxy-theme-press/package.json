@@ -29,7 +29,10 @@
     "vite-plugin-pages": "^0.29.0",
     "vite-plugin-vue-layouts": "^0.8.0",
     "vue": "^3.2.47",
-    "vue-i18n": "^9.2.2"
+    "vue-i18n": "^9.2.2",
+    "@yalert-ui/icons": "workspace:*",
+    "@yalert-ui/utils": "workspace:*",
+    "yalert-ui": "workspace:*"
   },
   "devDependencies": {
     "valaxy": "0.14.25"
