@@ -10,14 +10,22 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@yalert-ui/icons": "workspace:*",
+    "@yalert-ui/utils": "workspace:*",
+    "markdown-it": "^13.0.1",
     "valaxy": "0.14.25",
     "valaxy-addon-algolia": "^0.0.3",
     "valaxy-theme-press": "link:./valaxy-theme-press",
-    "@yalert-ui/icons": "workspace:*",
-    "@yalert-ui/utils": "workspace:*",
     "yalert-ui": "workspace:*"
   },
   "devDependencies": {
+    "@types/escape-html": "^1.0.2",
+    "@types/markdown-it": "^12.2.3",
+    "@types/markdown-it-container": "^2.0.5",
+    "chalk": "^4.1.2",
+    "consola": "^2.15.3",
+    "escape-html": "^1.0.3",
+    "markdown-it-container": "^3.0.0",
     "nodemon": "^2.0.19"
   }
 }
