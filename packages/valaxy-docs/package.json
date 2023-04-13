@@ -10,8 +10,10 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^9.13.0",
     "@yalert-ui/icons": "workspace:*",
     "@yalert-ui/utils": "workspace:*",
+    "element-plus": "^2.3.3",
     "markdown-it": "^13.0.1",
     "valaxy": "0.14.25",
     "valaxy-addon-algolia": "^0.0.3",
@@ -26,6 +28,8 @@
     "consola": "^2.15.3",
     "escape-html": "^1.0.3",
     "markdown-it-container": "^3.0.0",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "unplugin-auto-import": "^0.15.2",
+    "unplugin-vue-components": "^0.24.1"
   }
 }
