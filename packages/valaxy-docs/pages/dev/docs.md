@@ -9,6 +9,7 @@ end: false
 ## Docs Writing
 
 Valaxy 正在为 1.0 的发布做准备，我们很期待您参与文档的撰写与翻译。
+通过对button dd
 
 ## 如何翻译
 

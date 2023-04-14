@@ -40,7 +40,7 @@ export default defineValaxyConfig<PressTheme.Config>({
   theme: 'press',
   themeConfig: {
     logo: '/favicon.svg',
-    sidebar: ['Getting Started', 'Guide', 'Config', 'Migration', 'built-ins', 'Third', 'Custom', 'Theme', 'Addon', 'Dev'],
+    sidebar: ['Getting Started', 'Guide', 'Components', 'Config'],
     socialLinks: [
       { icon: 'i-ri-github-line', link: 'https://github.com/YunYouJun/valaxy' },
     ],
@@ -59,7 +59,8 @@ export default defineValaxyConfig<PressTheme.Config>({
         ],
       },
       {
-        text: '组件',
+        text: ' 组件 ',
+        link: '/components/button',
         items: [
           {
             text: 'Components',
@@ -68,39 +69,15 @@ export default defineValaxyConfig<PressTheme.Config>({
         ]
       },
       {
-        text: 'Themes',
+        text: '关于',
+        link: '/about/about',
         items: [
           {
-            text: 'Use Theme',
-            link: '/themes/use',
-          },
-          {
-            text: 'Write A Theme',
-            link: '/themes/write',
-          },
-          {
-            text: 'Themes Gallery',
-            link: '/themes/gallery',
-          },
-        ],
-      },
-      {
-        text: 'Addons',
-        items: [
-          {
-            text: 'Why need addons?',
-            link: '/addons',
-          },
-          {
-            text: 'Use A Addon',
-            link: '/addons/use',
-          },
-          {
-            text: 'Write A Addon',
-            link: '/addons/write',
-          },
-        ],
-      },
+            text: 'Components',
+            link: '/about/index',
+          }
+        ]
+      }
     ],
 
     footer: {

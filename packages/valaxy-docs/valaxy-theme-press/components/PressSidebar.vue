@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { removeItemFromCategory, useCategory, usePageList, useSidebar } from 'valaxy'
 import { useThemeConfig } from '../composables'
+import { useRoute } from 'vue-router' 
+import { watch } from 'vue'
 
 defineProps<{
   open: boolean
@@ -9,10 +11,11 @@ defineProps<{
 
 const pages = usePageList()
 const themeConfig = useThemeConfig()
+const showCom = ref(false)
 
 const categories = computed(() => {
   const cs = useCategory('', pages.value)
-  const cList = cs.value
+  let cList = cs.value
   removeItemFromCategory(cList, 'Uncategorized')
 
   const sidebar = themeConfig.value.sidebar
@@ -22,8 +25,22 @@ const categories = computed(() => {
         removeItemFromCategory(cList, item.name)
     })
   }
+  if (showCom.value) {
+    cList.children = cList.children.filter(item => item.name === 'Components')
+  } else {
+    cList = cs.value
+  }
   return cList
 })
+
+const route = useRoute()
+watch(() => route.name, (val) => {
+  const label = route.name?.toString().split('-')[0]
+  if (label && label === 'components') {
+    showCom.value = true
+    console.log(`categories------------`, categories);
+  }
+});
 
 const { hasSidebar } = useSidebar()
 </script>

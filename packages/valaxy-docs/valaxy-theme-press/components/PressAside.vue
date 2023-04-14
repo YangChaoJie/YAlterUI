@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useFrontmatter } from 'valaxy'
-import { useAppStore } from 'valaxy/client/stores/app'
+import { useAppStore } from 'valaxy/client/stores/app' 
 import PressOutline from './PressOutline.vue'
 
 const frontmatter = useFrontmatter()
