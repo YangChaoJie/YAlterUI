@@ -9,20 +9,9 @@ top: 50
 
 ### button
 
+:::demo  button 的基本使用 type
 
-  <YButton>Default</YButton>
-  <YButton type="primary">
-    Primary
-  </YButton>
-  <YButton type="info">
-    Info
-  </YButton>
-  <YButton type="success">
-    Success
-  </YButton>
-  <YButton type="warning">
-    Warning
-  </YButton>
-  <YButton type="error">
-    Error
-  </YButton>
+button/base
+
+:::
+

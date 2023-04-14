@@ -3,6 +3,10 @@ import type { PressTheme } from 'valaxy-theme-press'
 import { addonAlgolia } from 'valaxy-addon-algolia'
 import path from 'node:path'
 import { resolve } from 'path'
+// import Components from 'unplugin-vue-components/vite'
+// import AutoImport from 'unplugin-auto-import/vite'
+// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { mdPlugin } from './config/plugins'
 const COMMIT_ID = process.env.CF_PAGES_COMMIT_SHA || process.env.COMMIT_REF
 const commitRef = COMMIT_ID?.slice(0, 8) || 'dev'
 
@@ -117,12 +121,21 @@ export default defineValaxyConfig<PressTheme.Config>({
         { find: /^yalert-ui$/, replacement: `${path.resolve('..')}/yAlterUI/src/components/index.ts` }, // 与下面效果是相同的
       ]
     },
+    // plugins: [
+    //   AutoImport({
+    //     resolvers: [ElementPlusResolver()],
+    //   }),
+    //   Components({
+    //     resolvers: [ElementPlusResolver()],
+    //   })
+    // ]
   },
   unocss: {
     safelist,
   },
 
   markdown: {
+    config: (md) => mdPlugin(md),
     blocks: {
       tip: {
         icon: 'i-carbon-thumbs-up',

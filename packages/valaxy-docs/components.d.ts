@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     AlgoliaSearchBox: typeof import('./../../node_modules/.pnpm/valaxy-addon-algolia@0.0.3_@algolia+client-search@4.17.0_valaxy@0.14.25/node_modules/valaxy-addon-algolia/components/AlgoliaSearchBox.vue')['default']
     AppLink: typeof import('./../../node_modules/.pnpm/valaxy@0.14.25_@types+markdown-it@12.2.3_@unhead+vue@1.1.25_postcss@8.4.21_rollup@3.20.2_typescript@5.0.3/node_modules/valaxy/client/components/AppLink.vue')['default']
     Default: typeof import('./valaxy-theme-press/layouts/default.vue')['default']
+    Example: typeof import('./components/Example.vue')['default']
     Expmple: typeof import('./components/Expmple.vue')['default']
     Home: typeof import('./valaxy-theme-press/layouts/home.vue')['default']
     Layout: typeof import('./valaxy-theme-press/layouts/layout.vue')['default']

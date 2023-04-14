@@ -42,15 +42,16 @@ export const mdPlugin = (md: MarkdownIt) => {
             'utf-8'
           )
         }
+        console.log('sourceFile-----------',  sourceFile);
+        // :demos="demos" 
         if (!source) throw new Error(`Incorrect source file: ${sourceFile}`)
-
-        return `<Demo :demos="demos" source="${encodeURIComponent(
+        return `<Usage source="${encodeURIComponent(
           highlight(source, 'vue')
         )}" path="${sourceFile}" raw-source="${encodeURIComponent(
           source
         )}" description="${encodeURIComponent(localMd.render(description))}">`
       } else {
-        return '</Demo>'
+        return '</Usage>'
       }
     },
   } as ContainerOpts)
