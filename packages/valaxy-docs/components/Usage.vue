@@ -2,7 +2,7 @@
 import { computed, getCurrentInstance } from 'vue'
 import { useClipboard, useToggle } from '@vueuse/core'
 // import { useLang } from '../composables/lang'
-import { CaretTop } from '@yalert-ui/icons'
+import { CaretTop, CodeO, CopyDocument } from '@yalert-ui/icons'
 // import { useSourceCode } from '../composables/source-code'
 // import { usePlayground } from '../composables/use-playground'
 
@@ -10,7 +10,6 @@ import { CaretTop } from '@yalert-ui/icons'
 
 import Example from './Example.vue'
 import SourceCode from './SouceCode.vue'
-
 const props = defineProps<{
   // demos: object
   source: string
@@ -23,7 +22,7 @@ const vm = getCurrentInstance()!
 
 const { copy, isSupported } = useClipboard({
   source: decodeURIComponent(props.rawSource),
-  read: false,
+  read: true,
 })
 
 const [sourceVisible, toggleSourceVisible] = useToggle()
@@ -61,6 +60,7 @@ const copyCode = async () => {
     $message.error('copy-error')
   }
   try {
+    debugger
     await copy()
     $message.success('copy-success')
   } catch (e: any) {
@@ -73,7 +73,6 @@ const copyCode = async () => {
   <ClientOnly>
     <!-- danger here DO NOT USE INLINE SCRIPT TAG -->
     <p text="sm" v-html="decodedDescription" />
-
     <div class="example">
       <Example :file="path" :demo="formatPathDemos[path]" />
 
@@ -99,11 +98,12 @@ const copyCode = async () => {
         <ElTooltip content="copy-code" :show-arrow="false">
           <ElIcon :size="16" class="op-btn" @click="copyCode">
             <!-- <i-ri-file-copy-line /> -->
+            <CopyDocument></CopyDocument>
           </ElIcon>
         </ElTooltip>
         <ElTooltip content="view-source" :show-arrow="false">
           <ElIcon :size="16" class="op-btn" @click="toggleSourceVisible()">
-            <!-- <i-ri-code-line /> -->
+            <CodeO></CodeO>
           </ElIcon>
         </ElTooltip>
       </div>

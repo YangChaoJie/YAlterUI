@@ -1,6 +1,6 @@
 @use "./helper.scss";
 @use "./markdown.scss";
-
+@use "./code.scss";
 .layout {
   display: flex;
   flex-direction: column;

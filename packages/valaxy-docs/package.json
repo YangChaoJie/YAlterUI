@@ -10,11 +10,13 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@iconify-json/ri": "^1.1.7",
     "@vueuse/core": "^9.13.0",
     "@yalert-ui/icons": "workspace:*",
     "@yalert-ui/utils": "workspace:*",
     "element-plus": "^2.3.3",
     "markdown-it": "^13.0.1",
+    "prism-theme-vars": "^0.2.4",
     "valaxy": "0.14.25",
     "valaxy-addon-algolia": "^0.0.3",
     "valaxy-theme-press": "link:./valaxy-theme-press",
@@ -30,6 +32,7 @@
     "markdown-it-container": "^3.0.0",
     "nodemon": "^2.0.19",
     "unplugin-auto-import": "^0.15.2",
+    "unplugin-icons": "^0.16.1",
     "unplugin-vue-components": "^0.24.1"
   }
 }

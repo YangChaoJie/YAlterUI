@@ -1,6 +1,6 @@
 import { defineAppSetup } from 'valaxy'
 import { nextTick } from 'vue'
-// import '../../../yAlterUI/styles/index.scss'
+import 'yalert-ui/styles/dark/css-vars.scss'
 // import { install } from 'yalert-ui'
 export default defineAppSetup((ctx) => {
   const { router, isClient } = ctx
