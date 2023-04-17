@@ -1,10 +1,9 @@
 ---
 title: button
 title_zh-CN: 按钮
+date: 2023-03-23
 categories:
   - Components
-end: false
-top: 50
 ---
 
 ### button

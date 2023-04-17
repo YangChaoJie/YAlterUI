@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { removeItemFromCategory, useCategory, usePageList, useSidebar } from 'valaxy'
+import { computed, onBeforeMount, ref } from 'vue'
+import { removeItemFromCategory, sortByDate, useCategory, usePageList, useSidebar } from 'valaxy'
 import { useThemeConfig } from '../composables'
 import { useRoute } from 'vue-router' 
 import { watch } from 'vue'
-
 defineProps<{
   open: boolean
 }>()
@@ -13,8 +12,12 @@ const pages = usePageList()
 const themeConfig = useThemeConfig()
 const showCom = ref(false)
 
+
+    
 const categories = computed(() => {
   const cs = useCategory('', pages.value)
+  console.log('cs-------', cs);
+  
   let cList = cs.value
   removeItemFromCategory(cList, 'Uncategorized')
 
@@ -27,8 +30,12 @@ const categories = computed(() => {
   }
   if (showCom.value) {
     cList.children = cList.children.filter(item => item.name === 'Components')
-  } else {
-    cList = cs.value
+    cList.children = sortByDate(cList.children, true)
+    // cList.children.forEach((item) => {
+    //   console.log('item-----------', item);
+    //   if (item.name !== 'Components')
+    //     removeItemFromCategory(cList, item.name)
+    // })
   }
   return cList
 })
@@ -39,9 +46,18 @@ watch(() => route.name, (val) => {
   if (label && label === 'components') {
     showCom.value = true
     console.log(`categories------------`, categories);
+  } else {
+    showCom.value = false
   }
 });
-
+onBeforeMount(() => {
+  const label = route.name?.toString().split('-')[0]
+  if (label && label === 'components') {
+    showCom.value = true;
+  } else {
+    showCom.value = false
+  }
+})
 const { hasSidebar } = useSidebar()
 </script>
 

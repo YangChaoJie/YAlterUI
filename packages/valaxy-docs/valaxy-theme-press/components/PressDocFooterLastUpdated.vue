@@ -3,9 +3,9 @@ import { computed, onMounted, ref, watchEffect } from 'vue'
 import { useData, useThemeConfig } from 'valaxy'
 
 const data = useData()
-const themeConfig = useThemeConfig()
+const themeConfig = useThemeConfig();
 
-const date = computed(() => new Date(data.lastUpdated!))
+const date = computed(() => new Date(data.lastUpdated || data.frontmatter.date || ''))
 const isoDatetime = computed(() => date.value.toISOString())
 const datetime = ref('')
 

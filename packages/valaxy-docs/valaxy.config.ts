@@ -42,7 +42,7 @@ export default defineValaxyConfig<PressTheme.Config>({
     logo: '/favicon.svg',
     sidebar: ['Getting Started', 'Guide', 'Components', 'Config'],
     socialLinks: [
-      { icon: 'i-ri-github-line', link: 'https://github.com/YunYouJun/valaxy' },
+      { icon: 'i-ri-github-line', link: 'https://github.com/YangChaoJie/YAlterUI' },
     ],
     nav: [
       {
@@ -60,13 +60,7 @@ export default defineValaxyConfig<PressTheme.Config>({
       },
       {
         text: ' 组件 ',
-        link: '/components/button',
-        items: [
-          {
-            text: 'Components',
-            link: '/components/button',
-          }
-        ]
+        link: '/components/icon'
       },
       {
         text: '关于',

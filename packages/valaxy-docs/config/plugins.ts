@@ -42,7 +42,7 @@ export const mdPlugin = (md: MarkdownIt) => {
             'utf-8'
           )
         }
-        console.log('sourceFile-----------',  sourceFile);
+        // console.log('sourceFile-----------',  sourceFile);
         // :demos="demos" 
         if (!source) throw new Error(`Incorrect source file: ${sourceFile}`)
         return `<Usage source="${encodeURIComponent(

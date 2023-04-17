@@ -35,12 +35,11 @@ const formatPathDemos = computed(() => {
   console.log('componentId----', componentId);
   
   const demos0 = import.meta.glob(`../examples/*/*.vue`, { eager: true })
-  console.log('demos0----', demos0);
+  
   Object.keys(demos0).forEach((key) => {
     demos[key.replace('../examples/', '').replace('.vue', '')] =
     (demos0[key] as any).default || {}
   })
-  console.log('demos------------', demos);
   return demos
 })
 

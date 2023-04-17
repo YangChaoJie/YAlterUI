@@ -14,9 +14,9 @@ const fm = useFrontmatter()
   </div>
 
   <h2 m="b-10" text="center 6xl" font="black" leading="tight">
-    Next Generation
+    vue3
     <br>
-    Static <span class="gradient-text from-blue-500 to-purple-700" bg="gradient-to-r">Blog</span> Framework
+    TypeScript  <span class="gradient-text from-blue-500 to-purple-700" bg="gradient-to-r">UI</span> library
   </h2>
 
   <div p="2" text="center">
