@@ -3,7 +3,7 @@ title: Commands
 title_zh-CN: 命令行
 categories:
   - Guide
-top: 99
+top: 10
 ---
 
 ::: zh-CN

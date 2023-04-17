@@ -40,13 +40,14 @@ export default defineValaxyConfig<PressTheme.Config>({
   theme: 'press',
   themeConfig: {
     logo: '/favicon.svg',
-    sidebar: ['Getting Started', 'Guide', 'Components', 'Config'],
+    sidebar: ['Getting Started', 'Components', 'FAQ'],
     socialLinks: [
       { icon: 'i-ri-github-line', link: 'https://github.com/YangChaoJie/YAlterUI' },
     ],
     nav: [
       {
-        text: 'Docs',
+        text: '指南',
+        link: '/guide/getting-started',
         items: [
           {
             text: 'Getting Started',
@@ -75,9 +76,9 @@ export default defineValaxyConfig<PressTheme.Config>({
     ],
 
     footer: {
-      message: `Released under the MIT License. (<a href="https://github.com/YunYouJun/valaxy/commit/${commitRef}" target="_blank" alt=${commitRef}>${commitRef}</a>)`,
+      message: `Released under the MIT License. (<a href="https://github.com/YangChaoJie/YAlterUI/commit/${commitRef}" target="_blank" alt=${commitRef}>${commitRef}</a>)`,
       copyright:
-        'Copyright © 2022-present <a href="https://github.com/YunYouJun" target="_blank">YunYouJun</a> & <a href="https://github.com/YunYouJun/valaxy/graphs/contributors" target="_blank">Valaxy Contributors</a>',
+        'Copyright © 2023-present <a href="https://github.com/YangChaoJie" target="_blank">YangChaoJie</a> & <a href="https://github.com/YangChaoJie/YAlterUI" target="_blank">YJ-UI</a>',
     },
   },
 

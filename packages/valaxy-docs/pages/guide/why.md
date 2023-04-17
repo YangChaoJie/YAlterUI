@@ -3,8 +3,8 @@ cover: https://fastly.jsdelivr.net/gh/YunYouJun/cdn/img/bg/girl-in-water-tank.we
 title: Why Valaxy
 title_zh-CN: 为什么选 Valaxy
 date: 2022-03-22
-categories:
-  - Getting Started
+# categories:
+#   - Getting Started
 tags:
   - valaxy
   - 笔记

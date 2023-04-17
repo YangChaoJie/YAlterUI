@@ -1,8 +1,8 @@
 ---
 title: Features
 title_zh-CN: 亮点
-categories:
-  - Getting Started
+# categories:
+#   - Getting Started
 end: false
 top: 98
 ---

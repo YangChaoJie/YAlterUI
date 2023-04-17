@@ -59,7 +59,6 @@ const copyCode = async () => {
     $message.error('copy-error')
   }
   try {
-    debugger
     await copy()
     $message.success('copy-success')
   } catch (e: any) {
