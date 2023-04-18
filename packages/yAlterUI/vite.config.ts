@@ -17,7 +17,8 @@ export default defineConfig({
       { find: /^@\/(.*)/, replacement: resolve0('./src/$1')},
       { find: /^yalert-ui$/, replacement: resolve0('./src/index.ts') },
       { find: /^yalert-ui\/(.*)/, replacement: resolve0('./$1') },
-      { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../common/hook/src') }
+      { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../common/hook/src') },
+      { find: '@yalert-ui/utils', replacement: resolve(__dirname, '../common/utils/src') }
     ]
   },
   // 打包配置

@@ -21,9 +21,9 @@ $button: map.merge(
     'hover-text-color': getCssVar('color-primary'),
     'hover-bg-color': getCssVar('color-primary', 'light-9'),
     'hover-border-color': getCssVar('color-primary-light-7'),
-    'active-text-color': getCssVar('button-hover-text-color'),
+    'active-text-color': getCssVar('btn-hover-text-color'),
     'active-border-color': getCssVar('color-primary'),
-    'active-bg-color': getCssVar('button', 'hover-bg-color'),
+    'active-bg-color': getCssVar('btn', 'hover-bg-color'),
     'outline-color': getCssVar('color-primary', 'light-5'),
     'hover-link-text-color': getCssVar('color-info'),
     'active-color': getCssVar('text-color', 'primary'),
@@ -141,7 +141,6 @@ $ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
   border-radius: getCssVar('border-radius-base');
   font-weight: getCssVar('btn', 'font-weight');
   padding: map.get($button-padding-vertical, 'default');
-  
   &:hover,
   &:focus {
     color: getCssVar('btn', 'hover', 'text-color');
@@ -158,7 +157,7 @@ $ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
   &:focus-visible {
-    outline: 2px solid getCssVar('button', 'outline-color');
+    outline: 2px solid getCssVar('btn', 'outline-color');
     outline-offset: 1px;
   }
 
@@ -259,12 +258,12 @@ $ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
   @include m(text) {
     border-color: transparent;
     background: transparent;
-    color: getCssVar('color', 'primary');
+    color: getCssVar('btn', 'color', 'primary');
     padding-left: 0;
     padding-right: 0;
 
     @include when(disabled) {
-      color: getCssVar('button', 'disabled', 'text-color');
+      color: getCssVar('btn', 'disabled', 'text-color');
       background-color: transparent !important;
       border-color: transparent !important;
     }
@@ -294,6 +293,18 @@ $ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
     border-radius: 50%;
     padding: map.get($button-padding-vertical, 'default') - $button-border-width;
   }
+  // is-disabled
+  @include when(disabled) {
+    &,
+    &:hover,
+    &:focus {
+      color: getCssVar('btn', 'disabled', 'text-color');
+      cursor: not-allowed;
+      background-image: none;
+      background-color: getCssVar('btn', 'disabled', 'bg-color');
+      border-color: getCssVar('btn', 'disabled', 'border-color');
+    }
+  }
 
   // button dash
   @include m(dashed) { 
@@ -302,18 +313,18 @@ $ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
   // button link is-link
   @include when(link) {
     border-color: transparent;
-    color: getCssVar('button', 'text-color');
+    color: getCssVar('btn', 'text-color');
     background: transparent;
     padding: 2px;
     height: auto;
 
     &:hover,
     &:focus {
-      color: getCssVar('button', 'hover', 'link-text-color');
+      color: getCssVar('btn', 'hover', 'link-text-color');
     }
 
     @include when(disabled) {
-      color: getCssVar('button', 'disabled', 'text-color');
+      color: getCssVar('btn', 'disabled', 'text-color');
       background-color: transparent !important;
       border-color: transparent !important;
     }
@@ -327,7 +338,7 @@ $ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
       }
 
       &:active {
-        color: getCssVar('button', 'active-color');
+        color: getCssVar('btn', 'active-color');
         border-color: transparent;
         background-color: transparent;
       }

@@ -46,7 +46,7 @@
 
   @each $type, $typeMap in $button-color-types {
     @each $typeColor, $list in $typeMap {
-      @include css-var-from-global(('button', $type, $typeColor), $list);
+      @include css-var-from-global(('btn', $type, $typeColor), $list);
     }
   }
 
