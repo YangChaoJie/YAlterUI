@@ -44,7 +44,7 @@ const buttonProps = {
 const YButton = defineComponent({
   name: 'YButton',
   props: buttonProps,
-  setup(props, { slots }) {
+  setup(props, { slots, emit }) {
     // const { disabled } = props
     const disabled = useDisabled()
     const size = computed(() => props.size)
@@ -53,7 +53,8 @@ const YButton = defineComponent({
     const ns = useNamespace('btn')
     const buttonStyle = useButtonCustomStyle(props)
     const handleClick = (e: MouseEvent) => {
-      if (disabled) return
+      if (disabled || props.loading) return
+      emit('click', e)
     }
     // function
     function renderLoadingIcon() {
