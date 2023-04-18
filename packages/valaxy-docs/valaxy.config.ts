@@ -31,9 +31,9 @@ export default defineValaxyConfig<PressTheme.Config>({
 
   addons: [
     addonAlgolia({
-      appId: '7MV77DWO4A',
-      apiKey: '9b9438ca112ab7c044c985c2daa1190b',
-      indexName: 'valaxysite',
+      appId: 'JVYHM78U9C',
+      apiKey: '2181c51c3723fc9cd2e6725dfc8f8459',
+      indexName: 'yangchaojieio',
     }),
   ],
 

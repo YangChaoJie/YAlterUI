@@ -6,7 +6,9 @@
     "build:spa": "valaxy build",
     "build:ssg": "valaxy build --ssg",
     "dev": "valaxy",
+    "fuse": "valaxy fuse",
     "rss": "valaxy rss",
+    "deploy": "bash deploy.sh",
     "serve": "vite preview"
   },
   "dependencies": {
