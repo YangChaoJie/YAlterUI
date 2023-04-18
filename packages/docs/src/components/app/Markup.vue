@@ -118,7 +118,7 @@
 
         await wait(500)
 
-        window.getSelection()?.removeAllRanges()
+        // window.getSelection()?.removeAllRanges()
 
         clicked.value = false
       }

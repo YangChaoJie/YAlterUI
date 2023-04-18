@@ -8,7 +8,7 @@
     "configs/*",
     "types-temp",
     "configs/vitest.config.*",
-    "configs/prod.config.tsig.ts"
+    "configs/prod.config.ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",

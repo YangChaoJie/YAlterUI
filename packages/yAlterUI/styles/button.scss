@@ -138,6 +138,9 @@ $ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
   background-color: getCssVar('btn', 'bg-color');
   border: getCssVar('border');
   border-color: getCssVar('btn', 'border-color');
+  border-radius: getCssVar('border-radius-base');
+  font-weight: getCssVar('btn', 'font-weight');
+  padding: map.get($button-padding-vertical, 'default');
   
   &:hover,
   &:focus {
