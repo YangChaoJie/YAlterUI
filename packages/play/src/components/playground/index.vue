@@ -15,6 +15,7 @@
           </router-link> -->
         </div>
         <div border-t-1 px6 py6 class="h-[70vh] border-t-#DCDFE6 border-t-solid">
+          <YRow></YRow>
           <slot></slot>
         </div>
       </div>
@@ -74,7 +75,7 @@
 import '../../../../yAlterUI/styles/dark/css-vars.scss'
 import SearchBar from '../Search.vue';
 import Nav from '../nav.vue';
-import { YFooter, YButton, YIcon, YToast } from 'yalert-ui';
+import { YFooter, YButton, YIcon, YToast, YRow } from 'yalert-ui';
 import { Edit, Loading } from '@yalert-ui/icons'
 import { getCurrentInstance, onMounted, watch } from 'vue'
 // 导出类型

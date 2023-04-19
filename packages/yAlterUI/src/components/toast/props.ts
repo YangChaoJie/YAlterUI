@@ -1,7 +1,6 @@
 import { PropType, CSSProperties, ExtractPropTypes } from "vue";
 import type { ToastPosition } from "./interface";
 import { ToastOptions } from './interface';
-import { propsFactory } from '../../util/propsFactory';
 import { IconMinorProps } from "../icon/interface";
 export type ClassType = string | Record<string, any> | Array<string | Record<string, any>>
 export type StyleType = string | CSSProperties | Array<string | CSSProperties>
