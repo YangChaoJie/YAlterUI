@@ -1,15 +1,7 @@
+import type { ExtractPropTypes, PropType } from 'vue';
 import { defineProps, withDefaults } from 'vue';
-import type { ExtractPropTypes } from 'vue'
-export const RowJustify = [
-  'start',
-  'center',
-  'end',
-  'space-around',
-  'space-between',
-  'space-evenly',
-] as const
-
-export const RowAlign = ['top', 'middle', 'bottom'] as const
+export type RowJustify = 'start' | 'center' | 'end' | 'space-around' |'space-between' | 'space-evenly'
+type RowAlign = 'top' | 'middle' | 'bottom'
 // interface RowProp {
 //   tag: string
 //   gutter: number
@@ -33,12 +25,17 @@ export const rowProps = () => ({
     default: 0
   },
   justify: {
-    type: String,
+    type: String as PropType<RowJustify>,
     default: 'start'
   },
   align: {
-    type: String,
-    default: 'top'
+    type: String as PropType<RowAlign>,
+    default: 'top',
+    required: true
+  },
+  wrap: {
+    type: Boolean,
+    default: true,
   }
 })
 
