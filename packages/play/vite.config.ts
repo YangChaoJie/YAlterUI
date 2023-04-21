@@ -6,6 +6,8 @@ import vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
 import { YalertUIResolver } from '@yalert-ui/utils'
+//'../common/utils/src/resolver'
+// 
 export default defineConfig(() => {
   const plugins: PluginOption[] = [
     Unocss(),

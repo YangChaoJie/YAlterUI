@@ -6,7 +6,7 @@ import { useNamespace } from '@/composables/namespace';
 import { useDisabled } from '@/composables/common';
 import { YIcon } from '../icon';
 import { Loading } from '@yalert-ui/icons'
-import { isClient, parseColorToRgba, mixColor, isDark } from '@yalert-ui/utils'
+import { parseColorToRgba, mixColor, isDark } from '@yalert-ui/utils'
 import type { ExtractPropTypes } from 'vue'
 const buttonProps = {
   size: String as PropType<Size>,
