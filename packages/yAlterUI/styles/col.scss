@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/_col' as *;
+
+[class*='#{$namespace}-col-'] {
+  box-sizing: border-box;
+  @include when(guttered) {
+    display: block;
+    min-height: 1px;
+  }
+}
