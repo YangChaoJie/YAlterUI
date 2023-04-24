@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { useFrontmatter } from 'valaxy'
-import { useAppStore } from 'valaxy/client/stores/app' 
+import { useFrontmatter, useAppStore } from 'valaxy'
 import PressOutline from './PressOutline.vue'
 
 const frontmatter = useFrontmatter()
@@ -40,7 +39,7 @@ const app = useAppStore()
 </template>
 
 <style lang="scss">
-@use 'valaxy/client/styles/mixins' as *;
+@use 'valaxy/client/styles/mixins/index.scss' as *;
 
 .press-card{
   background-color: var(--va-c-bg);

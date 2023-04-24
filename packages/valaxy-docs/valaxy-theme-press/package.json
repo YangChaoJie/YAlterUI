@@ -35,7 +35,7 @@
     "yalert-ui": "workspace:*"
   },
   "devDependencies": {
-    "valaxy": "0.14.25"
+    "valaxy": "0.14.28"
   },
   "pnpm": {
     "peerDependencyRules": {

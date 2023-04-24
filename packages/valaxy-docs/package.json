@@ -19,7 +19,7 @@
     "element-plus": "^2.3.3",
     "markdown-it": "^13.0.1",
     "prism-theme-vars": "^0.2.4",
-    "valaxy": "0.14.26",
+    "valaxy": "0.14.28",
     "valaxy-addon-algolia": "^0.0.3",
     "valaxy-theme-press": "link:./valaxy-theme-press",
     "yalert-ui": "workspace:*"
