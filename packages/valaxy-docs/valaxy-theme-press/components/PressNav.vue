@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
 import { useWindowScroll } from '@vueuse/core'
-import { useSidebar } from 'valaxy/client'
+import { useSidebar } from 'valaxy'
 import { useNav } from '../composables/nav'
 
 const { y } = useWindowScroll()
@@ -26,7 +26,7 @@ const classes = computed(() => ({
 </template>
 
 <style lang="scss">
-@use 'valaxy/client/styles/mixins' as *;
+@use 'valaxy/client/styles/mixins/index.scss' as *;
 
 .press-nav {
   z-index: var(--pr-z-nav);

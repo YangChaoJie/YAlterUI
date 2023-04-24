@@ -20,8 +20,6 @@ declare module '@vue/runtime-core' {
     Search: typeof import('./src/components/Search.vue')['default']
     YButton: typeof import('yalert-ui')['YButton']
     YCol: typeof import('yalert-ui')['YCol']
-    YIcon: typeof import('yalert-ui')['YIcon']
     YRow: typeof import('yalert-ui')['YRow']
-    YSpace: typeof import('yalert-ui')['YSpace']
   }
 }

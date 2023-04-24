@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useSidebar } from 'valaxy/client'
+import { useSidebar } from 'valaxy'
 
 defineProps<{
   open: boolean
@@ -35,7 +35,7 @@ function scrollToTop() {
 </template>
 
 <style scoped lang="scss">
-@use 'valaxy/client/styles/mixins' as *;
+@use 'valaxy/client/styles/mixins/index.scss' as *;
 
 .press-local-nav {
   position: sticky;
