@@ -39,6 +39,11 @@
     position: relative;
     left: (math.div(1, 24) * $i * 100) * 1%;
   }
+
+  .#{$namespace}-col-order-#{$i} {
+    position: relative;
+    order: $i;
+  }
 }
 
 @include col-size(xs);
