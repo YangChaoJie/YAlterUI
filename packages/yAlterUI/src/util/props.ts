@@ -49,3 +49,27 @@ export function configProps<T>(props: MaybeRef<T>, app?: App) {
     provide(PROVIDED_PROPS, providedProps)
   }
 }
+
+export const initDefaultProps = <T>(
+  types: T,
+  defaultProps: {
+    [K in keyof T]?:
+      T[K] extends { type: PropType<infer U> }
+      ? U : any;
+  }
+): T => {
+  const propTypes: T = { ...types };
+  Object.keys(defaultProps).forEach(k => {
+    const prop = propTypes[k]
+    if (prop) {
+      if (prop.type || prop.default) {
+        prop.default = defaultProps[k];
+      } else {
+        propTypes[k] = { type: prop, default: defaultProps[k] };
+      }
+    } else {
+      throw new Error(`not have ${k} prop`);
+    }
+  });
+  return propTypes;
+};

@@ -34,7 +34,8 @@
         "src/*"
       ],
       "yalert-ui": ["src/components"],
-      "@yalert-ui/*": ["common/*/src"],
+      // "@yalert-ui/utils": ["../common/utils/src"],
+      // "@yalert-ui/hooks": ["../common/hooks/src"],
     },
     "lib": [
       "es2018",

@@ -2,6 +2,7 @@ import { h } from 'vue'
 import { btnRouter } from './button'
 import { iconRouter } from './icon'
 import { toastRouter } from './toast'
+import { gridRouter } from './grid'
 // const home = {
 //   setup: () => () => h('div', '-----'),
 // }
@@ -55,7 +56,8 @@ export default function createPlayRouter (app) {
     routes: [
       ...btnRouter, 
       ...iconRouter,
-      ...toastRouter
+      ...toastRouter,
+      ...gridRouter
     ]
   })
   return router

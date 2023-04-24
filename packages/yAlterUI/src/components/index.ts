@@ -2,11 +2,14 @@ import { buildComponentsInstall } from '@/util/install'
 import { YFooter } from './YFooter'
 import { YButton } from './button'
 import { YIcon } from './icon'
-
+import { YRow } from './row'
+import { YCol } from './col'
 const components = [
   YFooter, 
   YButton, 
-  YIcon
+  YIcon,
+  YRow,
+  YCol
 ]
 // global components
 export const install =  buildComponentsInstall(components)
@@ -17,3 +20,5 @@ export * from './YFooter'
 export * from './button'
 export * from './icon'
 export * from './toast'
+export * from './row'
+export * from './col'

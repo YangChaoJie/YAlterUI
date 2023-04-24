@@ -4,6 +4,9 @@ import { useDark, useToggle } from '@vueuse/core'
 // const info = await searcher.getInfo()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+const goGitPage = () => {
+  window.open('https://github.com/YangChaoJie/YAlterUI')
+}
 </script>
 
 <template>
@@ -20,7 +23,9 @@ const toggleDark = useToggle(isDark)
     </div>
     <div flex-auto />
     <div row gap4 text="lg gray4" items-center cursor-pointer >
-      <div class="i-carbon-logo-github" inline-block></div>
+      <div class="i-carbon-logo-github" inline-block @click="goGitPage()">
+        <a href="https://github.com/YangChaoJie/YAlterUI"></a>
+      </div>
       <div m-l-4 inline-block :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"  @click="toggleDark()">
         <span class="dark:i-carbon-moon i-carbon-sun block" aria-hidden="true" ></span>
       </div>

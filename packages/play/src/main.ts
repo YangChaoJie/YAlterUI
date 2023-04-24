@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import  createPlayRouter  from './router'
-import '../../yAlterUI/styles/index.scss'
+// import '../../yAlterUI/styles/index.scss'
 import { createPinia } from 'pinia' 
 const pinia = createPinia()
 // 全局引入

@@ -7,6 +7,7 @@ UI library in Vue. Useful for company vue page, etc.
 [**Why?**](#why)
 
 写一套组件库，提高自己编程技巧
+## [组件文档](https://glowing-centaur-5bcf8a.netlify.app)
 ## Features
 
 - ⚡ Composition Api, good performance base

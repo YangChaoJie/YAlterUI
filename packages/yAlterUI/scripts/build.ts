@@ -15,7 +15,7 @@ const env = devOnly ? 'development' : 'production'
 
 async function main() {
   logger.withBothLn(() => logger.successText('start building lib...'))
-  await run('vite', ['build', '--config', 'configs/vite.lib.config.ts'], {
+  await run('vite', ['build', '--config', 'configs/vite.lib.config.ts', '--emptyOutDir'], {
     env: {
       NODE_ENV: env,
       SOURCE_MAP: sourceMap ? 'true' : ''
@@ -24,7 +24,7 @@ async function main() {
 
   logger.ln()
 
-  await run('vite', ['build', '--config', 'configs/vite.prod.config.ts'], {
+  await run('vite', ['build', '--config', 'configs/vite.prod.config.ts', '--emptyOutDir'], {
     stdio: 'inherit',
     env: {
       NODE_ENV: env,

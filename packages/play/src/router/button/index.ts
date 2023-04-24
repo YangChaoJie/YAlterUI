@@ -19,4 +19,14 @@ export const btnRouter = [
     name: 'button-size',
     component: () => import('../../example/button/props-size.vue')
   },
+  {
+    path: '/buttontext',
+    name: 'button-text',
+    component: () => import('../../example/button/props-text.vue')
+  },
+  {
+    path: '/buttoncolor',
+    name: 'button-color',
+    component: () => import('../../example/button/props-color.vue')
+  },
 ]
