@@ -1,34 +1,94 @@
 <template>
-  <div style="height: 100px;">
-    <YRow :gutter="11" justify="center" tag="div" align="top">
-      <div>-----</div>
-      <div>dddddd</div>
-      <div>sdfsdgsdgsdg </div>
-    </YRow>
-
-    <YRow :gutter="11" justify="space-between" tag="div" align="middle">
-      <div>-----</div>
-      <div>dddddd</div>
-      <div>sdfsdgsdgsdg </div>
-    </YRow>
-
-    <YRow :gutter="11" justify="space-around" tag="div" align="bottom" :wrap="false">
-      <div>-----</div>
-      <div>dddddd</div>
-      <div>sdfsdgsdgsdg </div>
-    </YRow>
+  <div>
+    <y-row>
+      <y-col :span="24">
+        <div class="grid-content ep-bg-purple-dark" />
+      </y-col>
+    </y-row>
+    <y-row>
+      <y-col :span="12">
+        <div class="grid-content ep-bg-purple" />
+      </y-col>
+      <y-col :span="12">
+        <div class="grid-content ep-bg-purple-light" />
+      </y-col>
+    </y-row>
+    <y-row>
+      <y-col :span="8">
+        <div class="grid-content ep-bg-purple" />
+      </y-col>
+      <y-col :span="8">
+        <div class="grid-content ep-bg-purple-light" />
+      </y-col>
+      <y-col :span="8">
+        <div class="grid-content ep-bg-purple" />
+      </y-col>
+    </y-row>
+    <y-row>
+      <y-col :span="6">
+        <div class="grid-content ep-bg-purple" />
+      </y-col>
+      <y-col :span="6">
+        <div class="grid-content ep-bg-purple-light" />
+      </y-col>
+      <y-col :span="6">
+        <div class="grid-content ep-bg-purple" />
+      </y-col>
+      <y-col :span="6">
+        <div class="grid-content ep-bg-purple-light" />
+      </y-col>
+    </y-row>
+    <y-row>
+      <y-col :span="4">
+        <div class="grid-content ep-bg-purple" />
+      </y-col>
+      <y-col :span="4">
+        <div class="grid-content ep-bg-purple-light" />
+      </y-col>
+      <y-col :span="4">
+        <div class="grid-content ep-bg-purple" />
+      </y-col>
+      <y-col :span="4">
+        <div class="grid-content ep-bg-purple-light" />
+      </y-col>
+      <y-col :span="4">
+        <div class="grid-content ep-bg-purple" />
+      </y-col>
+      <y-col :span="4">
+        <div class="grid-content ep-bg-purple-light" />
+      </y-col>
+    </y-row>
   </div>
 </template>
 <script setup lang="ts">
-import { YRow } from 'yalert-ui'
+// import { YRow, YCol } from 'yalert-ui'
+import './index.scss'
 </script>
 <style scoped lang="scss">
-  ::v-deep(.y-row) {
-    height: 100px;
-    background-color: burlywood;
-    div {
-      // flex: 1;
-      background-color: aqua;
-    }
-  }
+// ::v-deep(.y-row) {
+//   height: 100px;
+//   background-color: burlywood;
+
+//   div {
+//     // flex: 1;
+//     background-color: aqua;
+//   }
+// }
+
+.y-row {
+  margin-bottom: 20px;
+}
+
+.y-row:last-child {
+  margin-bottom: 0;
+}
+
+.y-col {
+  border-radius: 4px;
+}
+
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
 </style>

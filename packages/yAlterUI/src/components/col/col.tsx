@@ -21,7 +21,7 @@ const YCol = defineComponent({
       const classes: string[] = []
       const pos = ['span', 'offset', 'pull', 'push'] as const
       pos.forEach((prop) => {
-        const size = prop[prop]
+        const size = props[prop]
         if(isNumber(size)) {
           if (prop === 'span') classes.push(ns.b(`${props[prop]}`)) // el-col-6
           else if (size > 0) classes.push(ns.b(`${prop}-${props[prop]}`)) // el-col-offset-6
@@ -45,7 +45,7 @@ const YCol = defineComponent({
 
       return classes
     })
-
+    
     return () => (
       h(props.tag, {
         style: style.value,
@@ -55,7 +55,7 @@ const YCol = defineComponent({
   }
 })
 
-export type YRow = InstanceType<typeof YCol>
+export type YCol = InstanceType<typeof YCol>
 
 export {
   YCol

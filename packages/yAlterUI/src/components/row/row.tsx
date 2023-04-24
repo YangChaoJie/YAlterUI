@@ -3,6 +3,7 @@ import { rowProps } from './props';
 import { initDefaultProps } from '@/util/props';
 import { useNamespace } from '@/composables/namespace';
 import type { CSSProperties } from 'vue'
+import { useProviderRow } from '@/composables/provider';
 const YRow = defineComponent({
   name: 'YRow',
   props: initDefaultProps(rowProps(), { gutter: 9 }),
@@ -10,6 +11,8 @@ const YRow = defineComponent({
   setup(props, { slots, emit }) {
     const ns = useNamespace('row')
     const gutter = computed(() => props.gutter)
+
+    useProviderRow({ gutter })
     const style = computed(() => {
       const styles: CSSProperties = {}
       if (!props.gutter) {

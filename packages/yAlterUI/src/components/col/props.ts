@@ -15,6 +15,7 @@ export const colProps = () => ({
     default: 24
   },
   order: [String, Number],
+  offset: [String, Number],
   pull: {
     type: [String, Number],
     default: 0

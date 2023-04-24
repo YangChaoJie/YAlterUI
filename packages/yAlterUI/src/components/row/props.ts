@@ -30,8 +30,7 @@ export const rowProps = () => ({
   },
   align: {
     type: String as PropType<RowAlign>,
-    default: 'top',
-    required: true
+    default: 'top'
   },
   wrap: {
     type: Boolean,

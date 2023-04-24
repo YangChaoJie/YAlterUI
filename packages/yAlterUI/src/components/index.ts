@@ -3,11 +3,13 @@ import { YFooter } from './YFooter'
 import { YButton } from './button'
 import { YIcon } from './icon'
 import { YRow } from './row'
+import { YCol } from './col'
 const components = [
   YFooter, 
   YButton, 
   YIcon,
-  YRow
+  YRow,
+  YCol
 ]
 // global components
 export const install =  buildComponentsInstall(components)
@@ -19,3 +21,4 @@ export * from './button'
 export * from './icon'
 export * from './toast'
 export * from './row'
+export * from './col'
