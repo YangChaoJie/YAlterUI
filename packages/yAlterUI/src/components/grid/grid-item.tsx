@@ -62,11 +62,16 @@ const YGridItem = defineComponent({
     })
 
     const style = computed(() => {
-      const { span } = itemData.value;
+      const { span, offset } = itemData.value;
+      const { colGap } = gridContext;
       const styles: CSSProperties = {}
       styles.gridColumn = `${columnStart.value} / span ${span}`
-      console.log('columnStart.value------', columnStart.value, 'span', span);
-      styles.marginLeft = offsetStyle.value ? '' : offsetStyle.value as string
+   
+      if (offset > 0) {
+        const oneSpan = `(100% - ${colGap * (span - 1)}px) / ${span}`;
+        styles.marginLeft = `calc((${oneSpan} * ${offset}) + ${colGap * offset
+        }px)`
+      }
       styles.display = !visible.value || span === 0 ? 'none' : ''
       console.log('span----', visible.value, span);
       return styles
