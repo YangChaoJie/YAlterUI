@@ -101,6 +101,7 @@ export const responsiveObserve: responsiveObserveObject = {
     );
   },
   register() {
+    console.log('注册啦------');
     (Object.keys(responsiveMap) as Breakpoint[]).forEach(
       (screen: Breakpoint) => {
         const matchMediaQuery = responsiveMap[screen];
