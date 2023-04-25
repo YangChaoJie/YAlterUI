@@ -10,6 +10,7 @@ const YCol = defineComponent({
   setup(props, { slots, emit }) {
     const ns = useNamespace('col')
     const { gutter } = useInjectRow()
+    
     const style = computed(() => {
       const styles: CSSProperties = {}
       if (gutter.value) {
@@ -17,6 +18,7 @@ const YCol = defineComponent({
       }
       return styles
     })
+
     const classes = computed(() => {
       const classes: string[] = []
       const pos = ['span', 'offset', 'pull', 'push'] as const
