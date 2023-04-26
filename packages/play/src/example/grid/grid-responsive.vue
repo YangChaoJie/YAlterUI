@@ -1,38 +1,16 @@
-
 <template>
-  <div style="margin-bottom: 20px;">
-    <y-button @click="collapsed = !collapsed" >{{ collapsed ? '折叠' : '展开' }}</y-button>
-  </div>
-  <y-grid :cols="3" :colGap="12" :rowGap="16" class="grid-demo-grid" :collapsed="collapsed">
+  <y-grid :cols="{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }" :colGap="12" :rowGap="16" class="grid-demo-grid">
     <y-grid-item class="demo-item">item</y-grid-item>
     <y-grid-item class="demo-item">item</y-grid-item>
     <y-grid-item class="demo-item">item</y-grid-item>
-    <y-grid-item class="demo-item" :offset="1">item | offset - 1</y-grid-item>
-    <y-grid-item class="demo-item">item</y-grid-item>
-    <y-grid-item class="demo-item" :span="3">item | span - 3</y-grid-item>
     <y-grid-item class="demo-item">item</y-grid-item>
     <y-grid-item class="demo-item">item</y-grid-item>
-    <y-grid-item class="demo-item" suffix #="{ overflow }">
-      suffix | overflow: {{ overflow }}
+    <y-grid-item class="demo-item">item</y-grid-item>
+    <y-grid-item class="demo-item" :span="{ xl: 4, xxl: 6 }" suffix>
+      suffix
     </y-grid-item>
   </y-grid>
 </template>
-
-<script>
-import { ref } from 'vue';
-
-export default {
-  setup() {
-    const hide = ref(false);
-    const collapsed = ref(true);
-
-    return {
-      hide,
-      collapsed
-    }
-  },
-}
-</script>
 
 <style scoped>
 .grid-demo-grid .demo-item,

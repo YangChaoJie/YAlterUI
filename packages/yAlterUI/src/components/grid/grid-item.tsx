@@ -5,7 +5,7 @@ import type { CSSProperties } from 'vue'
 import { useInjectGrid, useInjectGridDataCollector } from "@/composables/provider";
 import { useIndex } from "@/composables/useIndex";
 import { useResponsiveState } from './hooks'
-
+import { useRender } from "@/composables/render";
 const YGridItem = defineComponent({
   name: 'YGridItem',
   props: gridItemProps(),
@@ -25,19 +25,6 @@ const YGridItem = defineComponent({
     const visible = computed(() =>
       gridContext?.displayIndexList?.includes(computedIndex.value)
     );
-
-    const offsetStyle = computed(() => {
-      const { offset, span } = itemData.value;
-      const { colGap } = gridContext;
-      if (offset > 0) {
-        const oneSpan = `(100% - ${colGap * (span - 1)}px) / ${span}`;
-        return {
-          'margin-left': `calc((${oneSpan} * ${offset}) + ${colGap * offset
-            }px)`,
-        };
-      }
-      return {};
-    });
 
     const itemData = computed(() =>
       resolveItemData(gridContext.cols, {
@@ -73,7 +60,6 @@ const YGridItem = defineComponent({
         }px)`
       }
       styles.display = !visible.value || span === 0 ? 'none' : ''
-      console.log('span----', visible.value, span);
       return styles
     })
 
@@ -107,7 +93,7 @@ const YGridItem = defineComponent({
       }
     });
 
-    return () => (
+    useRender(() => (
       h(props.tag, {
         style: style.value,
         ref: domRef,
@@ -115,7 +101,24 @@ const YGridItem = defineComponent({
       }, slots.default?.({
         overflow: gridContext.overflow
       }))
-    )
+    ))
+
+    return {
+      rSpan,
+      rOffset,
+      style,
+      itemData
+    }
+
+    // return () => (
+    //   h(props.tag, {
+    //     style: style.value,
+    //     ref: domRef,
+    //     class: [ns.b(), ...classes.value]
+    //   }, slots.default?.({
+    //     overflow: gridContext.overflow
+    //   }))
+    // )
   }
 })
 

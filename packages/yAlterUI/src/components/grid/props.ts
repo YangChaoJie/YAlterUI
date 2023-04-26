@@ -51,7 +51,7 @@ export const gridProps = () => ({
   },
   collapsed: {
     type: Boolean,
-    default: true
+    default: false
   },
   collapsedRows: {
     type: Number,

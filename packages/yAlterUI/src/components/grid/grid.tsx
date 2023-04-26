@@ -65,7 +65,7 @@ const YGrid = defineComponent({
         let spanSum = 0;
 
         for (let i = 0; i < itemDataList.length; i++) {
-          if (itemDataList[i].suffix) {
+          if (itemDataList[i] && itemDataList[i].suffix) {
             spanSum += itemDataList[i].span;
             displayIndexList.push(i);
           }
@@ -113,7 +113,6 @@ const YGrid = defineComponent({
         collapsedRows: collapsedRows.value,
         itemDataList: itemDataList.value,
       });
-      console.log('displayInfo-----', displayInfo);
       
       gridContext.overflow = displayInfo.overflow;
       gridContext.displayIndexList = displayInfo.displayIndexList;
