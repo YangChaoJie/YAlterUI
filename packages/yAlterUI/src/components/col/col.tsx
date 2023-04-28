@@ -10,7 +10,7 @@ const YCol = defineComponent({
   setup(props, { slots, emit }) {
     const ns = useNamespace('col')
     const { gutter } = useInjectRow()
-    
+
     const style = computed(() => {
       const styles: CSSProperties = {}
       if (gutter.value) {
@@ -24,9 +24,9 @@ const YCol = defineComponent({
       const pos = ['span', 'offset', 'pull', 'push'] as const
       pos.forEach((prop) => {
         const size = props[prop]
-        if(isNumber(size)) {
-          if (prop === 'span') classes.push(ns.b(`${props[prop]}`)) // el-col-6
-          else if (size > 0) classes.push(ns.b(`${prop}-${props[prop]}`)) // el-col-offset-6
+        if (isNumber(size)) {
+          if (prop === 'span') classes.push(ns.b(`${props[prop]}`)) // y-col-6
+          else if (size > 0) classes.push(ns.b(`${prop}-${props[prop]}`)) // y-col-offset-6
         }
       })
 
@@ -36,7 +36,9 @@ const YCol = defineComponent({
           classes.push(ns.b(`${size}-${props[size]}`))
         } else if (isObject(props[size])) {
           Object.entries(props[size]).forEach(([prop, sizeProp]) => {
-            classes.push(ns.b(`${size}-${prop}-${sizeProp}`))
+            classes.push(prop !== 'span'
+              ? ns.b(`${size}-${prop}-${sizeProp}`)
+              : ns.b(`${size}-${sizeProp}`))
           })
         }
       })
@@ -47,12 +49,12 @@ const YCol = defineComponent({
 
       return classes
     })
-    
+
     return () => (
       h(props.tag, {
         style: style.value,
         class: [ns.b(), ...classes.value]
-      },  slots.default?.())
+      }, slots.default?.())
     )
   }
 })

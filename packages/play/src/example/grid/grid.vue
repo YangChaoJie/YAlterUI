@@ -1,10 +1,10 @@
 
 <template>
   <div style="margin-bottom: 20px;">
-    <y-button @click="collapsed = !collapsed" >{{ collapsed ? '折叠' : '展开' }}</y-button>
+    <y-button @click="collapsed = !collapsed">{{ collapsed ? '折叠' : '展开' }}</y-button>
   </div>
   <y-grid :cols="3" :colGap="12" :rowGap="16" class="grid-demo-grid" :collapsed="collapsed">
-    <y-grid-item class="demo-item">item</y-grid-item>
+    <y-grid-item class="demo-item">item2</y-grid-item>
     <y-grid-item class="demo-item">item</y-grid-item>
     <y-grid-item class="demo-item">item</y-grid-item>
     <y-grid-item class="demo-item" :offset="1">item | offset - 1</y-grid-item>
@@ -16,6 +16,13 @@
       suffix | overflow: {{ overflow }}
     </y-grid-item>
   </y-grid>
+
+  <YGrid :cols="3" :colGap="12" :rowGap="16">
+    <YGridItem>
+      11221s
+    </YGridItem>
+    <YGridItem class="demo-item">item</YGridItem>
+  </YGrid>
 </template>
 
 <script>
@@ -44,10 +51,10 @@ export default {
 }
 
 .grid-demo-grid .demo-item:nth-child(2n) {
-  background-color: rgba(22,93,255, 0.9);
+  background-color: rgba(22, 93, 255, 0.9);
 }
 
 .grid-demo-grid .demo-item:nth-child(2n + 1) {
-  background-color: rgba(106,161,255, 0.9);
+  background-color: rgba(106, 161, 255, 0.9);
 }
 </style>
