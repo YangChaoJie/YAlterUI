@@ -7,7 +7,7 @@ import type Renderer from 'markdown-it/lib/renderer'
 import { highlight } from './highlight'
 
 const localMd = MarkdownIt()
-const docRoot = './'
+const docRoot = '../play/src/'
 
 interface ContainerOpts {
   marker?: string | undefined
@@ -35,10 +35,11 @@ export const mdPlugin = (md: MarkdownIt) => {
         const sourceFileToken = tokens[idx + 2]
         let source = ''
         const sourceFile = sourceFileToken.children?.[0].content ?? ''
-
+        console.log('path.resolve(docRoot)-----', path.resolve(docRoot, 'example', `${sourceFile}.vue`),);
+        
         if (sourceFileToken.type === 'inline') {
           source = fs.readFileSync(
-            path.resolve(docRoot, 'examples', `${sourceFile}.vue`),
+            path.resolve(docRoot, 'example', `${sourceFile}.vue`),
             'utf-8'
           )
         }

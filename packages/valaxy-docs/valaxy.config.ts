@@ -92,7 +92,7 @@ export default defineValaxyConfig<PressTheme.Config>({
         },
         { find: /^~\/(.*)/, replacement: resolve('./src/$1') },
         { find: /^@yalert-ui\/((?!icons).+)/, replacement: resolve(__dirname, '../common/$1/src') },
-        { find: /^yalert-ui$/, replacement: `${path.resolve('..')}/yAlterUI/src/components/index.ts` }, // 与下面效果是相同的
+        // { find: /^yalert-ui$/, replacement: `${path.resolve('..')}/yAlterUI/src/components/index.ts` }, // 与下面效果是相同的
       ]
     },
     plugins: [
