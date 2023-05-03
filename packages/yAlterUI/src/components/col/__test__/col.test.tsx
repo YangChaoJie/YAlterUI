@@ -88,7 +88,6 @@ describe('YCol', () => {
     const YColElmClass = wrapper.findComponent({ ref: 'col' }).classes()
     console.log('YColElmClass----', YColElmClass);
     
-    debugger
     expect(YColElmClass.includes('y-col-sm-4')).toBe(true)
     expect(YColElmClass.includes('y-col-sm-4')).toBe(true)
     expect(YColElmClass.includes('y-col-sm-offset-2')).toBe(true)

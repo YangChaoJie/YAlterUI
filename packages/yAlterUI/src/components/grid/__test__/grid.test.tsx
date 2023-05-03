@@ -4,6 +4,7 @@ import { describe, expect, it, test } from 'vitest'
 import { YGrid } from '..'
 import { YGridItem } from '../grid-item'
 
+import { isNumber } from '@yalert-ui/utils'
 {/* <y-grid :cols="3" :colGap="12" :rowGap="16" class="grid-demo-grid" :collapsed="collapsed">
 <y-grid-item class="demo-item">item</y-grid-item>
 <y-grid-item class="demo-item">item</y-grid-item>
@@ -23,5 +24,12 @@ describe('YGrid', () => {
     expect(wrapper.classes()).toContain('y-grid')
     const gridItemWapper = wrapper.findComponent(YGridItem)
     expect(gridItemWapper.classes()).toContain('y-grid-item')
+  })
+
+  describe('LoaclLibImport', () => {
+    it('utils', () => {
+      expect(isNumber(1)).toBe(true)
+      console.log('----', isNumber(1))
+    })
   })
 })
