@@ -19,6 +19,10 @@ export default defineConfig({
       { find: '@yalert-ui/hooks', replacement: resolve('../../common/hooks/src') }
     ]
   },
+  esbuild: {
+    drop: ['debugger'],
+    pure: ['console.log']
+  },
   // 打包配置
   build: {
     minify: 'esbuild', // 设置为false以禁用缩小，或指定要使用的缩小器。 默认是esbuild，它比terser快20 ~ 40倍，压缩只差1 ~ 2%.

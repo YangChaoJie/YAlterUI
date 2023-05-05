@@ -73,6 +73,10 @@ export default defineConfig(async () => {
         { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../common/hooks/src') }
       ]
     },
+    esbuild: {
+      drop: ['debugger'],
+      pure: ['console.log']
+    },
     build: {
       outDir: 'es',
       sourcemap: sourceMap,
