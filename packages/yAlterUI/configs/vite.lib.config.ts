@@ -18,7 +18,7 @@ const pkg = JSON.parse(readFileSync(resolve(__dirname, '../package.json'), 'utf-
 const componentsDir = resolve(__dirname, 'src')
 
 const logLevel = process.env.LOG_LEVEL
-const sourceMap = process.env.SOURCE_MAP === 'true'
+const sourceMap = true
 
 const prePlugins = (plugins: Plugin[]): Plugin[] => {
   return plugins.map(plugin => ({ ...plugin, enforce: 'pre', apply: 'build' }))
@@ -78,8 +78,8 @@ export default defineConfig(async () => {
       pure: ['console.log']
     },
     build: {
-      outDir: 'es',
-      sourcemap: sourceMap,
+      outDir: 'lib',
+      sourcemap: true,
       lib: {
         entry: resolve('./src/components/index.ts'), // 设置入口文件  
         name: 'yalert-ui'

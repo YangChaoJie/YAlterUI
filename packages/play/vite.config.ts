@@ -6,11 +6,13 @@ import vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
 import { YalertUIResolver } from '@yalert-ui/utils'
+import VueDevTools from 'vite-plugin-vue-devtools'
 //'../common/utils/src/resolver'
 // 
 export default defineConfig(() => {
   const plugins: PluginOption[] = [
     Unocss(),
+    VueDevTools(),
     vue(),
     VueJsx(),
     Components({
@@ -37,8 +39,8 @@ export default defineConfig(() => {
           replacement: `${path.resolve('..')}/yAlterUI/src/$1`,
         },
         { find: /^~\/(.*)/, replacement: resolve('./src/$1') },
-        { find: /^@yalert-ui\/((?!icons).+)/, replacement: resolve(__dirname, '../common/$1/src') },
-        { find: /^yalert-ui$/, replacement: `${path.resolve('..')}/yAlterUI/src/components/index.ts` }, // 与下面效果是相同的
+        // { find: /^@yalert-ui\/((?!icons).+)/, replacement: resolve(__dirname, '../common/$1/src') },
+        // { find: /^yalert-ui$/, replacement: `${path.resolve('..')}/yAlterUI/src/components/index.ts` }, // 与下面效果是相同的
         // { find: /^yalert-ui$/, replacement: `yalert-ui/lib/es/components/index.mjs` }, // node_modules
       ],
       dedupe: ['vue']
