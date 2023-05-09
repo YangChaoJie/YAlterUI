@@ -5,6 +5,7 @@ import { YIcon } from './icon'
 import { YRow } from './row'
 import { YCol } from './col'
 import { YGrid, YGridItem } from './grid'
+import { YDivider } from './divider'
 const components = [
   YFooter, 
   YButton, 
@@ -12,7 +13,8 @@ const components = [
   YRow,
   YCol,
   YGrid,
-  YGridItem
+  YGridItem,
+  YDivider
 ]
 // global components
 export const install =  buildComponentsInstall(components)
@@ -26,3 +28,4 @@ export * from './toast'
 export * from './row'
 export * from './col'
 export * from './grid'
+export * from './divider'

@@ -16,7 +16,9 @@ const YDivider = defineComponent({
     function renderSolt() {
       if (slots.default?.() && type !== 'vertical' ) {
         return (
-          <div class={[ns.e('text'), ns.is(orientation)]}></div>
+          <div class={[ns.e('text'), ns.is(orientation)]}>
+            {  slots.default?.() }
+          </div>
         )
       }
     }

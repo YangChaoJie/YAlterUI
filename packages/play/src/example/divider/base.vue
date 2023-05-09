@@ -1,29 +1,4 @@
 <template>
-  <YButton>Default</YButton>
-  <YButton type="primary">
-    Primary
-  </YButton>
-  <YButton type="info">
-    Info
-  </YButton>
-  <YButton type="success" :disabled="true">
-    Success
-  </YButton>
-  <YButton type="warning">
-    Warning
-  </YButton>
-  <YButton type="error">
-    Error
-  </YButton>
-  <YButton dashed>
-    dashed
-  </YButton>
-  <YButton color="orange">
-    Orange
-  </YButton>
-  <YButton color="orange" :disabled="true">
-    Orange
-  </YButton>
   <div>
     <span>asfhjasf 大商股份军事大国第三方大范甘迪身高多少 </span>
     <YDivider></YDivider>

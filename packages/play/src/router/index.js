@@ -3,6 +3,7 @@ import { btnRouter } from './button'
 import { iconRouter } from './icon'
 import { toastRouter } from './toast'
 import { gridRouter } from './grid'
+import { dividerRouter } from './divider'
 // const home = {
 //   setup: () => () => h('div', '-----'),
 // }
@@ -57,7 +58,8 @@ export default function createPlayRouter (app) {
       ...btnRouter, 
       ...iconRouter,
       ...toastRouter,
-      ...gridRouter
+      ...gridRouter,
+      ...dividerRouter
     ]
   })
   return router
