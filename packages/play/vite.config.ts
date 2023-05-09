@@ -45,6 +45,10 @@ export default defineConfig(() => {
       ],
       dedupe: ['vue']
     },
+    // 依赖预构建
+    optimizeDeps: {
+      include: ['@yalert-ui/icons']
+    },
     build: {
       sourcemap: true,
       rollupOptions: {

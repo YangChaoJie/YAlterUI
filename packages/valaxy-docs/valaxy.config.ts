@@ -95,6 +95,9 @@ export default defineValaxyConfig<PressTheme.Config>({
         // { find: /^yalert-ui$/, replacement: `${path.resolve('..')}/yAlterUI/src/components/index.ts` }, // 与下面效果是相同的
       ]
     },
+    optimizeDeps: {
+      include: ['@yalert-ui/icons']
+    },
     plugins: [
       // Icons({
       //   autoInstall: true,
