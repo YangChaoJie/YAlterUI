@@ -1,0 +1,31 @@
+.common-layout {
+  .y-header,
+  .y-footer,
+  .y-aside,
+  .y-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .y-header,
+  .y-footer {
+    background-color: var(--y-color-primary-light-7);
+    color: var(--y-text-color-primary);
+    text-align: center;
+  }
+
+  .y-aside {
+    background-color: var(--y-color-primary-light-8);
+    color: var(--y-text-color-primary);
+    text-align: center;
+  }
+
+  .y-content {
+    background-color: var(--y-color-primary-light-9);
+    color: var(--y-text-color-primary);
+    text-align: center;
+
+    height: 150px;
+  }
+}

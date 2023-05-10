@@ -14,7 +14,7 @@
             {{ route.name }}
           </router-link> -->
         </div>
-        <div border-t-1 px6 py6 class="h-[70vh] border-t-#DCDFE6 border-t-solid">
+        <div border-t-1 px6 py6 class="h-[70vh] border-t-#DCDFE6 border-t-solid overflow-auto">
           <slot></slot>
         </div>
       </div>

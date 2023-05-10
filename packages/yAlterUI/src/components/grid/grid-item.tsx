@@ -122,8 +122,6 @@ const YGridItem = defineComponent({
   }
 })
 
-export type YGridItem = InstanceType<typeof YGridItem>
-
 export {
   YGridItem
 }

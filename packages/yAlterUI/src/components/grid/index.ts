@@ -4,3 +4,6 @@ import { YGrid } from './grid'
 import { YGridItem } from './grid-item'
 export type { GridItemProps, GridProps }
 export { YGrid, YGridItem }
+
+export type YGridInstance = InstanceType<typeof YGrid>
+export type YGridItemInstance = InstanceType<typeof YGridItem>

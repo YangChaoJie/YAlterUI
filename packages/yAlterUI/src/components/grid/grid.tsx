@@ -17,7 +17,7 @@ const YGrid = defineComponent({
       collapsedRows,
       collapsed,
     } = toRefs(props);
-
+    
     const cols = useResponsiveState(propCols, 24);
     const colGap = useResponsiveState(propColGap, 0);
     const rowGap = useResponsiveState(propRowGap, 0);
@@ -151,8 +151,6 @@ const YGrid = defineComponent({
     )
   }
 })
-
-export type YGrid = InstanceType<typeof YGrid>
 
 export {
   YGrid
