@@ -13,12 +13,11 @@ export const layoutProps = () => ({
 
 export const layoutSiderProps = () => ({
   /**
-   * @zh 当前收起状态
-   * @en Whether sider is collapsed
-   */
-  collapsed: {
+  * @zh 默认的收起状态
+  * @en The default collapsed state
+  */
+  defaultCollapsed: {
     type: Boolean,
-    default: undefined
   },
   /**
    * @zh 是否可收起
@@ -28,12 +27,31 @@ export const layoutSiderProps = () => ({
     type: Boolean,
     default: undefined
   },
+  reverseArrow: {
+    type: Boolean,
+    default: undefined
+  },
   /**
    * 
    */
   width: {
     type: [Number, String],
-    default: 48
+    default: '200px'
+  },
+  /**
+ * @zh 收缩宽度
+ * @en Collapsed width
+ */
+  collapsedWidth: {
+    type: Number,
+    default: 48,
+  },
+  /**
+   * 自定义 trigger，设置为 null 时隐藏 trigger
+   */
+  trigger: {
+    type: Object,
+    default: null
   }
 })
 
