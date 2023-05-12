@@ -16,7 +16,7 @@
     "pinia": "^2.0.33",
     "play": "^0.5.0",
     "vite-plugin-vuetify": "^1.0.2",
-    "vue": "^3.2.47",
+    "vue": "^3.3.1",
     "vuetify": "^3.1.12",
     "yalert-ui": "^0.0.6"
   },
