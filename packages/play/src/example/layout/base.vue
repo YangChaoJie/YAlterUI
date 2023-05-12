@@ -54,7 +54,7 @@
 
   <div class="common-layout" style="margin-top: 20px">
     <y-layout>
-      <y-asider :collapsed="true" width="200px">YAsider</y-asider>
+      <y-asider v-model:collapsed="collapsed" collapsible width="200px">sider</y-asider>
       <y-layout>
         <y-header>Header</y-header>
         <y-content>content</y-content>
@@ -68,4 +68,6 @@
 import { YLayout, YHeader, YContent, YFooter, YAsider } from 'yalert-ui'
 import { StarFilled } from '@yalert-ui/icons'
 import './common-layout.scss'
+import { ref } from 'vue';
+const collapsed = ref(false)
 </script>

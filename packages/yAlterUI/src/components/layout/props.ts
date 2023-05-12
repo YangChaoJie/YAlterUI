@@ -35,7 +35,7 @@ export const layoutSiderProps = () => ({
    * 
    */
   width: {
-    type: [Number, String],
+    type: [String, Number],
     default: '200px'
   },
   /**
@@ -52,7 +52,7 @@ export const layoutSiderProps = () => ({
  */
   collapsed: {
     type: Boolean,
-    default: undefined,
+    default: false,
   },
   /**
   * @zh 触发响应式布局的断点, 详见[响应式栅格](/vue/component/grid)

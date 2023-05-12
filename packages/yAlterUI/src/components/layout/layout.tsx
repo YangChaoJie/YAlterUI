@@ -31,8 +31,7 @@ const YLayout = defineComponent({
     const siders = ref<string[]>([]);
 
     useProviderSider({
-      addSider: (id: string) => {
-        debugger
+      addSider: (id: string) => {        
         siders.value = [...siders.value, id];
       },
       removeSider: (id: string) => {

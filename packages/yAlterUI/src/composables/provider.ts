@@ -74,6 +74,14 @@ const useProviderSider = (state: SiderHookProvider) => {
   return provide(SiderHookProviderKey, state)
 }
 
+const useProviderSiderCollapsed = () => {
+  return inject(SiderCollapsedKey)
+}
+
+const useInjectSiderCollapsed = (state: SiderCollapsed) => {
+  return provide(SiderCollapsedKey, state)
+}
+
 export { 
   useInjectRow, 
   useProviderRow, 
@@ -82,5 +90,7 @@ export {
   useProviderGridDataCollector,
   useInjectGridDataCollector,
   useInjectSider,
-  useProviderSider
+  useProviderSider,
+  useProviderSiderCollapsed,
+  useInjectSiderCollapsed
 }

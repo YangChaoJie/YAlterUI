@@ -5,7 +5,8 @@ import type { CSSProperties } from 'vue'
 import { layoutSiderProps } from "./props";
 import { LeftO, RightO } from '@yalert-ui/icons'
 import { isNumber } from "@yalert-ui/utils";
-import { useInjectSider } from "@/composables/provider";
+import { useInjectSider, useProviderSiderCollapsed } from "@/composables/provider";
+import { YIcon } from "../icon";
 const generateId = (() => {
   let i = 0;
   return (prefix = '') => {
@@ -20,16 +21,12 @@ const YAsider = defineComponent({
   setup(props, { slots, emit }) {
     const ns = useNamespace('aside')
     const {
-      width,
       reverseArrow,
-      trigger = slots.trigger?.(),
       collapsible,
-      collapsedWidth,
-      collapsed,
       defaultCollapsed
     } = toRefs(props);
-
-    // const collapsed = ref(() => (props.collapsed !== undefined ?  props.collapsed : defaultCollapsed)) 
+    
+    const collapsed = ref(props.collapsed !== undefined ?  props.collapsed : defaultCollapsed)
 
     // Width calculation
     const siderWidth = computed(() => {
@@ -58,29 +55,27 @@ const YAsider = defineComponent({
       },
     );
 
-    const renderTriggerDom = () => {
-      const iconObj = {
-        expanded: reverseArrow.value ? <RightO /> : <LeftO />,
-        collapsed: reverseArrow.value ? <LeftO /> : <LeftO />,
-      };
-      const status = collapsed.value ? 'collapsed' : 'expanded';
-      const defaultTrigger = iconObj[status];
-      const triggerDom =
-        (
-          <div class={ns.m('trigger')} onClick={toggleTrigger} style={style.value}>
-            <span>3333</span>
-            { trigger || defaultTrigger }
-          </div>
-        )
-      return triggerDom
-    }
-
     const toggleTrigger = () => {
       collapsed.value = !collapsed.value
       emit('update:collapsed', collapsed.value);
       emit('collapse', collapsed.value, 'clickTrigger');
     }
 
+    function renderRriggerDom() {
+      const iconObj = {
+        expanded: reverseArrow.value ? <YIcon icon={RightO}></YIcon> : <YIcon icon={LeftO}></YIcon>,
+        collapsed: reverseArrow.value ? <YIcon icon={LeftO}></YIcon> : <YIcon icon={RightO}></YIcon>,
+      };
+      const status = collapsed.value ? 'collapsed' : 'expanded';
+      const defaultTrigger = iconObj[status];
+      const {  trigger = slots.trigger?.() } = props
+      return (
+        <div class={ns.m('trigger')} onClick={toggleTrigger} style={style.value}>
+          { trigger || defaultTrigger }
+        </div>
+      )
+    }
+    
     const siderHook = useInjectSider()
     const uniqueId = generateId('__y_layout_sider');
 
@@ -92,6 +87,8 @@ const YAsider = defineComponent({
       siderHook.removeSider(uniqueId)
     })
 
+    useProviderSiderCollapsed(collapsed)
+
     useRender(() => (
       <aside class={[ns.b(), ...classes.value]} style={style.value}>
         <div class={[ns.b('-children')]}>
@@ -99,7 +96,7 @@ const YAsider = defineComponent({
             slots.default?.()
           }
         </div>
-        { collapsible ? renderTriggerDom() : null }
+        { collapsible.value ? renderRriggerDom() : null }
       </aside>
     ))
   }
