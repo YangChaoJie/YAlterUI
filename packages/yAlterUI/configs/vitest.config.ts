@@ -8,7 +8,9 @@ export default defineConfig({
   plugins: [Vue(), VueJsx() as any],
   resolve: {
     alias: [
-      { find: /^@\/(.*)/, replacement: resolve(__dirname, '../src/$1')}
+      { find: /^@\/(.*)/, replacement: resolve(__dirname, '../src/$1')},
+      { find: '@yalert-ui/hooks', replacement: resolve(__dirname, '../../common/hooks/src') },
+      { find: '@yalert-ui/utils', replacement: resolve(__dirname, '../../common/utils/src') }
     ]
   },
   test: {

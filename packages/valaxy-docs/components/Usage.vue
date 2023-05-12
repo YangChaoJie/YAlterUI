@@ -31,13 +31,12 @@ const [sourceVisible, toggleSourceVisible] = useToggle()
 
 const formatPathDemos = computed(() => {
   const demos = {}
-  const componentId = props.path.length > 0 && props.path.split('/')[0]
-  console.log('componentId----', componentId);
-  
-  const demos0 = import.meta.glob(`../examples/*/*.vue`, { eager: true })
-  
+  // const componentId = props.path.length > 0 && props.path.split('/')[0]
+  // 获取play 里面的 example 的文件夹
+  const demos0 = import.meta.glob(`../../play/src/example/*/*.vue`, { eager: true })
+  console.log('demos0----', demos0);
   Object.keys(demos0).forEach((key) => {
-    demos[key.replace('../examples/', '').replace('.vue', '')] =
+    demos[key.replace('../../play/src/example/', '').replace('.vue', '')] =
     (demos0[key] as any).default || {}
   })
   return demos

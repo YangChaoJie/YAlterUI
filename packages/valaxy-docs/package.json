@@ -8,7 +8,7 @@
     "dev": "valaxy",
     "fuse": "valaxy fuse",
     "rss": "valaxy rss",
-    "deploy": "bash deploy.sh",
+    "deploy": "./deploy.sh",
     "serve": "vite preview"
   },
   "dependencies": {

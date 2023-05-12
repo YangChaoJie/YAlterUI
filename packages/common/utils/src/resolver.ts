@@ -66,20 +66,31 @@ function getSideEffects(name: string, options: YalertUIResolverOptions) {
   if (styleAlias && styleAlias[name]) {
     name = styleAlias[name]
   }
+  // 不需要导入css 列表
+  const matchNoCssComponents = [
+    {
+      pattern: /^grid-item$/,
+      componentDir: 'grid',
+    }
+  ]
 
   name = toKebabCase(name)
-  
+  for (const item of matchNoCssComponents) {
+    if (item.pattern.test(name)) {
+      return
+    }
+  }
   const realName = name.split('-')[1] || name;
   if (importStyle === 'sass') {
     return [
       // 'yalert-ui/style/preset.scss',
-      // ...(importDarkTheme ? ['vexip-ui/style/dark/preset.scss'] : []),
+      // ...(importDarkTheme ? ['yalert-ui/style/dark/preset.scss'] : []),
       `yalert-ui/style/${realName}.scss`
     ]
   } else if (importStyle === true || importStyle === 'css') {
     return [
       // 'yalert-ui/css/preset.css',
-      // ...(importDarkTheme ? ['vexip-ui/themes/dark/index.css'] : []),
+      // ...(importDarkTheme ? ['yalert-ui/themes/dark/index.css'] : []),
       `yalert-ui/css/${realName}.css`
     ]
   }

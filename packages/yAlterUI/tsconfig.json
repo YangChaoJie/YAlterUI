@@ -16,6 +16,7 @@
     "importHelpers": true,
     "noUnusedLocals": false,
     "resolveJsonModule": true,
+    "target": "ESNext",
     "outDir": "./types-temp",
     "declaration": true,
     "esModuleInterop": true,

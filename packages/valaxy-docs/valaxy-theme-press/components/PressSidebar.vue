@@ -16,7 +16,6 @@ const showCom = ref(false)
     
 const categories = computed(() => {
   const cs = useCategory('', pages.value)
-  console.log('cs-------', cs);
   
   let cList = cs.value
   removeItemFromCategory(cList, 'Uncategorized')

@@ -16,8 +16,12 @@ export default defineConfig({
       { find: /^@\/(.*)/, replacement: resolve('../src/$1')},
       { find: /^yalert-ui$/, replacement: resolve('../src/index.ts') },
       { find: /^yalert-ui\/(.*)/, replacement: resolve('../$1') },
-      { find: '@yalert-ui/hooks', replacement: resolve('../common/hook/src') }
+      { find: '@yalert-ui/hooks', replacement: resolve('../../common/hooks/src') }
     ]
+  },
+  esbuild: {
+    drop: ['debugger'],
+    pure: ['console.log']
   },
   // 打包配置
   build: {

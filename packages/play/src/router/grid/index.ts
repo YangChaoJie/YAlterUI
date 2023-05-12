@@ -23,5 +23,15 @@ export const gridRouter = [
     path: '/gridbootstrap',
     name: 'grid-bootstrap',
     component: () => import('../../example/grid/props-bootstrap.vue')
+  },
+  {
+    path: '/gridUseGrid',
+    name: 'grid-useGrid',
+    component: () => import('../../example/grid/grid.vue')
+  },
+  {
+    path: '/gridResponsive',
+    name: 'grid-responsive',
+    component: () => import('../../example/grid/grid-responsive.vue')
   }
 ]

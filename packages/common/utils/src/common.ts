@@ -27,6 +27,11 @@ export function isNumber(value: unknown): value is number {
   return typeof value === 'number'
 }
 
+export function isNumber1(value: unknown): value is number {
+  return typeof value === 'number'
+}
+
+
 export function isNaN(value: unknown): value is number {
   return Number.isNaN(value)
 }
