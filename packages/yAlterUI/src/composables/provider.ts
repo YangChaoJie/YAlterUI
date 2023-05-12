@@ -1,12 +1,12 @@
 import { GridItemData } from '@/components/grid/props'
 import { computed, inject, provide } from 'vue'
 import type { Ref, InjectionKey, ComputedRef } from 'vue'
+// row
 export type RowContext = {
   gutter: ComputedRef<number>
 }
 
 export const RowContextKey: InjectionKey<RowContext> = Symbol('rowContextKey')
-
 const useProviderRow = (state: RowContext) => {
   provide(RowContextKey, state)
 }
@@ -17,6 +17,7 @@ const useInjectRow = () => {
   })
 }
 
+// grid
 export type GridContext = {
   overflow: boolean
   displayIndexList: number[]
@@ -39,6 +40,7 @@ const useInjectGrid = () => {
   })
 }
 
+// grid collector
 export type GridDataCollector = Readonly<{
   collectItemData: (index: number, itemData: GridItemData) => void
   removeItemData: (index: number) => void
@@ -55,11 +57,30 @@ const useInjectGridDataCollector = () => {
   return inject(GridDataCollectorKey)
 }
 
+// sider
+export type SiderCollapsed = Ref<boolean>
+export const SiderCollapsedKey: InjectionKey<SiderCollapsed> = Symbol('siderCollapsed');
+
+export interface SiderHookProvider {
+  addSider?: (id: string) => void;
+  removeSider: (id: string) => void;
+}
+export const SiderHookProviderKey: InjectionKey<SiderHookProvider> = Symbol('siderHookProvider');
+
+const useInjectSider = () => {
+  return inject(SiderHookProviderKey)
+}
+const useProviderSider = (state: SiderHookProvider) => {
+  return provide(SiderHookProviderKey, state)
+}
+
 export { 
   useInjectRow, 
   useProviderRow, 
   useProviderGrid, 
   useInjectGrid,
   useProviderGridDataCollector,
-  useInjectGridDataCollector
+  useInjectGridDataCollector,
+  useInjectSider,
+  useProviderSider
 }

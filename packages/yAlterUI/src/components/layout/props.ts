@@ -47,6 +47,21 @@ export const layoutSiderProps = () => ({
     default: 48,
   },
   /**
+ * @zh 当前收起状态
+ * @en Current collapsed state
+ */
+  collapsed: {
+    type: Boolean,
+    default: undefined,
+  },
+  /**
+  * @zh 触发响应式布局的断点, 详见[响应式栅格](/vue/component/grid)
+  * @en Trigger breakpoints for responsive layout, see [Responsive Grid](/vue/component/grid) for details
+  */
+  breakpoint: {
+    type: String as PropType<'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'>,
+  },
+  /**
    * 自定义 trigger，设置为 null 时隐藏 trigger
    */
   trigger: {

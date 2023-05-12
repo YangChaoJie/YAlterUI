@@ -54,7 +54,7 @@
 
   <div class="common-layout" style="margin-top: 20px">
     <y-layout>
-      <y-asider width="200px">YAsider</y-asider>
+      <y-asider :collapsed="true" width="200px">YAsider</y-asider>
       <y-layout>
         <y-header>Header</y-header>
         <y-content>content</y-content>
