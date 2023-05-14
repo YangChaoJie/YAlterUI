@@ -6,6 +6,7 @@ import { YCol } from './col'
 import { YGrid, YGridItem } from './grid'
 import { YAsider, YHeader, YLayout, YContent, YFooter } from './layout'
 import { YDivider } from './divider'
+import { YSpace } from './space'
 const components = [
   YFooter, 
   YAsider,
@@ -18,7 +19,8 @@ const components = [
   YCol,
   YGrid,
   YGridItem,
-  YDivider
+  YDivider,
+  YSpace
 ]
 // global components
 export const install =  buildComponentsInstall(components)
@@ -33,3 +35,4 @@ export * from './col'
 export * from './grid'
 export * from './divider'
 export * from './layout'
+export * from './space'

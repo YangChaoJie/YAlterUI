@@ -10,9 +10,9 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 //'../common/utils/src/resolver'
 // 
 export default defineConfig(() => {
-  const plugins: PluginOption[] = [
+  const plugins: any[] = [
     Unocss(),
-    VueDevTools(),
+    // VueDevTools(),
     vue(),
     VueJsx(),
     Components({
