@@ -74,11 +74,11 @@ const useProviderSider = (state: SiderHookProvider) => {
   return provide(SiderHookProviderKey, state)
 }
 
-const useProviderSiderCollapsed = () => {
+const useInjectSiderCollapsed = () => {
   return inject(SiderCollapsedKey)
 }
 
-const useInjectSiderCollapsed = (state: SiderCollapsed) => {
+const useProviderSiderCollapsed = (state: SiderCollapsed) => {
   return provide(SiderCollapsedKey, state)
 }
 
