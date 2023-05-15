@@ -5,6 +5,7 @@ import { toastRouter } from './toast'
 import { gridRouter } from './grid'
 import { dividerRouter } from './divider'
 import { layoutRouter } from './layout';
+import { spaceRouter } from './space';
 // const home = {
 //   setup: () => () => h('div', '-----'),
 // }
@@ -61,7 +62,8 @@ export default function createPlayRouter (app) {
       ...toastRouter,
       ...gridRouter,
       ...dividerRouter,
-      ...layoutRouter
+      ...layoutRouter,
+      ...spaceRouter
     ]
   })
   return router

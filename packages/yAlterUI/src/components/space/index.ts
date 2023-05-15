@@ -1,6 +1,8 @@
-import space from './space.vue'
+// import space from './space.vue'
 import { YSpace } from './space'
-export type spaceInstance = InstanceType<typeof space>
+export type { SpaceProps } from './props'
+export type spaceInstance = InstanceType<typeof YSpace>
+
 export {
-  space as YSpace
+  YSpace
 }

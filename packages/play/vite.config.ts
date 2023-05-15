@@ -12,7 +12,7 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig(() => {
   const plugins: any[] = [
     Unocss(),
-    // VueDevTools(),
+    VueDevTools(),
     vue(),
     VueJsx(),
     Components({
