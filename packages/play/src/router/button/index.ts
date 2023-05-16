@@ -29,4 +29,9 @@ export const btnRouter = [
     name: 'button-color',
     component: () => import('../../example/button/props-color.vue')
   },
+  {
+    path: '/buttongroup',
+    name: 'button-group',
+    component: () => import('../../example/button/group.vue')
+  },
 ]

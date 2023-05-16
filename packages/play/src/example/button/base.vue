@@ -24,10 +24,6 @@
   <YButton color="orange" :disabled="true">
     Orange
   </YButton>
-  <div>
-    11
-    <YSpace></YSpace>
-  </div>
 </template>
 <script setup>
 import { YSpace, YIcon } from 'yalert-ui'
