@@ -62,7 +62,7 @@
     "tslib": "^2.5.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.5",
-    "vite-plugin-vue-devtools": "^0.0.11",
+    "vite-plugin-vue-devtools": "^0.0.15",
     "vitest": "^0.31.0",
     "vue-tsc": "^1.6.4"
   }

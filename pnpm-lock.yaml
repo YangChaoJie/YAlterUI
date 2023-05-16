@@ -105,8 +105,8 @@ importers:
         specifier: ^4.3.5
         version: 4.3.5(@types/node@18.16.2)(less@4.1.3)(sass@1.62.1)
       vite-plugin-vue-devtools:
-        specifier: ^0.0.11
-        version: 0.0.11(rollup@3.21.6)(vite@4.3.5)(vue@3.3.1)
+        specifier: ^0.0.15
+        version: 0.0.15(rollup@3.21.6)(vite@4.3.5)(vue@3.3.1)
       vitest:
         specifier: ^0.31.0
         version: 0.31.0(sass@1.62.1)
@@ -11623,7 +11623,7 @@ packages:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
   /magic-string@0.29.0:
@@ -17614,8 +17614,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-vue-devtools@0.0.11(rollup@3.21.6)(vite@4.3.5)(vue@3.3.1):
-    resolution: {integrity: sha512-NdedvkjhXR1dkANhQkeX3Iln6kenYZ/XQnLe80/ow51eYrcpk8HAmy/8bxx7a3b3limvibHcMWBBA/9lWFxaeg==}
+  /vite-plugin-vue-devtools@0.0.15(rollup@3.21.6)(vite@4.3.5)(vue@3.3.1):
+    resolution: {integrity: sha512-wsChqWQPPHy2TSOGtZRnKXcC29rxbt9JHMbxUl+IMLQ4rIbOKGSPz9jyQkFwsIiHO8RRK2Epet7zZb+u3DlzNA==}
     engines: {node: '>=14'}
     peerDependencies:
       vite: ^3.0.0-0 || ^4.0.0-0
