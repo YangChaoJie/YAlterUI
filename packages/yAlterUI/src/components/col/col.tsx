@@ -59,7 +59,7 @@ const YCol = defineComponent({
   }
 })
 
-export type YCol = InstanceType<typeof YCol>
+export type YColInstance = InstanceType<typeof YCol>
 
 export {
   YCol

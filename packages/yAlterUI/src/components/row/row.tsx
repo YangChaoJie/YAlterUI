@@ -35,7 +35,7 @@ const YRow = defineComponent({
   }
 })
 
-export type YRow = InstanceType<typeof YRow>
+export type YRowInstance = InstanceType<typeof YRow>
 
 export {
   YRow

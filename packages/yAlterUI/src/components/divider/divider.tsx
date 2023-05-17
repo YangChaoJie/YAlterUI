@@ -32,7 +32,7 @@ const YDivider = defineComponent({
   }
 })
 
-export type YDivider = InstanceType<typeof YDivider>
+export type YDividerInstance = InstanceType<typeof YDivider>
 export {
   YDivider
 }

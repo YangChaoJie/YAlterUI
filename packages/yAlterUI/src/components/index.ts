@@ -7,6 +7,7 @@ import { YGrid, YGridItem } from './grid'
 import { YAsider, YHeader, YLayout, YContent, YFooter } from './layout'
 import { YDivider } from './divider'
 import { YSpace } from './space'
+import { YLink } from './link'
 const components = [
   YFooter, 
   YAsider,
@@ -20,7 +21,8 @@ const components = [
   YGrid,
   YGridItem,
   YDivider,
-  YSpace
+  YSpace,
+  YLink
 ]
 // global components
 export const install =  buildComponentsInstall(components)
@@ -36,3 +38,4 @@ export * from './grid'
 export * from './divider'
 export * from './layout'
 export * from './space'
+export * from './link'

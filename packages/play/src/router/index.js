@@ -6,6 +6,7 @@ import { gridRouter } from './grid'
 import { dividerRouter } from './divider'
 import { layoutRouter } from './layout';
 import { spaceRouter } from './space';
+import { linkRouter } from './link'
 // const home = {
 //   setup: () => () => h('div', '-----'),
 // }
@@ -63,7 +64,8 @@ export default function createPlayRouter (app) {
       ...gridRouter,
       ...dividerRouter,
       ...layoutRouter,
-      ...spaceRouter
+      ...spaceRouter,
+      ...linkRouter
     ]
   })
   return router
