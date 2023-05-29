@@ -21,6 +21,7 @@ const YBar = defineComponent({
       }
     }
 
+
     useRender(() => (
       <div>
         <YThumb move={moveX.value} ratio={props.ratioX} size={props.with} always={props.always}/>
@@ -31,6 +32,12 @@ const YBar = defineComponent({
     expose({
       handleScroll
     })
+
+    return {
+      handleScroll,
+      moveX,
+      moveY
+    }
   }
 })
 
