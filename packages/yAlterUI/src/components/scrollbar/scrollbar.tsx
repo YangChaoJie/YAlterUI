@@ -1,4 +1,4 @@
-import { CSSProperties, StyleValue, computed, defineComponent, nextTick, onMounted, onUnmounted, onUpdated, reactive, ref, watch } from "vue";
+import { CSSProperties, StyleValue, computed, defineComponent, h, nextTick, onMounted, onUnmounted, onUpdated, reactive, ref, watch } from "vue";
 import { scrollbarProps } from "./props";
 
 import { YBar } from './bar'
@@ -6,12 +6,14 @@ import { addUnit } from "@/util/style";
 import { useNamespace } from "@/composables/namespace";
 import { debugWarn, isNumber, isObject } from "@yalert-ui/utils";
 import { GAP, useProvideScrollBar } from "./hooks";
+import { useResize } from "@yalert-ui/hooks";
+import { useRender } from "@/composables/render";
 
 type BarInstance = InstanceType<typeof YBar>
 const YScrollbar = defineComponent({
   name: 'YScrollbar',
   props: scrollbarProps(),
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
     let stopResizeObserver: (() => void) | undefined = undefined
     let stopResizeListener: (() => void) | undefined = undefined
 
@@ -26,6 +28,8 @@ const YScrollbar = defineComponent({
     const barRef = ref<BarInstance>()
     const ratioY = ref(1)
     const ratioX = ref(1)
+
+   const { observeResize, unobserveResize } = useResize()
 
     const style = computed<StyleValue>(() => {
       const style: CSSProperties = {}
@@ -113,10 +117,11 @@ const YScrollbar = defineComponent({
           stopResizeObserver?.()
           stopResizeListener?.()
           window.removeEventListener('resize', update)
+          unobserveResize(resizeRef.value)
         } else {
           // ;({ stop: stopResizeObserver } = useResizeObserver(resizeRef, update))
           // stopResizeListener = useEventListener('resize', update)
-
+          observeResize(resizeRef.value, update)
           window.addEventListener('resize', update)
         }
       },
@@ -138,6 +143,28 @@ const YScrollbar = defineComponent({
       window.removeEventListener('resize', update)
     })
     onUpdated(() => update())
+
+    function renderBar () {
+      if (!props.native) {
+        return <YBar ref={barRef} height={sizeHeight.value} with={sizeWidth.value} always={props.always} ratioX={ratioX.value} ratioY={ratioY.value} />
+      }
+    }
+
+    useRender(() => (
+      <div ref={scrollbarRef} class={ns.b()}>
+        <div ref={wrapRef} class={wrapKls} style={style.value}>
+          {
+             h(props.tag, {
+              style: props.viewStyle,
+              class: [resizeKls.value],
+            }, slots.default?.())
+          }
+          {
+            renderBar()
+          }
+        </div>
+      </div>
+    ))
 
     return {
       /** @description scrollbar wrap ref */
