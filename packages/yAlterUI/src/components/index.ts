@@ -8,6 +8,7 @@ import { YAsider, YHeader, YLayout, YContent, YFooter } from './layout'
 import { YDivider } from './divider'
 import { YSpace } from './space'
 import { YLink } from './link'
+import { YScrollbar } from './scrollbar'
 const components = [
   YFooter, 
   YAsider,
@@ -22,7 +23,8 @@ const components = [
   YGridItem,
   YDivider,
   YSpace,
-  YLink
+  YLink,
+  YScrollbar
 ]
 // global components
 export const install =  buildComponentsInstall(components)
@@ -39,3 +41,4 @@ export * from './divider'
 export * from './layout'
 export * from './space'
 export * from './link'
+export * from './scrollbar'

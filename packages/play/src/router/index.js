@@ -7,6 +7,7 @@ import { dividerRouter } from './divider'
 import { layoutRouter } from './layout';
 import { spaceRouter } from './space';
 import { linkRouter } from './link'
+import { scrollbarRouter } from './scrollbar'
 // const home = {
 //   setup: () => () => h('div', '-----'),
 // }
@@ -65,7 +66,8 @@ export default function createPlayRouter (app) {
       ...dividerRouter,
       ...layoutRouter,
       ...spaceRouter,
-      ...linkRouter
+      ...linkRouter,
+      ...scrollbarRouter
     ]
   })
   return router

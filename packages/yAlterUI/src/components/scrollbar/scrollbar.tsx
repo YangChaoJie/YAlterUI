@@ -1,11 +1,11 @@
-import { CSSProperties, StyleValue, computed, defineComponent, h, nextTick, onMounted, onUnmounted, onUpdated, reactive, ref, watch } from "vue";
+import { CSSProperties, StyleValue, computed, defineComponent, h, nextTick, onMounted, onUnmounted, onUpdated, provide, reactive, ref, watch, watchEffect } from "vue";
 import { scrollbarProps } from "./props";
 
 import { YBar } from './bar'
 import { addUnit } from "@/util/style";
 import { useNamespace } from "@/composables/namespace";
 import { debugWarn, isNumber, isObject } from "@yalert-ui/utils";
-import { GAP, useProvideScrollBar } from "./hooks";
+import { GAP, scrollbarContextKey, useProvideScrollBar } from "./hooks";
 import { useResize } from "@yalert-ui/hooks";
 import { useRender } from "@/composables/render";
 
@@ -29,7 +29,7 @@ const YScrollbar = defineComponent({
     const ratioY = ref(1)
     const ratioX = ref(1)
 
-   const { observeResize, unobserveResize } = useResize()
+    const { observeResize, unobserveResize } = useResize()
 
     const style = computed<StyleValue>(() => {
       const style: CSSProperties = {}
@@ -88,6 +88,7 @@ const YScrollbar = defineComponent({
     }
 
     const update = () => {
+      console.log('开始更新-------');
       if (!wrapRef.value) return
       const offsetHeight = wrapRef.value.offsetHeight - GAP
       const offsetWidth = wrapRef.value.offsetWidth - GAP
@@ -113,30 +114,22 @@ const YScrollbar = defineComponent({
     watch(
       () => props.noresize,
       (noresize) => {
-        if (noresize) {
-          stopResizeObserver?.()
-          stopResizeListener?.()
-          window.removeEventListener('resize', update)
-          unobserveResize(resizeRef.value)
-        } else {
-          // ;({ stop: stopResizeObserver } = useResizeObserver(resizeRef, update))
-          // stopResizeListener = useEventListener('resize', update)
-          observeResize(resizeRef.value, update)
-          window.addEventListener('resize', update)
-        }
       },
-      { immediate: true }
+      { immediate: true, flush: 'post' }
     )
-
-    useProvideScrollBar(reactive({
-      scrollbarElement: scrollbarRef,
-      wrapElement: wrapRef,
-    }))
 
     onMounted(() => {
       if (!props.native)
         nextTick(() => {
+          console.log('scrollbarRef------', scrollbarRef.value);
           update()
+        })
+
+        nextTick(() => {
+          useProvideScrollBar(reactive({
+            scrollbarElement: scrollbarRef,
+            wrapElement: wrapRef,
+          }))
         })
     })
     onUnmounted(() => {
@@ -144,19 +137,20 @@ const YScrollbar = defineComponent({
     })
     onUpdated(() => update())
 
-    function renderBar () {
+    function renderBar() {
       if (!props.native) {
-        return <YBar ref={barRef} height={sizeHeight.value} with={sizeWidth.value} always={props.always} ratioX={ratioX.value} ratioY={ratioY.value} />
+        return <YBar ref="barRef" height={sizeHeight.value} with={sizeWidth.value} always={props.always} ratioX={ratioX.value} ratioY={ratioY.value} />
       }
     }
 
     useRender(() => (
       <div ref={scrollbarRef} class={ns.b()}>
-        <div ref={wrapRef} class={wrapKls} style={style.value}>
+        <div ref="wrapRef" class={wrapKls} style={style.value}>
           {
-             h(props.tag, {
+            h(props.tag, {
               style: props.viewStyle,
               class: [resizeKls.value],
+              ref: 'resizeRef',
             }, slots.default?.())
           }
           {
@@ -166,7 +160,32 @@ const YScrollbar = defineComponent({
       </div>
     ))
 
+    // useProvideScrollBar(reactive({
+    //   scrollbarElement: scrollbarRef,
+    //   wrapElement: wrapRef,
+    // }))
+
+    // return () => (
+    //   <div ref={scrollbarRef} class={ns.b()}>
+    //     <span>1111</span>
+    //     {/* <div ref="wrapRef" class={wrapKls} style={style.value}>
+    //       {
+    //         h(props.tag, {
+    //           style: props.viewStyle,
+    //           class: [resizeKls.value],
+    //           ref: 'resizeRef',
+    //         }, slots.default?.())
+    //       }
+    //       {
+    //         renderBar()
+    //       }
+    //     </div> */}
+    //   </div>
+    // )
+
     return {
+      scrollbarRef,
+      resizeRef,
       /** @description scrollbar wrap ref */
       wrapRef,
       /** @description update scrollbar state manually */
