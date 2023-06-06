@@ -5,7 +5,7 @@ export const barProps = () => ({
     type: Boolean,
     default: true
   },
-  with: String,
+  width: String,
   height: String,
   ratioX: {
     type: Number,

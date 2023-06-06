@@ -98,7 +98,6 @@ const setScrollLeft = (value: number) => {
 }
 
 const update = () => {
-  console.log('开始更新-------');
   if (!wrapRef.value) return
   const offsetHeight = wrapRef.value.offsetHeight - GAP
   const offsetWidth = wrapRef.value.offsetWidth - GAP
@@ -128,10 +127,30 @@ watch(
   { immediate: true, flush: 'post' }
 )
 
-useProvideScrollBar(reactive({
-  scrollbarElement: scrollbarRef,
-  wrapElement: wrapRef,
-}))
+watch(
+  () => [props.maxHeight, props.height],
+  () => {
+    if (!props.native)
+      nextTick(() => {
+        update()
+        if (wrapRef.value) {
+          barRef.value?.handleScroll(wrapRef.value)
+        }
+      })
+  }
+)
+
+// useProvideScrollBar(reactive({
+//   scrollbarElement: scrollbarRef,
+//   wrapElement: wrapRef,
+// }))
+provide(
+  scrollbarContextKey,
+  reactive({
+    scrollbarElement: scrollbarRef,
+    wrapElement: wrapRef,
+  })
+)
 
 onMounted(() => {
   if (!props.native)

@@ -88,7 +88,6 @@ const YScrollbar = defineComponent({
     }
 
     const update = () => {
-      console.log('开始更新-------');
       if (!wrapRef.value) return
       const offsetHeight = wrapRef.value.offsetHeight - GAP
       const offsetWidth = wrapRef.value.offsetWidth - GAP
@@ -139,7 +138,7 @@ const YScrollbar = defineComponent({
 
     function renderBar() {
       if (!props.native) {
-        return <YBar ref="barRef" height={sizeHeight.value} with={sizeWidth.value} always={props.always} ratioX={ratioX.value} ratioY={ratioY.value} />
+        return <YBar ref="barRef" height={sizeHeight.value} width={sizeWidth.value} always={props.always} ratioX={ratioX.value} ratioY={ratioY.value} />
       }
     }
 

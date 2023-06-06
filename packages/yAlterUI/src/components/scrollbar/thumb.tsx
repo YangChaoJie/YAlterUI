@@ -73,6 +73,7 @@ const YThumb = defineComponent({
     }
 
     const mouseMoveDocumentHandler = (e: MouseEvent) => {
+      console.log('mouseMoveDocumentHandler-----------', instance.value, thumb.value);
       if (!instance.value || !thumb.value) return
       if (cursorDown === false) return
 
@@ -141,20 +142,21 @@ const YThumb = defineComponent({
     onBeforeUnmount(() => {
       restoreOnselectstart()
       document.removeEventListener('mouseup', mouseUpDocumentHandler)
-      scrollbar.scrollbarElement.removeEventListener('mousemove', mouseMoveScrollbarHandler)
-      scrollbar.scrollbarElement.removeEventListener('mouseleave', mouseLeaveScrollbarHandler)
+      scrollbar.scrollbarElement && scrollbar.scrollbarElement.removeEventListener('mousemove', mouseMoveScrollbarHandler)
+      scrollbar.scrollbarElement && scrollbar.scrollbarElement.removeEventListener('mouseleave', mouseLeaveScrollbarHandler)
     })
-
+    //
     useRender(() => (
       <Transition name={ns.b('fade')}>
-        <div style={(props.always || visible) ? 'display: none' : ''} ref="instance" class={[ns.e('bar'), ns.is(bar.value.key)]} onMousedown={clickTrackHandler}>
-          <div ref="thumb" class={ns.e('thumb')} style={thumbStyle.value} onMousedown={clickThumbHandler}></div>
+        <div  style={(props.always || !visible.value) ? 'display: none' : ''}  ref={instance} class={[ns.e('bar'), ns.is(bar.value.key)]} onMousedown={clickTrackHandler}>
+          <div ref={thumb} class={ns.e('thumb')} style={thumbStyle.value} onMousedown={clickThumbHandler}></div>
         </div>
       </Transition>
     ))
 
     return {
-      scrollbar
+      scrollbar,
+      visible
     }
 
   }

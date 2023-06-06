@@ -12,6 +12,7 @@ const YBar = defineComponent({
     const moveY = ref(0)
 
     const handleScroll = (wrap: HTMLDivElement) => {
+      console.log('-------handleScroll');
       if (wrap) {
         const offsetHeight = wrap.offsetHeight - GAP
         const offsetWidth = wrap.offsetWidth - GAP
@@ -23,16 +24,16 @@ const YBar = defineComponent({
 
 
     useRender(() => (
-      <div>
-        <YThumb move={moveX.value} ratio={props.ratioX} size={props.with} always={props.always}/>
-        <YThumb move={moveX.value} ratio={props.ratioX} size={props.height} always={props.always}></YThumb>
-      </div>
+      <>
+        <YThumb move={moveX.value} ratio={props.ratioX} size={props.width} always={props.always}/>
+        <YThumb move={moveY.value} ratio={props.ratioY} size={props.height} always={props.always} vertical></YThumb>
+      </>
     ))
 
     expose({
       handleScroll
     })
-
+ 
     return {
       handleScroll,
       moveX,
