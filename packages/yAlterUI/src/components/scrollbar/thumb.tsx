@@ -148,7 +148,7 @@ const YThumb = defineComponent({
     //
     useRender(() => (
       <Transition name={ns.b('fade')}>
-        <div  style={(props.always || !visible.value) ? 'display: none' : ''}  ref={instance} class={[ns.e('bar'), ns.is(bar.value.key)]} onMousedown={clickTrackHandler}>
+        <div  style={(props.always || visible.value) ? '' : 'display: none' }  ref={instance} class={[ns.e('bar'), ns.is(bar.value.key)]} onMousedown={clickTrackHandler}>
           <div ref={thumb} class={ns.e('thumb')} style={thumbStyle.value} onMousedown={clickThumbHandler}></div>
         </div>
       </Transition>

@@ -24,5 +24,6 @@ declare module '@vue/runtime-core' {
     YGridItem: typeof import('yalert-ui')['YGridItem']
     YIcon: typeof import('yalert-ui')['YIcon']
     YRow: typeof import('yalert-ui')['YRow']
+    YScrollbar: typeof import('yalert-ui')['YScrollbar']
   }
 }
