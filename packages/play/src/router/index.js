@@ -8,6 +8,7 @@ import { layoutRouter } from './layout';
 import { spaceRouter } from './space';
 import { linkRouter } from './link'
 import { scrollbarRouter } from './scrollbar'
+import { inputRouter } from './input'
 // const home = {
 //   setup: () => () => h('div', '-----'),
 // }
@@ -59,6 +60,7 @@ export default function createPlayRouter (app) {
   const router = createRouter({
     history: createWebHashHistory('/'),
     routes: [
+      ...inputRouter,
       ...btnRouter, 
       ...iconRouter,
       ...toastRouter,
