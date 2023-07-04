@@ -12,7 +12,6 @@ const YBar = defineComponent({
     const moveY = ref(0)
 
     const handleScroll = (wrap: HTMLDivElement) => {
-      console.log('-------handleScroll');
       if (wrap) {
         const offsetHeight = wrap.offsetHeight - GAP
         const offsetWidth = wrap.offsetWidth - GAP

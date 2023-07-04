@@ -22,15 +22,15 @@
     "directory": "common/hooks"
   },
   "dependencies": {
-    "@juggle/resize-observer": "^3.3.1",
-    "@popperjs/core": "^2.11.5",
+    "@juggle/resize-observer": "^3.4.0",
+    "@popperjs/core": "^2.11.8",
     "@yalert-ui/utils": "workspace:^"
   },
   "devDependencies": {
     "typescript": "4.6.4",
-    "vite": "^3.0.0",
-    "vite-plugin-dts": "^2.0.0",
-    "vue": "^3.3.1"
+    "vite": "^3.2.7",
+    "vite-plugin-dts": "^2.3.0",
+    "vue": "^3.3.4"
   },
   "peerDependencies": {
     "vue": "^3.2.25"

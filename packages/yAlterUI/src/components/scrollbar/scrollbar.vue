@@ -99,6 +99,8 @@ const setScrollLeft = (value: number) => {
 
 const update = () => {
   if (!wrapRef.value) return
+  console.log('update--------------------');
+  
   const offsetHeight = wrapRef.value.offsetHeight - GAP
   const offsetWidth = wrapRef.value.offsetWidth - GAP
 
@@ -123,6 +125,19 @@ const update = () => {
 watch(
   () => props.noresize,
   (noresize) => {
+    if (noresize) {
+      stopResizeObserver?.()
+      stopResizeListener?.()
+      window.removeEventListener('resize', update)
+      unobserveResize(resizeRef.value)
+    } else {
+      // ;({ stop: stopResizeObserver } = useResizeObserver(resizeRef, update))
+      // stopResizeListener = useEventListener('resize', update)
+      nextTick(() => {
+        observeResize(resizeRef.value, update)
+        window.addEventListener('resize', update)
+      })
+    }
   },
   { immediate: true, flush: 'post' }
 )
