@@ -150,7 +150,7 @@ function selectItem(item: any) {
       type="text" autocomplete="off" w="full" p="x6 y4" bg-transparent border-none class="!outline-none">
     <YButton v-if="input" border absolute flex right-2 w-10 top-2 bottom-2 text-xl op30 hover:op90
       aria-label="Clear search" @click="clear()">
-      <span i-carbon-close ma block aria-hidden="true" />
+      <span i-carbon-close  block aria-hidden="true" />
     </YButton>
   </div>
   <div v-if="(searchResult.length || isSearching) && input" border="l b r base" mx2 of-auto>
@@ -165,8 +165,10 @@ function selectItem(item: any) {
       </ItemBase>
       <div divider />
     </template>
-    <template v-for="(i, idx) of reslutOption" :key="idx">
+    <template v-for="(i, idx) of reslutOption" :key="idx" v-if="reslutOption && reslutOption.length > 0">
       <ResultItem :item="i" :active="selectIndex === idx" @click="selectItem(i)" />
+      
+       <!-- <div>{{ i }} {{ idx }} {{ selectIndex === idx }}</div> -->
       <div divider />
     </template>
   </div>

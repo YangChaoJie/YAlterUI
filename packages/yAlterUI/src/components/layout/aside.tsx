@@ -5,6 +5,7 @@ import type { CSSProperties } from 'vue'
 import { layoutSiderProps } from "./props";
 import { LeftO, RightO } from '@yalert-ui/icons'
 import { isNumber } from "@yalert-ui/utils";
+import { useResponsive } from '@yalert-ui/hooks'
 import { useInjectSider, useProviderSiderCollapsed } from "@/composables/provider";
 import { YIcon } from "../icon";
 const generateId = (() => {
@@ -23,7 +24,8 @@ const YAsider = defineComponent({
     const {
       reverseArrow,
       collapsible,
-      defaultCollapsed
+      defaultCollapsed,
+      breakpoint
     } = toRefs(props);
     
     const collapsed = ref(props.collapsed !== undefined ?  props.collapsed : defaultCollapsed)
@@ -75,6 +77,17 @@ const YAsider = defineComponent({
         </div>
       )
     }
+
+    // subscript reponsive
+    useResponsive(breakpoint, (checked) => {
+      const newCollapsed = !checked;
+      if (newCollapsed !== collapsed.value) {
+        collapsed.value = newCollapsed
+        emit('update:collapsed', collapsed.value);
+        emit('collapse', collapsed.value, 'responsive');
+        emit('breakponit', collapsed.value)
+      } 
+    })
     
     const siderHook = useInjectSider()
     const uniqueId = generateId('__y_layout_sider');

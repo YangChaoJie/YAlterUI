@@ -1,6 +1,29 @@
 import { GridItemData } from '@/components/grid/props'
 import { computed, inject, provide } from 'vue'
 import type { Ref, InjectionKey, ComputedRef } from 'vue'
+import { ButtonType, Size } from '..';
+
+// button
+export interface ButtonGroupContext {
+  size: Size | undefined;
+  type: ButtonType | undefined;
+  disabled: boolean;
+}
+
+export const ButtonGroupInjectionKey: InjectionKey<ButtonGroupContext> =
+  Symbol('YButtonGroup');
+
+const useButtonGroupProvider = (state: ButtonGroupContext) => {
+  provide(ButtonGroupInjectionKey, state)
+}  
+const usenIjectButtonGroup = () => {
+  return inject(ButtonGroupInjectionKey, {
+    size: "medium",
+    type: 'default',
+    disabled: false
+  })
+}
+
 // row
 export type RowContext = {
   gutter: ComputedRef<number>
@@ -74,15 +97,17 @@ const useProviderSider = (state: SiderHookProvider) => {
   return provide(SiderHookProviderKey, state)
 }
 
-const useProviderSiderCollapsed = () => {
+const useInjectSiderCollapsed = () => {
   return inject(SiderCollapsedKey)
 }
 
-const useInjectSiderCollapsed = (state: SiderCollapsed) => {
+const useProviderSiderCollapsed  = (state: SiderCollapsed) => {
   return provide(SiderCollapsedKey, state)
 }
 
-export { 
+export {
+  useButtonGroupProvider,
+  usenIjectButtonGroup,
   useInjectRow, 
   useProviderRow, 
   useProviderGrid, 

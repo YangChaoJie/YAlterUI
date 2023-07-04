@@ -1,0 +1,29 @@
+@use 'mixins/mixins' as *;
+@use 'common/var' as *;
+
+@include b(space) {
+  display: inline-flex;
+  vertical-align: top;
+  align-items: center;
+
+  @include e(item) {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      flex: 1;
+    }
+  }
+
+  @include m(vertical) {
+    flex-direction: column;
+  }
+
+  @include when(wrap) {
+    flex-wrap: wrap;
+  }
+
+  @include m(fill) {
+    display: flex;
+  }
+}

@@ -1,0 +1,5 @@
+import '%/styles/layout.scss'
+import '%/styles/aside.scss'
+import '%/styles/footer.scss'
+import '%/styles/header.scss'
+import '%/styles/base.scss'

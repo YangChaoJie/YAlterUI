@@ -2,6 +2,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+import vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Components  from 'unplugin-vue-components/vite';
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -17,6 +18,7 @@ export default defineConfig({
   },
   plugins: [
     (VueJsx() as any), 
+    vue(),
     dts(),
     Components({
       resolvers: [

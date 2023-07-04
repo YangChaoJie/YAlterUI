@@ -8,6 +8,7 @@ import { YIcon } from '../icon';
 import { Loading } from '@yalert-ui/icons'
 import { parseColorToRgba, mixColor, isDark } from '@yalert-ui/utils'
 import type { ExtractPropTypes } from 'vue'
+import { usenIjectButtonGroup } from "@/composables/provider";
 const buttonProps = {
   size: String as PropType<Size>,
   disabled: Boolean,
@@ -45,10 +46,11 @@ const YButton = defineComponent({
   name: 'YButton',
   props: buttonProps,
   setup(props, { slots, emit }) {
-    // const { disabled } = props
+    const groupContext = usenIjectButtonGroup()
+
     const disabled = useDisabled()
-    const size = computed(() => props.size)
-    const type = computed(() => props.type)
+    const size = computed(() => props.size || groupContext.size)
+    const type = computed(() => props.type || groupContext.type)
     const shape = computed(() => props.shape)
     const ns = useNamespace('btn')
     const buttonStyle = useButtonCustomStyle(props)

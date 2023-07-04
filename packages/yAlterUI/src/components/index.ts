@@ -6,6 +6,10 @@ import { YCol } from './col'
 import { YGrid, YGridItem } from './grid'
 import { YAsider, YHeader, YLayout, YContent, YFooter } from './layout'
 import { YDivider } from './divider'
+import { YSpace } from './space'
+import { YLink } from './link'
+import { YScrollbar } from './scrollbar'
+import { YInput } from './input'
 const components = [
   YFooter, 
   YAsider,
@@ -18,7 +22,11 @@ const components = [
   YCol,
   YGrid,
   YGridItem,
-  YDivider
+  YDivider,
+  YSpace,
+  YLink,
+  YScrollbar,
+  YInput
 ]
 // global components
 export const install =  buildComponentsInstall(components)
@@ -33,3 +41,7 @@ export * from './col'
 export * from './grid'
 export * from './divider'
 export * from './layout'
+export * from './space'
+export * from './link'
+export * from './scrollbar'
+export * from './input'
